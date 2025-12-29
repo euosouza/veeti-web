@@ -1,10 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   imports: [],
-  templateUrl: './app.html'
+  templateUrl: "./app.html",
 })
 export class App {
-  protected readonly title = signal('veeti-frontend-web');
+  protected readonly title = signal("veeti-frontend-web");
 }
