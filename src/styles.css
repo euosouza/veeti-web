@@ -1,1 +1,108 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import 'material-symbols';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Light (default) */
+:root {
+  --background: oklch(100% 0 0);
+  --foreground: oklch(14.5% 0 0);
+
+  --muted: oklch(97% 0 0);
+  --muted-foreground: oklch(55.6% 0 0);
+
+  --border: oklch(92.2% 0 0);
+
+  /* Scroll styles */
+  --scroll-background: var(--color-neutral-200);
+
+  /* Card styles */
+  --card-color-background: oklch(100% 0 0);
+}
+
+/* Dark */
+[data-theme="dark"] {
+  --background: oklch(14.5% 0 0);
+  --foreground: oklch(98.5% 0 0);
+
+  --muted: oklch(26.9% 0 0);
+  --muted-foreground: oklch(70.8% 0 0);
+
+  --border: oklch(100% 0 0 / 0.1);
+
+  /* Scroll styles */
+  --scroll-background: var(--color-neutral-800);
+
+  /* Card styles */
+  --card-color-background: oklch(20.5% 0 0);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Text styles */
+  --text-base: 14px;
+
+  /* Border styles */
+  --color-border: var(--border);
+
+  /* Card styles */
+  --color-card-background: var(--card-color-background);
+}
+
+@layer utilities {
+  /* Classe personalizada para a Veeti */
+  .scrollbar-veeti {
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll-background) transparent;
+  }
+
+  /* Chrome, Edge, Safari */
+  .scrollbar-veeti::-webkit-scrollbar {
+    width: 6px; /* Fina para ser discreta */
+    height: 6px; /* Para scroll horizontal */
+  }
+
+  .scrollbar-veeti::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-veeti::-webkit-scrollbar-thumb {
+    background: var(--scroll-background);
+    border-radius: 100%;
+  }
+
+  .scrollbar-veeti::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-background);
+  }
+
+  /* Classe personalizada para a Veeti Code*/
+  .scrollbar-veeti-code {
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-neutral-800) transparent;
+  }
+
+  /* Chrome, Edge, Safari */
+  .scrollbar-veeti-code::-webkit-scrollbar {
+    width: 6px; /* Fina para ser discreta */
+    height: 6px; /* Para scroll horizontal */
+  }
+
+  .scrollbar-veeti-code::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-veeti-code::-webkit-scrollbar-thumb {
+    background: var(--color-neutral-800);
+    border-radius: 100%;
+  }
+
+  .scrollbar-veeti-code::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neutral-800);
+  }
+}
