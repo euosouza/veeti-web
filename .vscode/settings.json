@@ -3,7 +3,8 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.fixAll.stylelint": "explicit",
+    "source.organizeImports": "always"
   },
   "commit-message-editor.view.defaultView": "form",
   "commit-message-editor.dynamicTemplate": [
@@ -12,4 +13,5 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "files.eol": "\n"
 }
