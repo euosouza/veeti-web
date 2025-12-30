@@ -1,0 +1,105 @@
+<div
+  class="bg-background w-full h-screen flex flex-col overflow-hidden scrollbar-veeti min-h-screen"
+>
+  @if (isSidebarOpen()) {
+    <div
+      (click)="closeSidebar()"
+      class="fixed inset-0 bg-background/50 z-40 lg:hidden backdrop-blur-sm transition-opacity"
+    ></div>
+  }
+
+  <div class="flex h-[calc(100vh-70px)] max-w-380 mx-auto">
+    <aside
+      class="fixed inset-y-0 left-0 z-50 w-80 bg-background border-r border-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen lg:flex lg:flex-col overflow-y-auto py-4 px-2"
+      [class.translate-x-0]="isSidebarOpen()"
+      [class.-translate-x-full]="!isSidebarOpen()"
+    >
+      <nav class="flex flex-col gap-2 text-foreground">
+        <div class="">
+          <p class="py-4 px-3 text-xs text-[#636f88] font-bold uppercase tracking-wider">
+            Começando
+          </p>
+
+          <ul>
+            <li>
+              <a
+                routerLink="/design-system"
+                class="flex justify-start items-center gap-1 rounded-lg px-3 py-2 hover:bg-muted hover:text-muted-foreground text-sm font-medium"
+              >
+                Visão Geral
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-3">
+          <p class="py-4 px-3 text-xs text-[#636f88] font-bold uppercase tracking-wider">
+            Fundamentos
+          </p>
+
+          <ul>
+            <li>
+              <a
+                routerLink="/design-system"
+                class="flex justify-start items-center gap-1 rounded-lg px-3 py-2 hover:bg-muted hover:text-muted-foreground text-sm font-medium"
+              >
+                Cores
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-3">
+          <p class="py-4 px-3 text-xs text-[#636f88] font-bold uppercase tracking-wider">
+            Componentes
+          </p>
+
+          <ul>
+            <li>
+              <a
+                routerLink="/design-system"
+                class="flex justify-start items-center gap-1 rounded-lg px-3 py-2 hover:bg-muted hover:text-muted-foreground text-sm font-medium"
+              >
+                Buttons
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="w-full">
+      <header
+        class="w-full border border-b-border p-4 sticky top-0 z-30 flex items-center justify-between"
+      >
+        <div class="w-full max-w-380 mx-auto px-4 flex items-center justify-between">
+          <div class="flex items-center justify-between w-full lg:hidden">
+            <button (click)="toggleSidebar()" class="text-foreground cursor-pointer">
+              <span class="material-symbols-outlined"> menu </span>
+            </button>
+          </div>
+
+          <div class="flex justify-end md:justify-between items-center w-full">
+            <div class="w-full max-w-90 hidden lg:inline">
+              <input
+                class="w-full h-9 pl-4 rounded-lg bg-card-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50 transition-all"
+                placeholder="Pesquisar..."
+                type="text"
+              />
+            </div>
+
+            <button
+              class="text-xs py-2 px-3 rounded-lg border border-border text-muted-foreground hover:bg-muted hover:text-muted-foreground cursor-pointer transition-all"
+            >
+              <span class="material-symbols-outlined text-sm"> brightness_7 </span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto h-full bg-background p-4 lg:p-8">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>
