@@ -1,0 +1,255 @@
+<section>
+  <span class="text-green-500 text-sm font-bold uppercase tracking-widest">Design System</span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Tipografia</h1>
+
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      A tipografia da Veeti utiliza a família <strong class="text-green-500">Inter</strong>.
+      Escolhida por sua excelente legibilidade em telas e tom moderno e acolhedor, essencial para a
+      leitura rápida de prontuários, agendas e dados clínicos complexos.
+    </p>
+  </div>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+  <div
+    class="col-span-1 p-6 bg-card-background border border-border rounded-lg flex flex-col gap-10 relative overflow-hidden"
+  >
+    <div
+      class="absolute -right-10 -bottom-10 text-[250px] sm:text-[300px] font-black text-foreground/5 select-none pointer-events-none group-hover:text-primary/10 transition-colors"
+    >
+      Aa
+    </div>
+    <p class="text-foreground">
+      <span class="text-9xl font-bold">Aa</span>
+      <span class="text-4xl">Inter</span>
+    </p>
+    <div class="text-foreground space-y-1">
+      <p class="text-lg">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="text-lg">abcdefghijklmnopqrstuvwxyz</p>
+      <p class="text-lg">0123456789</p>
+    </div>
+  </div>
+
+  <div class="col-span-1 bg-card-background border border-border rounded-lg flex flex-col">
+    <div class="p-6">
+      <p class="text-sm font-medium text-foreground mb-1">Família Tipográfica</p>
+      <p class="text-lg font-semibold text-foreground">Inter (Sans-serif)</p>
+    </div>
+    <div class="border-y border-border p-6">
+      <p class="text-sm font-medium text-foreground mb-1">Pesos Utilizados</p>
+      <div class="flex flex-wrap gap-2 mt-2 text-foreground">
+        <span class="px-2 py-1 bg-card-background border border-border rounded text-xs font-normal">
+          Regular 400
+        </span>
+        <span class="px-2 py-1 bg-card-background border border-border rounded text-xs font-medium">
+          Medium 500
+        </span>
+        <span
+          class="px-2 py-1 bg-card-background border border-border rounded text-xs font-semibold"
+        >
+          SemiBold 600
+        </span>
+        <span class="px-2 py-1 bg-card-background border border-border rounded text-xs font-bold">
+          Bold 700
+        </span>
+      </div>
+    </div>
+    <div class="p-6">
+      <p class="text-sm font-medium text-foreground mb-1">Acessibilidade</p>
+      <div class="flex items-center gap-2 text-green-600 mt-1">
+        <span class="material-symbols-outlined text-lg">check_circle</span>
+        <p class="text-sm font-medium">WCAG AA Compliant</p>
+      </div>
+      <p class="text-xs text-foreground mt-2">Alto contraste garantido para ambientes clínicos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mt-20">
+  <h3 class="text-2xl font-semibold text-text-main dark:text-white">Escala de Títulos</h3>
+  <div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+  <div class="rounded-lg border border-border bg-card-background overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse border-border">
+        <thead>
+          <tr class="bg-neutral-300 dark:bg-neutral-900 border-b border-border">
+            <th class="text-foreground p-4">Token</th>
+            <th class="text-foreground p-4">Especificações</th>
+            <th class="text-foreground p-4">Preview</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          @for (item of escalaTitulos; track $index) {
+            <tr class="border-border">
+              <td class="text-foreground p-4">
+                <span
+                  class="inline-flex items-center justify-center px-2.5 py-1 rounded bg-green-500/10 text-green-500 text-xs font-bold font-mono"
+                >
+                  {{ item.token }}
+                </span>
+              </td>
+              <td class="text-foreground p-4">
+                <div class="flex flex-col gap-1">
+                  <span class="text-sm font-medium text-text-main dark:text-white">
+                    {{ item.specs.size }}
+                  </span>
+                  <span class="text-xs text-text-secondary">{{ item.specs.weight }}</span>
+                  <code
+                    class="text-[10px] bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-500 w-fit mt-1"
+                  >
+                    {{ item.specs.classText }}
+                  </code>
+                </div>
+              </td>
+              <td class="text-foreground p-4 min-w-62">
+                @switch (item.token) {
+                  @case ("H1") {
+                    <h1
+                      class="{{ item.specs.classText }}"
+                      class="text-text-main dark:text-white leading-tight"
+                    >
+                      {{ item.preview }}
+                    </h1>
+                  }
+                  @case ("H2") {
+                    <h2
+                      class="{{ item.specs.classText }}"
+                      class="text-text-main dark:text-white leading-tight"
+                    >
+                      {{ item.preview }}
+                    </h2>
+                  }
+                  @case ("H3") {
+                    <h3
+                      class="{{ item.specs.classText }}"
+                      class="text-text-main dark:text-white leading-tight"
+                    >
+                      {{ item.preview }}
+                    </h3>
+                  }
+                  @case ("H4") {
+                    <h4
+                      class="{{ item.specs.classText }}"
+                      class="text-text-main dark:text-white leading-tight"
+                    >
+                      {{ item.preview }}
+                    </h4>
+                  }
+                  @case ("H5") {
+                    <h5
+                      class="{{ item.specs.classText }}"
+                      class="text-text-main dark:text-white leading-tight"
+                    >
+                      {{ item.preview }}
+                    </h5>
+                  }
+                  @case ("H6") {
+                    <h6
+                      class="{{ item.specs.classText }}"
+                      class="text-text-main dark:text-white leading-tight"
+                    >
+                      {{ item.preview }}
+                    </h6>
+                  }
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="mt-20 mb-10">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="col-span-1">
+      <h3 class="text-2xl font-semibold text-text-main dark:text-white">Corpo de Texto</h3>
+      <div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+      <!-- Body Large -->
+      <div class="p-6 bg-card-background border border-border rounded-xl">
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-sm font-bold text-foreground">Body Large</span>
+          <code class="text-xs text-foreground bg-background px-2 py-1 rounded"
+            >text-base / regular</code
+          >
+        </div>
+        <p class="text-base text-muted-foreground leading-relaxed">
+          A Veeti simplifica a rotina de veterinários. Nosso foco é permitir que você gaste menos
+          tempo no computador e mais tempo cuidando dos animais. Este tamanho é ideal para leitura
+          confortável de documentos longos.
+        </p>
+      </div>
+      <!-- Body Small -->
+      <div class="p-4 bg-card-background border border-border rounded-xl mt-4">
+        <div class="flex justify-between items-start mb-4">
+          <span class="text-sm font-bold text-foreground">Body Small</span>
+          <code class="text-xs text-foreground bg-background px-2 py-1 rounded"
+            >text-sm / regular</code
+          >
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Utilizado em componentes laterais, listas densas ou descrições secundárias. Mantém a
+          legibilidade mesmo em espaços reduzidos, crucial para visualização rápida de doses e
+          horários.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-span-1">
+      <h3 class="text-2xl font-semibold text-text-main dark:text-white">Utilitários</h3>
+      <div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+      <div class="bg-card-background border border-border rounded-xl p-6 grid gap-6">
+        <!-- Caption -->
+        <div class="grid grid-cols-[100px_1fr] gap-4 items-center">
+          <span class="text-xs font-mono text-foreground">Caption</span>
+          <div>
+            <p class="text-xs text-muted-foreground">Última atualização: Hoje às 14:30</p>
+            <p class="text-[10px] text-muted-foreground mt-1">
+              12px Regular - Usado para metadados e legendas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sub-titulos -->
+        <div class="grid grid-cols-[100px_1fr] gap-4 items-center border-t border-border pt-6">
+          <span class="text-xs font-mono text-foreground">Sub titulos</span>
+          <div>
+            <p class="text-base text-muted-foreground">
+              A tipografia da Veeti utiliza a família Inter.
+            </p>
+            <p class="text-[10px] text-muted-foreground mt-1">16px Regular - Usado subtitulos.</p>
+          </div>
+        </div>
+        <!-- Overline -->
+        <div class="grid grid-cols-[100px_1fr] gap-4 items-center border-t border-border pt-6">
+          <span class="text-xs font-mono text-foreground">Overline</span>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest font-bold text-green-500">
+              Status do Pedido
+            </p>
+            <p class="text-[10px] text-muted-foreground mt-1">
+              10px Bold Uppercase - Usado para rótulos de categoria.
+            </p>
+          </div>
+        </div>
+        <!-- Button Text -->
+        <div class="grid grid-cols-[100px_1fr] gap-4 items-center border-t border-border pt-6">
+          <span class="text-xs font-mono text-foreground">Button</span>
+          <div class="flex items-center gap-4">
+            <button
+              class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-green-500/90 transition-colors"
+            >
+              Salvar Alterações
+            </button>
+            <p class="text-[10px] text-muted-foreground">14px Medium</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

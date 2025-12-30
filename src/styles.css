@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import "tailwindcss";
 @import 'material-symbols';
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -37,6 +38,7 @@
 }
 
 @theme {
+  --font-inter: "Inter", sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
