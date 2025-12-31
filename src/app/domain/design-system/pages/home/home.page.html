@@ -1,12 +1,12 @@
-<section class="pb-4 md:pb-8 md:pt-4">
+<section class="pb-4 md:pb-8">
   <div class="flex justify-between items-center flex-wrap gap-8">
     <div
       class="w-full md:flex-1 space-y-4 text-center md:text-left flex flex-col justify-center items-center md:items-start"
     >
       <div
-        class="bg-blue-900 text-blue-400 max-w-max py-1 px-4 flex items-center gap-2 rounded-full"
+        class="bg-primary-500 text-primary-100 max-w-max py-1 px-4 flex items-center gap-2 rounded-full"
       >
-        <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+        <div class="w-2 h-2 bg-primary-100 rounded-full animate-pulse"></div>
         <p class="uppercase text-[10px] font-semibold">Versão 1.0</p>
       </div>
 
@@ -24,8 +24,9 @@
 
       <div class="flex flex-wrap gap-4 pt-2">
         <button
-          class="h-12 px-6 rounded-lg bg-white dark:bg-[#293338] border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white font-semibold text-sm tracking-wide transition-all hover:bg-slate-50 dark:hover:bg-[#323e44] flex items-center justify-center gap-2"
+          class="h-12 px-6 rounded-lg bg-primary-500 border-none text-black font-semibold text-sm tracking-wide transition-all hover:bg-primary-600 flex items-center justify-center gap-1"
         >
+          <span class="material-symbols-outlined text-4xl"> code </span>
           <span>Biblioteca de componentes</span>
         </button>
       </div>
@@ -33,7 +34,7 @@
 
     <div class="flex-1 flex items-center justify-center">
       <div
-        class="bg-neutral-600 rounded-2xl w-full max-w-96 md:max-w-120 h-40 sm:h-60 md:h-80 flex items-center justify-center"
+        class="bg-neutral-100 dark:bg-neutral-800 rounded-2xl w-full max-w-96 md:max-w-120 h-40 sm:h-60 md:h-80 flex items-center justify-center"
       >
         <span class="material-symbols-outlined text-4xl"> image </span>
       </div>
@@ -50,7 +51,10 @@
   <p class="text-muted-foreground text-base">Os elementos básicos da nossa linguagem visual.</p>
 
   <div class="grid xs:grid-cols-2 grid-cols-1 md:grid-cols-4 gap-4 mt-8">
-    <a routerLink="" class="flex-1 p-4 bg-card-background border border-border rounded-lg">
+    <a
+      routerLink="/design-system/cores"
+      class="flex-1 p-4 bg-card-background border border-border rounded-lg"
+    >
       <div
         class="w-full aspect-4/3 rounded-lg bg-background flex flex-col p-4 gap-2 relative overflow-hidden"
       >
@@ -59,7 +63,7 @@
           <div class="flex-1 bg-green-400 rounded-md shadow-sm opacity-90"></div>
           <div class="flex-1 bg-violet-400 rounded-md shadow-sm opacity-90"></div>
         </div>
-        <div class="h-1/3 w-full bg-slate-200 dark:bg-[#293338] rounded-md"></div>
+        <div class="h-1/3 w-full bg-neutral-100 dark:bg-neutral-800 rounded-md"></div>
       </div>
 
       <h5 class="text-foreground font-bold mt-4 lg:text-lg">Paleta de cores</h5>
@@ -68,7 +72,10 @@
       </p>
     </a>
 
-    <a routerLink="" class="flex-1 p-4 bg-card-background border border-border rounded-lg">
+    <a
+      routerLink="/design-system/tipografia"
+      class="flex-1 p-4 bg-card-background border border-border rounded-lg"
+    >
       <div
         class="w-full aspect-4/3 rounded-lg bg-background flex items-center justify-center relative overflow-hidden"
       >
@@ -89,11 +96,14 @@
       </p>
     </a>
 
-    <a routerLink="" class="flex-1 p-4 bg-card-background border border-border rounded-lg">
+    <a
+      routerLink="/design-system/icones"
+      class="flex-1 p-4 bg-card-background border border-border rounded-lg"
+    >
       <div
         class="w-full aspect-4/3 rounded-lg bg-background p-4 grid grid-cols-3 grid-rows-3 gap-2 place-items-center text-muted-foreground"
       >
-        <span class="material-symbols-outlined text-green-500">pets</span>
+        <span class="material-symbols-outlined text-primary-500">pets</span>
         <span class="material-symbols-outlined text-primary">medical_services</span>
         <span class="material-symbols-outlined">vaccines</span>
         <span class="material-symbols-outlined">calendar_month</span>
@@ -110,16 +120,19 @@
       </p>
     </a>
 
-    <a routerLink="" class="flex-1 p-4 bg-card-background border border-border rounded-lg">
+    <a
+      routerLink="/design-system/componentes"
+      class="flex-1 p-4 bg-card-background border border-border rounded-lg"
+    >
       <div
         class="w-full aspect-4/3 rounded-lg bg-background flex flex-col items-center justify-center gap-3 p-4"
       >
-        <button class="w-full py-2 bg-green-500 rounded text-white text-xs font-bold shadow-md">
+        <button class="w-full py-2 bg-primary-500 rounded text-black text-xs font-bold shadow-md">
           Primary Button
         </button>
         <div class="w-full flex gap-2">
           <div class="h-8 flex-1 border border-border rounded bg-card-background"></div>
-          <div class="h-8 w-8 bg-green-500 rounded flex items-center justify-center text-white">
+          <div class="h-8 w-8 bg-primary-500 rounded flex items-center justify-center text-black">
             <span class="material-symbols-outlined text-xs">check</span>
           </div>
         </div>

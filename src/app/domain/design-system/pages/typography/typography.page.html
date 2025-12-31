@@ -1,10 +1,10 @@
 <section>
-  <span class="text-green-500 text-sm font-bold uppercase tracking-widest">Design System</span>
+  <span class="text-primary-500 text-sm font-bold uppercase tracking-widest">Design System</span>
   <div class="space-y-6 mt-2">
     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Tipografia</h1>
 
     <p class="text-base text-muted-foreground leading-[1.2]">
-      A tipografia da Veeti utiliza a família <strong class="text-green-500">Inter</strong>.
+      A tipografia da Veeti utiliza a família <strong class="text-primary-500">Inter</strong>.
       Escolhida por sua excelente legibilidade em telas e tom moderno e acolhedor, essencial para a
       leitura rápida de prontuários, agendas e dados clínicos complexos.
     </p>
@@ -57,7 +57,7 @@
     </div>
     <div class="p-6">
       <p class="text-sm font-medium text-foreground mb-1">Acessibilidade</p>
-      <div class="flex items-center gap-2 text-green-600 mt-1">
+      <div class="flex items-center gap-2 text-primary-600 mt-1">
         <span class="material-symbols-outlined text-lg">check_circle</span>
         <p class="text-sm font-medium">WCAG AA Compliant</p>
       </div>
@@ -67,17 +67,21 @@
 </section>
 
 <section class="mt-20">
-  <h3 class="text-2xl font-semibold text-text-main dark:text-white">Escala de Títulos</h3>
+  <h3 class="text-2xl font-semibold text-foreground">Escala de Títulos</h3>
   <div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
 
-  <div class="rounded-lg border border-border bg-card-background overflow-hidden">
+  <div
+    class="rounded-lg border border-border bg-card-background dark:bg-background overflow-hidden"
+  >
     <div class="overflow-x-auto">
-      <table class="w-full text-left border-collapse border-border">
+      <table
+        class="w-full text-left border-collapse border-border bg-card-background dark:bg-background"
+      >
         <thead>
-          <tr class="bg-neutral-300 dark:bg-neutral-900 border-b border-border">
-            <th class="text-foreground p-4">Token</th>
-            <th class="text-foreground p-4">Especificações</th>
-            <th class="text-foreground p-4">Preview</th>
+          <tr class="bg-neutral-100 dark:bg-neutral-900 border-b border-border">
+            <th class="text-muted-foreground p-4">Token</th>
+            <th class="text-muted-foreground p-4">Especificações</th>
+            <th class="text-muted-foreground p-4">Preview</th>
           </tr>
         </thead>
         <tbody class="divide-y">
@@ -85,7 +89,7 @@
             <tr class="border-border">
               <td class="text-foreground p-4">
                 <span
-                  class="inline-flex items-center justify-center px-2.5 py-1 rounded bg-green-500/10 text-green-500 text-xs font-bold font-mono"
+                  class="inline-flex items-center justify-center px-2.5 py-1 rounded bg-primary/10 text-primary text-xs font-bold font-mono"
                 >
                   {{ item.token }}
                 </span>
@@ -229,7 +233,7 @@
         <div class="grid grid-cols-[100px_1fr] gap-4 items-center border-t border-border pt-6">
           <span class="text-xs font-mono text-foreground">Overline</span>
           <div>
-            <p class="text-[10px] uppercase tracking-widest font-bold text-green-500">
+            <p class="text-[10px] uppercase tracking-widest font-bold text-primary">
               Status do Pedido
             </p>
             <p class="text-[10px] text-muted-foreground mt-1">
@@ -242,7 +246,7 @@
           <span class="text-xs font-mono text-foreground">Button</span>
           <div class="flex items-center gap-4">
             <button
-              class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg shadow-sm hover:bg-green-500/90 transition-colors"
+              class="px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg shadow-sm hover:bg-primary/90 transition-colors"
             >
               Salvar Alterações
             </button>

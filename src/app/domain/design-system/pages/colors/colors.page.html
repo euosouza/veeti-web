@@ -1,0 +1,86 @@
+<section class="mb-12">
+  <span class="text-primary text-sm font-bold uppercase tracking-widest">Design System</span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Paleta de Cores</h1>
+
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      Nossa linguagem visual reflete simplicidade, agilidade e acolhimento. A paleta da Veeti foi
+      desenhada para reduzir a carga cognitiva em clínicas veterinárias movimentadas, utilizando o
+      azul como âncora de confiança e tons suaves para conforto visual.
+    </p>
+  </div>
+</section>
+
+<div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+<section class="my-12">
+  <h2 class="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">Cores da Marca</h2>
+  <p class="text-muted-foreground text-base">
+    Nossas cores da marca estabelecem a identidade visual da Veeti, transmitindo confiança,
+    serenidade e profissionalismo. Elas são a base para todos os elementos de design, garantindo
+    consistência e reconhecimento imediato.
+  </p>
+
+  <div class="mt-8">
+    <h4 class="text-xl font-semibold text-primary tracking-tight">Primária</h4>
+    <p class="text-muted-foreground text-base mb-8">
+      Cor primária utilizada em ações principais, links e estados ativos.
+    </p>
+    <app-default-colors-grid [colors]="primaryColors"></app-default-colors-grid>
+  </div>
+
+  <div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+  <div class="my-8">
+    <h4 class="text-xl font-semibold text-secondary tracking-tight">Secundária</h4>
+    <p class="text-muted-foreground text-base mb-8">
+      As cores secundárias complementam a paleta primária, sendo aplicadas em botões secundários,
+      links e elementos de navegação para criar uma hierarquia visual clara e intuitiva.
+    </p>
+    <app-default-colors-grid [colors]="secondaryColors"></app-default-colors-grid>
+  </div>
+
+  <div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+  <div class="mt-8">
+    <h4 class="text-xl font-semibold text-tertiary tracking-tight">Terciária</h4>
+    <p class="text-muted-foreground text-base mb-8">
+      As cores terciárias são usadas para detalhes, ícones e elementos decorativos, adicionando
+      profundidade e interesse visual sem sobrecarregar a interface.
+    </p>
+    <app-default-colors-grid [colors]="tertiaryColors"></app-default-colors-grid>
+  </div>
+</section>
+
+<div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+<section class="my-12">
+  <h2 class="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">Neutros</h2>
+  <p class="text-muted-foreground text-base">Escala de cinzas para textos, bordas e fundos.</p>
+  <div class="mt-8">
+    <app-default-colors-grid [colors]="neutralColors"></app-default-colors-grid>
+  </div>
+</section>
+
+<div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+<section class="my-12">
+  <h2 class="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
+    Cores Semânticas
+  </h2>
+  <p class="text-muted-foreground text-base">
+    Cores para feedback ao usuário, como sucesso, erro, alerta e informação.
+  </p>
+
+  <div class="flex flex-col gap-6 mt-8">
+    @for (item of semanticColors; track $index) {
+      <app-semantic-colors-grid
+        [title]="item.title"
+        [description]="item.description"
+        [icon]="item.icon"
+        [colors]="item.colors"
+        [type]="item.type"
+      ></app-semantic-colors-grid>
+    }
+  </div>
+</section>

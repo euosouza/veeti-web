@@ -1,40 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import "tailwindcss";
-@import 'material-symbols';
+@import "material-symbols";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* Light (default) */
 :root {
-  --background: oklch(98% 0.00011 271.152);
-  --foreground: oklch(14.5% 0 0);
+  --white: oklch(100% 0 0);
+  --black: oklch(0% 0 0);
 
-  --muted: oklch(97% 0 0);
-  --muted-foreground: oklch(55.6% 0 0);
+  /* --- Neutral (Cool Gray / Slate) --- */
+  --neutral-50: oklch(0.9675 0.0054 274.97); /* #f3f4f8 */
+  --neutral-100: oklch(0.928 0 0); /* #e7e7e7 */
+  --neutral-150: oklch(0.9169 0.0124 276.09); /* #e1e3ec */
+  --neutral-200: oklch(0.8386 0.0268 276.34); /* #c5c9dc */
+  --neutral-300: oklch(0.724 0.044 276.34); /* #9ea4c2 */
+  --neutral-400: oklch(0.5765 0.0685 276.08); /* #6e76a2 */
+  --neutral-500: oklch(0.481 0.073 276.53); /* #535a87 */
+  --neutral-600: oklch(0.4249 0.0679 279.88); /* #474a73 */
+  --neutral-700: oklch(0.3867 0.0509 280.79); /* #3f415f */
+  --neutral-800: oklch(0.3575 0.0397 282.25); /* #393a51 */
+  --neutral-850: oklch(0.3294 0.0334 284.42); /* #333346 */
+  --neutral-900: oklch(0.2225 0.0194 284.72); /* #1a1a24 */
+  --neutral-950: oklch(0.1906 0.0161 284.77); /* #13131b */
 
-  --border: oklch(92.2% 0 0);
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-950);
+
+  --muted: var(--neutral-50);
+  --muted-foreground: var(--neutral-700);
+
+  --border: var(--neutral-100);
 
   /* Scroll styles */
-  --scroll-background: var(--color-neutral-200);
+  --scroll-background: var(--neutral-200);
 
   /* Card styles */
-  --card-color-background: oklch(100% 0 0);
+  --card-color-background: var(--white);
 }
 
 /* Dark */
 [data-theme="dark"] {
-  --background: oklch(14.5% 0 0);
-  --foreground: oklch(98.5% 0 0);
+  --background: var(--neutral-950);
+  --foreground: var(--white);
 
-  --muted: oklch(26.9% 0 0);
-  --muted-foreground: oklch(70.8% 0 0);
+  --muted: var(--neutral-800);
+  --muted-foreground: var(--neutral-100);
 
-  --border: oklch(100% 0 0 / 0.1);
+  --border: var(--neutral-850);
 
   /* Scroll styles */
   --scroll-background: var(--color-neutral-800);
 
   /* Card styles */
-  --card-color-background: oklch(20.5% 0 0);
+  --card-color-background: var(--neutral-900);
 }
 
 @theme {
@@ -52,6 +70,88 @@
   --color-card-background: var(--card-color-background);
 
   --breakpoint-xs: 30rem;
+
+  /* --- Primary: Electric Violet --- */
+  --color-primary: oklch(47.6% 0.267 292.2); /* #780bf7 - Main Brand Color */
+  --color-primary-50: oklch(96.1% 0.011 286.4); /* #f5f1ff */
+  --color-primary-100: oklch(92.5% 0.024 286.4); /* #ede5ff */
+  --color-primary-200: oklch(86.8% 0.046 286.4); /* #dccfff */
+  --color-primary-300: oklch(76.5% 0.091 286.4); /* #c3a9ff */
+  --color-primary-400: oklch(64.2% 0.165 286.4); /* #a878ff */
+  --color-primary-500: oklch(55.4% 0.228 286.4); /* #8f42ff */
+  --color-primary-600: oklch(49.8% 0.265 286.4); /* #841cff */
+  --color-primary-700: oklch(47.6% 0.267 292.2); /* #780bf7 - Main Brand Color */
+  --color-primary-800: oklch(38.5% 0.219 292.2); /* #6308cf */
+  --color-primary-900: oklch(32.4% 0.178 292.2); /* #5409a9 */
+  --color-primary-950: oklch(19.8% 0.125 292.2); /* #320273 */
+
+  /* --- Secondary: Sunglow --- */
+  --color-secondary: oklch(83.5% 0.166 84.5); /* #ffc943 - Highlight/Accent */
+  --color-secondary-50: oklch(98.6% 0.015 85.3); /* #fffaeb */
+  --color-secondary-100: oklch(96.2% 0.045 85.3); /* #fff1c6 */
+  --color-secondary-200: oklch(91.5% 0.095 85.3); /* #ffe188 */
+  --color-secondary-300: oklch(83.5% 0.166 84.5); /* #ffc943 - Highlight/Accent */
+  --color-secondary-400: oklch(79.2% 0.185 75.3); /* #ffb520 */
+  --color-secondary-500: oklch(72.5% 0.205 55.4); /* #f99207 */
+  --color-secondary-600: oklch(61.8% 0.185 45.2); /* #dd6b02 */
+  --color-secondary-700: oklch(51.5% 0.155 38.5); /* #b74a06 */
+  --color-secondary-800: oklch(42.1% 0.115 35.8); /* #94380c */
+  --color-secondary-900: oklch(35.2% 0.092 32.5); /* #7a2f0d */
+  --color-secondary-950: oklch(19.5% 0.055 28.5); /* #461602 */
+
+  /* --- Tertiary: Razzle Dazzle Rose --- */
+  --color-tertiary: oklch(68.7% 0.233 328.6); /* #ff55df - Details */
+  --color-tertiary-50: oklch(96.8% 0.012 328.6); /* #fff3fd */
+  --color-tertiary-100: oklch(93.5% 0.028 328.6); /* #ffe7fb */
+  --color-tertiary-200: oklch(87.2% 0.065 328.6); /* #ffcef8 */
+  --color-tertiary-300: oklch(78.5% 0.125 328.6); /* #ffa7ef */
+  --color-tertiary-400: oklch(68.7% 0.233 328.6); /* #ff55df - Details */
+  --color-tertiary-500: oklch(62.5% 0.245 335.2); /* #f73ed4 */
+  --color-tertiary-600: oklch(55.2% 0.225 335.2); /* #db1eb3 */
+  --color-tertiary-700: oklch(48.5% 0.185 335.2); /* #b61590 */
+  --color-tertiary-800: oklch(41.2% 0.145 335.2); /* #951375 */
+  --color-tertiary-900: oklch(34.5% 0.115 335.2); /* #79165e */
+  --color-tertiary-950: oklch(22.8% 0.085 335.2); /* #51013b */
+
+  /* Semantic colors */
+  --color-success-100: oklch(95% 0.05 150);
+  --color-success-300: oklch(85% 0.1 150);
+  --color-success-500: oklch(65% 0.15 150);
+  --color-success-700: oklch(50% 0.12 150);
+  --color-success-900: oklch(35% 0.1 150);
+
+  --color-warning-100: oklch(95% 0.05 80);
+  --color-warning-300: oklch(85% 0.1 80);
+  --color-warning-500: oklch(75% 0.15 80);
+  --color-warning-700: oklch(60% 0.12 80);
+  --color-warning-900: oklch(45% 0.1 80);
+
+  --color-error-100: oklch(95% 0.07 25);
+  --color-error-300: oklch(85% 0.14 25);
+  --color-error-500: oklch(65% 0.2 25);
+  --color-error-700: oklch(50% 0.16 25);
+  --color-error-900: oklch(35% 0.12 25);
+
+  --color-info-100: oklch(95% 0.05 240);
+  --color-info-300: oklch(85% 0.1 240);
+  --color-info-500: oklch(65% 0.15 240);
+  --color-info-700: oklch(50% 0.12 240);
+  --color-info-900: oklch(35% 0.1 240);
+
+  /* Colors Neutrals */
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-150: var(--neutral-150);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-850: var(--neutral-850);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-950: var(--neutral-950);
 }
 
 @layer utilities {

@@ -8,5 +8,9 @@ export const routesDesignSystem: Routes = [
   {
     path: "tipografia",
     loadComponent: () => import("./pages/typography/typography.page").then((m) => m.TypographyPage)
+  },
+  {
+    path: "cores",
+    loadComponent: () => import("./pages/colors/colors.page").then((m) => m.ColorsPage)
   }
 ];

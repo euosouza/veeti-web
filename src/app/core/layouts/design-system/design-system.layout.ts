@@ -1,6 +1,17 @@
 import { Component, signal } from "@angular/core";
 import { RouterLink, RouterOutlet } from "@angular/router";
 
+interface Menu {
+  fundamentos: {
+    label: string;
+    path: string;
+  }[];
+  componentes?: {
+    label: string;
+    path: string;
+  }[];
+}
+
 @Component({
   selector: "app-design-system",
   imports: [RouterOutlet, RouterLink],
@@ -9,6 +20,19 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 export class DesignSystemLayout {
   // Signal para controlar a abertura do menu mobile
   isSidebarOpen = signal(false);
+
+  menu: Menu = {
+    fundamentos: [
+      {
+        label: "Tipografia",
+        path: "/design-system/tipografia"
+      },
+      {
+        label: "Paleta de Cores",
+        path: "/design-system/cores"
+      }
+    ]
+  };
 
   toggleSidebar() {
     this.isSidebarOpen.update((value) => !value);
