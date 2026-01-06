@@ -1,0 +1,168 @@
+<section class="mb-8">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest">Design System</span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Ícones</h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      Nossa biblioteca de ícones utiliza Material Symbols Rounded. Eles foram selecionados para
+      serem simples, amigáveis e funcionais, auxiliando veterinários na rápida identificação de
+      ações no consultório ou em visitas domiciliares.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap gap-4 pt-6">
+    <a
+      href="https://fonts.google.com/icons?selected=Material+Symbols+Outlined:call_made:FILL@0;wght@400;GRAD@0;opsz@24&icon.size=24&icon.color=%23e3e3e3"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-primary font-semibold text-sm tracking-wide transition-all hover:text-primary-600 flex items-center justify-center gap-1 cursor-pointer"
+    >
+      <span>Acessar documentação</span>
+      <span class="material-symbols-outlined text-4xl" style="font-size: 16px"> call_made </span>
+    </a>
+  </div>
+</section>
+
+<div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+<section class="my-8">
+  <h2 class="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
+    Princípios de Construção
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+    <!-- Card 1 -->
+    <div
+      class="flex flex-col gap-4 rounded-xl border border-border bg-card-background p-6 transition-shadow hover:shadow-lg"
+    >
+      <div class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white mb-2">
+        <span class="material-symbols-outlined">visibility</span>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-foreground mb-2">Simplicidade</h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Detalhes mínimos para máxima clareza em telas densas de prontuários. Evitamos
+          preenchimentos desnecessários.
+        </p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div
+      class="flex flex-col gap-4 rounded-xl border border-border bg-card-background p-6 transition-shadow hover:shadow-lg"
+    >
+      <div
+        class="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center text-white mb-2"
+      >
+        <span class="material-symbols-outlined">straighten</span>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-foreground mb-2">Consistência</h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Traços de 1.5px ou 2px e cantos arredondados (2px radius) uniformes em toda a biblioteca
+          para manter a harmonia visual.
+        </p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div
+      class="flex flex-col gap-4 rounded-xl border border-border bg-card-background p-6 transition-shadow hover:shadow-lg"
+    >
+      <div
+        class="w-12 h-12 rounded-lg bg-tertiary flex items-center justify-center text-white mb-2"
+      >
+        <span class="material-symbols-outlined">accessibility_new</span>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-foreground mb-2">Acessibilidade</h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Ícones funcionais devem sempre ser acompanhados de labels visuais ou
+          <code>aria-label</code> em código.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="block w-full h-[0.5px] my-4 bg-border rounded-full"></div>
+
+<section class="my-12">
+  <h2 class="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
+    Escala e Tamanhos
+  </h2>
+  <p class="text-base text-muted-foreground leading-relaxed">
+    Ícones são fornecidos em múltiplos tamanhos para se adequarem a diferentes contextos na
+    interface, desde botões pequenos até cabeçalhos maiores.
+  </p>
+
+  <div class="mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-card-background border border-border rounded-lg flex flex-col">
+        <div class="flex-1 flex justify-between border-b border-border">
+          <div
+            class="p-4 flex-1 flex justify-center items-center flex-col gap-1 border-r border-border"
+          >
+            <span
+              class="material-symbols-outlined text-[32px] text-foreground"
+              style="font-size: 14px"
+              >info</span
+            >
+            <span class="text-xs font-mono text-muted-foreground">14px</span>
+          </div>
+
+          <div class="p-4 flex-1 flex justify-center items-center flex-col gap-1">
+            <span
+              class="material-symbols-outlined text-[32px] text-foreground"
+              style="font-size: 16px"
+              >vaccines</span
+            >
+            <span class="text-xs font-mono text-muted-foreground">16px</span>
+          </div>
+        </div>
+
+        <div class="flex-1 flex justify-between">
+          <div
+            class="p-4 flex-1 flex justify-center items-center flex-col gap-1 border-r border-border"
+          >
+            <span
+              class="material-symbols-outlined text-[32px] text-foreground"
+              style="font-size: 24px"
+              >calendar_today</span
+            >
+            <span class="text-xs font-mono text-muted-foreground">24px</span>
+          </div>
+
+          <div class="p-4 flex-1 flex justify-center items-center flex-col gap-1">
+            <span
+              class="material-symbols-outlined text-[32px] text-foreground"
+              style="font-size: 32px"
+              >pets</span
+            >
+            <span class="text-xs font-mono text-muted-foreground">32px</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-card-background border border-border rounded-lg">
+        <div class="p-6">
+          <h4 class="text-sm font-bold text-foreground">Inline e Metadados</h4>
+          <p class="text-sm text-muted-foreground mt-1">
+            Usado junto com textos pequenos (caption), como em tags de status ou metadados de data.
+          </p>
+        </div>
+
+        <div class="p-6 border-y border-border">
+          <h4 class="text-sm font-bold text-foreground">Navegação e Ações</h4>
+          <p class="text-sm text-muted-foreground mt-1">
+            O tamanho padrão para botões, barras de navegação e ações principais em listas.
+          </p>
+        </div>
+
+        <div class="p-6">
+          <h4 class="text-sm font-bold text-foreground">Destaques e Features</h4>
+          <p class="text-sm text-muted-foreground mt-1">
+            Usado em cards de dashboard ou áreas que requerem ênfase visual maior.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

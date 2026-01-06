@@ -12,5 +12,9 @@ export const routesDesignSystem: Routes = [
   {
     path: "cores",
     loadComponent: () => import("./pages/colors/colors.page").then((m) => m.ColorsPage)
+  },
+  {
+    path: "icones",
+    loadComponent: () => import("./pages/icons/icons.page").then((m) => m.IconsPage)
   }
 ];

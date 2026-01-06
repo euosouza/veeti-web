@@ -30,6 +30,10 @@ export class DesignSystemLayout {
       {
         label: "Paleta de Cores",
         path: "/design-system/cores"
+      },
+      {
+        label: "Ícones",
+        path: "/design-system/icones"
       }
     ]
   };

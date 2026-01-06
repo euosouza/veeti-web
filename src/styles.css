@@ -9,7 +9,7 @@
   --black: oklch(0% 0 0);
 
   /* --- Neutral (Cool Gray / Slate) --- */
-  --neutral-50: oklch(0.9675 0.0054 274.97); /* #f3f4f8 */
+  --neutral-50: oklch(98.511% 0.00011 271.152); /* #f3f4f8 */
   --neutral-100: oklch(0.928 0 0); /* #e7e7e7 */
   --neutral-150: oklch(0.9169 0.0124 276.09); /* #e1e3ec */
   --neutral-200: oklch(0.8386 0.0268 276.34); /* #c5c9dc */
@@ -44,12 +44,12 @@
   --foreground: var(--white);
 
   --muted: var(--neutral-800);
-  --muted-foreground: var(--neutral-100);
+  --muted-foreground: var(--neutral-200);
 
   --border: var(--neutral-850);
 
   /* Scroll styles */
-  --scroll-background: var(--color-neutral-800);
+  --scroll-background: var(--neutral-900);
 
   /* Card styles */
   --card-color-background: var(--neutral-900);
@@ -100,7 +100,7 @@
   --color-secondary-950: oklch(19.5% 0.055 28.5); /* #461602 */
 
   /* --- Tertiary: Razzle Dazzle Rose --- */
-  --color-tertiary: oklch(68.7% 0.233 328.6); /* #ff55df - Details */
+  --color-tertiary: oklch(62.5% 0.245 335.2); /* #ff55df - Details */
   --color-tertiary-50: oklch(96.8% 0.012 328.6); /* #fff3fd */
   --color-tertiary-100: oklch(93.5% 0.028 328.6); /* #ffe7fb */
   --color-tertiary-200: oklch(87.2% 0.065 328.6); /* #ffcef8 */
