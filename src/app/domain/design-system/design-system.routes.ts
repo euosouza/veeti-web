@@ -7,14 +7,14 @@ export const routesDesignSystem: Routes = [
   },
   {
     path: "tipografia",
-    loadComponent: () => import("./pages/typography/typography.page").then((m) => m.TypographyPage)
+    loadComponent: () => import("./pages/fundamentals/typography/typography.page").then((m) => m.TypographyPage)
   },
   {
     path: "cores",
-    loadComponent: () => import("./pages/colors/colors.page").then((m) => m.ColorsPage)
+    loadComponent: () => import("./pages/fundamentals/colors/colors.page").then((m) => m.ColorsPage)
   },
   {
     path: "icones",
-    loadComponent: () => import("./pages/icons/icons.page").then((m) => m.IconsPage)
+    loadComponent: () => import("./pages/fundamentals/icons/icons.page").then((m) => m.IconsPage)
   }
 ];
