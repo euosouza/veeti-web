@@ -1,0 +1,210 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest"
+    >Design System > Componentes</span
+  >
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <div class="w-full h-full flex items-center justify-center">
+            <app-skeleton [height]="height()" [width]="width()" [shape]="shape()" />
+          </div>
+        </ng-content>
+        <ng-container controls>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <label
+                for="height"
+                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >Height</label
+              >
+              <input
+                id="height"
+                type="text"
+                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+                [ngModel]="height()"
+                (ngModelChange)="height.set($event)"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label
+                for="width"
+                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >Width</label
+              >
+              <input
+                id="width"
+                type="text"
+                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+                [ngModel]="width()"
+                (ngModelChange)="width.set($event)"
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label
+                for="shape"
+                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >Shape</label
+              >
+              <select
+                id="shape"
+                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+                [ngModel]="shape()"
+                (ngModelChange)="shape.set($event)"
+              >
+                <option value="square">Square</option>
+                <option value="circle">Circle</option>
+              </select>
+            </div>
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Exemplos de uso</h2>
+          <p class="text-muted-foreground">
+            O componente Skeleton pode ser usado para simular o carregamento de diversos tipos de
+            conteúdo.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <div class="flex items-center space-x-4">
+                <app-skeleton height="3rem" width="3rem" shape="circle" />
+                <div class="flex flex-col space-y-2 w-full">
+                  <app-skeleton height="1rem" width="150px" shape="square" />
+                  <app-skeleton height="1rem" width="100px" shape="square" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Simulando um Card de usuário</h3>
+              <p class="text-sm text-muted-foreground">
+                Use formas arredondadas para avatares e retângulos para texto.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <div class="flex flex-col space-y-2 w-full px-4">
+                <app-skeleton height="1rem" width="100%" shape="square" />
+                <app-skeleton height="1rem" width="100%" shape="square" />
+                <app-skeleton height="1rem" width="75%" shape="square" />
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Simulando um parágrafo de texto</h3>
+              <p class="text-sm text-muted-foreground">
+                Várias linhas de retângulos podem simular o carregamento de um texto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+    @default {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          @if (config().documentation?.subtitleInput) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleInput }}
+            </p>
+          }
+
+          @if (config().documentation?.tableInputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Propriedade</th>
+                    <th class="p-4 text-left font-bold">Tipo</th>
+                    <th class="p-4 text-left font-bold">Padrão</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableInputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground max-w-37.5">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.types }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.default }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>

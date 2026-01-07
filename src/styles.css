@@ -36,6 +36,11 @@
 
   /* Card styles */
   --card-color-background: var(--white);
+
+  /* Skeleton styles */
+  --skeleton-from: var(--color-neutral-100);
+  --skeleton-via: var(--color-neutral-150);
+  --skeleton-to: var(--color-neutral-100);
 }
 
 /* Dark */
@@ -53,6 +58,11 @@
 
   /* Card styles */
   --card-color-background: var(--neutral-900);
+
+    /* Skeleton styles */
+  --skeleton-from: var(--color-neutral-800);
+  --skeleton-via: var(--color-neutral-700);
+  --skeleton-to: var(--color-neutral-800);
 }
 
 @theme {
@@ -152,6 +162,11 @@
   --color-neutral-850: var(--neutral-850);
   --color-neutral-900: var(--neutral-900);
   --color-neutral-950: var(--neutral-950);
+
+    /* Skeleton styles */
+  --color-skeleton-from: var(--skeleton-from);
+  --color-skeleton-via: var(--skeleton-via);
+  --color-skeleton-to: var(--skeleton-to);
 }
 
 @layer utilities {
@@ -206,4 +221,19 @@
   .scrollbar-veeti-code::-webkit-scrollbar-thumb:hover {
     background: var(--color-neutral-800);
   }
+}
+
+/* Animação shimmer */
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Utilitário */
+.animate-skeleton {
+  animation: skeleton 1.5s ease-in-out infinite;
 }

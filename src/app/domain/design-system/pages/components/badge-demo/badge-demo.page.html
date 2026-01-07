@@ -50,7 +50,11 @@
         <ng-container controls>
           <div class="flex flex-col gap-4">
             <div class="space-y-2">
-              <label class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="content">Label</label>
+              <label
+                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="content"
+                >Label</label
+              >
               <input
                 class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
                 id="content"
@@ -59,7 +63,11 @@
             </div>
 
             <div class="mt-2">
-              <label class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="variant">Variante</label>
+              <label
+                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="variant"
+                >Variante</label
+              >
               <select
                 id="variant"
                 class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
@@ -151,99 +159,60 @@
         </div>
       </section>
 
-            <!-- Section: Interactive States -->
+      <!-- Section: Interactive States -->
 
-            <section class="space-y-6 mt-12">
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Estados Interativos</h2>
 
-              <div class="flex flex-col gap-2">
+          <p class="text-muted-foreground">
+            Badges podem ser interativos, permitindo que o usuário os remova.
+          </p>
+        </div>
 
-                <h2 class="text-2xl font-bold text-foreground">Estados Interativos</h2>
+        <div class="p-6 rounded-xl border border-border bg-card-background">
+          <div
+            class="flex items-center justify-center flex-wrap gap-2 h-24 bg-background rounded-lg border border-dashed border-border"
+          >
+            @for (tag of tags(); track tag) {
+              <app-badge variant="outline" size="md" [removable]="true" (remove)="removeTag(tag)">
+                {{ tag }}
+              </app-badge>
+            } @empty {
+              <p class="text-muted-foreground text-sm">Todas as tags foram removidas.</p>
+            }
+          </div>
+        </div>
+      </section>
 
-                <p class="text-muted-foreground">
+      <!-- Section: Clickable Badges -->
 
-                  Badges podem ser interativos, permitindo que o usuário os remova.
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Badges Clicáveis</h2>
 
-                </p>
+          <p class="text-muted-foreground">
+            Badges podem ser usados como botões ou links, acionando ações ao serem clicados.
+          </p>
+        </div>
 
-              </div>
+        <div class="p-6 rounded-xl border border-border bg-card-background">
+          <div
+            class="flex items-center justify-center flex-wrap gap-2 h-24 bg-background rounded-lg border border-dashed border-border"
+          >
+            <app-badge variant="default" size="md" (badgeClick)="onBadgeClick()">
+              Clique em mim
+            </app-badge>
+          </div>
 
-              <div class="p-6 rounded-xl border border-border bg-card-background">
-
-                <div
-
-                  class="flex items-center justify-center flex-wrap gap-2 h-24 bg-background rounded-lg border border-dashed border-border"
-
-                >
-
-                  @for(tag of tags(); track tag) {
-
-                    <app-badge variant="outline" size="md" [removable]="true" (remove)="removeTag(tag)">
-
-                      {{ tag }}
-
-                    </app-badge>
-
-                  } @empty {
-
-                    <p class="text-muted-foreground text-sm">Todas as tags foram removidas.</p>
-
-                  }
-
-                </div>
-
-              </div>
-
-            </section>
-
-
-
-            <!-- Section: Clickable Badges -->
-
-            <section class="space-y-6 mt-12">
-
-              <div class="flex flex-col gap-2">
-
-                <h2 class="text-2xl font-bold text-foreground">Badges Clicáveis</h2>
-
-                <p class="text-muted-foreground">
-
-                  Badges podem ser usados como botões ou links, acionando ações ao serem clicados.
-
-                </p>
-
-              </div>
-
-              <div class="p-6 rounded-xl border border-border bg-card-background">
-
-                <div
-
-                  class="flex items-center justify-center flex-wrap gap-2 h-24 bg-background rounded-lg border border-dashed border-border"
-
-                >
-
-                  <app-badge variant="default" size="md" (badgeClick)="onBadgeClick()">
-
-                    Clique em mim
-
-                  </app-badge>
-
-                </div>
-
-                @if(clickableBadgeMessage()) {
-
-                  <div class="mt-4 text-center text-sm text-green-500">
-
-                    {{ clickableBadgeMessage() }}
-
-                  </div>
-
-                }
-
-              </div>
-
-            </section>
-
+          @if (clickableBadgeMessage()) {
+            <div class="mt-4 text-center text-sm text-green-500">
+              {{ clickableBadgeMessage() }}
+            </div>
           }
+        </div>
+      </section>
+    }
     @default {
       <div class="max-w-none flex flex-col gap-5">
         <div>
