@@ -1,0 +1,426 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest"
+    >Design System > Componentes</span
+  >
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Button</h1>
+
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      Botões comunicam ações que os usuários podem realizar em diversos contextos da plataforma
+      Veeti. Eles devem ser claros, previsíveis e fornecer feedback imediato ao toque ou clique,
+      mantendo a consistência visual da clínica.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <app-button [variant]="'primary'" [disabled]="disabled()">{{ label() }}</app-button>
+        </ng-content>
+        <ng-container controls>
+          <div>
+            <label
+              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="label"
+              >Label</label
+            >
+            <input
+              class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+              type="text"
+              id="label"
+              [(ngModel)]="label"
+            />
+          </div>
+
+          <div class="flex items-center gap-2 mt-4">
+            <label
+              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="disabled"
+              >Disabled</label
+            >
+            <input
+              class="h-4 w-4 rounded border-primary text-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              type="checkbox"
+              id="disabled"
+              [(ngModel)]="disabled"
+            />
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <!-- Section: Types -->
+      <section class="space-y-6">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Tipos e Hierarquia</h2>
+          <p class="text-muted-foreground">
+            Utilize diferentes estilos para indicar a importância das ações na interface.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <app-button> Botão Primário </app-button>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Primário</h3>
+              <p class="text-sm text-muted-foreground">
+                Para a ação principal da tela. Deve haver apenas um botão primário por seção ou
+                view.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <app-button [variant]="'secondary'"> Botão Secundário </app-button>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Secundário</h3>
+              <p class="text-sm text-muted-foreground">
+                Para ações secundárias ou complementares à ação primária.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <app-button [variant]="'destructive'"> Botão Destrutivo </app-button>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Destrutivo</h3>
+              <p class="text-sm text-muted-foreground">
+                Para ações destrutivas, como excluir ou remover conteúdo.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <app-button [variant]="'outline'"> Botão Outline </app-button>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Outline</h3>
+              <p class="text-sm text-muted-foreground">
+                Para ações alternativas ou secundárias, como "Cancelar" ou "Voltar".
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <app-button [variant]="'link'"> Botão Link </app-button>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Link</h3>
+              <p class="text-sm text-muted-foreground">
+                Para ações de baixa prioridade ou links dentro de componentes.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border gap-4"
+            >
+              <app-button [variant]="'icon'">
+                <span class="material-symbols-outlined">edit</span>
+              </app-button>
+              <app-button [variant]="'icon'">
+                <span class="material-symbols-outlined">delete</span>
+              </app-button>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Ícone</h3>
+              <p class="text-sm text-muted-foreground">
+                Usado em toolbars ou espaços compactos onde o ícone comunica claramente a ação.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: States -->
+      <section class="space-y-6 mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+          <div class="flex-1 flex flex-col gap-2">
+            <h2 class="text-2xl font-bold text-foreground">Estados</h2>
+            <p class="text-muted-foreground">Feedback visual para interação do usuário.</p>
+          </div>
+
+          <div class="my-4 flex-1 flex md:justify-end w-full">
+            <div class="space-y-1.5 md:max-w-100 w-full">
+              <label class="text-sm font-semibold text-foreground" for="select-variant"
+                >Variante do botão:</label
+              >
+              <div class="relative">
+                <select
+                  id="select-variant"
+                  (input)="onChangeVariant($event)"
+                  class="block w-full rounded-lg border-border bg-card-background py-3 px-4 pr-10 text-foreground focus:border-primary focus:ring-primary sm:text-sm shadow-sm"
+                >
+                  <option value="primary">Primary</option>
+                  <option value="secondary">Secondary</option>
+                  <option value="destructive">Destructive</option>
+                  <option value="outline">Outline</option>
+                  <option value="link">Link</option>
+                  <option value="icon">Icon</option>
+                </select>
+              </div>
+              <p class="text-xs text-muted-foreground">Selecione a variante do botão.</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+        >
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr
+                class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+              >
+                <th class="p-4 font-bold">Estado</th>
+                <th class="p-4 font-bold">Visualização</th>
+                <th class="p-4 font-bold hidden sm:table-cell">Descrição</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm bg-card-background">
+              <tr class="border-b border-border">
+                <td class="p-4 font-medium text-foreground">Default</td>
+                <td class="p-4">
+                  <app-button [variant]="currentBtnVariant()">
+                    @if (currentBtnVariant() === "icon") {
+                      <span class="material-symbols-outlined">edit</span>
+                    } @else {
+                      Salvar
+                    }
+                  </app-button>
+                </td>
+                <td class="p-4 text-foreground hidden sm:table-cell">
+                  Aparência padrão do botão interativo.
+                </td>
+              </tr>
+              <tr class="border-b border-border">
+                <td class="p-4 font-medium text-foreground">Hover</td>
+                <td class="p-4">
+                  <app-button [variant]="currentBtnVariant()" [class]="getHoverClasses()">
+                    @if (currentBtnVariant() === "icon") {
+                      <span class="material-symbols-outlined">edit</span>
+                    } @else {
+                      Salvar
+                    }
+                  </app-button>
+                </td>
+                <td class="p-4 text-foreground hidden sm:table-cell">
+                  Ocorre quando o mouse paira sobre o botão. O brilho diminui levemente.
+                </td>
+              </tr>
+              <tr class="border-b border-border">
+                <td class="p-4 font-medium text-foreground">Focused</td>
+                <td class="p-4">
+                  <app-button [variant]="currentBtnVariant()" [class]="getFocusedClasses()">
+                    @if (currentBtnVariant() === "icon") {
+                      <span class="material-symbols-outlined">edit</span>
+                    } @else {
+                      Salvar
+                    }
+                  </app-button>
+                </td>
+                <td class="p-4 text-foreground hidden sm:table-cell">
+                  Indicador de foco para navegação por teclado. Anel externo de 4px.
+                </td>
+              </tr>
+              <tr>
+                <td class="p-4 font-medium text-foreground">Disabled</td>
+                <td class="p-4">
+                  <app-button [variant]="currentBtnVariant()" [disabled]="true">
+                    @if (currentBtnVariant() === "icon") {
+                      <span class="material-symbols-outlined">edit</span>
+                    } @else {
+                      Salvar
+                    }
+                  </app-button>
+                </td>
+                <td class="p-4 text-foreground hidden sm:table-cell">
+                  Ação indisponível. Opacidade reduzida e sem interação.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section: Sizes -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Tamanhos</h2>
+          <p class="text-muted-foreground">Adaptáveis para diferentes contextos de densidade.</p>
+        </div>
+        <div
+          class="p-8 rounded-xl border border-border bg-card-background flex flex-wrap items-end gap-8"
+        >
+          <div class="flex flex-col items-center gap-3">
+            <app-button [size]="'sm'"> Small (32px) </app-button>
+            <span class="text-xs text-foreground font-mono">h-8 text-xs</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <app-button [size]="'md'"> Medium (40px) </app-button>
+            <span class="text-xs text-foreground font-mono">h-10 text-sm</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <app-button [size]="'lg'"> Large (48px) </app-button>
+            <span class="text-xs text-foreground font-mono">h-12 text-base</span>
+          </div>
+        </div>
+      </section>
+    }
+    @default {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          @if (config().documentation?.subtitleInput) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleInput }}
+            </p>
+          }
+
+          @if (config().documentation?.tableInputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Propriedade</th>
+                    <th class="p-4 text-left font-bold">Tipo</th>
+                    <th class="p-4 text-left font-bold">Padrão</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableInputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground max-w-37.5">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.types }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.default }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+
+        <div class="mt-8">
+          <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+
+          @if (config().documentation?.subtitleOutputs) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleOutputs }}
+            </p>
+          }
+
+          @if (config().documentation?.tableOutputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Nome</th>
+                    <th class="p-4 text-left font-bold">Retorno</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableOutputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.return }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>
