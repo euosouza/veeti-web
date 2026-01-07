@@ -55,21 +55,21 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Directory Structure
 
-- **`apps/core`**
+- **`app/core`**
   - Global layouts and structural components (e.g., main header/footer).
-- **`apps/domain/<feature>`**
+- **`app/domain/<feature>`**
   - Represents a specific business domain (e.g., `users`, `products`).
   - **`.../apis`**: HTTP service classes.
   - **`.../components`**: "Dumb" components specific to this domain (presentation only).
   - **`.../pages`**: "Smart" components representing a complete screen/route (data fetching and state management).
   - **`.../services`**: Business logic services for the domain.
-- **`apps/widget/components`**
+- **`app/widget/components`**
   - Generic and reusable components without business logic.
-- **`apps/libs/ui/components`**
+- **`app/libs/ui/components`**
   - The core Design System components.
 
 ```
-  apps/
+  app/
   ├── core/                        # Global layouts and structural components
   │                                # (e.g., Main Header, Footer, Sidebar)
   │
@@ -114,4 +114,4 @@ Consistency is key. Please adhere to the following rules when creating new files
   - **Dumb Components** (`.../components`) should receive data via inputs and emit events via outputs. They should not inject services or make API calls directly.
   - **Smart Components** (`.../pages`) are responsible for talking to Services/APIs and passing data down to dumb components.
 - **Design System:**
-  - Always check `apps/libs/ui/components` before creating a custom UI element. Use the `V` prefixed components whenever possible.
+  - Always check `app/libs/ui/components` before creating a custom UI element. Use the `V` prefixed components whenever possible.

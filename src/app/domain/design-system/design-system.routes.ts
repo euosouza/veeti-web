@@ -20,5 +20,9 @@ export const routesDesignSystem: Routes = [
   {
     path: "componentes/button",
     loadComponent: () => import("./pages/components/button-demo/button-demo.page").then((m) => m.ButtonDemoPage)
+  },
+  {
+    path: "componentes/badge",
+    loadComponent: () => import("./pages/components/badge-demo/badge-demo.page").then((m) => m.BadgeDemoPage)
   }
 ];

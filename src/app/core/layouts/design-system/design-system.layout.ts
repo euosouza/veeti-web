@@ -43,6 +43,10 @@ export class DesignSystemLayout {
       {
         label: "Button",
         path: "/design-system/componentes/button"
+      },
+      {
+        label: "Badge",
+        path: "/design-system/componentes/badge"
       }
     ]
   };
