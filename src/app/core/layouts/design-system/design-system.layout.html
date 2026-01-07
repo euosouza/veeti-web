@@ -11,7 +11,7 @@
     ></div>
   }
 
-  <div class="flex h-[calc(100vh-70px)] max-w-380 mx-auto w-full">
+  <div class="flex h-[calc(100vh-70px)] max-w-400 mx-auto w-full">
     <aside
       class="fixed inset-y-0 left-0 z-50 w-65 bg-card-background border-r border-border transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen lg:flex lg:flex-col overflow-y-auto pb-4 px-2"
       [class.translate-x-0]="isSidebarOpen()"
@@ -93,25 +93,23 @@
       >
         <div class="w-full max-w-380 mx-auto px-4 flex items-center justify-between">
           <div class="flex items-center justify-between w-full lg:hidden">
-            <button (click)="toggleSidebar()" class="text-foreground cursor-pointer">
+            <app-button variant="icon" (onClick)="toggleSidebar()">
               <span class="material-symbols-outlined"> menu </span>
-            </button>
+            </app-button>
           </div>
 
           <div class="flex justify-end lg:justify-between items-center w-full">
             <div class="w-full max-w-90 hidden lg:inline">
               <input
-                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50 transition-all"
+                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
                 placeholder="Pesquisar..."
                 type="text"
               />
             </div>
 
-            <button
-              class="text-xs py-2 px-3 rounded-lg border border-border text-muted-foreground hover:bg-muted hover:text-muted-foreground cursor-pointer transition-all"
-            >
+            <app-button [variant]="'icon'" (onClick)="toggleTheme()">
               <span class="material-symbols-outlined text-sm"> brightness_7 </span>
-            </button>
+            </app-button>
           </div>
         </div>
       </header>

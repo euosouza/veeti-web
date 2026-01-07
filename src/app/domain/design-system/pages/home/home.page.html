@@ -23,12 +23,10 @@
       </p>
 
       <div class="flex flex-wrap gap-4 pt-2">
-        <button
-          class="h-12 px-6 rounded-lg bg-primary-500 border-none text-white font-semibold text-sm tracking-wide transition-all hover:bg-primary-600 flex items-center justify-center gap-1 cursor-pointer"
-        >
-          <span class="material-symbols-outlined text-4xl"> code </span>
+        <app-button>
+          <span class="material-symbols-outlined" style="font-size: 16px"> code </span>
           <span>Biblioteca de componentes</span>
-        </button>
+        </app-button>
       </div>
     </div>
 
@@ -125,17 +123,15 @@
       class="flex-1 p-4 bg-card-background border border-border rounded-lg"
     >
       <div
-        class="w-full aspect-4/3 rounded-lg bg-background flex flex-col items-center justify-center gap-3 p-4"
+        class="w-full aspect-4/3 rounded-lg bg-background flex items-center justify-center gap-3 p-4"
       >
-        <button class="w-full py-2 bg-primary-500 rounded text-black text-xs font-bold shadow-md">
+        <app-button>
+          <span class="material-symbols-outlined" style="font-size: 16px">check</span>
           Primary Button
-        </button>
-        <div class="w-full flex gap-2">
-          <div class="h-8 flex-1 border border-border rounded bg-card-background"></div>
-          <div class="h-8 w-8 bg-primary-500 rounded flex items-center justify-center text-black">
-            <span class="material-symbols-outlined text-xs">check</span>
-          </div>
-        </div>
+        </app-button>
+        <app-button>
+          <span class="material-symbols-outlined" style="font-size: 16px">check</span>
+        </app-button>
       </div>
 
       <h5 class="text-foreground font-bold mt-4 lg:text-lg">UI Componentes</h5>

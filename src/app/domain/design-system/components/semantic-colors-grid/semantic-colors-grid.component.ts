@@ -1,10 +1,10 @@
-import { CommonModule, NgClass } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { Component, computed, input, output } from "@angular/core";
 import { IDefaultColor, ITypeSemanticColor } from "../../interfaces/colors.interfaces";
 
 @Component({
   selector: "app-semantic-colors-grid",
-  imports: [CommonModule, NgClass],
+  imports: [CommonModule],
   standalone: true,
   templateUrl: "./semantic-colors-grid.component.html"
 })
