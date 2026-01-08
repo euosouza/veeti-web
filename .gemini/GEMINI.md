@@ -115,3 +115,8 @@ Consistency is key. Please adhere to the following rules when creating new files
   - **Smart Components** (`.../pages`) are responsible for talking to Services/APIs and passing data down to dumb components.
 - **Design System:**
   - Always check `app/libs/ui/components` before creating a custom UI element. Use the `V` prefixed components whenever possible.
+
+## Documentação de Desenvolvimento
+
+- [Guia para Criação de Novos Componentes do Design System](src/app/libs/ui/components/NEW_COMPONENT_GUIDE.md)
+- [Guia para Criação de Páginas de Demonstração de Componentes](src/app/domain/design-system/COMPONENT_DEMO_GUIDE.md)
