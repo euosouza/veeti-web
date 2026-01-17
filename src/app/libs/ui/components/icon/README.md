@@ -21,6 +21,11 @@ O componente `v-icon` é um wrapper para os Material Symbols, permitindo exibir 
 | `sm` | 16px |
 | `md` | 20px |
 | `lg` | 24px |
+| `number` | valor em px |
+
+## Comportamento
+
+O componente `v-icon` ajusta automaticamente suas dimensões (`width` e `height`) para corresponder ao tamanho do ícone (`size`), garantindo que ele ocupe o espaço correto no layout. Ele é renderizado como `inline-flex`.
 
 ## Como Usar
 

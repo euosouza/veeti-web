@@ -20,6 +20,10 @@ import { ChangeDetectionStrategy, Component, computed, input, ViewEncapsulation 
       }
     `
   ],
+  host: {
+    "[style.height]": "fontSize()",
+    "[style.width]": "fontSize()"
+  },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

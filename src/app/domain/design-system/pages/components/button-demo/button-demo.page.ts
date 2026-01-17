@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
 import { statesBtnVariant } from "../../../../../libs/ui/components/button/button.constants";
 import { IStatesBtn, TVariantBtn } from "../../../../../libs/ui/components/button/button.interface";
+import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
@@ -13,7 +14,7 @@ interface Tab {
 
 @Component({
   selector: "app-button-demo.page",
-  imports: [ButtonComponent, PlaygroundComponent, FormsModule],
+  imports: [ButtonComponent, PlaygroundComponent, FormsModule, VIconComponent],
   templateUrl: "./button-demo.page.html"
 })
 export class ButtonDemoPage {

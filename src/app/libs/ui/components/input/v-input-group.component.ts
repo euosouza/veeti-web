@@ -1,32 +1,31 @@
 import { Component, computed, contentChild, effect, input, ViewEncapsulation } from "@angular/core";
+import { VIconComponent } from "../icon/v-icon.component";
 import { VInputDirective } from "./v-input.directive";
 
 @Component({
   selector: "v-input-group",
   standalone: true,
-  imports: [],
+  imports: [VIconComponent],
   template: `
     <div class="relative w-full">
       @if (startIcon()) {
-        <span
-          class="material-symbols-rounded absolute top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none select-none {{ startIconClass() }}"
-          [style.font-size]="iconFontSize()"
+        <v-icon
+          class="absolute top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none select-none {{ startIconClass() }}"
+          [name]="startIcon()!"
+          [size]="iconFontSize()"
           aria-hidden="true"
-        >
-          {{ startIcon() }}
-        </span>
+        ></v-icon>
       }
 
       <ng-content></ng-content>
 
       @if (endIcon()) {
-        <span
-          class="material-symbols-rounded absolute top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none select-none {{ endIconClass() }}"
-          [style.font-size]="iconFontSize()"
+        <v-icon
+          class="absolute top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none select-none {{ endIconClass() }}"
+          [name]="endIcon()!"
+          [size]="iconFontSize()"
           aria-hidden="true"
-        >
-          {{ endIcon() }}
-        </span>
+        ></v-icon>
       }
     </div>
   `,
@@ -66,11 +65,11 @@ export class VInputGroupComponent {
     const size = this.inputDirective()?.size() || "default";
     switch (size) {
       case "sm":
-        return "16px";
+        return 16;
       case "lg":
-        return "18px";
+        return 18;
       default:
-        return "18px";
+        return 18;
     }
   }
 

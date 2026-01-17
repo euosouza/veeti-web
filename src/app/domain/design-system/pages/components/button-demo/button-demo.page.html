@@ -50,7 +50,7 @@
             [loading]="loading()"
           >
             @if (controlVariant() === "icon") {
-              <span class="material-symbols-outlined">{{ label() }}</span>
+              <v-icon [name]="label()"></v-icon>
             } @else {
               {{ label() }}
             }
@@ -84,7 +84,8 @@
                 >Label</label
               >
               <input
-                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+                vInput
+                size="sm"
                 type="text"
                 id="label"
                 [(ngModel)]="label"
@@ -250,10 +251,10 @@
               class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border gap-4"
             >
               <app-button [variant]="'icon'">
-                <span class="material-symbols-outlined">edit</span>
+                <v-icon name="edit"></v-icon>
               </app-button>
               <app-button [variant]="'icon'">
-                <span class="material-symbols-outlined">delete</span>
+                <v-icon name="delete"></v-icon>
               </app-button>
             </div>
             <div>
@@ -317,7 +318,7 @@
                 <td class="p-4">
                   <app-button [variant]="currentBtnVariant()">
                     @if (currentBtnVariant() === "icon") {
-                      <span class="material-symbols-outlined">edit</span>
+                      <v-icon name="edit"></v-icon>
                     } @else {
                       Salvar
                     }
@@ -332,7 +333,7 @@
                 <td class="p-4">
                   <app-button [variant]="currentBtnVariant()" [class]="getHoverClasses()">
                     @if (currentBtnVariant() === "icon") {
-                      <span class="material-symbols-outlined">edit</span>
+                      <v-icon name="edit"></v-icon>
                     } @else {
                       Salvar
                     }
@@ -347,7 +348,7 @@
                 <td class="p-4">
                   <app-button [variant]="currentBtnVariant()" [class]="getFocusedClasses()">
                     @if (currentBtnVariant() === "icon") {
-                      <span class="material-symbols-outlined">edit</span>
+                      <v-icon name="edit"></v-icon>
                     } @else {
                       Salvar
                     }
@@ -362,7 +363,7 @@
                 <td class="p-4">
                   <app-button [variant]="currentBtnVariant()" [disabled]="true">
                     @if (currentBtnVariant() === "icon") {
-                      <span class="material-symbols-outlined">edit</span>
+                      <v-icon name="edit"></v-icon>
                     } @else {
                       Salvar
                     }
@@ -377,7 +378,7 @@
                 <td class="p-4">
                   <app-button [variant]="currentBtnVariant()" [loading]="true">
                     @if (currentBtnVariant() === "icon") {
-                      <span class="material-symbols-outlined">edit</span>
+                      <v-icon name="edit"></v-icon>
                     } @else {
                       Salvar
                     }

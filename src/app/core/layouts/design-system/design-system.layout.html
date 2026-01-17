@@ -19,7 +19,7 @@
     >
       <div class="flex items-center gap-3 py-4">
         <div class="py-2 px-2 rounded-lg bg-primary flex items-center justify-center text-white">
-          <span class="material-symbols-outlined text-2xl">pets</span>
+          <v-icon name="pets" size="lg"></v-icon>
         </div>
         <div class="flex flex-col">
           <h1 class="text-foreground text-lg font-bold leading-none tracking-tight">Veeti</h1>
@@ -94,21 +94,22 @@
         <div class="w-full max-w-380 mx-auto px-4 flex items-center justify-between">
           <div class="flex items-center justify-between w-full lg:hidden">
             <app-button variant="icon" (onClick)="toggleSidebar()">
-              <span class="material-symbols-outlined"> menu </span>
+              <v-icon name="menu"></v-icon>
             </app-button>
           </div>
 
           <div class="flex justify-end lg:justify-between items-center w-full">
             <div class="w-full max-w-90 hidden lg:inline">
               <input
-                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+                vInput
+                size="sm"
                 placeholder="Pesquisar..."
                 type="text"
               />
             </div>
 
             <app-button [variant]="'icon'" (onClick)="toggleTheme()">
-              <span class="material-symbols-outlined text-sm"> brightness_7 </span>
+              <v-icon name="brightness_7" size="sm"></v-icon>
             </app-button>
           </div>
         </div>

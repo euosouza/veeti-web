@@ -1,6 +1,8 @@
 import { Component, inject, signal } from "@angular/core";
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { ButtonComponent } from "../../../libs/ui/components/button/button.component";
+import { VIconComponent } from "../../../libs/ui/components/icon/v-icon.component";
+import { VInputDirective } from "../../../libs/ui/components/input/v-input.directive";
 import { ThemeService } from "../../services/theme/theme.service";
 
 interface Menu {
@@ -16,7 +18,7 @@ interface Menu {
 
 @Component({
   selector: "app-design-system",
-  imports: [RouterOutlet, RouterLink, ButtonComponent],
+  imports: [RouterOutlet, RouterLink, ButtonComponent, VInputDirective, VIconComponent],
   templateUrl: "./design-system.layout.html"
 })
 export class DesignSystemLayout {

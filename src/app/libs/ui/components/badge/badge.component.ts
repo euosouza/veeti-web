@@ -1,17 +1,18 @@
 import { ChangeDetectionStrategy, Component, computed, EventEmitter, input, Output } from "@angular/core";
 import { twMerge } from "tailwind-merge";
+import { VIconComponent } from "../icon/v-icon.component";
 import { BadgeSize, BadgeVariant, badgeVariants } from "./badge.constants";
 
 @Component({
   selector: "app-badge",
   standalone: true,
-  imports: [],
+  imports: [VIconComponent],
   template: `
     <span [class]="badgeClass()" [attr.tabindex]="isClickable() ? 0 : -1" (click)="onBadgeClick($event)" (keydown.enter)="onBadgeClick($event)">
       <ng-content />
       @if (removable()) {
         <button type="button" aria-label="Remove" (click)="removeBadge($event)" class="cursor-pointer">
-          <span class="material-symbols-outlined" style="font-size: 12px"> x </span>
+          <v-icon name="close" [size]="12"></v-icon>
         </button>
       }
     </span>
