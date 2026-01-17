@@ -28,7 +28,7 @@ type OnChangeType = (value: string) => void;
 export class VInputDirective implements ControlValueAccessor, OnInit {
   private readonly injector = inject(Injector);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly elementRef = inject(ElementRef);
+  public readonly elementRef = inject(ElementRef);
 
   private ngControl: NgControl | null = null;
 

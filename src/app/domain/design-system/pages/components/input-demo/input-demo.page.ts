@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from "@angular/core";
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
+import { VInputGroupComponent } from "../../../../../libs/ui/components/input/v-input-group.component";
 import { vInputVariants, VInputVariants } from "../../../../../libs/ui/components/input/v-input.constants";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
@@ -14,7 +15,7 @@ interface Tab {
 @Component({
   selector: "app-input-demo",
   standalone: true,
-  imports: [PlaygroundComponent, VInputDirective, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [PlaygroundComponent, VInputDirective, VInputGroupComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
   templateUrl: "./input-demo.page.html"
 })
 export class InputDemoPage {

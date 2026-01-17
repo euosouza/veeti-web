@@ -156,6 +156,36 @@
         </div>
       </section>
 
+      <!-- Section: Com Ícones -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Com Ícones</h2>
+          <p class="text-muted-foreground">Suporte a ícones no início e fim do input.</p>
+        </div>
+        <div class="p-8 rounded-xl border border-border bg-card-background flex flex-col gap-6">
+          <div class="flex flex-col gap-2">
+            <span class="text-sm font-medium text-foreground">Ícone no Início (Small)</span>
+            <v-input-group startIcon="search" class="max-w-sm">
+              <input vInput size="sm" placeholder="Pesquisar..." />
+            </v-input-group>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-sm font-medium text-foreground">Ícone no Fim (Default)</span>
+            <v-input-group endIcon="calendar_today" class="max-w-sm">
+              <input vInput placeholder="Selecione uma data" />
+            </v-input-group>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-sm font-medium text-foreground">Ambos os Ícones (Large)</span>
+            <v-input-group startIcon="mail" endIcon="check" class="max-w-sm">
+              <input vInput size="lg" placeholder="Email" value="user@example.com" />
+            </v-input-group>
+          </div>
+        </div>
+      </section>
+
       <!-- Section: Estados -->
       <section class="space-y-6 mt-12">
         <div class="flex flex-col gap-2">
