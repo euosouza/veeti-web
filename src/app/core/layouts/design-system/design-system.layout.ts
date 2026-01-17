@@ -55,6 +55,10 @@ export class DesignSystemLayout {
       {
         label: "Input",
         path: "/design-system/componentes/input"
+      },
+      {
+        label: "Icon",
+        path: "/design-system/componentes/icon"
       }
     ]
   };

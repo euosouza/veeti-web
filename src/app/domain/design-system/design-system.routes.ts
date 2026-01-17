@@ -32,5 +32,9 @@ export const routesDesignSystem: Routes = [
   {
     path: "componentes/input",
     loadComponent: () => import("./pages/components/input-demo/input-demo.page").then((m) => m.InputDemoPage)
+  },
+  {
+    path: "componentes/icon",
+    loadComponent: () => import("./pages/components/icon-demo/icon-demo.page").then((m) => m.IconDemoPage)
   }
 ];

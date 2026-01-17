@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { DesignSystem } from "./design-system.layout";
+import { DesignSystemLayout } from "./design-system.layout";
 
-describe("DesignSystem", () => {
-  let component: DesignSystem;
-  let fixture: ComponentFixture<DesignSystem>;
+describe("DesignSystemLayout", () => {
+  let component: DesignSystemLayout;
+  let fixture: ComponentFixture<DesignSystemLayout>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DesignSystem]
+      imports: [DesignSystemLayout]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DesignSystem);
+    fixture = TestBed.createComponent(DesignSystemLayout);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

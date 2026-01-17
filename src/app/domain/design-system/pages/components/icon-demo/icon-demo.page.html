@@ -1,0 +1,215 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest"
+    >Design System > Componentes</span
+  >
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">Icon</h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all cursor-pointer"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <div class="p-8">
+            <v-icon [name]="name()" [size]="customSize() || size()"></v-icon>
+          </div>
+        </ng-content>
+
+        <ng-container controls>
+          <div>
+            <label
+              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="name"
+              >Name</label
+            >
+            <input
+              class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+              type="text"
+              id="name"
+              [(ngModel)]="name"
+            />
+            <p class="text-xs text-muted-foreground mt-1">
+              Nome do ícone Material Symbols (ex: home, settings, favorite)
+            </p>
+          </div>
+
+          <div class="mt-4">
+            <label
+              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for="size"
+              >Size</label
+            >
+            <select
+              class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+              id="size"
+              [ngModel]="customSize() ? 'custom' : size()"
+              (ngModelChange)="onSizeChange($event)"
+            >
+              <option value="sm">Small (16px)</option>
+              <option value="md">Medium (20px)</option>
+              <option value="lg">Large (24px)</option>
+              <option value="custom">Custom (32px)</option>
+            </select>
+          </div>
+
+          @if (customSize()) {
+            <div class="mt-2">
+              <label
+                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="customSizeInput"
+                >Custom Size (px)</label
+              >
+              <input
+                class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
+                type="number"
+                id="customSizeInput"
+                [ngModel]="customSize()"
+                (ngModelChange)="customSize.set($event)"
+              />
+            </div>
+          }
+        </ng-container>
+      </app-playground>
+
+      <!-- Examples Section -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Tamanhos</h2>
+          <p class="text-muted-foreground">
+            O componente suporta tamanhos pré-definidos e personalizados.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-xl border border-border bg-card-background flex flex-wrap items-end gap-8"
+        >
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="home" size="sm"></v-icon>
+            <span class="text-xs text-foreground font-mono">sm (16px)</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="home" size="md"></v-icon>
+            <span class="text-xs text-foreground font-mono">md (20px)</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="home" size="lg"></v-icon>
+            <span class="text-xs text-foreground font-mono">lg (24px)</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="home" [size]="48"></v-icon>
+            <span class="text-xs text-foreground font-mono">48px</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Examples Section: Colors -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Cores</h2>
+          <p class="text-muted-foreground">
+            As cores podem ser aplicadas utilizando classes utilitárias do Tailwind CSS.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-xl border border-border bg-card-background flex flex-wrap items-end gap-8"
+        >
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="favorite" class="text-red-500"></v-icon>
+            <span class="text-xs text-foreground font-mono">text-red-500</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="check_circle" class="text-green-500"></v-icon>
+            <span class="text-xs text-foreground font-mono">text-green-500</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="star" class="text-yellow-500"></v-icon>
+            <span class="text-xs text-foreground font-mono">text-yellow-500</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-icon name="info" class="text-blue-500"></v-icon>
+            <span class="text-xs text-foreground font-mono">text-blue-500</span>
+          </div>
+        </div>
+      </section>
+    }
+    @case ("API") {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 class="text-lg font-semibold text-foreground">Propriedades (Inputs)</h2>
+          <div
+            class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+          >
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                >
+                  <th class="p-4 text-left font-bold">Propriedade</th>
+                  <th class="p-4 text-left font-bold">Tipo</th>
+                  <th class="p-4 text-left font-bold">Padrão</th>
+                  <th class="p-4 text-left font-bold">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm bg-card-background">
+                @for (item of config().documentation?.tableInputs; track $index) {
+                  <tr class="border-b border-border">
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.props }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground max-w-37.5">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.types }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.default }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      {{ item.description }}
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>
