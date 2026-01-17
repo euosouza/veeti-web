@@ -41,6 +41,13 @@
   --skeleton-from: var(--color-neutral-100);
   --skeleton-via: var(--color-neutral-150);
   --skeleton-to: var(--color-neutral-100);
+
+  /* Input styles */
+  --input-color-background: var(--neutral-50);
+  --input-color-placeholder: var(--neutral-500);
+  --input-color-border: var(--neutral-100);
+  --input-color-border-focus: var(--neutral-500);
+
 }
 
 /* Dark */
@@ -63,6 +70,12 @@
   --skeleton-from: var(--color-neutral-800);
   --skeleton-via: var(--color-neutral-700);
   --skeleton-to: var(--color-neutral-800);
+
+  /* Input styles */
+  --input-color-background: var(--neutral-950);
+  --input-color-placeholder: var(--neutral-500);
+  --input-color-border: var(--neutral-850);
+  --input-color-border-focus: var(--neutral-500);
 }
 
 @theme {
@@ -167,6 +180,12 @@
   --color-skeleton-from: var(--skeleton-from);
   --color-skeleton-via: var(--skeleton-via);
   --color-skeleton-to: var(--skeleton-to);
+
+  /* Input styles */
+  --color-input-background: var(--input-color-background);
+  --color-input-placeholder: var(--input-color-placeholder);
+  --color-input-border: var(--input-color-border);
+  --color-input-border-focus: var(--input-color-border-focus);
 }
 
 @layer utilities {

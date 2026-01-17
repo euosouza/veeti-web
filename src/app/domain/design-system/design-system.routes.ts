@@ -28,5 +28,9 @@ export const routesDesignSystem: Routes = [
   {
     path: "componentes/skeleton",
     loadComponent: () => import("./pages/components/skeleton-demo/skeleton-demo.page").then((m) => m.SkeletonDemoPage)
+  },
+  {
+    path: "componentes/input",
+    loadComponent: () => import("./pages/components/input-demo/input-demo.page").then((m) => m.InputDemoPage)
   }
 ];

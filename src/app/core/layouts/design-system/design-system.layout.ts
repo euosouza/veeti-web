@@ -51,6 +51,10 @@ export class DesignSystemLayout {
       {
         label: "Skeleton",
         path: "/design-system/componentes/skeleton"
+      },
+      {
+        label: "Input",
+        path: "/design-system/componentes/input"
       }
     ]
   };
