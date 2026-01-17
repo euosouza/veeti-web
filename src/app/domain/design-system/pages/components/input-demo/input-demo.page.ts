@@ -85,6 +85,25 @@ export class InputDemoPage {
     }
   });
 
+  readonly groupConfig = signal({
+    title: "VInputGroup (Wrapper)",
+    description: "Componente wrapper para adicionar ícones e controlar o layout do input.",
+    tableInputs: [
+      {
+        props: "startIcon",
+        types: "string (Material Symbols)",
+        default: "undefined",
+        description: "Ícone exibido no início do input."
+      },
+      {
+        props: "endIcon",
+        types: "string (Material Symbols)",
+        default: "undefined",
+        description: "Ícone exibido no final do input."
+      }
+    ]
+  });
+
   readonly codeSnippet = computed(() => {
     return `<input
   vInput
