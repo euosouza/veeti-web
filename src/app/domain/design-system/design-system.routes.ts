@@ -46,5 +46,10 @@ export const routesDesignSystem: Routes = [
     path: "componentes/label",
     title: "Label",
     loadComponent: () => import("./pages/components/label-demo/label-demo.page").then((m) => m.LabelDemoPage)
+  },
+  {
+    path: "componentes/divider",
+    title: "Divider",
+    loadComponent: () => import("./pages/components/divider-demo/divider-demo.page").then((m) => m.DividerDemoPage)
   }
 ];
