@@ -59,12 +59,7 @@
         <!-- Controles para o Playground -->
         <ng-container controls>
           <div>
-            <label
-              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="variant"
-            >
-              Variante
-            </label>
+            <v-label htmlFor="variant">Variante</v-label>
             <select
               id="variant"
               [(ngModel)]="variant"
@@ -77,12 +72,7 @@
           </div>
 
           <div class="mt-4">
-            <label
-              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="size"
-            >
-              Tamanho
-            </label>
+            <v-label htmlFor="size">Tamanho</v-label>
             <select
               id="size"
               [(ngModel)]="size"
@@ -257,7 +247,7 @@
 
             <form [formGroup]="loginForm" class="flex flex-col gap-4">
               <div class="space-y-2">
-                <label class="text-sm font-medium text-foreground" for="email">Email</label>
+                <v-label htmlFor="email">Email</v-label>
                 <input
                   id="email"
                   vInput
@@ -280,7 +270,7 @@
               </div>
 
               <div class="space-y-2">
-                <label class="text-sm font-medium text-foreground" for="password">Senha</label>
+                <v-label htmlFor="password">Senha</v-label>
                 <input
                   id="password"
                   vInput

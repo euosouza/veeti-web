@@ -50,11 +50,7 @@
         <ng-container controls>
           <div class="flex flex-col gap-4">
             <div class="space-y-2">
-              <label
-                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="content"
-                >Label</label
-              >
+              <v-label htmlFor="content">Label</v-label>
               <input
                 class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
                 id="content"
@@ -63,11 +59,7 @@
             </div>
 
             <div class="mt-2">
-              <label
-                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="variant"
-                >Variante</label
-              >
+              <v-label htmlFor="variant">Variante</v-label>
               <select
                 id="variant"
                 class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"

@@ -1,6 +1,7 @@
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VariantProps } from "class-variance-authority";
+import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { SkeletonComponent } from "../../../../../libs/ui/components/skeleton/skeleton.component";
 import { skeletonVariants } from "../../../../../libs/ui/components/skeleton/skeleton.constants";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
@@ -14,7 +15,7 @@ interface Tab {
 @Component({
   selector: "app-skeleton-demo",
   standalone: true,
-  imports: [SkeletonComponent, PlaygroundComponent, FormsModule],
+  imports: [SkeletonComponent, VLabelComponent, PlaygroundComponent, FormsModule],
   templateUrl: "./skeleton-demo.page.html"
 })
 export class SkeletonDemoPage {

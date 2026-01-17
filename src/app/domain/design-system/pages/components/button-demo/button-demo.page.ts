@@ -4,6 +4,8 @@ import { ButtonComponent } from "../../../../../libs/ui/components/button/button
 import { statesBtnVariant } from "../../../../../libs/ui/components/button/button.constants";
 import { IStatesBtn, TVariantBtn } from "../../../../../libs/ui/components/button/button.interface";
 import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
+import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
@@ -14,7 +16,7 @@ interface Tab {
 
 @Component({
   selector: "app-button-demo.page",
-  imports: [ButtonComponent, PlaygroundComponent, FormsModule, VIconComponent],
+  imports: [ButtonComponent, VInputDirective, VLabelComponent, PlaygroundComponent, FormsModule, VIconComponent],
   templateUrl: "./button-demo.page.html"
 })
 export class ButtonDemoPage {

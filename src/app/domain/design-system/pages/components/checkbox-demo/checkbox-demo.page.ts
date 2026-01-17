@@ -4,6 +4,7 @@ import { ButtonComponent } from "../../../../../libs/ui/components/button/button
 import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v-checkbox.component";
 import { CheckboxVariants } from "../../../../../libs/ui/components/checkbox/v-checkbox.constants";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
@@ -15,7 +16,7 @@ interface Tab {
 @Component({
   selector: "app-checkbox-demo",
   standalone: true,
-  imports: [VCheckboxComponent, VInputDirective, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [VCheckboxComponent, VInputDirective, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
   templateUrl: "./checkbox-demo.page.html"
 })
 export class CheckboxDemoPage {

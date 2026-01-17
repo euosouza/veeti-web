@@ -41,5 +41,10 @@ export const routesDesignSystem: Routes = [
     path: "componentes/checkbox",
     title: "Checkbox",
     loadComponent: () => import("./pages/components/checkbox-demo/checkbox-demo.page").then((m) => m.CheckboxDemoPage)
+  },
+  {
+    path: "componentes/label",
+    title: "Label",
+    loadComponent: () => import("./pages/components/label-demo/label-demo.page").then((m) => m.LabelDemoPage)
   }
 ];

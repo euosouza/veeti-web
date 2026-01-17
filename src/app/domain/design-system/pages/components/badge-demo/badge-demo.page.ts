@@ -2,6 +2,7 @@ import { Component, computed, signal, WritableSignal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
 import { BadgeVariant } from "../../../../../libs/ui/components/badge/badge.interface";
+import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
@@ -19,7 +20,7 @@ interface BadgeItem {
 @Component({
   selector: "app-badge-demo",
   standalone: true,
-  imports: [BadgeComponent, PlaygroundComponent, FormsModule],
+  imports: [BadgeComponent, VLabelComponent, PlaygroundComponent, FormsModule],
   templateUrl: "./badge-demo.page.html"
 })
 export class BadgeDemoPage {

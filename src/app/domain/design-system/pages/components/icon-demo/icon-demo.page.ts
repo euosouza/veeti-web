@@ -1,6 +1,7 @@
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
+import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
@@ -12,7 +13,7 @@ interface Tab {
 @Component({
   selector: "app-icon-demo",
   standalone: true,
-  imports: [VIconComponent, PlaygroundComponent, FormsModule],
+  imports: [VIconComponent, VLabelComponent, PlaygroundComponent, FormsModule],
   templateUrl: "./icon-demo.page.html"
 })
 export class IconDemoPage {

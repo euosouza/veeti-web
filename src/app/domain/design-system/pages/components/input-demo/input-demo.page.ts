@@ -6,6 +6,7 @@ import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v
 import { VInputGroupComponent } from "../../../../../libs/ui/components/input/v-input-group.component";
 import { VInputVariants } from "../../../../../libs/ui/components/input/v-input.constants";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
@@ -17,7 +18,7 @@ interface Tab {
 @Component({
   selector: "app-input-demo",
   standalone: true,
-  imports: [CommonModule, VInputDirective, VInputGroupComponent, VCheckboxComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, VInputDirective, VInputGroupComponent, VCheckboxComponent, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
   templateUrl: "./input-demo.page.html"
 })
 export class InputDemoPage {

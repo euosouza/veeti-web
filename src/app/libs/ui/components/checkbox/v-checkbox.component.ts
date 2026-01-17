@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, computed, forwardRef, input, output, signal, ViewEncapsulation } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { VIconComponent } from "../icon/v-icon.component";
+import { VLabelComponent } from "../label/v-label.component";
 import { checkboxVariants, type CheckboxVariants } from "./v-checkbox.constants";
 
 type OnTouchedType = () => void;
@@ -10,7 +11,7 @@ type OnChangeType = (value: boolean) => void;
 @Component({
   selector: "v-checkbox",
   standalone: true,
-  imports: [CommonModule, VIconComponent],
+  imports: [CommonModule, VIconComponent, VLabelComponent],
   template: `
     <span
       tabindex="0"
@@ -44,9 +45,9 @@ type OnChangeType = (value: boolean) => void;
           [size]="iconSize()"
         />
       </div>
-      <label
-        [for]="inputId()"
-        class="font-medium leading-none select-none text-foreground"
+      <v-label
+        [htmlFor]="inputId()"
+        class="select-none text-foreground"
         [class.text-sm]="size() === 'sm' || size() === 'md'"
         [class.text-base]="size() === 'lg'"
         [class.cursor-pointer]="!isDisabled()"
@@ -55,7 +56,7 @@ type OnChangeType = (value: boolean) => void;
         [class.opacity-50]="isDisabled()"
       >
         <ng-content />
-      </label>
+      </v-label>
     </span>
   `,
   providers: [

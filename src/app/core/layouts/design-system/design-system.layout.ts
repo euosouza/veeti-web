@@ -65,6 +65,10 @@ export class DesignSystemLayout {
       {
         label: "Checkbox",
         path: "/design-system/componentes/checkbox"
+      },
+      {
+        label: "Label",
+        path: "/design-system/componentes/label"
       }
     ]
   };

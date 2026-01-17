@@ -47,11 +47,7 @@
 
         <ng-container controls>
           <div>
-            <label
-              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="name"
-              >Name</label
-            >
+            <v-label htmlFor="name">Name</v-label>
             <input
               class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
               type="text"
@@ -64,11 +60,7 @@
           </div>
 
           <div class="mt-4">
-            <label
-              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="size"
-              >Size</label
-            >
+            <v-label htmlFor="size">Size</v-label>
             <select
               class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
               id="size"
@@ -84,11 +76,7 @@
 
           @if (customSize()) {
             <div class="mt-2">
-              <label
-                class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                for="customSizeInput"
-                >Custom Size (px)</label
-              >
+              <v-label htmlFor="customSizeInput">Custom Size (px)</v-label>
               <input
                 class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground placeholder:text-neutral-500 focus:ring-2 focus:ring-primary/50"
                 type="number"
