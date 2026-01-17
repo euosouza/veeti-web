@@ -16,4 +16,14 @@ export interface PlaygroundConfig {
       description: string;
     }[];
   };
+  groupConfig?: {
+    title: string;
+    description?: string;
+    tableInputs?: {
+      props: string;
+      types: string;
+      default: string;
+      description: string;
+    }[];
+  };
 }

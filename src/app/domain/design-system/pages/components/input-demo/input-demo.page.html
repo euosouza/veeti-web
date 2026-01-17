@@ -63,16 +63,16 @@
               class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               for="variant"
             >
-              Variant
+              Variante
             </label>
             <select
               id="variant"
               [(ngModel)]="variant"
               class="mt-2 w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
             >
-              <option value="default">Default</option>
-              <option value="error">Error</option>
-              <option value="success">Success</option>
+              <option value="default">Padrão</option>
+              <option value="error">Erro</option>
+              <option value="success">Sucesso</option>
             </select>
           </div>
 
@@ -81,32 +81,23 @@
               class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               for="size"
             >
-              Size
+              Tamanho
             </label>
             <select
               id="size"
               [(ngModel)]="size"
               class="mt-2 w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
             >
-              <option value="default">Default</option>
-              <option value="sm">Small</option>
-              <option value="lg">Large</option>
+              <option value="default">Padrão</option>
+              <option value="sm">Pequeno</option>
+              <option value="lg">Grande</option>
             </select>
           </div>
 
-          <div class="flex items-center gap-2 mt-6">
-            <label
-              class="text-foreground text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for="disabled"
-            >
-              Disabled
-            </label>
-            <input
-              class="h-4 w-4 rounded-full border-primary text-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              type="checkbox"
-              id="disabled"
-              [(ngModel)]="disabled"
-            />
+          <div class="flex items-center gap-2 mt-4">
+            <v-checkbox id="disabled" [ngModel]="disabled()" (ngModelChange)="disabled.set($event)">
+              Desabilitado
+            </v-checkbox>
           </div>
         </ng-container>
       </app-playground>
@@ -122,10 +113,10 @@
             <div
               class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border px-4"
             >
-              <input vInput placeholder="Default" />
+              <input vInput placeholder="Padrão" />
             </div>
             <div>
-              <h3 class="font-bold text-foreground mb-1">Default</h3>
+              <h3 class="font-bold text-foreground mb-1">Padrão</h3>
               <p class="text-sm text-muted-foreground">Estado padrão do input.</p>
             </div>
           </div>
@@ -134,10 +125,10 @@
             <div
               class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border px-4"
             >
-              <input vInput variant="error" placeholder="Error" />
+              <input vInput variant="error" placeholder="Erro" />
             </div>
             <div>
-              <h3 class="font-bold text-foreground mb-1">Error</h3>
+              <h3 class="font-bold text-foreground mb-1">Erro</h3>
               <p class="text-sm text-muted-foreground">Indica erro de validação.</p>
             </div>
           </div>
@@ -146,10 +137,10 @@
             <div
               class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border px-4"
             >
-              <input vInput variant="success" placeholder="Success" />
+              <input vInput variant="success" placeholder="Sucesso" />
             </div>
             <div>
-              <h3 class="font-bold text-foreground mb-1">Success</h3>
+              <h3 class="font-bold text-foreground mb-1">Sucesso</h3>
               <p class="text-sm text-muted-foreground">Indica validação bem-sucedida.</p>
             </div>
           </div>
@@ -171,14 +162,14 @@
           </div>
 
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-foreground">Ícone no Fim (Default)</span>
+            <span class="text-sm font-medium text-foreground">Ícone no Fim (Padrão)</span>
             <v-input-group endIcon="calendar_today" class="max-w-sm">
               <input vInput placeholder="Selecione uma data" />
             </v-input-group>
           </div>
 
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-foreground">Ambos os Ícones (Large)</span>
+            <span class="text-sm font-medium text-foreground">Ambos os Ícones (Grande)</span>
             <v-input-group startIcon="mail" endIcon="check" class="max-w-sm">
               <input vInput size="lg" placeholder="Email" value="user@example.com" />
             </v-input-group>
@@ -198,10 +189,10 @@
             <div
               class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border px-4"
             >
-              <input vInput [disabled]="true" placeholder="Disabled Input" />
+              <input vInput [disabled]="true" placeholder="Input Desabilitado" />
             </div>
             <div>
-              <h3 class="font-bold text-foreground mb-1">Disabled</h3>
+              <h3 class="font-bold text-foreground mb-1">Desabilitado</h3>
               <p class="text-sm text-muted-foreground">Indica que o campo não é interativo.</p>
             </div>
           </div>
@@ -211,10 +202,10 @@
             <div
               class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border px-4"
             >
-              <input vInput [class]="getFocusedClasses()" placeholder="Focused Input" />
+              <input vInput [class]="getFocusedClasses()" placeholder="Input Focado" />
             </div>
             <div>
-              <h3 class="font-bold text-foreground mb-1">Focused</h3>
+              <h3 class="font-bold text-foreground mb-1">Focado</h3>
               <p class="text-sm text-muted-foreground">
                 Simulação do estado de foco (ring visível).
               </p>
@@ -231,16 +222,16 @@
         </div>
         <div class="p-8 rounded-xl border border-border bg-card-background flex flex-col gap-8">
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-foreground">Small (sm)</span>
-            <input vInput size="sm" placeholder="Small input" class="max-w-sm" />
+            <span class="text-sm font-medium text-foreground">Pequeno (sm)</span>
+            <input vInput size="sm" placeholder="Input Pequeno" class="max-w-sm" />
           </div>
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-foreground">Default</span>
-            <input vInput placeholder="Default input" class="max-w-sm" />
+            <span class="text-sm font-medium text-foreground">Padrão</span>
+            <input vInput placeholder="Input Padrão" class="max-w-sm" />
           </div>
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-foreground">Large (lg)</span>
-            <input vInput size="lg" placeholder="Large input" class="max-w-sm" />
+            <span class="text-sm font-medium text-foreground">Grande (lg)</span>
+            <input vInput size="lg" placeholder="Input Grande" class="max-w-sm" />
           </div>
         </div>
       </section>
@@ -258,7 +249,7 @@
           <!-- Formulário -->
           <div class="p-8 rounded-xl border border-border bg-card-background space-y-6">
             <div class="pb-4 border-b border-border">
-              <h3 class="font-semibold text-foreground">Login Example</h3>
+              <h3 class="font-semibold text-foreground">Exemplo de Login</h3>
               <p class="text-xs text-muted-foreground mt-1">
                 Experimente interagir com os campos abaixo.
               </p>
@@ -331,7 +322,7 @@
             class="p-8 rounded-xl border border-border bg-card-background flex flex-col text-sm font-mono"
           >
             <div class="pb-4 border-b border-border flex justify-between items-center">
-              <h3 class="font-semibold text-foreground">Form Debugger</h3>
+              <h3 class="font-semibold text-foreground">Depurador de Formulário</h3>
               <span
                 class="text-xs px-2 py-0.5 rounded-full border"
                 [class.text-success-500]="loginForm.valid"

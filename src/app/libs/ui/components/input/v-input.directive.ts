@@ -10,7 +10,7 @@ type OnTouchedType = () => void;
 type OnChangeType = (value: string) => void;
 
 @Directive({
-  selector: "input[vInput], textarea[vInput]",
+  selector: "input[vInput], textarea[vInput], select[vInput]",
   standalone: true,
   providers: [
     {
@@ -22,7 +22,8 @@ type OnChangeType = (value: string) => void;
   host: {
     "[class]": "computedClass()",
     "(blur)": "onBlur()",
-    "(input)": "onInput($event)"
+    "(input)": "onInput($event)",
+    "(change)": "onInput($event)"
   }
 })
 export class VInputDirective implements ControlValueAccessor, OnInit {

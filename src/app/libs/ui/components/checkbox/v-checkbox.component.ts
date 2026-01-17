@@ -26,7 +26,7 @@ type OnChangeType = (value: boolean) => void;
         <input
           #inputRef
           type="checkbox"
-          class="data-[state=checked]:bg-primary data-[state=checked]:border-primary data-[state=checked]:text-primary-foreground"
+          class=""
           [id]="inputId()"
           [class]="checkboxClass()"
           [checked]="checked()"
@@ -46,10 +46,13 @@ type OnChangeType = (value: boolean) => void;
       </div>
       <label
         [for]="inputId()"
-        class="font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 select-none text-foreground"
+        class="font-medium leading-none select-none text-foreground"
         [class.text-sm]="size() === 'sm' || size() === 'md'"
         [class.text-base]="size() === 'lg'"
         [class.cursor-pointer]="!isDisabled()"
+        [class.cursor-not-allowed]="isDisabled()"
+        [class.text-muted-foreground]="isDisabled()"
+        [class.opacity-50]="isDisabled()"
       >
         <ng-content />
       </label>

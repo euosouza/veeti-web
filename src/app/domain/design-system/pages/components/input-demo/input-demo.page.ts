@@ -1,8 +1,10 @@
+import { CommonModule } from "@angular/common";
 import { Component, computed, inject, signal } from "@angular/core";
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
+import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v-checkbox.component";
 import { VInputGroupComponent } from "../../../../../libs/ui/components/input/v-input-group.component";
-import { vInputVariants, VInputVariants } from "../../../../../libs/ui/components/input/v-input.constants";
+import { VInputVariants } from "../../../../../libs/ui/components/input/v-input.constants";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
@@ -15,7 +17,7 @@ interface Tab {
 @Component({
   selector: "app-input-demo",
   standalone: true,
-  imports: [PlaygroundComponent, VInputDirective, VInputGroupComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, VInputDirective, VInputGroupComponent, VCheckboxComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
   templateUrl: "./input-demo.page.html"
 })
 export class InputDemoPage {
@@ -29,86 +31,70 @@ export class InputDemoPage {
   currentTab = signal<Tab>(this.tabs()[0]);
 
   // Playground Controls
-  variant = signal<VInputVariants["variant"]>("default");
-  size = signal<VInputVariants["size"]>("default");
-  customClass = signal("");
-  disabled = signal(false);
-
-  // Reactive Forms Demo (Login Example)
-  loginForm = this.fb.group({
-    email: ["", [Validators.required, Validators.email]],
-    password: ["", [Validators.required, Validators.minLength(6)]]
-  });
-
   readonly config = signal<PlaygroundConfig>({
     title: "Input",
-    description: "Campos de entrada de texto permitem que os usuários insiram e editem texto em interfaces.",
+    description: "Exibe um campo de entrada de formulário ou um componente que se parece com um campo de entrada.",
     documentation: {
       tableInputs: [
+        {
+          props: "vInput",
+          types: "directive",
+          default: "-",
+          description: "Aplica o estilo de input ao elemento. Suporta input, textarea e select."
+        },
         {
           props: "variant",
           types: "'default' | 'error' | 'success'",
           default: "'default'",
-          description: "Define o estado visual do input."
+          description: "A variante visual do input."
         },
         {
           props: "size",
           types: "'sm' | 'default' | 'lg'",
           default: "'default'",
-          description: "Controla o tamanho do input."
-        },
-        {
-          props: "class",
-          types: "string",
-          default: "''",
-          description: "Classes CSS adicionais para customização."
-        },
-        {
-          props: "disabled",
-          types: "boolean",
-          default: "false",
-          description: "Desabilita a interação com o input."
+          description: "O tamanho do input."
         }
       ],
-      tableOutputs: [
+      tableOutputs: []
+    },
+    groupConfig: {
+      title: "Input Group",
+      description: "Um componente wrapper para adicionar ícones ou complementos ao campo de input.",
+      tableInputs: [
         {
-          props: "onChange",
-          return: "any",
-          description: "Emitido quando o valor do input muda (via ControlValueAccessor)."
+          props: "startIcon",
+          types: "string",
+          default: "-",
+          description: "Nome do ícone para exibir no início do input."
         },
         {
-          props: "onTouched",
-          return: "void",
-          description: "Emitido quando o input perde o foco (via ControlValueAccessor)."
+          props: "endIcon",
+          types: "string",
+          default: "-",
+          description: "Nome do ícone para exibir no final do input."
         }
       ]
     }
   });
 
-  readonly groupConfig = signal({
-    title: "VInputGroup (Wrapper)",
-    description: "Componente wrapper para adicionar ícones e controlar o layout do input.",
-    tableInputs: [
-      {
-        props: "startIcon",
-        types: "string (Material Symbols)",
-        default: "undefined",
-        description: "Ícone exibido no início do input."
-      },
-      {
-        props: "endIcon",
-        types: "string (Material Symbols)",
-        default: "undefined",
-        description: "Ícone exibido no final do input."
-      }
-    ]
+  readonly groupConfig = computed(() => this.config().groupConfig!);
+
+  readonly variant = signal<VInputVariants["variant"]>("default");
+  readonly size = signal<VInputVariants["size"]>("default");
+  readonly disabled = signal(false);
+  readonly customClass = signal("");
+
+  // Form Control for Reactive Forms demo
+  readonly loginForm = this.fb.group({
+    email: ["", [Validators.required, Validators.email]],
+    password: ["", [Validators.required, Validators.minLength(6)]]
   });
 
   readonly codeSnippet = computed(() => {
     return `<input
   vInput
   type="text"
-  placeholder="Digite algo..."
+  placeholder="Type something..."
   variant="${this.variant()}"
   size="${this.size()}"
   [disabled]="${this.disabled()}"
@@ -120,11 +106,7 @@ export class InputDemoPage {
     this.tabs.update((tabs) => tabs.map((t) => ({ ...t, active: t.name === tab.name })));
   }
 
-  // Helper to simulate focused state styles
-  getFocusedClasses(variant: VInputVariants["variant"] = "default") {
-    // Get the base classes for the variant
-    const variantClasses = vInputVariants({ variant });
-    // Remove focus-visible: prefix to simulate active focus state
-    return variantClasses.replace(/focus-visible:/g, "");
+  getFocusedClasses() {
+    return "ring-2 ring-ring ring-offset-2";
   }
 }

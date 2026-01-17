@@ -59,10 +59,11 @@
           <div>
             <label class="text-sm font-medium" for="variant">Variante</label>
             <select
+              vInput
+              size="sm"
               id="variant"
               [ngModel]="variant()"
               (ngModelChange)="variant.set($event)"
-              class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
             >
               <option value="default">Padrão</option>
             </select>
@@ -71,10 +72,11 @@
           <div class="mt-4">
             <label class="text-sm font-medium" for="size">Tamanho</label>
             <select
+              vInput
+              size="sm"
               id="size"
               [ngModel]="size()"
               (ngModelChange)="size.set($event)"
-              class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
             >
               <option value="sm">Pequeno</option>
               <option value="md">Médio</option>
@@ -83,33 +85,32 @@
           </div>
 
           <div class="flex items-center gap-2 mt-4">
-            <input
-              type="checkbox"
-              id="disabled"
+            <v-checkbox
+              [id]="'disabled'"
               [ngModel]="disabled()"
               (ngModelChange)="disabled.set($event)"
-              class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-            />
-            <label class="text-sm font-medium" for="disabled">Desabilitado</label>
+            >
+              Desabilitado
+            </v-checkbox>
           </div>
         </ng-container>
       </app-playground>
 
-      <section class="mt-12 space-y-8">
+      <section class="mt-12 space-y-8 text-foreground">
         <h2 class="text-2xl font-bold tracking-tight">Exemplos</h2>
 
-        <div class="grid gap-6">
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="rounded-lg border border-border bg-card-background text-card-foreground p-6">
             <h3 class="font-semibold leading-none tracking-tight mb-4">Com Texto</h3>
             <div class="flex items-center space-x-2">
-              <v-checkbox id="terms"> Aceitar termos e condições </v-checkbox>
+              <v-checkbox [id]="'terms'"> Aceitar termos e condições </v-checkbox>
             </div>
           </div>
 
-          <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+          <div class="rounded-lg border border-border bg-card-background text-card-foreground p-6">
             <h3 class="font-semibold leading-none tracking-tight mb-4">Desabilitado</h3>
             <div class="flex items-center space-x-2">
-              <v-checkbox id="disabled-example" [disabled]="true">
+              <v-checkbox [id]="'disabled-example'" [disabled]="true">
                 Checkbox Desabilitado
               </v-checkbox>
             </div>
@@ -123,11 +124,13 @@
           <h2 class="text-2xl font-bold text-foreground">Tamanhos</h2>
           <p class="text-muted-foreground">Opções de tamanho disponíveis.</p>
         </div>
-        <div class="p-8 rounded-xl border border-border bg-card-background flex flex-col gap-6">
+        <div
+          class="p-8 rounded-xl border border-border bg-card-background text-card-foreground flex flex-col gap-6"
+        >
           <div class="flex items-center gap-4">
-            <v-checkbox id="size-sm" size="sm">Pequeno</v-checkbox>
-            <v-checkbox id="size-md" size="md">Médio (Padrão)</v-checkbox>
-            <v-checkbox id="size-lg" size="lg">Grande</v-checkbox>
+            <v-checkbox [id]="'size-sm'" size="sm">Pequeno</v-checkbox>
+            <v-checkbox [id]="'size-md'" size="md">Médio (Padrão)</v-checkbox>
+            <v-checkbox [id]="'size-lg'" size="lg">Grande</v-checkbox>
           </div>
         </div>
       </section>
@@ -143,7 +146,9 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Formulário -->
-          <div class="p-8 rounded-xl border border-border bg-card-background space-y-6">
+          <div
+            class="p-8 rounded-xl border border-border bg-card-background text-card-foreground space-y-6"
+          >
             <div class="pb-4 border-b border-border">
               <h3 class="font-semibold text-foreground">Acordo de Termos</h3>
               <p class="text-xs text-muted-foreground mt-1">
@@ -153,7 +158,7 @@
 
             <form [formGroup]="loginForm" class="flex flex-col gap-4">
               <div class="space-y-2">
-                <v-checkbox id="terms-form" formControlName="terms">
+                <v-checkbox [id]="'terms-form'" formControlName="terms">
                   Eu concordo com os termos e condições
                 </v-checkbox>
                 @if (
@@ -181,10 +186,10 @@
 
           <!-- Debugger -->
           <div
-            class="p-8 rounded-xl border border-border bg-card-background flex flex-col text-sm font-mono"
+            class="p-8 rounded-xl border border-border bg-card-background text-card-foreground flex flex-col text-sm font-mono"
           >
             <div class="pb-4 border-b border-border flex justify-between items-center">
-              <h3 class="font-semibold text-foreground">Form Debugger</h3>
+              <h3 class="font-semibold text-foreground">Depurador de Formulário</h3>
               <span
                 class="text-xs px-2 py-0.5 rounded-full border"
                 [class.text-success-500]="loginForm.valid"
