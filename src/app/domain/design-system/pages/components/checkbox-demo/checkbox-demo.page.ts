@@ -13,10 +13,12 @@ interface Tab {
   active: boolean;
 }
 
+import { VFormDebuggerComponent } from "../../../components/form-debugger/v-form-debugger.component";
+
 @Component({
   selector: "app-checkbox-demo",
   standalone: true,
-  imports: [VCheckboxComponent, VInputDirective, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [VCheckboxComponent, VInputDirective, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule, VFormDebuggerComponent],
   templateUrl: "./checkbox-demo.page.html"
 })
 export class CheckboxDemoPage {

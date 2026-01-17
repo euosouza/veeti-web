@@ -15,10 +15,23 @@ interface Tab {
   active: boolean;
 }
 
+import { VFormDebuggerComponent } from "../../../components/form-debugger/v-form-debugger.component";
+
 @Component({
   selector: "app-input-demo",
   standalone: true,
-  imports: [CommonModule, VInputDirective, VInputGroupComponent, VCheckboxComponent, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    VInputDirective,
+    VInputGroupComponent,
+    VCheckboxComponent,
+    VLabelComponent,
+    PlaygroundComponent,
+    ButtonComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    VFormDebuggerComponent
+  ],
   templateUrl: "./input-demo.page.html"
 })
 export class InputDemoPage {

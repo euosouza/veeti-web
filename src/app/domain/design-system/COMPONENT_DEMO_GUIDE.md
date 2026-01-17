@@ -165,9 +165,26 @@ Use o `app-playground` para a demonstração interativa. O componente a ser demo
 </app-playground>
 ```
 
-### Passo 3: Seções de Demonstração Adicionais
+### Passo 4: Seções de Demonstração Adicionais
 
 Crie seções adicionais para mostrar variações, estados, tamanhos, etc., do seu componente com exemplos estáticos, similar às seções "Tipos e Hierarquia" e "Estados" da página do botão.
+
+### Passo 5: Depuração de Formulários (Opcional)
+
+Se o seu componente se integra com formulários (usa `ControlValueAccessor`), é **altamente recomendado** adicionar uma seção demonstrando essa integração usando o componente `VFormDebuggerComponent`.
+
+1. Importe o `VFormDebuggerComponent` no seu `.page.ts`.
+2. Adicione-o ao template `.page.html` passando o controle que deseja inspecionar.
+
+```html
+<!-- Para um controle único -->
+<v-form-debugger [control]="meuForm.controls['meuCampo']"></v-form-debugger>
+
+<!-- Para um FormGroup inteiro (exibe todos os controles filhos) -->
+<v-form-debugger [control]="meuForm" title="Depurador de Formulário"></v-form-debugger>
+```
+
+Isso exibirá automaticamente o status (valid/invalid), flags (touched/dirty), valor e erros dos controles. Se um `FormGroup` for passado, o componente iterará automaticamente sobre todos os filhos, mantendo o layout padrão de grid para fácil visualização.
 
 ## 5. Criando o Teste (`meu-componente-demo.page.spec.ts`)
 
