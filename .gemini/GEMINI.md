@@ -28,6 +28,13 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Do NOT use `ngClass`, use `class` bindings instead
 - Do NOT use `ngStyle`, use `style` bindings instead
 
+## Form Integration
+
+- **ControlValueAccessor:** When creating components that integrate with forms (require `formControl`), you **MUST** implement the `ControlValueAccessor` interface.
+  - Follow the pattern used in [`VInputDirective`](src/app/libs/ui/components/input/v-input.directive.ts) for handling touched/dirty states and validation.
+  - Do NOT pass `formControl` as a plain input unless absolutely necessary.
+
+
 ## State Management
 
 - Use signals for local component state

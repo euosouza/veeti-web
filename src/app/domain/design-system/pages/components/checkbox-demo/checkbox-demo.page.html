@@ -1,0 +1,341 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest">
+    Design System > Componentes
+  </span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Visão Geral") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <div class="flex items-center">
+            <v-checkbox
+              [id]="checkboxId()"
+              [variant]="variant()"
+              [size]="size()"
+              [disabled]="disabled()"
+              [formControl]="control"
+            >
+              Aceitar termos e condições
+            </v-checkbox>
+          </div>
+        </ng-content>
+
+        <ng-container controls>
+          <div>
+            <label class="text-sm font-medium" for="variant">Variante</label>
+            <select
+              id="variant"
+              [ngModel]="variant()"
+              (ngModelChange)="variant.set($event)"
+              class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <option value="default">Padrão</option>
+            </select>
+          </div>
+
+          <div class="mt-4">
+            <label class="text-sm font-medium" for="size">Tamanho</label>
+            <select
+              id="size"
+              [ngModel]="size()"
+              (ngModelChange)="size.set($event)"
+              class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <option value="sm">Pequeno</option>
+              <option value="md">Médio</option>
+              <option value="lg">Grande</option>
+            </select>
+          </div>
+
+          <div class="flex items-center gap-2 mt-4">
+            <input
+              type="checkbox"
+              id="disabled"
+              [ngModel]="disabled()"
+              (ngModelChange)="disabled.set($event)"
+              class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+            />
+            <label class="text-sm font-medium" for="disabled">Desabilitado</label>
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <section class="mt-12 space-y-8">
+        <h2 class="text-2xl font-bold tracking-tight">Exemplos</h2>
+
+        <div class="grid gap-6">
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+            <h3 class="font-semibold leading-none tracking-tight mb-4">Com Texto</h3>
+            <div class="flex items-center space-x-2">
+              <v-checkbox id="terms"> Aceitar termos e condições </v-checkbox>
+            </div>
+          </div>
+
+          <div class="rounded-lg border bg-card text-card-foreground shadow-sm p-6">
+            <h3 class="font-semibold leading-none tracking-tight mb-4">Desabilitado</h3>
+            <div class="flex items-center space-x-2">
+              <v-checkbox id="disabled-example" [disabled]="true">
+                Checkbox Desabilitado
+              </v-checkbox>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Sizes -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Tamanhos</h2>
+          <p class="text-muted-foreground">Opções de tamanho disponíveis.</p>
+        </div>
+        <div class="p-8 rounded-xl border border-border bg-card-background flex flex-col gap-6">
+          <div class="flex items-center gap-4">
+            <v-checkbox id="size-sm" size="sm">Pequeno</v-checkbox>
+            <v-checkbox id="size-md" size="md">Médio (Padrão)</v-checkbox>
+            <v-checkbox id="size-lg" size="lg">Grande</v-checkbox>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Reactive Forms -->
+      <section class="space-y-6 mt-12 mb-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Integração com Reactive Forms</h2>
+          <p class="text-muted-foreground">
+            Exemplo de um formulário com validação e debugger de estado em tempo real.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Formulário -->
+          <div class="p-8 rounded-xl border border-border bg-card-background space-y-6">
+            <div class="pb-4 border-b border-border">
+              <h3 class="font-semibold text-foreground">Acordo de Termos</h3>
+              <p class="text-xs text-muted-foreground mt-1">
+                Experimente interagir com o checkbox abaixo.
+              </p>
+            </div>
+
+            <form [formGroup]="loginForm" class="flex flex-col gap-4">
+              <div class="space-y-2">
+                <v-checkbox id="terms-form" formControlName="terms">
+                  Eu concordo com os termos e condições
+                </v-checkbox>
+                @if (
+                  loginForm.controls["terms"].invalid &&
+                  (loginForm.controls["terms"].dirty || loginForm.controls["terms"].touched)
+                ) {
+                  <p class="text-xs text-error-500">Você deve aceitar os termos.</p>
+                }
+              </div>
+
+              <div class="pt-2 grid justify-center">
+                <app-button type="submit" [disabled]="loginForm.invalid">Enviar</app-button>
+              </div>
+            </form>
+
+            <div class="flex justify-end pt-4 border-t border-border">
+              <button
+                (click)="loginForm.reset()"
+                class="text-xs text-muted-foreground hover:text-foreground underline transition-colors"
+              >
+                Resetar Formulário
+              </button>
+            </div>
+          </div>
+
+          <!-- Debugger -->
+          <div
+            class="p-8 rounded-xl border border-border bg-card-background flex flex-col text-sm font-mono"
+          >
+            <div class="pb-4 border-b border-border flex justify-between items-center">
+              <h3 class="font-semibold text-foreground">Form Debugger</h3>
+              <span
+                class="text-xs px-2 py-0.5 rounded-full border"
+                [class.text-success-500]="loginForm.valid"
+                [class.text-error-500]="loginForm.invalid"
+              >
+                {{ loginForm.status }}
+              </span>
+            </div>
+
+            <div class="flex-1 overflow-auto mt-4 space-y-6 bg-transparent">
+              <!-- Terms State -->
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-foreground">terms</span>
+                  <span class="text-xs text-muted-foreground">FormControl</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <div class="p-2 rounded bg-background border border-border flex justify-between">
+                    <span class="text-muted-foreground">valid</span>
+                    <span
+                      [class.text-success-500]="loginForm.get('terms')?.valid"
+                      [class.text-error-500]="!loginForm.get('terms')?.valid"
+                    >
+                      {{ loginForm.get("terms")?.valid }}
+                    </span>
+                  </div>
+                  <div class="p-2 rounded bg-background border border-border flex justify-between">
+                    <span class="text-muted-foreground">touched</span>
+                    <span
+                      [class.text-success-500]="loginForm.get('terms')?.touched"
+                      [class.text-error-500]="!loginForm.get('terms')?.touched"
+                    >
+                      {{ loginForm.get("terms")?.touched }}
+                    </span>
+                  </div>
+                  <div class="p-2 rounded bg-background border border-border flex justify-between">
+                    <span class="text-muted-foreground">disabled</span>
+                    <span
+                      [class.text-success-500]="loginForm.get('terms')?.disabled"
+                      [class.text-error-500]="!loginForm.get('terms')?.disabled"
+                    >
+                      {{ loginForm.get("terms")?.disabled }}
+                    </span>
+                  </div>
+                  <div
+                    class="p-2 rounded bg-background border border-border flex justify-between col-span-2"
+                  >
+                    <span class="text-muted-foreground">value</span>
+                    <span class="text-foreground truncate max-w-[150px]">
+                      {{ loginForm.get("terms")?.value }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 mt-auto border-t border-border text-xs text-muted-foreground">
+              <p>Observe como os estados mudam ao interagir com o formulário.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+    @case ("API") {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          <div
+            class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+          >
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                >
+                  <th class="p-4 text-left font-bold">Propriedade</th>
+                  <th class="p-4 text-left font-bold">Tipo</th>
+                  <th class="p-4 text-left font-bold">Padrão</th>
+                  <th class="p-4 text-left font-bold">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm bg-card-background">
+                @for (item of config().documentation?.tableInputs; track $index) {
+                  <tr class="border-b border-border">
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.props }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.types }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.default }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+          <div
+            class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+          >
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                >
+                  <th class="p-4 text-left font-bold">Nome</th>
+                  <th class="p-4 text-left font-bold">Retorno</th>
+                  <th class="p-4 text-left font-bold">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm bg-card-background">
+                @for (item of config().documentation?.tableOutputs; track $index) {
+                  <tr class="border-b border-border">
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.props }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.return }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>
