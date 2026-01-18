@@ -123,6 +123,12 @@ Consistency is key. Please adhere to the following rules when creating new files
 - **Design System:**
   - Always check `app/libs/ui/components` before creating a custom UI element. Use the `V` prefixed components whenever possible.
 
+## Development Rules
+
+- **Documentation:** ALWAYS update the documentation for components or pages whenever they are created or modified.
+- **Testing:** Do NOT create `.spec` files. We are not writing unit tests yet.
+- **Design System Standards:** When creating a new Design System component, ALWAYS follow the guides in [`NEW_COMPONENT_GUIDE.md`](src/app/libs/ui/components/NEW_COMPONENT_GUIDE.md) and [`COMPONENT_DEMO_GUIDE.md`](src/app/domain/design-system/COMPONENT_DEMO_GUIDE.md).
+
 ## Documentação de Desenvolvimento
 
 - [Guia para Criação de Novos Componentes do Design System](src/app/libs/ui/components/NEW_COMPONENT_GUIDE.md)
