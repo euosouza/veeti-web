@@ -121,7 +121,10 @@ export class TableDemoPage implements AfterViewInit {
 
   // Computed code snippet based on current state
   readonly codeSnippet = computed(() => {
-    const selectableAttr = this.selectable() ? "\n  [selectable]=\"true\"" : "";
+    const selectableAttr = this.selectable()
+      ? `
+  [selectable]="true"`
+      : "";
 
     return `<v-table
   [data]="data"

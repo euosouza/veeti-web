@@ -47,10 +47,6 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/avatar"
       },
       {
-        label: "Table",
-        path: "/design-system/componentes/table"
-      },
-      {
         label: "Badge",
         path: "/design-system/componentes/badge"
       },
@@ -83,8 +79,16 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/label"
       },
       {
+        label: "Pagination",
+        path: "/design-system/componentes/pagination"
+      },
+      {
         label: "Skeleton",
         path: "/design-system/componentes/skeleton"
+      },
+      {
+        label: "Table",
+        path: "/design-system/componentes/table"
       }
     ]
   };

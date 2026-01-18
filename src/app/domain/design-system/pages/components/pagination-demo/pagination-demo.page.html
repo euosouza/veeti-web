@@ -1,0 +1,325 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest"
+    >Design System > Componentes</span
+  >
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-muted-foreground">
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-foreground.hover:border-gray-300]="!tab.active"
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-container preview>
+          <div class="flex items-center justify-center p-8 w-full">
+            <v-pagination
+              [total]="total()"
+              [pageSize]="pageSize()"
+              [currentPage]="currentPage()"
+              [pageSizeOptions]="pageSizeOptions()"
+              [disabled]="disabled()"
+              [variant]="variant()"
+              (pageChange)="onPageChange($event)"
+              (pageSizeChange)="onPageSizeChange($event)"
+            ></v-pagination>
+          </div>
+        </ng-container>
+
+        <ng-container controls>
+          <div class="grid grid-cols-1 gap-4">
+            <div>
+              <v-label>Total de Itens</v-label>
+              <input vInput type="number" [ngModel]="total()" (ngModelChange)="total.set($event)" />
+            </div>
+
+            <div>
+              <v-label>Tamanho da Página</v-label>
+              <input
+                vInput
+                type="number"
+                [ngModel]="pageSize()"
+                (ngModelChange)="pageSize.set($event)"
+              />
+            </div>
+
+            <div>
+              <v-label>Página Atual</v-label>
+              <input
+                vInput
+                type="number"
+                [ngModel]="currentPage()"
+                (ngModelChange)="currentPage.set($event)"
+              />
+            </div>
+
+            <div>
+              <v-label>Variante</v-label>
+              <select
+                vInput
+                [ngModel]="variant()"
+                (ngModelChange)="variant.set($any($event))"
+                class="w-full"
+              >
+                <option value="default">Padrão</option>
+                <option value="numeric">Numérico</option>
+                <option value="item-count">Contagem de Itens</option>
+                <option value="mobile">Mobile</option>
+                <option value="input-jump">Salto por Input</option>
+              </select>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <v-checkbox [ngModel]="disabled()" (ngModelChange)="disabled.set($event)">
+                Desabilitado
+              </v-checkbox>
+            </div>
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Variantes</h2>
+          <p class="text-muted-foreground">
+            Opções de visualização adaptadas a diferentes contextos.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Variant 1: Basic Numeric -->
+          <v-card
+            vTitle="Numérico Básico"
+            vDescription="Uso padrão para tabelas de dados. Mostra o contexto da página atual."
+          >
+            <div class="flex items-center justify-center">
+              <v-pagination
+                [total]="total()"
+                [pageSize]="pageSize()"
+                [currentPage]="currentPage()"
+                variant="numeric"
+                (pageChange)="onPageChange($event)"
+              ></v-pagination>
+            </div>
+          </v-card>
+
+          <!-- Variant 2: With Item Count -->
+          <v-card
+            vTitle="Com Contagem de Itens"
+            vDescription="Permite que o usuário controle a densidade de dados por página."
+          >
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <v-pagination
+                [total]="total()"
+                [pageSize]="pageSize()"
+                [currentPage]="currentPage()"
+                [pageSizeOptions]="pageSizeOptions()"
+                variant="item-count"
+                (pageChange)="onPageChange($event)"
+                (pageSizeChange)="onPageSizeChange($event)"
+              ></v-pagination>
+            </div>
+          </v-card>
+
+          <!-- Variant 3: Minimal / Mobile -->
+          <v-card
+            vTitle="Mínimo / Mobile"
+            vDescription="Versão compacta para espaços restritos ou cartões."
+          >
+            <div class="flex items-center justify-center">
+              <v-pagination
+                [total]="total()"
+                [pageSize]="pageSize()"
+                [currentPage]="currentPage()"
+                variant="mobile"
+                (pageChange)="onPageChange($event)"
+              ></v-pagination>
+            </div>
+          </v-card>
+
+          <!-- Variant 4: Input Jump -->
+          <v-card
+            vTitle="Salto por Input"
+            vDescription="Navegação direta para grandes conjuntos de dados."
+          >
+            <div class="flex items-center justify-center gap-3">
+              <v-pagination
+                [total]="total()"
+                [pageSize]="pageSize()"
+                [currentPage]="currentPage()"
+                variant="input-jump"
+                (pageChange)="onPageChange($event)"
+              ></v-pagination>
+            </div>
+          </v-card>
+        </div>
+      </section>
+
+      <section class="space-y-6 mt-12 mb-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Integração com API (JSONPlaceholder)</h2>
+          <p class="text-muted-foreground">
+            Este exemplo demonstra como integrar o componente de paginação com uma tabela e chamas
+            de API reais.
+          </p>
+        </div>
+
+        <div class="border border-border rounded-lg overflow-hidden bg-card-background">
+          <v-table [data]="posts()" [columns]="postColumns"> </v-table>
+
+          @if (postsLoading()) {
+            <div class="p-4 text-center text-muted-foreground">Carregando dados...</div>
+          }
+
+          <div class="p-4 border-t border-border flex justify-end">
+            <v-pagination
+              [total]="postsTotal()"
+              [pageSize]="postsPageSize()"
+              [currentPage]="postsPage()"
+              variant="item-count"
+              [pageSizeOptions]="[5, 10, 20]"
+              (pageChange)="onPostsPageChange($event)"
+              (pageSizeChange)="postsPageSize.set($event); postsPage.set(1); fetchPosts()"
+            ></v-pagination>
+          </div>
+        </div>
+      </section>
+    }
+    @default {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          @if (config().documentation?.subtitleInput) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleInput }}
+            </p>
+          }
+
+          @if (config().documentation?.tableInputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Propriedade</th>
+                    <th class="p-4 text-left font-bold">Tipo</th>
+                    <th class="p-4 text-left font-bold">Padrão</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableInputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground max-w-37.5">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.types }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.default }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+
+        <div class="mt-8">
+          <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+
+          @if (config().documentation?.subtitleOutputs) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleOutputs }}
+            </p>
+          }
+
+          @if (config().documentation?.tableOutputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Nome</th>
+                    <th class="p-4 text-left font-bold">Retorno</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableOutputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.return }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>

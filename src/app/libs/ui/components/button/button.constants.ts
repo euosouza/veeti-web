@@ -36,6 +36,12 @@ export const statesBtnVariant = {
     hover: "hover:bg-card-background hover:dark:bg-neutral-700 ",
     focused: "focus-visible:ring-2 focus-visible:ring-foreground-400",
     disabled: "disabled:text-foreground-300 disabled:cursor-not-allowed disabled:hover:opacity-30"
+  },
+  ghost: {
+    default: "bg-transparent text-foreground",
+    hover: "hover:bg-neutral-100 dark:hover:bg-neutral-800",
+    focused: "focus-visible:ring-2 focus-visible:ring-foreground-400",
+    disabled: "disabled:text-foreground-300 disabled:cursor-not-allowed"
   }
 };
 
@@ -47,7 +53,8 @@ export const buttonVariants = cva("inline-flex items-center justify-center gap-2
       destructive: [statesBtnVariant.destructive.default, statesBtnVariant.destructive.hover, statesBtnVariant.destructive.focused, statesBtnVariant.destructive.disabled],
       outline: [statesBtnVariant.outline.default, statesBtnVariant.outline.hover, statesBtnVariant.outline.focused, statesBtnVariant.outline.disabled],
       icon: [statesBtnVariant.icon.default, statesBtnVariant.icon.hover, statesBtnVariant.icon.focused, statesBtnVariant.icon.disabled],
-      link: [statesBtnVariant.link.default, statesBtnVariant.link.hover, statesBtnVariant.link.focused, statesBtnVariant.link.disabled]
+      link: [statesBtnVariant.link.default, statesBtnVariant.link.hover, statesBtnVariant.link.focused, statesBtnVariant.link.disabled],
+      ghost: [statesBtnVariant.ghost.default, statesBtnVariant.ghost.hover, statesBtnVariant.ghost.focused, statesBtnVariant.ghost.disabled]
     },
     size: {
       sm: "h-9 rounded-md px-3 text-xs",
