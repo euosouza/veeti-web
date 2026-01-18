@@ -43,44 +43,44 @@ export class DesignSystemLayout {
     ],
     componentes: [
       {
-        label: "Button",
-        path: "/design-system/componentes/button"
+        label: "Avatar",
+        path: "/design-system/componentes/avatar"
       },
       {
         label: "Badge",
         path: "/design-system/componentes/badge"
       },
       {
-        label: "Skeleton",
-        path: "/design-system/componentes/skeleton"
-      },
-      {
-        label: "Input",
-        path: "/design-system/componentes/input"
-      },
-      {
-        label: "Icon",
-        path: "/design-system/componentes/icon"
-      },
-      {
-        label: "Checkbox",
-        path: "/design-system/componentes/checkbox"
-      },
-      {
-        label: "Label",
-        path: "/design-system/componentes/label"
-      },
-      {
-        label: "Divider",
-        path: "/design-system/componentes/divider"
+        label: "Button",
+        path: "/design-system/componentes/button"
       },
       {
         label: "Card",
         path: "/design-system/componentes/card"
       },
       {
-        label: "Avatar",
-        path: "/design-system/componentes/avatar"
+        label: "Checkbox",
+        path: "/design-system/componentes/checkbox"
+      },
+      {
+        label: "Divider",
+        path: "/design-system/componentes/divider"
+      },
+      {
+        label: "Icon",
+        path: "/design-system/componentes/icon"
+      },
+      {
+        label: "Input",
+        path: "/design-system/componentes/input"
+      },
+      {
+        label: "Label",
+        path: "/design-system/componentes/label"
+      },
+      {
+        label: "Skeleton",
+        path: "/design-system/componentes/skeleton"
       }
     ]
   };
