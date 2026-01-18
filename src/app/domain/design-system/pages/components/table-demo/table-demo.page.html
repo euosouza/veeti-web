@@ -1,0 +1,258 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest">
+    Design System > Componentes
+  </span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <div class="w-[80%] flex flex-col gap-4">
+            @if (selectable()) {
+              <div class="text-sm text-muted-foreground">
+                Selected rows:
+                <span class="font-medium text-foreground">{{ selectedCount() }}</span>
+              </div>
+            }
+            <v-table
+              [data]="data"
+              [columns]="columns"
+              [variant]="variant()"
+              [size]="size()"
+              [selectable]="selectable()"
+              (selectionChange)="onSelection($event)"
+            />
+
+            <ng-template #statusTemplate let-row>
+              <v-badge [variant]="row.status === 'active' ? 'success' : 'danger'">
+                {{ row.status | titlecase }}
+              </v-badge>
+            </ng-template>
+
+            <ng-template #actionsTemplate let-row>
+              <div class="flex items-center justify-center">
+                <v-dropdown>
+                  <button
+                    vDropdownTrigger
+                    class="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  >
+                    <v-icon name="more_vert" size="md"></v-icon>
+                  </button>
+                  <v-dropdown-content>
+                    <v-dropdown-item>
+                      <div class="flex items-center gap-2">
+                        <v-icon name="edit" size="md"></v-icon>
+                        <span>Edit</span>
+                      </div>
+                    </v-dropdown-item>
+                    <v-dropdown-item class="text-red-500 hover:text-red-600">
+                      <div class="flex items-center gap-2">
+                        <v-icon name="delete" size="sm"></v-icon>
+                        <span>Delete</span>
+                      </div>
+                    </v-dropdown-item>
+                  </v-dropdown-content>
+                </v-dropdown>
+              </div>
+            </ng-template>
+          </div>
+        </ng-content>
+
+        <ng-container controls>
+          <div class="flex flex-col gap-4">
+            <div class="grid w-full max-w-sm items-center gap-1.5">
+              <v-label htmlFor="variant-select">Variant</v-label>
+              <div class="relative">
+                <select
+                  vInput
+                  id="variant-select"
+                  [ngModel]="variant()"
+                  (ngModelChange)="variant.set($event)"
+                  class="w-full bg-transparent outline-none appearance-none"
+                >
+                  <option value="default">Default</option>
+                  <option value="striped">Striped</option>
+                </select>
+                <v-icon
+                  name="expand_more"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground"
+                ></v-icon>
+              </div>
+            </div>
+
+            <div class="grid w-full max-w-sm items-center gap-1.5">
+              <v-label htmlFor="size-select">Size</v-label>
+              <div class="relative">
+                <select
+                  vInput
+                  id="size-select"
+                  [ngModel]="size()"
+                  (ngModelChange)="size.set($event)"
+                  class="w-full bg-transparent outline-none appearance-none"
+                >
+                  <option value="sm">Small</option>
+                  <option value="md">Medium</option>
+                  <option value="lg">Large</option>
+                </select>
+                <v-icon
+                  name="expand_more"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground"
+                ></v-icon>
+              </div>
+            </div>
+
+            <div class="grid w-full max-w-sm items-center gap-1.5">
+              <v-label htmlFor="selectable-select">Selectable</v-label>
+              <div class="relative">
+                <select
+                  vInput
+                  id="selectable-select"
+                  [ngModel]="selectable()"
+                  (ngModelChange)="selectable.set($event === 'true')"
+                  class="w-full bg-transparent outline-none appearance-none"
+                >
+                  <option [value]="false">No</option>
+                  <option [value]="true">Yes</option>
+                </select>
+                <v-icon
+                  name="expand_more"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground"
+                ></v-icon>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </app-playground>
+    }
+
+    @case ("API") {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          <div
+            class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+          >
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                >
+                  <th class="p-4 text-left font-bold">Propriedade</th>
+                  <th class="p-4 text-left font-bold">Tipo</th>
+                  <th class="p-4 text-left font-bold">Padrão</th>
+                  <th class="p-4 text-left font-bold">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm bg-card-background">
+                @for (item of config().documentation?.tableInputs; track $index) {
+                  <tr class="border-b border-border">
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.props }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.types }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.default }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+          <div
+            class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+          >
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                >
+                  <th class="p-4 text-left font-bold">Nome</th>
+                  <th class="p-4 text-left font-bold">Retorno</th>
+                  <th class="p-4 text-left font-bold">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm bg-card-background">
+                @for (item of config().documentation?.tableOutputs; track $index) {
+                  <tr class="border-b border-border">
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.props }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">
+                      <span
+                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                        ><code>{{ item.return }}</code></span
+                      >
+                    </td>
+                    <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>
+
+<!-- 
+  NOTE: Templates must be outside of @switch/structural directives to be resolved 
+  by @ViewChild(..., { static: true }) in ngOnInit.
+-->

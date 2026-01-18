@@ -47,6 +47,10 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/avatar"
       },
       {
+        label: "Table",
+        path: "/design-system/componentes/table"
+      },
+      {
         label: "Badge",
         path: "/design-system/componentes/badge"
       },

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { BadgeComponent } from "./badge.component";
 import { By } from "@angular/platform-browser";
+import { VBadgeComponent } from "./badge.component";
 
-describe("BadgeComponent", () => {
-  let component: BadgeComponent;
-  let fixture: ComponentFixture<BadgeComponent>;
+describe("VBadgeComponent", () => {
+  let component: VBadgeComponent;
+  let fixture: ComponentFixture<VBadgeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BadgeComponent]
+      imports: [VBadgeComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BadgeComponent);
+    fixture = TestBed.createComponent(VBadgeComponent);
     component = fixture.componentInstance;
   });
 

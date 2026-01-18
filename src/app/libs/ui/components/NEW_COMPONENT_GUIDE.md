@@ -1,146 +1,180 @@
-# Guia para Criação de Novos Componentes no Design System
+# Guia Completo para Criação de Componentes no Design System
 
-Este documento serve como um guia passo a passo para a criação de novos componentes reutilizáveis dentro do `libs/ui` e sua subsequente documentação e demonstração no Design System.
+Este documento é o guia definitivo para a criação de componentes de UI robustos, escaláveis e bem documentados. Siga-o rigorosamente para manter a alta qualidade do nosso Design System.
 
-## 1. Estrutura de Arquivos do Componente
+---
 
-Todo novo componente deve residir em `src/app/libs/ui/components`. A estrutura de diretórios para um novo componente deve ser a seguinte:
+## 1. Estrutura de Arquivos e Propósitos
 
-```
-└───ui
-    └───components
-        └───[component-name]
-            ├───[component-name].component.ts
-            ├───[component-name].component.spec.ts
-            ├───[component-name].constants.ts  // Opcional: para variantes com CVA
-            ├───[component-name].interface.ts // Opcional: para tipos e interfaces complexas
-            └───README.md                        // Documentação do componente
-```
+Todo componente vive em `src/app/libs/ui/components/[nome-do-componente]`.
 
-## 2. Desenvolvendo o Componente
+| Arquivo | Propósito | Obrigatório? |
+| :--- | :--- | :--- |
+| `[nome].component.ts` | **Lógica e Template**. O cérebro do componente. Preferimos templates inline para componentes pequenos/médios. | Sim |
+| `[nome].component.spec.ts` | **Testes Unitários**. Garante que o componente renderiza e comporta-se como esperado. | Sim |
+| `[nome].constants.ts` | **Estilos e Variantes (CVA)**. Separa a definição de classes CSS da lógica, mantendo o componente limpo. | Se usar variantes |
+| `[nome].interface.ts` | **Tipagem**. Exporta interfaces (`interface`) e tipos (`type`) públicos para consumidores do componente. | Se complexo |
+| `README.md` | **Documentação Técnica**. A "bula" do componente para outros devs. | **SIM** |
 
-### a. Lógica do Componente (`.ts`)
+---
 
--   **Standalone**: O componente deve ser `standalone: true`.
--   **API Pública**: Defina os `inputs` e `@Output()` do seu componente. Prefira os `input()` signals sempre que possível.
--   **Encapsulamento**: Toda a lógica deve ser autocontida, evitando dependências externas desnecessárias.
--   **Acessibilidade (A11y)**: Garanta que o componente seja acessível, utilizando atributos ARIA apropriados e gerenciando o foco quando necessário.
+## 2. Padrões de Desenvolvimento
 
-**Exemplo de Estrutura (`[component-name].component.ts`):**
+### a. Angular Moderno (Signals)
+
+Adotamos **Angular Signals** como padrão para reatividade.
+
+**❌ EVITE (`@Input` Decorator):**
 ```typescript
-import { Component, input, Output, EventEmitter } from '@angular/core';
-
-@Component({
-  selector: 'app-[component-name]',
-  standalone: true,
-  imports: [/* Módulos e componentes necessários */],
-  template: `<!-- HTML do seu componente -->`
-})
-export class ComponentNameComponent {
-  // Exemplo de Input
-  readonly appearance = input<'primary' | 'secondary'>('primary');
-
-  // Exemplo de Output
-  @Output() customEvent = new EventEmitter<void>();
-
-  // Lógica interna do componente
-}
+@Input() label: string = ''; // Old school
+@Input() disabled: boolean = false;
 ```
 
-### b. Estilização com CVA (`.constants.ts`)
+**✅ PREFIRA (`input` Signal):**
+```typescript
+// Define um input obrigatório
+readonly label = input.required<string>();
 
-Para componentes que possuem múltiplas variantes de estilo (ex: cor, tamanho), utilize `class-variance-authority` (CVA) para gerenciar as classes CSS de forma organizada.
+// Define um input com valor padrão
+readonly disabled = input<boolean>(false);
 
--   Defina todas as variantes e seus respectivos estilos no arquivo `[component-name].constants.ts`.
--   Exporte uma constante que combina as classes base com as variantes.
+// Transforma o valor do input automaticamente
+readonly count = input(0, { transform: numberAttribute });
+```
 
-**Exemplo de Estrutura (`[component-name].constants.ts`):**
+### b. Estilização com CVA (Class Variance Authority)
+
+Utilize CVA para gerenciar variantes visuais (ex: botões primários/secundários, tamanhos pequeno/grande).
+
+**Passo 1: Criar o arquivo de constantes (`[nome].constants.ts`)**
 ```typescript
 import { cva, type VariantProps } from "class-variance-authority";
 
-export const componentNameVariants = cva(
-  "classe-base-do-componente", // Classes aplicadas a todas as variantes
+export const buttonVariants = cva(
+  // 1. Classes Base (aplicadas sempre)
+  "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 disabled:opacity-50",
   {
     variants: {
+      // 2. Variantes de Estilo
       variant: {
-        primary: "classes-para-variante-primary",
-        secondary: "classes-para-variante-secondary",
+        primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       },
+      // 3. Variantes de Tamanho
       size: {
-        sm: "classes-para-tamanho-sm",
-        md: "classes-para-tamanho-md",
-      }
+        sm: "h-9 rounded-md px-3",
+        md: "h-10 px-4 py-2",
+        lg: "h-11 rounded-md px-8",
+      },
     },
+    // 4. Variantes Padrão (se não forem informadas)
     defaultVariants: {
       variant: "primary",
-      size: "md"
-    }
+      size: "md",
+    },
   }
 );
 
-export type ComponentNameVariantProps = VariantProps<typeof componentNameVariants>;
+// Tipagem automática das props
+export type ButtonVariants = VariantProps<typeof buttonVariants>;
 ```
 
-### c. Tipos e Interfaces (`.interface.ts`)
-
-Para componentes com uma API mais complexa, defina `interfaces` e `types` em um arquivo dedicado para garantir type safety e clareza.
-
-**Exemplo (`[component-name].interface.ts`):**
+**Passo 2: Usar no Componente (`[nome].component.ts`)**
 ```typescript
-export interface IComponentState {
-  isLoading: boolean;
-  isDisabled: boolean;
+import { buttonVariants, ButtonVariants } from './[nome].constants';
+import { twMerge } from 'tailwind-merge'; // Importante para mesclar classes!
+
+export class MeuBotaoComponent {
+  readonly variant = input<ButtonVariants['variant']>('primary');
+  readonly size = input<ButtonVariants['size']>('md');
+  readonly class = input<string>(''); // Permite classes extras do usuário
+
+  // Computed signal para gerar a string final de classes
+  protected computedClass = computed(() => {
+    return twMerge(
+      buttonVariants({ variant: this.variant(), size: this.size() }),
+      this.class()
+    );
+  });
 }
-
-export type TComponentAppearance = 'solid' | 'outline' | 'ghost';
 ```
 
-## 3. Documentando o Componente (`README.md`)
-
-Cada componente **obrigatoriamente** deve ter seu próprio `README.md`. Este arquivo é a documentação central para outros desenvolvedores.
-
-**Estrutura recomendada para o `README.md`:**
-
--   **Seletor e Status**: Como usar o componente e seu estado de desenvolvimento (ex: `🟢 Estável`, `🟡 Em Desenvolvimento`).
--   **Descrição**: O que o componente faz e quando utilizá-lo.
--   **API (Inputs & Outputs)**: Uma tabela detalhada com todas as propriedades (`input` e `signal`), seus tipos, valores padrão e descrições.
--   **Variantes e Estilos**: Se aplicável, explique as opções visuais e de estilo disponíveis.
--   **Como Usar**: Forneça exemplos de código claros e concisos (`.ts` e `.html`).
--   **Acessibilidade (A11y)**: Descreva as diretrizes de acessibilidade implementadas e como usar o componente de forma acessível.
--   **Diretrizes de Uso (Do's & Don'ts)**: Recomendações de boas e más práticas para evitar o uso indevido do componente.
-
-## 4. Criando a Página de Demonstração no Design System
-
-Após criar e documentar o componente, é essencial criar uma página de demonstração para que ele possa ser visualizado e testado interativamente no Design System.
-
-### a. Estrutura da Página de Demo
-
-As páginas de demonstração ficam em `src/app/domain/design-system/pages/components`.
-
-```
-└───components
-    └───[component-name]-demo
-        ├───[component-name]-demo.page.html
-        ├───[component-name]-demo.page.spec.ts
-        └───[component-name]-demo.page.ts
+**Passo 3: Aplicar no Template**
+```html
+<button [class]="computedClass()">
+  <ng-content />
+</button>
 ```
 
-### b. Implementação
+---
 
-1.  **Crie os arquivos** da página de demonstração seguindo a estrutura acima.
-2.  **Adicione a rota** no arquivo `design-system.routes.ts`:
-    ```typescript
-    {
-      path: 'components/[component-name]',
-      title: 'Component Name', // Título que aparecerá no menu
-      loadComponent: () => import('./pages/components/[component-name]-demo/[component-name]-demo.page').then(m => m.ComponentNameDemoPage)
-    }
-    ```
-3.  **No `.ts` da página**, importe e adicione seu novo componente ao `imports` do `@Component`.
-4.  **No `.html` da página**, demonstre todos os casos de uso relevantes:
-    -   Todas as variantes de estilo (`variant`).
-    -   Todos os tamanhos (`size`).
-    -   Todos os estados (ex: `disabled`, `loading`, `active`).
-    -   Exemplos de interação (ex: resposta a eventos de clique).
+## 3. Guia de Documentação (`README.md`)
 
-Seguir este processo garante que cada novo componente seja robusto, bem documentado e facilmente detectável e utilizável por toda a equipe.
+Copie e cole este template no `README.md` do seu componente e preencha as informações.
+
+````markdown
+# [Nome do Componente]
+
+**Status:** 🟢 Estável / 🟡 Em Desenvolvimento / 🔴 Depreciado
+
+## Descrição
+Uma breve descrição do que o componente faz. Ex: "O componente Badge é usado para exibir status, categorias ou contagens de forma compacta."
+
+## Instalação
+
+```typescript
+import { Component } from '@angular/core';
+import { MeuComponente } from '@libs/ui/components/[caminho]';
+
+@Component({
+  standalone: true,
+  imports: [MeuComponente],
+  // ...
+})
+export class Page {}
+```
+
+## API
+
+### Inputs
+
+| Propriedade | Tipo | Padrão | Descrição |
+| :--- | :--- | :--- | :--- |
+| `variant` | `'primary' \| 'secondary'` | `'primary'` | Define o estilo visual. |
+| `disabled` | `boolean` | `false` | Desabilita a interação. |
+
+### Outputs
+
+| Evento | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `change` | `EventEmitter<string>` | Emitido quando o valor muda. |
+
+## Exemplos de Uso
+
+**Básico:**
+```html
+<v-componente variant="primary">Texto</v-componente>
+```
+
+**Com ícones:**
+```html
+<v-componente>
+  <v-icon name="check" /> Salvar
+</v-componente>
+```
+
+## Acessibilidade (A11y)
+- O componente utiliza `button` nativo para garantir navegação via teclado.
+- Use `aria-label` se o componente contiver apenas ícones.
+````
+
+---
+
+## 4. Próximos Passos (Demo)
+
+Após criar e documentar o componente, você deve criar a **Página de Demonstração**.
+
+👉 **Consulte o [Guia de Criação de Demos](../../domain/design-system/COMPONENT_DEMO_GUIDE.md) para o próximo passo.**
+
+**LEMBRETE IMPORTANTE:** Ao adicionar o componente ao menu lateral em `design-system.layout.ts`, mantenha a **ORDEM ALFABÉTICA** da lista.

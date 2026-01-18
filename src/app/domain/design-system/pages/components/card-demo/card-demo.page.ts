@@ -1,6 +1,6 @@
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { BadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
+import { VBadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
 import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
 import { VCardComponent } from "../../../../../libs/ui/components/card/v-card.component";
 import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v-checkbox.component";
@@ -13,7 +13,7 @@ import { PlaygroundConfig } from "../../../constants/playground.constants";
 @Component({
   selector: "app-card-demo",
   standalone: true,
-  imports: [FormsModule, PlaygroundComponent, VCardComponent, ButtonComponent, VInputDirective, VLabelComponent, BadgeComponent, VIconComponent, VCheckboxComponent],
+  imports: [FormsModule, PlaygroundComponent, VCardComponent, ButtonComponent, VInputDirective, VLabelComponent, VBadgeComponent, VIconComponent, VCheckboxComponent],
   templateUrl: "./card-demo.page.html"
 })
 export class CardDemoPage {

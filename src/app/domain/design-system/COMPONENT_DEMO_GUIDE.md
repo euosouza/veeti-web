@@ -1,268 +1,183 @@
-# Guia para Criação de Páginas de Demonstração de Componentes
+# Guia Completo para Páginas de Demonstração
 
-## 1. Introdução
+Este guia detalha como criar páginas de demonstração interativas e educativas para o Design System. Uma boa demo não apenas mostra o componente, mas ensina como usá-lo corretamente.
 
-Este guia descreve o processo para criar uma nova página de demonstração para um componente do Design System. O objetivo é manter a consistência e a qualidade da documentação de nossos componentes.
+---
 
-## 2. Estrutura de Arquivos
+## 1. Anatomia de uma Página de Demo
 
-Para um novo componente chamado `meu-componente`, a estrutura de arquivos dentro de `src/app/domain/design-system/pages/components/` deve ser a seguinte:
+Todas as páginas devem seguir o padrão **"Tabs Layout"**:
 
-```
-meu-componente-demo/
-├── meu-componente-demo.page.html
-├── meu-componente-demo.page.ts
-└── meu-componente-demo.page.spec.ts
-```
+1.  **Overview Tab**:
+    *   **Playground**: Área interativa principal.
+    *   **Variantes**: Exemplos visuais estáticos de todas as variações.
+    *   **Estados**: Exemplos de disabled, loading, focus, etc.
+2.  **API Tab**:
+    *   Documentação técnica gerada automaticamente.
 
-## 3. Criando o Componente (`meu-componente-demo.page.ts`)
+---
 
-O arquivo TypeScript é o cérebro da página de demonstração. Ele é um componente Angular standalone que gerencia o estado da demonstração.
+## 2. Playground Configuration (`PlaygroundConfig`)
 
-### Passo 1: Definição do Componente
-
-Crie um componente standalone importando os módulos necessários, como o próprio componente que será demonstrado, `PlaygroundComponent` e `FormsModule`.
+A propriedade `config` no seu `.page.ts` é a fonte da verdade para a documentação. Entenda cada campo:
 
 ```typescript
-import { Component, computed, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { PlaygroundComponent } from '../../../components/playground/playground.component';
-import { MeuComponente } from '../../../../libs/ui/components/meu-componente/meu-componente.component';
-// Importe interfaces, constantes, etc. do seu componente
+export interface PlaygroundConfig {
+  /** Título principal exibido no topo da página (H1) */
+  title: string;
 
-@Component({
-  selector: 'app-meu-componente-demo',
-  imports: [MeuComponente, PlaygroundComponent, FormsModule],
-  templateUrl: './meu-componente-demo.page.html',
-})
-export class MeuComponenteDemoPage {
-  // ...
+  /** Breve descrição ou subtítulo do componente */
+  description: string;
+
+  /** Objeto de documentação para a aba API */
+  documentation: {
+    /** Documentação dos Inputs (@Input ou input()) */
+    tableInputs?: Array<{
+      /** Nome exato da propriedade (ex: 'variant') */
+      props: string;
+      /** Tipos aceitos (ex: "'primary' | 'secondary'" ou "boolean") */
+      types: string;
+      /** Valor padrão (ex: "'primary'" ou "false") */
+      default: string;
+      /** Descrição funcional do que a propriedade faz */
+      description: string;
+    }>;
+
+    /** Documentação dos Outputs (@Output ou output()) */
+    tableOutputs?: Array<{
+      /** Nome do evento (ex: 'click', 'valueChange') */
+      props: string;
+      /** Tipo do dado emitido (ex: 'void', 'string', 'MouseEvent') */
+      return: string;
+      /** Quando o evento é disparado */
+      description: string;
+    }>;
+  };
 }
 ```
 
-### Passo 2: Configuração da Documentação (`config`)
+---
 
-Crie um `signal` chamado `config` do tipo `PlaygroundConfig`. Ele contém as informações que serão exibidas na aba "API" da página.
+## 3. Gerando o Code Snippet Dinâmico
 
-```typescript
-import { PlaygroundConfig } from '../../../constants/playground.constants';
+O `codeSnippet` é o que aparece na caixa de código do Playground. Ele deve refletir o estado *atual* dos controles.
 
-// ...
-export class MeuComponenteDemoPage {
-  readonly config = signal<PlaygroundConfig>({
-    title: 'Meu Componente',
-    description: 'Uma breve descrição do que o Meu Componente faz.',
-    documentation: {
-      // Documentação dos Inputs
-      tableInputs: [
-        {
-          props: 'inputProperty', // Nome do @Input()
-          types: "'type1' | 'type2'", // Tipos aceitos
-          default: "'type1'", // Valor padrão
-          description: 'Descrição do que a propriedade faz.',
-        },
-      ],
-      // Documentação dos Outputs
-      tableOutputs: [
-        {
-          props: 'outputEvent', // Nome do @Output()
-          return: 'void', // Tipo de dado emitido
-          description: 'Descrição de quando o evento é emitido.',
-        },
-      ],
-    },
-  });
-  // ...
-}
-```
+**Dicas para um snippet limpo:**
 
-### Passo 3: Controles do Playground
-
-Use `signals` para gerenciar os valores das propriedades do seu componente no playground.
+Use um `computed()` para reagir às mudanças dos signals:
 
 ```typescript
-export class MeuComponenteDemoPage {
-  // ...
-  propriedade1 = signal<string>('valorInicial');
-  propriedade2 = signal<boolean>(false);
-  // ... outros signals para cada controle
-}
-```
+readonly codeSnippet = computed(() => {
+  const variant = this.variant(); // Signal<string>
+  const isDisabled = this.isDisabled(); // Signal<boolean>
+  const content = this.content(); // Signal<string>
 
-### Passo 4: Snippet de Código Dinâmico (`codeSnippet`)
+  // Lógica para esconder atributos opcionais/padrão
+  const disabledAttr = isDisabled ? '\n  [disabled]="true"' : '';
+  const variantAttr = variant !== 'primary' ? `\n  variant="${variant}"` : '';
 
-Crie um `computed signal` chamado `codeSnippet` que gera a string de código HTML para o playground com base nos valores atuais dos signals de controle.
-
-```typescript
-export class MeuComponenteDemoPage {
-  // ...
-  readonly codeSnippet = computed(() => {
-    const prop1 = this.propriedade1();
-    const prop2 = this.propriedade2();
-
-    return `
-      <app-meu-componente
-        inputProperty="${prop1}"
-        [booleanProperty]="${prop2}"
-      >
-        Conteúdo do componente
-      </app-meu-componente>
-  `;
-  });
-  // ...
-}
-```
-
-## 4. Criando o Template (`meu-componente-demo.page.html`)
-
-O arquivo HTML define a estrutura visual da página, utilizando o `PlaygroundComponent` e outras seções para demonstrar o componente.
-
-### Passo 1: Cabeçalho e Descrição
-
-```html
-<section class="mb-12">
-  <span class="text-secondary text-sm font-bold uppercase tracking-widest">
-    Design System > Componentes
-  </span>
-  <div class="space-y-6 mt-2">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
-      {{ config().title }}
-    </h1>
-    <p class="text-base text-muted-foreground leading-[1.2]">
-      {{ config().description }}
-    </p>
-  </div>
-</section>
-```
-
-### Passo 2: Playground e Controles
-
-Use o `app-playground` para a demonstração interativa. O componente a ser demonstrado vai dentro de `<ng-content preview]`. Os controles (inputs, selects, etc.) para manipular o componente vão dentro de `<ng-container controls>`.
-
-```html
-<app-playground [codeSnippet]="codeSnippet()">
-  <!-- Visualização do Componente -->
-  <ng-content preview>
-    <app-meu-componente
-      [inputProperty]="propriedade1()"
-      [booleanProperty]="propriedade2()"
-    >
-      Conteúdo do componente
-    </app-meu-componente>
-  </ng-content>
-
-  <!-- Controles para o Playground -->
-  <ng-container controls>
-    <div>
-      <label for="prop1">Propriedade 1</label>
-      <input type="text" id="prop1" [(ngModel)]="propriedade1" />
-    </div>
-    <div class="flex items-center gap-2 mt-4">
-      <label for="prop2">Propriedade 2</label>
-      <input type="checkbox" id="prop2" [(ngModel)]="propriedade2" />
-    </div>
-  </ng-container>
-</app-playground>
-```
-
-### Passo 4: Seções de Demonstração Adicionais
-
-Crie seções adicionais para mostrar variações, estados, tamanhos, etc., do seu componente com exemplos estáticos, similar às seções "Tipos e Hierarquia" e "Estados" da página do botão.
-
-### Passo 5: Depuração de Formulários (Opcional)
-
-Se o seu componente se integra com formulários (usa `ControlValueAccessor`), é **altamente recomendado** adicionar uma seção demonstrando essa integração usando o componente `VFormDebuggerComponent`.
-
-1. Importe o `VFormDebuggerComponent` no seu `.page.ts`.
-2. Adicione-o ao template `.page.html` passando o controle que deseja inspecionar.
-
-```html
-<!-- Para um controle único -->
-<v-form-debugger [control]="meuForm.controls['meuCampo']"></v-form-debugger>
-
-<!-- Para um FormGroup inteiro (exibe todos os controles filhos) -->
-<v-form-debugger [control]="meuForm" title="Depurador de Formulário"></v-form-debugger>
-```
-
-Isso exibirá automaticamente o status (valid/invalid), flags (touched/dirty), valor e erros dos controles. Se um `FormGroup` for passado, o componente iterará automaticamente sobre todos os filhos, mantendo o layout padrão de grid para fácil visualização.
-
-## 5. Criando o Teste (`meu-componente-demo.page.spec.ts`)
-
-O arquivo de teste deve garantir que o componente de demonstração seja criado corretamente. Um teste básico é suficiente.
-
-```typescript
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MeuComponenteDemoPage } from './meu-componente-demo.page';
-
-describe('MeuComponenteDemoPage', () => {
-  let component: MeuComponenteDemoPage;
-  let fixture: ComponentFixture<MeuComponenteDemoPage>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [MeuComponenteDemoPage],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(MeuComponenteDemoPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  return `<v-button${variantAttr}${disabledAttr}>
+  ${content}
+</v-button>`;
 });
 ```
 
-## 6. Adicionando a Rota
-
-Finalmente, adicione a rota para a nova página de demonstração no arquivo `src/app/domain/design-system/design-system.routes.ts`.
-
-```typescript
-// ...
-export const routesDesignSystem: Routes = [
-  // ... outras rotas
-  {
-    path: 'componentes/meu-componente', // URL da página
-    loadComponent: () =>
-      import('./pages/components/meu-componente-demo/meu-componente-demo.page').then(
-        (m) => m.MeuComponenteDemoPage
-      ),
-  },
-];
+**Resultado esperado:**
+Se `disabled` for false e `variant` for primary (padrão), o snippet fica limpo:
+```html
+<v-button>Content</v-button>
 ```
 
-## 7. Adicionando no Menu do Layout
+Se alterar os valores:
+```html
+<v-button
+  variant="destructive"
+  [disabled]="true"
+>
+  Content
+</v-button>
+```
 
-Para que a nova página de demonstração apareça no menu lateral do Design System, adicione uma entrada na propriedade `menu.componentes` do arquivo `src/app/core/layouts/design-system/design-system.layout.ts`.
+---
+
+## 4. Boilerplate Completo (`.page.ts`)
+
+Use este modelo como base para começar rápido:
 
 ```typescript
-// ...
-export class DesignSystemLayout {
-  // ...
-  menu: Menu = {
-    // ...
-    componentes: [
-      // ... outros componentes
-      {
-        label: 'Meu Componente', // Título que aparecerá no menu
-        path: '/design-system/componentes/meu-componente' // Mesmo path da rota
-      }
-    ]
-  };
-  // ...
+import { Component, computed, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { PlaygroundComponent } from '../../../components/playground/playground.component';
+import { PlaygroundConfig } from '../../../constants/playground.constants';
+// ⚠️ IMPORTE SEU COMPONENTE AQUI
+import { VMyComponent } from '@libs/ui/components/my-component';
+
+interface Tab { name: string; active: boolean; }
+
+@Component({
+  selector: 'app-my-component-demo',
+  standalone: true,
+  imports: [CommonModule, FormsModule, PlaygroundComponent, VMyComponent],
+  templateUrl: './my-component-demo.page.html',
+})
+export class MyComponentDemoPage {
+  // 1. Configuração
+  readonly config = signal<PlaygroundConfig>({
+    title: 'My Component',
+    description: 'Explain what this component does.',
+    documentation: {
+      tableInputs: [
+        { props: 'label', types: 'string', default: "''", description: 'Label text.' }
+      ]
+    }
+  });
+
+  // 2. Abas
+  tabs = signal<Tab[]>([{ name: "Overview", active: true }, { name: "API", active: false }]);
+  currentTab = signal<Tab>(this.tabs()[0]);
+
+  // 3. Controles do Playground
+  label = signal('Hello World');
+
+  // 4. Snippet
+  readonly codeSnippet = computed(() => `<v-my-component label="${this.label()}"></v-my-component>`);
+
+  // 5. Métodos
+  onClickTab(tab: Tab) {
+    this.currentTab.set(tab);
+    this.tabs.update(ts => ts.map(t => ({ ...t, active: t.name === tab.name })));
+  }
 }
 ```
 
-## 8. Checklist Final
+---
 
-- [ ] A estrutura de arquivos foi criada corretamente.
-- [ ] O componente TypeScript (`.page.ts`) é `standalone` e importa os módulos necessários.
-- [ ] O `config` signal está preenchido com a documentação da API do componente.
-- [ ] Os `signals` para os controles do playground estão definidos.
-- [ ] O `codeSnippet` (computed signal) está gerando o código HTML corretamente.
-- [ ] O template HTML (`.page.html`) usa o `app-playground` e tem os `bindings` corretos.
-- [ ] O teste unitário (`.page.spec.ts`) está passando.
-- [ ] A nova rota foi adicionada em `design-system.routes.ts`.
-- [ ] A nova página foi adicionada no menu do layout em `design-system.layout.ts`.
-- [ ] A página de demonstração funciona como esperado em `http://localhost:4200/design-system/componentes/meu-componente`.
+## 5. Troubleshooting (Problemas Comuns)
+
+**🔴 O componente não aparece no preview.**
+*   Verifique se introduziu o componente no array `imports` do `@Component` na página de demo.
+*   Verifique se o template HTML está usando a tag correta (`<v-meu-componente>`).
+
+**🔴 O Code Snippet não atualiza.**
+*   Certifique-se de estar usando `computed()` e lendo os signals (`this.prop()`) dentro dele.
+
+**🔴 Erro "Can't bind to 'ngModel'".**
+*   Importe `FormsModule` no seu componente de demo.
+
+**🔴 O item não aparece no menu lateral.**
+*   Você editou o arquivo `src/app/core/layouts/design-system/design-system.layout.ts`?
+*   Você adicionou o item dentro do array `menu.componentes`?
+*   ⚠️ **Você respeitou a ORDEM ALFABÉTICA?**
+
+---
+
+## 6. Checklist de Qualidade
+
+Antes de enviar seu PR:
+
+- [ ] A página segue o layout de Abas (Overview/API)?
+- [ ] O Playground funciona e reflete as props principais?
+- [ ] Os "Variantes" mostram todos os estilos disponíveis?
+- [ ] A aba API está preenchida corretamente via `config`?
+- [ ] O componente foi adicionado ao Menu Lateral em ordem alfabética?

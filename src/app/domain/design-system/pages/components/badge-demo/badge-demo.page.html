@@ -43,7 +43,7 @@
       <app-playground [codeSnippet]="codeSnippet()">
         <!-- Visualização do Componente -->
         <ng-content preview>
-          <app-badge [variant]="variant()">{{ content() }}</app-badge>
+          <v-badge [variant]="variant()">{{ content() }}</v-badge>
         </ng-content>
 
         <!-- Controles para o Playground -->
@@ -93,7 +93,7 @@
               <div
                 class="flex items-center justify-center h-24 bg-background rounded-lg border border-dashed border-border"
               >
-                <app-badge [variant]="badge.variant">{{ badge.label }}</app-badge>
+                <v-badge [variant]="badge.variant">{{ badge.label }}</v-badge>
               </div>
               <div>
                 <h3 class="font-bold text-foreground mb-1">{{ badge.label }}</h3>
@@ -120,7 +120,7 @@
               <div
                 class="flex items-center justify-center h-24 bg-background rounded-lg border border-dashed border-border"
               >
-                <app-badge [variant]="badge.variant">{{ badge.label }}</app-badge>
+                <v-badge [variant]="badge.variant">{{ badge.label }}</v-badge>
               </div>
               <div>
                 <h3 class="font-bold text-foreground mb-1">{{ badge.label }}</h3>
@@ -145,8 +145,8 @@
           <div
             class="flex items-center justify-center gap-4 h-24 bg-background rounded-lg border border-dashed border-border"
           >
-            <app-badge variant="notification" size="lg">9</app-badge>
-            <app-badge variant="notification" size="md">99+</app-badge>
+            <v-badge variant="notification" size="lg">9</v-badge>
+            <v-badge variant="notification" size="md">99+</v-badge>
           </div>
         </div>
       </section>
@@ -167,9 +167,9 @@
             class="flex items-center justify-center flex-wrap gap-2 h-24 bg-background rounded-lg border border-dashed border-border"
           >
             @for (tag of tags(); track tag) {
-              <app-badge variant="outline" size="md" [removable]="true" (remove)="removeTag(tag)">
+              <v-badge variant="outline" size="md" [removable]="true" (remove)="removeTag(tag)">
                 {{ tag }}
-              </app-badge>
+              </v-badge>
             } @empty {
               <p class="text-muted-foreground text-sm">Todas as tags foram removidas.</p>
             }
@@ -192,9 +192,9 @@
           <div
             class="flex items-center justify-center flex-wrap gap-2 h-24 bg-background rounded-lg border border-dashed border-border"
           >
-            <app-badge variant="default" size="md" (badgeClick)="onBadgeClick()">
+            <v-badge variant="default" size="md" (badgeClick)="onBadgeClick()">
               Clique em mim
-            </app-badge>
+            </v-badge>
           </div>
 
           @if (clickableBadgeMessage()) {

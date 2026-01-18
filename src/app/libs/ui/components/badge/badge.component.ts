@@ -4,7 +4,7 @@ import { VIconComponent } from "../icon/v-icon.component";
 import { BadgeSize, BadgeVariant, badgeVariants } from "./badge.constants";
 
 @Component({
-  selector: "app-badge",
+  selector: "v-badge",
   standalone: true,
   imports: [VIconComponent],
   template: `
@@ -19,7 +19,7 @@ import { BadgeSize, BadgeVariant, badgeVariants } from "./badge.constants";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BadgeComponent {
+export class VBadgeComponent {
   readonly class = input<string>();
   readonly variant = input<BadgeVariant>("default");
   readonly size = input<BadgeSize>("sm");

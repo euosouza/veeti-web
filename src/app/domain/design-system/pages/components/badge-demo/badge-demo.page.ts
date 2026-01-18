@@ -1,6 +1,6 @@
 import { Component, computed, signal, WritableSignal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { BadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
+import { VBadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
 import { BadgeVariant } from "../../../../../libs/ui/components/badge/badge.interface";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
@@ -20,7 +20,7 @@ interface BadgeItem {
 @Component({
   selector: "app-badge-demo",
   standalone: true,
-  imports: [BadgeComponent, VLabelComponent, PlaygroundComponent, FormsModule],
+  imports: [VBadgeComponent, VLabelComponent, PlaygroundComponent, FormsModule],
   templateUrl: "./badge-demo.page.html"
 })
 export class BadgeDemoPage {
@@ -31,8 +31,8 @@ export class BadgeDemoPage {
       tableInputs: [
         {
           props: "variant",
-          types: `'primary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'outline' | 'notification'`,
-          default: `'primary'`,
+          types: `'default' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'outline' | 'notification'`,
+          default: `'default'`,
           description: "Define a cor de fundo e do texto do badge."
         },
         {
@@ -127,9 +127,9 @@ export class BadgeDemoPage {
     const content = this.content();
 
     return `
-      <app-badge variant="${variant}">
+      <v-badge variant="${variant}">
         ${content}
-      </app-badge>
+      </v-badge>
     `;
   });
 

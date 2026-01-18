@@ -61,5 +61,10 @@ export const routesDesignSystem: Routes = [
     path: "componentes/avatar",
     title: "Avatar",
     loadComponent: () => import("./pages/components/avatar-demo/avatar-demo.page").then((m) => m.AvatarDemoPage)
+  },
+  {
+    path: "componentes/table",
+    title: "Table",
+    loadComponent: () => import("./pages/components/table-demo/table-demo.page").then((m) => m.TableDemoPage)
   }
 ];
