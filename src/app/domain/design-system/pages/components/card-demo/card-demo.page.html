@@ -1,0 +1,326 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest">
+    Design System > Componentes
+  </span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <div class="w-full max-w-[380px]">
+            <v-card
+              [vTitle]="vTitle()"
+              [vDescription]="vDescription()"
+              [size]="size()"
+              [vHeaderBorder]="vHeaderBorder()"
+              [vFooterBorder]="vFooterBorder()"
+            >
+              <div class="space-y-4">
+                <v-card size="sm">
+                  <div class="flex items-center space-x-4">
+                    <span class="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500"></span>
+                    <div class="flex-1 space-y-1">
+                      <p class="text-foreground text-sm font-medium leading-none">
+                        Novas mensagens
+                      </p>
+                      <p class="text-sm text-muted-foreground">Você tem 3 mensagens não lidas.</p>
+                    </div>
+                  </div>
+                </v-card>
+                <v-card size="sm">
+                  <div class="flex items-center space-x-4">
+                    <span class="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500"></span>
+                    <div class="flex-1 space-y-1">
+                      <p class="text-foreground text-sm font-medium leading-none">
+                        Convite de amigo
+                      </p>
+                      <p class="text-sm text-muted-foreground">João enviou um convite.</p>
+                    </div>
+                  </div>
+                </v-card>
+              </div>
+
+              <div v-card-footer class="flex gap-2">
+                <app-button variant="outline">Ignorar</app-button>
+                <app-button>Aceitar</app-button>
+              </div>
+            </v-card>
+          </div>
+        </ng-content>
+
+        <ng-container controls>
+          <div class="grid grid-cols-1 gap-4">
+            <div class="flex flex-col gap-2">
+              <v-label htmlFor="vTitle">Título</v-label>
+              <input vInput id="vTitle" type="text" [(ngModel)]="vTitle" />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <v-label htmlFor="vDescription">Descrição</v-label>
+              <input vInput id="vDescription" type="text" [(ngModel)]="vDescription" />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <v-label htmlFor="size">Tamanho</v-label>
+              <select vInput id="size" [(ngModel)]="size">
+                <option value="sm">Pequeno (sm)</option>
+                <option value="md">Médio (md)</option>
+                <option value="lg">Grande (lg)</option>
+              </select>
+            </div>
+
+            <div class="flex items-center gap-2 mt-2">
+              <v-checkbox [(ngModel)]="vHeaderBorder">Borda no Cabeçalho</v-checkbox>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <v-checkbox [(ngModel)]="vFooterBorder">Borda no Rodapé</v-checkbox>
+            </div>
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <section class="mt-12 space-y-8">
+        <h2 class="text-2xl text-foreground font-bold">Exemplos</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Login Form Example -->
+          <div class="space-y-4">
+            <h3 class="text-foreground text-lg font-semibold">Login Form</h3>
+            <v-card vTitle="Login" vDescription="Entre na sua conta para continuar.">
+              <div class="grid w-full items-center gap-4">
+                <div class="flex flex-col space-y-1.5">
+                  <v-label htmlFor="name">Nome</v-label>
+                  <input vInput id="name" placeholder="Seu nome" />
+                </div>
+                <div class="flex flex-col space-y-1.5">
+                  <v-label htmlFor="framework">Senha</v-label>
+                  <input vInput id="password" type="password" placeholder="Sua senha" />
+                </div>
+              </div>
+              <div v-card-footer class="flex justify-between gap-2">
+                <app-button variant="outline">Esqueci a senha</app-button>
+                <app-button>Entrar</app-button>
+              </div>
+            </v-card>
+          </div>
+
+          <!-- Complex Service Card Example -->
+          <div class="space-y-4">
+            <h3 class="text-foreground text-lg font-semibold">Resumo de Atendimento</h3>
+            <v-card class="!p-1">
+              <div class="p-5 flex flex-col sm:flex-row gap-6">
+                <div
+                  class="w-full sm:w-1/3 aspect-[4/3] sm:aspect-square rounded-xl bg-cover bg-center relative group overflow-hidden"
+                  data-alt="A happy golden retriever dog outdoors"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDVfDuXfxZ8lBjdhpVjurud1SZCeO743VnCrXRUlK6Qfd16OBBZPn2CHjifefjYck3Ur9RkbpqElIK7TUapa8ksdM_i4-OksbhwGlaXS20JNII0a0UYzgASwioGqIHJZpnly-c3JJAX1yN0XYUwXPQArn5JAAQhej0cA_wWsyShF_81x8WMEIg6ascRWq6zpQyZ8fT1PKmiwlZW0EPRE_UqCCDzlRHZqTJbUFtaQrxsdi6KtIKHCPCySzCvcstSBEJvfQgATJ2wy20&quot;);
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"
+                  ></div>
+                  <div
+                    class="absolute bottom-2 left-2 bg-white/90 dark:bg-black/60 backdrop-blur px-2 py-1 rounded-md text-xs font-bold shadow-sm"
+                  >
+                    Thor • 14:00
+                  </div>
+                </div>
+                <div class="flex-1 flex flex-col justify-between py-1">
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <app-badge
+                        variant="default"
+                        class="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                      >
+                        Próximo Atendimento
+                      </app-badge>
+                      <span
+                        class="text-xs text-[#64748b] dark:text-gray-400 font-medium flex items-center gap-1"
+                      >
+                        <v-icon name="schedule" [size]="16"></v-icon> 30 min para chegar
+                      </span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-[#111713] dark:text-white mb-1">
+                      Thor (Golden Retriever)
+                    </h2>
+                    <p class="text-[#64748b] dark:text-gray-400 mb-4 text-sm">
+                      Vacinação Anual (V10 + Raiva) • Tutor: Mariana Souza
+                    </p>
+                    <div class="flex items-start gap-2 mb-4 bg-primary/30 p-3 rounded-lg">
+                      <v-icon
+                        name="location_on"
+                        class="text-[#64876f] dark:text-primary mt-0.5 text-lg"
+                      ></v-icon>
+                      <div>
+                        <p class="text-sm font-semibold text-[#111713] dark:text-white">
+                          Rua das Flores, 123 - Jardins
+                        </p>
+                        <p class="text-xs text-[#64748b] dark:text-gray-400">São Paulo, SP</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex gap-3 mt-2 sm:mt-0">
+                    <app-button class="flex-1">
+                      <v-icon name="navigation" class="mr-2"></v-icon>
+                      Iniciar Rota
+                    </app-button>
+                    <app-button variant="outline">
+                      <v-icon name="chat" class="mr-2"></v-icon>
+                      Whatsapp
+                    </app-button>
+                  </div>
+                </div>
+              </div>
+            </v-card>
+          </div>
+        </div>
+      </section>
+    }
+    @default {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          @if (config().documentation?.subtitleInput) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleInput }}
+            </p>
+          }
+
+          @if (config().documentation?.tableInputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Propriedade</th>
+                    <th class="p-4 text-left font-bold">Tipo</th>
+                    <th class="p-4 text-left font-bold">Padrão</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableInputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground max-w-37.5">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.types }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.default }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+
+        @if (config().documentation?.tableOutputs) {
+          <div class="mt-8">
+            <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+
+            @if (config().documentation?.subtitleOutputs) {
+              <p class="text-muted-foreground text-sm mt-1">
+                {{ config().documentation?.subtitleOutputs }}
+              </p>
+            }
+
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Nome</th>
+                    <th class="p-4 text-left font-bold">Retorno</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableOutputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.return }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        {{ item.description }}
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

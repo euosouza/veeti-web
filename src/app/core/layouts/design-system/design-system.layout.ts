@@ -73,6 +73,10 @@ export class DesignSystemLayout {
       {
         label: "Divider",
         path: "/design-system/componentes/divider"
+      },
+      {
+        label: "Card",
+        path: "/design-system/componentes/card"
       }
     ]
   };
