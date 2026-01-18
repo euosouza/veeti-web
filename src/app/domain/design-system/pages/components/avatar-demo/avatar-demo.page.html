@@ -1,0 +1,339 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest">
+    Design System > Componentes
+  </span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <ng-content preview>
+          <v-avatar [src]="src()" [alt]="alt()" [size]="size()" [shape]="shape()">
+            {{ fallback() }}
+          </v-avatar>
+        </ng-content>
+
+        <ng-container controls>
+          <div>
+            <v-label htmlFor="src">Image URL (src)</v-label>
+            <input
+              id="src"
+              type="text"
+              [(ngModel)]="src"
+              class="mt-2 w-full h-9 px-3 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+            />
+          </div>
+
+          <div class="mt-4">
+            <v-label htmlFor="alt">Alt Text (alt)</v-label>
+            <input
+              id="alt"
+              type="text"
+              [(ngModel)]="alt"
+              class="mt-2 w-full h-9 px-3 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+            />
+          </div>
+
+          <div class="mt-4">
+            <v-label htmlFor="fallback">Fallback Text</v-label>
+            <input
+              id="fallback"
+              type="text"
+              [(ngModel)]="fallback"
+              class="mt-2 w-full h-9 px-3 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+            />
+          </div>
+
+          <div class="mt-4">
+            <v-label htmlFor="size">Size</v-label>
+            <select
+              id="size"
+              [(ngModel)]="size"
+              class="mt-2 w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="sm">sm</option>
+              <option value="md">md</option>
+              <option value="lg">lg</option>
+              <option value="xl">xl</option>
+            </select>
+          </div>
+
+          <div class="mt-4">
+            <v-label htmlFor="shape">Shape</v-label>
+            <select
+              id="shape"
+              [(ngModel)]="shape"
+              class="mt-2 w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="circle">circle</option>
+              <option value="square">square</option>
+            </select>
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <!-- Section: Shapes (similar to Button Types) -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Formatos</h2>
+          <p class="text-muted-foreground">
+            Diferentes formas para adaptar o avatar ao design da interface.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <v-avatar shape="circle" [src]="src()" [alt]="alt()">{{ fallback() }}</v-avatar>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Circle (Padrão)</h3>
+              <p class="text-sm text-muted-foreground">
+                Formato circular, ideal para perfis de usuários e representações humanas.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <v-avatar shape="square" [src]="src()" [alt]="alt()">{{ fallback() }}</v-avatar>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Square</h3>
+              <p class="text-sm text-muted-foreground">
+                Formato quadrado com bordas arredondadas, útil para logos ou identificadores de
+                equipes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Sizes -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Tamanhos</h2>
+          <p class="text-muted-foreground">Adaptáveis para diferentes contextos de densidade.</p>
+        </div>
+        <div
+          class="p-8 rounded-xl border border-border bg-card-background flex flex-wrap items-end gap-8"
+        >
+          <div class="flex flex-col items-center gap-3">
+            <v-avatar size="sm" [src]="src()" [alt]="alt()">{{ fallback() }}</v-avatar>
+            <span class="text-xs text-foreground font-mono">h-8 w-8 text-xs</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-avatar size="md" [src]="src()" [alt]="alt()">{{ fallback() }}</v-avatar>
+            <span class="text-xs text-foreground font-mono">h-10 w-10 text-sm</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-avatar size="lg" [src]="src()" [alt]="alt()">{{ fallback() }}</v-avatar>
+            <span class="text-xs text-foreground font-mono">h-12 w-12 text-base</span>
+          </div>
+          <div class="flex flex-col items-center gap-3">
+            <v-avatar size="xl" [src]="src()" [alt]="alt()">{{ fallback() }}</v-avatar>
+            <span class="text-xs text-foreground font-mono">h-16 w-16 text-lg</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Fallbacks -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Fallbacks</h2>
+          <p class="text-muted-foreground">
+            Comportamento quando a imagem não é carregada ou não é fornecida.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <v-avatar>CN</v-avatar>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Texto (Iniciais)</h3>
+              <p class="text-sm text-muted-foreground">
+                Exibe as iniciais ou texto curto quando <code>src</code> é nulo.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <v-avatar class="border border-primary text-primary-foreground rounded-full"
+                >JD</v-avatar
+              >
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Estilizado (Primary)</h3>
+              <p class="text-sm text-muted-foreground">
+                Pode ser estilizado com cores de fundo e texto personalizadas.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-border bg-card-background flex flex-col gap-4">
+            <div
+              class="flex items-center justify-center h-32 bg-background rounded-lg border border-dashed border-border"
+            >
+              <v-avatar class="border border-red-500 text-white rounded-full">ER</v-avatar>
+            </div>
+            <div>
+              <h3 class="font-bold text-foreground mb-1">Estilizado (Custom)</h3>
+              <p class="text-sm text-muted-foreground">
+                Aceita qualquer classe utilitária do Tailwind para personalização total.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+    @default {
+      <div class="max-w-none flex flex-col gap-5">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+
+          @if (config().documentation?.subtitleInput) {
+            <p class="text-muted-foreground text-sm mt-1">
+              {{ config().documentation?.subtitleInput }}
+            </p>
+          }
+
+          @if (config().documentation?.tableInputs) {
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Propriedade</th>
+                    <th class="p-4 text-left font-bold">Tipo</th>
+                    <th class="p-4 text-left font-bold">Padrão</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableInputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.types }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.default }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+
+        @if (config().documentation?.tableOutputs?.length) {
+          <div class="mt-8">
+            <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+
+            @if (config().documentation?.subtitleOutputs) {
+              <p class="text-muted-foreground text-sm mt-1">
+                {{ config().documentation?.subtitleOutputs }}
+              </p>
+            }
+
+            <div
+              class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
+            >
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
+                  >
+                    <th class="p-4 text-left font-bold">Nome</th>
+                    <th class="p-4 text-left font-bold">Retorno</th>
+                    <th class="p-4 text-left font-bold">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="text-sm bg-card-background">
+                  @for (item of config().documentation?.tableOutputs; track $index) {
+                    <tr class="border-b border-border">
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.props }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">
+                        <span
+                          class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
+                          ><code>{{ item.return }}</code></span
+                        >
+                      </td>
+                      <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

@@ -77,6 +77,10 @@ export class DesignSystemLayout {
       {
         label: "Card",
         path: "/design-system/componentes/card"
+      },
+      {
+        label: "Avatar",
+        path: "/design-system/componentes/avatar"
       }
     ]
   };
