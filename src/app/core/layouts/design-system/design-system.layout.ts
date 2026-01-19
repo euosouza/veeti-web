@@ -79,6 +79,10 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/label"
       },
       {
+        label: "Loading",
+        path: "/design-system/componentes/loading"
+      },
+      {
         label: "Pagination",
         path: "/design-system/componentes/pagination"
       },

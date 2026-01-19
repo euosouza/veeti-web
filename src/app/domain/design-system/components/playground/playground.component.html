@@ -51,9 +51,9 @@
           <!-- Code Area -->
           @if (activeTab() === "code") {
             <div
-              class="relative h-full min-h-50 w-full flex items-center justify-center p-8 bg-neutral-100 dark:bg-neutral-950"
+              class="relative h-full min-h-50 w-full flex items-center justify-center p-8 bg-neutral-100 dark:bg-neutral-950 overflow-auto"
             >
-              <code class="text-sm text-muted-foreground">
+              <code class="text-sm text-muted-foreground whitespace-pre">
                 {{ codeSnippet() }}
               </code>
             </div>

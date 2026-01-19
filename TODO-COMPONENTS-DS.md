@@ -14,6 +14,8 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 - [x] Icon (`src/app/libs/ui/components/icon`)
 - [x] Input (`src/app/libs/ui/components/input` / `v-input`)
 - [x] Label (`src/app/libs/ui/components/label`)
+- [x] Loading (`src/app/libs/ui/components/loading`)
+- [x] Pagination (`src/app/libs/ui/components/pagination`)
 - [x] Skeleton (`src/app/libs/ui/components/skeleton`)
 - [x] Switch (`src/app/libs/ui/components/switch`)
 - [x] Table (`src/app/libs/ui/components/table`)
@@ -37,7 +39,6 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 - [ ] Hover Card
 - [ ] Menubar
 - [ ] Navigation Menu
-- [x] Pagination
 - [ ] Popover
 - [ ] Progress
 - [ ] Radio Group

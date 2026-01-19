@@ -27,6 +27,7 @@ type OnChangeType = (value: unknown) => void;
   host: {
     role: "radiogroup",
     "[class]": "computedClass()",
+    "(focusout)": "onBlur()",
     class: "w-full"
   }
 })
@@ -81,6 +82,8 @@ export class VRadioGroupComponent implements ControlValueAccessor, OnInit {
       this.ngControl.valueChanges?.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
         this.updateErrorState();
       });
+
+      this.updateErrorState();
     }
   }
 
@@ -108,6 +111,11 @@ export class VRadioGroupComponent implements ControlValueAccessor, OnInit {
     if (this.isDisabled()) return;
     this.value.set(value);
     this.onChangeFn(value);
+    this.onTouched();
+    this.updateErrorState();
+  }
+
+  onBlur() {
     this.onTouched();
     this.updateErrorState();
   }
