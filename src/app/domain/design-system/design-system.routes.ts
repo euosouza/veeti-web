@@ -71,5 +71,10 @@ export const routesDesignSystem: Routes = [
     path: "componentes/pagination",
     title: "Pagination",
     loadComponent: () => import("./pages/components/pagination-demo/pagination-demo.page").then((m) => m.PaginationDemoPage)
+  },
+  {
+    path: "componentes/radio-group",
+    title: "Radio Group",
+    loadComponent: () => import("./pages/components/radio-group-demo/radio-group-demo.page").then((m) => m.RadioGroupDemoPage)
   }
 ];

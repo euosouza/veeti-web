@@ -1,0 +1,263 @@
+<section class="mb-12">
+  <span class="text-secondary text-sm font-bold uppercase tracking-widest">
+    Design System > Componentes
+  </span>
+  <div class="space-y-6 mt-2">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+      {{ config().title }}
+    </h1>
+    <p class="text-base text-muted-foreground leading-[1.2]">
+      {{ config().description }}
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="border-b border-gray-200">
+    <ul
+      class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400"
+    >
+      @for (tab of tabs(); track $index) {
+        <li>
+          <button
+            (click)="onClickTab(tab)"
+            class="inline-flex items-center justify-center p-4 border-b-2 rounded-t-lg group transition-all"
+            [class.text-primary-600.border-primary-600.dark:text-primary-500.dark:border-primary-500]="
+              tab.active
+            "
+            [class.border-transparent.hover:text-gray-600.hover:border-gray-300.dark:hover:text-gray-300]="
+              !tab.active
+            "
+          >
+            {{ tab.name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<div class="py-4 mt-8">
+  @switch (currentTab().name) {
+    @case ("Overview") {
+      <app-playground [codeSnippet]="codeSnippet()">
+        <!-- Visualização do Componente -->
+        <ng-content preview>
+          <div class="flex items-center justify-center p-8">
+            <v-radio-group [size]="size()" [disabled]="disabled()">
+              <v-radio-button value="apple">Apple</v-radio-button>
+              <v-radio-button value="banana">Banana</v-radio-button>
+              <v-radio-button value="orange">Orange</v-radio-button>
+            </v-radio-group>
+          </div>
+        </ng-content>
+
+        <!-- Controles para o Playground -->
+        <ng-container controls>
+          <div class="mt-4">
+            <v-label htmlFor="size">Tamanho</v-label>
+            <select
+              id="size"
+              [ngModel]="size()"
+              (ngModelChange)="size.set($event)"
+              class="mt-2 w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+            >
+              <option value="sm">Pequeno</option>
+              <option value="md">Médio</option>
+              <option value="lg">Grande</option>
+            </select>
+          </div>
+
+          <div class="flex items-center gap-2 mt-4">
+            <v-checkbox
+              [id]="'disabled'"
+              [ngModel]="disabled()"
+              (ngModelChange)="disabled.set($event)"
+            >
+              Desabilitado
+            </v-checkbox>
+          </div>
+        </ng-container>
+      </app-playground>
+
+      <!-- Section: Estados Interativos -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Estados Interativos</h2>
+          <p class="text-muted-foreground">Feedback visual para diferentes tipos de interação.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <v-card vTitle="Hover / Ativo" vDescription="Feedback ao passar o mouse e clicar.">
+            <div class="flex flex-col gap-4">
+              <v-radio-group value="hover">
+                <v-radio-button value="hover">Interaja comigo</v-radio-button>
+              </v-radio-group>
+              <p class="text-xs text-muted-foreground italic">
+                Passe o mouse ou clique para ver a transição.
+              </p>
+            </div>
+          </v-card>
+
+          <v-card vTitle="Foco (Teclado)" vDescription="Navegue usando a tecla Tab.">
+            <div class="flex flex-col gap-4">
+              <v-radio-group value="focus">
+                <v-radio-button value="focus">Use a tecla Tab</v-radio-button>
+              </v-radio-group>
+              <p class="text-xs text-muted-foreground italic">
+                O anel de foco aparece apenas na navegação por teclado.
+              </p>
+            </div>
+          </v-card>
+
+          <v-card vTitle="Seleção Padrão" vDescription="Sempre inicie com uma opção selecionada.">
+            <div class="flex flex-col gap-4">
+              <v-radio-group value="default">
+                <v-radio-button value="default">Opção Recomendada</v-radio-button>
+                <v-radio-button value="other">Outra Opção</v-radio-button>
+              </v-radio-group>
+            </div>
+          </v-card>
+        </div>
+      </section>
+
+      <!-- Section: Estados de Validação -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Validação e Acessibilidade</h2>
+          <p class="text-muted-foreground">Comunicação de restrições e erros.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <v-card vTitle="Desabilitado" vDescription="Impede qualquer interação com o grupo.">
+            <v-radio-group [disabled]="true">
+              <v-radio-button value="1">Opção Desabilitada</v-radio-button>
+            </v-radio-group>
+          </v-card>
+
+          <v-card vTitle="Erro / Inválido" vDescription="Feedback visual para falha na validação.">
+            <v-radio-group variant="error">
+              <v-radio-button value="1">Campo com erro</v-radio-button>
+            </v-radio-group>
+          </v-card>
+        </div>
+      </section>
+
+      <!-- Section: Tamanhos -->
+      <section class="space-y-6 mt-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Tamanhos</h2>
+          <p class="text-muted-foreground">Opções de escala para diferentes contextos.</p>
+        </div>
+        <div
+          class="p-8 rounded-xl border border-border bg-card-background grid grid-cols-1 md:grid-cols-3 gap-4 gap-8"
+        >
+          <div class="flex flex-col gap-2">
+            <span class="text-sm font-medium text-foreground">Pequeno (sm)</span>
+            <v-radio-group size="sm">
+              <v-radio-button value="1">Opção P</v-radio-button>
+              <v-radio-button value="2">Opção P</v-radio-button>
+            </v-radio-group>
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-sm font-medium text-foreground">Médio (md)</span>
+            <v-radio-group size="md">
+              <v-radio-button value="1">Opção M</v-radio-button>
+              <v-radio-button value="2">Opção M</v-radio-button>
+            </v-radio-group>
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-sm font-medium text-foreground">Grande (lg)</span>
+            <v-radio-group size="lg">
+              <v-radio-button value="1">Opção G</v-radio-button>
+              <v-radio-button value="2">Opção G</v-radio-button>
+            </v-radio-group>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Reactive Forms -->
+      <section class="space-y-6 mt-12 mb-12">
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-bold text-foreground">Integração com Reactive Forms</h2>
+          <p class="text-muted-foreground">
+            Exemplo de seleção de plano com validação e debugger de estado.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="p-8 rounded-xl border border-border bg-card-background space-y-6">
+            <div class="pb-4 border-b border-border">
+              <h3 class="font-semibold text-foreground">Selecione um Plano</h3>
+              <p class="text-xs text-muted-foreground mt-1">
+                A validação é disparada ao tentar enviar ou interagir.
+              </p>
+            </div>
+
+            <form [formGroup]="planForm" class="flex flex-col gap-4">
+              <div class="space-y-2">
+                <v-radio-group formControlName="plan">
+                  <v-radio-button value="free">Gratuito ($0/mês)</v-radio-button>
+                  <v-radio-button value="pro">Pro ($19/mês)</v-radio-button>
+                  <v-radio-button value="enterprise">Enterprise ($99/mês)</v-radio-button>
+                </v-radio-group>
+                @if (
+                  planForm.controls["plan"].invalid &&
+                  (planForm.controls["plan"].dirty || planForm.controls["plan"].touched)
+                ) {
+                  <p class="text-xs text-error-500">
+                    Por favor, selecione um plano para continuar.
+                  </p>
+                }
+              </div>
+
+              <div class="pt-2 grid justify-center">
+                <app-button type="submit" [disabled]="planForm.invalid">Assinar Agora</app-button>
+              </div>
+            </form>
+
+            <div class="flex justify-end pt-4 border-t border-border">
+              <button
+                (click)="planForm.reset()"
+                class="text-xs text-muted-foreground hover:text-foreground underline transition-colors"
+              >
+                Resetar Escolha
+              </button>
+            </div>
+          </div>
+
+          <v-form-debugger
+            [control]="planForm"
+            title="Estado do Formulário"
+            class="p-0"
+          ></v-form-debugger>
+        </div>
+      </section>
+    }
+    @default {
+      <div class="max-w-none flex flex-col gap-5 overflow-hidden">
+        <div>
+          <h2 id="properties" class="text-lg font-semibold text-foreground">
+            Propriedades (Inputs)
+          </h2>
+          <div class="mt-5 overflow-x-auto rounded-xl border border-border">
+            <v-table
+              [data]="config().documentation?.tableInputs || []"
+              [columns]="columnsDocInputs"
+              size="sm"
+            ></v-table>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+          <div class="mt-5 overflow-x-auto rounded-xl border border-border">
+            <v-table
+              [data]="config().documentation?.tableOutputs || []"
+              [columns]="columnsDocOutputs"
+              size="sm"
+            ></v-table>
+          </div>
+        </div>
+      </div>
+    }
+  }
+</div>

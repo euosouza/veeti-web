@@ -83,6 +83,10 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/pagination"
       },
       {
+        label: "Radio Group",
+        path: "/design-system/componentes/radio-group"
+      },
+      {
         label: "Skeleton",
         path: "/design-system/componentes/skeleton"
       },
