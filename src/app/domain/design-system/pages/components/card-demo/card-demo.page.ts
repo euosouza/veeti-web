@@ -7,16 +7,33 @@ import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v
 import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
 @Component({
   selector: "app-card-demo",
   standalone: true,
-  imports: [FormsModule, PlaygroundComponent, VCardComponent, ButtonComponent, VInputDirective, VLabelComponent, VBadgeComponent, VIconComponent, VCheckboxComponent],
+  imports: [
+    FormsModule,
+    PlaygroundComponent,
+    VCardComponent,
+    ButtonComponent,
+    VInputDirective,
+    VLabelComponent,
+    VBadgeComponent,
+    VIconComponent,
+    VCheckboxComponent,
+    VTableComponent
+  ],
   templateUrl: "./card-demo.page.html"
 })
 export class CardDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   readonly config = signal<PlaygroundConfig>({
     title: "Card",
     description: "Container versátil para agrupar conteúdo relacionado com cabeçalho, corpo e rodapé.",

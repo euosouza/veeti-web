@@ -153,48 +153,11 @@
       <div class="max-w-none flex flex-col gap-5">
         <div>
           <h2 class="text-lg font-semibold text-foreground">Propriedades (Inputs)</h2>
-          <div
-            class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
-          >
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr
-                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
-                >
-                  <th class="p-4 text-left font-bold">Propriedade</th>
-                  <th class="p-4 text-left font-bold">Tipo</th>
-                  <th class="p-4 text-left font-bold">Padrão</th>
-                  <th class="p-4 text-left font-bold">Descrição</th>
-                </tr>
-              </thead>
-              <tbody class="text-sm bg-card-background">
-                @for (item of config().documentation?.tableInputs; track $index) {
-                  <tr class="border-b border-border">
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.props }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground max-w-37.5">
-                      <span
-                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.types }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.default }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">
-                      {{ item.description }}
-                    </td>
-                  </tr>
-                }
-              </tbody>
-            </table>
+          <div class="mt-5">
+            <v-table
+              [data]="config().documentation?.tableInputs!"
+              [columns]="columnsDocInputs"
+            ></v-table>
           </div>
         </div>
       </div>

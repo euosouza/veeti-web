@@ -13,15 +13,21 @@ interface Tab {
   active: boolean;
 }
 
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { VFormDebuggerComponent } from "../../../components/form-debugger/v-form-debugger.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 
 @Component({
   selector: "app-checkbox-demo",
   standalone: true,
-  imports: [VCheckboxComponent, VInputDirective, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule, VFormDebuggerComponent],
+  imports: [VCheckboxComponent, VInputDirective, VLabelComponent, PlaygroundComponent, ButtonComponent, FormsModule, ReactiveFormsModule, VFormDebuggerComponent, VTableComponent],
   templateUrl: "./checkbox-demo.page.html"
 })
 export class CheckboxDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   private fb = inject(FormBuilder);
 
   // Tabs

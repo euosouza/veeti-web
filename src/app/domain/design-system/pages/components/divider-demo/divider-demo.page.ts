@@ -1,7 +1,10 @@
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VDividerComponent } from "../../../../../libs/ui/components/divider/v-divider.component";
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
 interface Tab {
@@ -12,10 +15,13 @@ interface Tab {
 @Component({
   selector: "app-divider-demo",
   standalone: true,
-  imports: [VDividerComponent, PlaygroundComponent, FormsModule],
+  imports: [VDividerComponent, PlaygroundComponent, FormsModule, VTableComponent],
   templateUrl: "./divider-demo.page.html"
 })
 export class DividerDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   // Tabs
   tabs = signal<Tab[]>([
     { name: "Visão Geral", active: true },

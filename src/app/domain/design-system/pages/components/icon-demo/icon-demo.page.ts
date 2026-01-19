@@ -2,7 +2,10 @@ import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
 interface Tab {
@@ -13,10 +16,13 @@ interface Tab {
 @Component({
   selector: "app-icon-demo",
   standalone: true,
-  imports: [VIconComponent, VLabelComponent, PlaygroundComponent, FormsModule],
+  imports: [VIconComponent, VLabelComponent, PlaygroundComponent, FormsModule, VTableComponent],
   templateUrl: "./icon-demo.page.html"
 })
 export class IconDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   readonly config = signal<PlaygroundConfig>({
     title: "Icon",
     description: "Ícones fornecem dicas visuais e melhoram a legibilidade da interface.",

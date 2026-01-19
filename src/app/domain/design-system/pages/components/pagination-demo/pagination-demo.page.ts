@@ -8,6 +8,7 @@ import { PaginationVariant, VPaginationComponent } from "../../../../../libs/ui/
 import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
 import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
 interface Tab {
@@ -29,6 +30,9 @@ interface Post {
   templateUrl: "./pagination-demo.page.html"
 })
 export class PaginationDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   readonly config = signal<PlaygroundConfig>({
     title: "Pagination",
     description: "Pagination permite a navegação através de grandes conjuntos de dados divididos em páginas.",

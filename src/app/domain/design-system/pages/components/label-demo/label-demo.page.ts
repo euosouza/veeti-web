@@ -8,6 +8,10 @@ import { VLabelVariants } from "../../../../../libs/ui/components/label/v-label.
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
+
 interface Tab {
   name: string;
   active: boolean;
@@ -16,10 +20,13 @@ interface Tab {
 @Component({
   selector: "app-label-demo",
   standalone: true,
-  imports: [CommonModule, FormsModule, VLabelComponent, VCheckboxComponent, VInputDirective, PlaygroundComponent],
+  imports: [CommonModule, FormsModule, VLabelComponent, VCheckboxComponent, VInputDirective, PlaygroundComponent, VTableComponent],
   templateUrl: "./label-demo.page.html"
 })
 export class LabelDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   // Tabs
   tabs = signal<Tab[]>([
     { name: "Visão Geral", active: true },

@@ -6,7 +6,10 @@ import { IStatesBtn, TVariantBtn } from "../../../../../libs/ui/components/butto
 import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
 interface Tab {
@@ -16,10 +19,13 @@ interface Tab {
 
 @Component({
   selector: "app-button-demo.page",
-  imports: [ButtonComponent, VInputDirective, VLabelComponent, PlaygroundComponent, FormsModule, VIconComponent],
+  imports: [ButtonComponent, VInputDirective, VLabelComponent, PlaygroundComponent, FormsModule, VIconComponent, VTableComponent],
   templateUrl: "./button-demo.page.html"
 })
 export class ButtonDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   readonly config = signal<PlaygroundConfig>({
     title: "Button",
     description: "Botões permitem que os usuários realizem ações com um único clique.",

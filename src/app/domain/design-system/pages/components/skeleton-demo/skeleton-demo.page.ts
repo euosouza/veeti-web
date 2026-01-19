@@ -7,6 +7,10 @@ import { skeletonVariants } from "../../../../../libs/ui/components/skeleton/ske
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
+import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
+import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
+
 interface Tab {
   name: string;
   active: boolean;
@@ -15,10 +19,13 @@ interface Tab {
 @Component({
   selector: "app-skeleton-demo",
   standalone: true,
-  imports: [SkeletonComponent, VLabelComponent, PlaygroundComponent, FormsModule],
+  imports: [SkeletonComponent, VLabelComponent, PlaygroundComponent, FormsModule, VTableComponent],
   templateUrl: "./skeleton-demo.page.html"
 })
 export class SkeletonDemoPage {
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
+
   readonly config = signal<PlaygroundConfig>({
     title: "Skeleton",
     description: "Use skeleton screens to indicate that content is loading, improving the user experience.",

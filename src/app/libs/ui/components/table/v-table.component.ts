@@ -256,7 +256,7 @@ export class VTableComponent<T> {
     return cn(
       tableHeaderVariants({ size: this.size() }),
       col.align ? `text-${col.align}` : "text-left",
-      col.fixed ? "sticky z-20 bg-background" : "",
+      col.fixed ? "sticky z-20 text-xs uppercase text-foreground font-medium bg-neutral-100 dark:bg-neutral-700" : "",
       col.fixed === "right" ? "shadow-[-1px_0_0_0_hsl(var(--border))]" : col.fixed ? "shadow-[1px_0_0_0_hsl(var(--border))]" : ""
     );
   }

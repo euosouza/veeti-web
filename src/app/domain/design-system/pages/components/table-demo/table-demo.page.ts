@@ -192,7 +192,6 @@ export class TableDemoPage implements AfterViewInit {
         label: "",
         align: "center",
         type: "actions",
-        fixed: "right",
         width: "50px",
         actions: [
           {
