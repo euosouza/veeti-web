@@ -123,17 +123,18 @@ export class VDropdownContentComponent {}
   imports: [CommonModule],
   template: `<ng-content></ng-content>`,
   host: {
-    class:
-      "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+    class: "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
+    "[class.pointer-events-none]": "disabled()",
+    "[class.opacity-50]": "disabled()",
     "(click)": "handleClick()"
   }
 })
 export class VDropdownItemComponent {
+  readonly disabled = input<boolean>(false);
   private dropdown = inject(VDropdownComponent);
 
   handleClick() {
-    // Optional: Only close if not preventing default?
-    // For now, always close on item click
+    if (this.disabled()) return;
     this.dropdown.close();
   }
 }

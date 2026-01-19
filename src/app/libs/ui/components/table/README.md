@@ -79,14 +79,40 @@ interface VTableColumn<T> {
   // Alinhamento do conteúdo da célula e do cabeçalho.
   align?: "left" | "center" | "right";
 
-  // Aplica formatação automática usando Pipes do Angular.
-  type?: "text" | "number" | "date" | "currency" | "custom";
+  // Aplica formatação automática ou renderização especial.
+  type?: "text" | "number" | "date" | "currency" | "badge" | "actions" | "custom";
 
-  // Função simples para transformar o valor antes da exibição.
+  // Configuração para colunas do tipo 'badge'
+  badge?: {
+    variant?: BadgeVariant | ((row: T) => BadgeVariant);
+    size?: BadgeSize | ((row: T) => BadgeSize);
+    class?: string | ((row: T) => string);
+  };
+
+  // Configuração para colunas do tipo 'actions'
+  actions?: VTableAction<T>[];
+
+  // Função simples para transformar o valor antes da exibição (usado também no badge).
   render?: (row: T) => string | number | boolean;
 
   // TemplateRef para renderização complexa (botões, badges, componentes variados).
   template?: TemplateRef<any>;
+}
+```
+
+```
+
+### Configuração de Ações (`VTableAction`)
+
+Para colunas do tipo `actions`, defina um array de objetos seguindo esta interface:
+
+```typescript
+export interface VTableAction<T> {
+  label: string;
+  icon?: string;
+  action?: (row: T) => void;
+  danger?: boolean; // Se true, aplica estilo de erro (vermelho)
+  disabled?: boolean | ((row: T) => boolean); // Desabilita a ação condicionalmente
 }
 ```
 
@@ -95,7 +121,8 @@ interface VTableColumn<T> {
 O exemplo abaixo demonstra o uso de:
 -   Colunas fixas (`ID`, `Ações`).
 -   Tipagem (`currency`, `date`).
--   Template customizado (`statusTemplate`, `actionsTemplate`).
+-   Tipos especiais (`badge`, `actions`).
+-   Configuração via código (sem `ng-template`).
 -   Seleção de linhas.
 
 ```html
@@ -108,44 +135,46 @@ O exemplo abaixo demonstra o uso de:
   (selectionChange)="onSelection($event)"
 ></v-table>
 
-<!-- Template para coluna de Status -->
-<ng-template #statusTemplate let-row>
-  <v-badge [variant]="row.status === 'active' ? 'success' : 'danger'">
-    {{ row.status | titlecase }}
-  </v-badge>
-</ng-template>
-
-<!-- Template para coluna de Ações -->
-<ng-template #actionsTemplate let-row>
-  <button (click)="edit(row)">Editar</button>
-</ng-template>
 ```
 
 ```typescript
-export class TableDemoPage implements AfterViewInit {
-  @ViewChild('statusTemplate') statusTemplate!: TemplateRef<any>;
-  @ViewChild('actionsTemplate') actionsTemplate!: TemplateRef<any>;
-
-  columns: VTableColumn<any>[] = [];
+export class TableDemoPage {
   data = [ ... ]; // dados mockados
 
-  constructor(private cdr: ChangeDetectorRef) {}
-
-  ngAfterViewInit() {
-    // Definimos as colunas no AfterViewInit para garantir que os Templates já foram carregados
-    this.columns = [
-      { key: 'id', label: 'ID', width: '60px', fixed: true, align: 'center' },
-      { key: 'name', label: 'Nome', width: '200px', fixed: 'left' },
-      { key: 'salary', label: 'Salário', type: 'currency', align: 'right' },
-      { key: 'createdAt', label: 'Data', type: 'date', align: 'center' },
-      { key: 'status', label: 'Status', template: this.statusTemplate, align: 'center' },
-      { key: 'actions', label: 'Ações', template: this.actionsTemplate, align: 'center', width: '80px', fixed: 'right' }
-    ];
-    this.cdr.detectChanges();
-  }
+  columns: VTableColumn<any>[] = [
+    { key: 'id', label: 'ID', width: '60px', fixed: true, align: 'center' },
+    { key: 'name', label: 'Nome', width: '200px', fixed: 'left' },
+    { key: 'salary', label: 'Salário', type: 'currency', align: 'right' },
+    { key: 'createdAt', label: 'Data', type: 'date', align: 'center' },
+    { 
+      key: 'status', 
+      label: 'Status', 
+      align: 'center',
+      type: 'badge',
+      render: (row) => row.status.toUpperCase(), // Opcional: formata o texto do badge
+      badge: {
+        variant: (row) => row.status === 'active' ? 'success' : 'danger'
+      }
+    },
+    { 
+      key: 'actions', 
+      label: 'Ações', 
+      type: 'actions', 
+      align: 'center', 
+      width: '80px', 
+      fixed: 'right',
+      actions: [
+        { label: 'Editar', icon: 'edit', action: (row) => this.edit(row) },
+        { label: 'Excluir', icon: 'delete', danger: true, action: (row) => this.delete(row) }
+      ]
+    }
+  ];
 
   onSelection(selectedItems: any[]) {
     console.log('Itens selecionados:', selectedItems);
   }
+
+  edit(row: any) { ... }
+  delete(row: any) { ... }
 }
 ```

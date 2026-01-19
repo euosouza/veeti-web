@@ -1,14 +1,14 @@
 import { CommonModule } from "@angular/common";
-import { AfterViewInit, ChangeDetectorRef, Component, computed, inject, signal, TemplateRef, ViewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component, computed, inject, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { VBadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
-import { VDropdownComponent, VDropdownContentComponent, VDropdownItemComponent, VDropdownTriggerDirective } from "../../../../../libs/ui/components/dropdown/v-dropdown.component";
+import { VCardComponent } from "../../../../../libs/ui/components/card/v-card.component";
 import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
 import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
 import { PlaygroundComponent } from "../../../components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "../../../constants/playground.constants";
 
 interface Tab {
@@ -33,26 +33,10 @@ interface User {
 @Component({
   selector: "app-table-demo",
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    VTableComponent,
-    VInputDirective,
-    VIconComponent,
-    VDropdownComponent,
-    VDropdownTriggerDirective,
-    VDropdownContentComponent,
-    VDropdownItemComponent,
-    VBadgeComponent,
-    VLabelComponent,
-    PlaygroundComponent
-  ],
+  imports: [CommonModule, FormsModule, VTableComponent, VInputDirective, VIconComponent, VLabelComponent, PlaygroundComponent, VCardComponent],
   templateUrl: "./table-demo.page.html"
 })
 export class TableDemoPage implements AfterViewInit {
-  @ViewChild("actionsTemplate") actionsTemplate!: TemplateRef<User>;
-  @ViewChild("statusTemplate") statusTemplate!: TemplateRef<User>;
-
   private cdr = inject(ChangeDetectorRef);
 
   // Tabs
@@ -118,6 +102,7 @@ export class TableDemoPage implements AfterViewInit {
   readonly size = signal<"sm" | "md" | "lg">("md");
   readonly selectable = signal<boolean>(false);
   readonly selectedCount = signal<number>(0);
+  readonly isLoading = signal<boolean>(false);
 
   // Computed code snippet based on current state
   readonly codeSnippet = computed(() => {
@@ -126,28 +111,19 @@ export class TableDemoPage implements AfterViewInit {
   [selectable]="true"`
       : "";
 
+    const loadingAttr = this.isLoading() ? `\n  [loading]="true"` : "";
+
     return `<v-table
   [data]="data"
   [columns]="columns"
   variant="${this.variant()}"
-  size="${this.size()}"${selectableAttr}
+  size="${this.size()}"${selectableAttr}${loadingAttr}
   (selectionChange)="onSelection($event)"
-></v-table>
-
-<!-- Template for Status Column -->
-<ng-template #statusTemplate let-row>
-  <v-badge [variant]="row.status === 'active' ? 'default' : 'danger'">
-    {{ row.status | titlecase }}
-  </v-badge>
-</ng-template>
-
-<!-- Template for Actions Column -->
-<ng-template #actionsTemplate let-row>
-  <div class="flex items-center justify-center gap-2">
-    <!-- Actions content -->
-  </div>
-</ng-template>`;
+></v-table>`;
   });
+
+  columnsDocInputs: VTableColumn<unknown>[] = DOC_INPUTS_COLUMNS;
+  columnsDocOutputs: VTableColumn<unknown>[] = DOC_OUTPUTS_COLUMNS;
 
   onClickTab(tab: Tab) {
     this.currentTab.set(tab);
@@ -158,8 +134,20 @@ export class TableDemoPage implements AfterViewInit {
     this.selectedCount.set(selected.length);
   }
 
+  toggleLoading() {
+    this.isLoading.update((v) => !v);
+  }
+
+  toggleData() {
+    if (this.data().length > 0) {
+      this.data.set([]);
+    } else {
+      this.data.set(this.mockData);
+    }
+  }
+
   // Mock data
-  data: User[] = Array.from({ length: 5 }, (_, i) => ({
+  private mockData: User[] = Array.from({ length: 5 }, (_, i) => ({
     id: i + 1,
     name: `User ${i + 1}`,
     email: `user${i + 1}@example.com`,
@@ -173,6 +161,8 @@ export class TableDemoPage implements AfterViewInit {
     phone: "+1 555 010 " + i
   }));
 
+  data = signal<User[]>(this.mockData);
+
   columns: VTableColumn<User>[] = [];
 
   ngAfterViewInit() {
@@ -182,13 +172,44 @@ export class TableDemoPage implements AfterViewInit {
       { key: "name", label: "Name", width: "150px", fixed: "left" },
       { key: "email", label: "Email" },
       { key: "role", label: "Role" },
-      { key: "status", label: "Status", align: "center", template: this.statusTemplate },
+      {
+        key: "status",
+        label: "Status",
+        align: "center",
+        type: "badge",
+        render: (row) => row.status.charAt(0).toUpperCase() + row.status.slice(1).toLowerCase(),
+        badge: {
+          variant: (row) => (row.status === "active" ? "default" : "danger"),
+          class: "capitalize"
+        }
+      },
       { key: "salary", label: "Salary", align: "right", type: "currency" },
       { key: "department", label: "Department" },
       { key: "location", label: "Location" },
       { key: "lastLogin", label: "Last Login", align: "center", type: "date" },
-      { key: "actions", label: "Actions", align: "center", template: this.actionsTemplate }
+      {
+        key: "actions",
+        label: "",
+        align: "center",
+        type: "actions",
+        fixed: "right",
+        width: "50px",
+        actions: [
+          {
+            label: "Edit",
+            icon: "edit",
+            action: (row) => console.log("Edit", row)
+          },
+          {
+            label: "Delete",
+            icon: "delete",
+            danger: true,
+            action: (row) => console.log("Delete", row)
+          }
+        ]
+      }
     ];
+
     this.cdr.detectChanges();
   }
 }

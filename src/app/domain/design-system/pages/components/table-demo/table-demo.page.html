@@ -50,46 +50,14 @@
               </div>
             }
             <v-table
-              [data]="data"
+              [data]="data()"
               [columns]="columns"
               [variant]="variant()"
               [size]="size()"
               [selectable]="selectable()"
+              [loading]="isLoading()"
               (selectionChange)="onSelection($event)"
             />
-
-            <ng-template #statusTemplate let-row>
-              <v-badge [variant]="row.status === 'active' ? 'success' : 'danger'">
-                {{ row.status | titlecase }}
-              </v-badge>
-            </ng-template>
-
-            <ng-template #actionsTemplate let-row>
-              <div class="flex items-center justify-center">
-                <v-dropdown>
-                  <button
-                    vDropdownTrigger
-                    class="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                  >
-                    <v-icon name="more_vert" size="md"></v-icon>
-                  </button>
-                  <v-dropdown-content>
-                    <v-dropdown-item>
-                      <div class="flex items-center gap-2">
-                        <v-icon name="edit" size="md"></v-icon>
-                        <span>Edit</span>
-                      </div>
-                    </v-dropdown-item>
-                    <v-dropdown-item class="text-red-500 hover:text-red-600">
-                      <div class="flex items-center gap-2">
-                        <v-icon name="delete" size="sm"></v-icon>
-                        <span>Delete</span>
-                      </div>
-                    </v-dropdown-item>
-                  </v-dropdown-content>
-                </v-dropdown>
-              </div>
-            </ng-template>
           </div>
         </ng-content>
 
@@ -155,9 +123,52 @@
                 ></v-icon>
               </div>
             </div>
+
+            <div class="grid w-full max-w-sm items-center gap-1.5">
+              <v-label htmlFor="loading-select">Loading</v-label>
+              <div class="relative">
+                <select
+                  vInput
+                  id="loading-select"
+                  [ngModel]="isLoading()"
+                  (ngModelChange)="isLoading.set($event === 'true')"
+                  class="w-full bg-transparent outline-none appearance-none"
+                >
+                  <option [value]="false">No</option>
+                  <option [value]="true">Yes</option>
+                </select>
+                <v-icon
+                  name="expand_more"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground"
+                ></v-icon>
+              </div>
+            </div>
           </div>
         </ng-container>
       </app-playground>
+
+      <section class="mt-12 space-y-8">
+        <h2 class="text-2xl font-bold text-foreground">Variantes</h2>
+
+        <div class="grid gap-8">
+          <!-- Loading State -->
+          <v-card
+            vTitle="Loading State"
+            vDescription="Exemplo da tabela em estado de carregamento."
+          >
+            <div class="p-6">
+              <v-table [data]="[]" [columns]="columns" [loading]="true" [skeletonCount]="3" />
+            </div>
+          </v-card>
+
+          <!-- Empty State -->
+          <v-card vTitle="Empty State" vDescription="Exemplo da tabela sem dados.">
+            <div class="p-6">
+              <v-table [data]="[]" [columns]="columns" emptyText="Nenhum usuário encontrado." />
+            </div>
+          </v-card>
+        </div>
+      </section>
     }
 
     @case ("API") {
@@ -170,43 +181,11 @@
           <div
             class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
           >
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr
-                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
-                >
-                  <th class="p-4 text-left font-bold">Propriedade</th>
-                  <th class="p-4 text-left font-bold">Tipo</th>
-                  <th class="p-4 text-left font-bold">Padrão</th>
-                  <th class="p-4 text-left font-bold">Descrição</th>
-                </tr>
-              </thead>
-              <tbody class="text-sm bg-card-background">
-                @for (item of config().documentation?.tableInputs; track $index) {
-                  <tr class="border-b border-border">
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-tertiary-800 text-tertiary-300 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.props }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.types }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.default }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
-                  </tr>
-                }
-              </tbody>
-            </table>
+            <v-table
+              [data]="config().documentation?.tableInputs || []"
+              [columns]="columnsDocInputs"
+              [loading]="isLoading()"
+            />
           </div>
         </div>
 
@@ -215,44 +194,14 @@
           <div
             class="mt-5 overflow-x-auto rounded-xl border border-border dark:border-gray-800 bg-surface-light dark:bg-surface-dark"
           >
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr
-                  class="border-b border-border text-xs uppercase text-foreground bg-neutral-100 dark:bg-neutral-700"
-                >
-                  <th class="p-4 text-left font-bold">Nome</th>
-                  <th class="p-4 text-left font-bold">Retorno</th>
-                  <th class="p-4 text-left font-bold">Descrição</th>
-                </tr>
-              </thead>
-              <tbody class="text-sm bg-card-background">
-                @for (item of config().documentation?.tableOutputs; track $index) {
-                  <tr class="border-b border-border">
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-purple-800 text-purple-300 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.props }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">
-                      <span
-                        class="bg-muted text-neutral-400 border-border py-0.5 px-2 rounded-md text-sm"
-                        ><code>{{ item.return }}</code></span
-                      >
-                    </td>
-                    <td class="p-4 font-medium text-foreground">{{ item.description }}</td>
-                  </tr>
-                }
-              </tbody>
-            </table>
+            <v-table
+              [data]="config().documentation?.tableOutputs || []"
+              [columns]="columnsDocOutputs"
+              [loading]="isLoading()"
+            />
           </div>
         </div>
       </div>
     }
   }
 </div>
-
-<!-- 
-  NOTE: Templates must be outside of @switch/structural directives to be resolved 
-  by @ViewChild(..., { static: true }) in ngOnInit.
--->

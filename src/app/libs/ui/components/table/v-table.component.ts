@@ -2,26 +2,41 @@ import { CommonModule, CurrencyPipe, DatePipe, DecimalPipe } from "@angular/comm
 import { Component, computed, inject, input, output, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { mergeClasses as cn } from "../../utils/merge-class";
+import { VBadgeComponent } from "../badge/badge.component";
 import { VCheckboxComponent } from "../checkbox/v-checkbox.component";
+import { VDropdownComponent, VDropdownContentComponent, VDropdownItemComponent, VDropdownTriggerDirective } from "../dropdown/v-dropdown.component";
+import { VIconComponent } from "../icon/v-icon.component";
+import { SkeletonComponent } from "../skeleton/skeleton.component";
 import { tableCellVariants, tableHeaderVariants, tableVariants, TableVariants } from "./v-table.constants";
 import { VTableColumn } from "./v-table.interface";
 
 @Component({
   selector: "v-table",
   standalone: true,
-  imports: [CommonModule, VCheckboxComponent, FormsModule],
+  imports: [
+    CommonModule,
+    VCheckboxComponent,
+    SkeletonComponent,
+    VIconComponent,
+    FormsModule,
+    VBadgeComponent,
+    VDropdownComponent,
+    VDropdownContentComponent,
+    VDropdownItemComponent,
+    VDropdownTriggerDirective
+  ],
   providers: [DatePipe, CurrencyPipe, DecimalPipe],
   template: `
     <div class="relative w-full overflow-auto rounded-md border border-border">
       <table [class]="tableClass()" class="whitespace-nowrap">
         <thead>
-          <tr class="hover:bg-transparent">
+          <tr class="hover:bg-transparent text-xs uppercase text-foreground font-medium bg-neutral-100 dark:bg-neutral-700">
             @if (selectable()) {
               <th
-                class="sticky left-0 z-20 w-[48px] min-w-[48px] max-w-[48px] border-b border-border bg-background p-0 text-center shadow-[1px_0_0_0_hsl(var(--border)),0_1px_0_0_hsl(var(--border))]"
+                class="sticky left-0 z-20 w-[48px] min-w-[48px] max-w-[48px] border-b border-border p-0 text-center shadow-[1px_0_0_0_hsl(var(--border)),0_1px_0_0_hsl(var(--border))]"
               >
                 <div class="flex items-center justify-center">
-                  <v-checkbox [ngModel]="isAllSelected()" [disabled]="!data().length" (ngModelChange)="toggleAll()" />
+                  <v-checkbox [ngModel]="isAllSelected()" [disabled]="!data().length || loading()" (ngModelChange)="toggleAll()" />
                 </div>
               </th>
             }
@@ -39,40 +54,110 @@ import { VTableColumn } from "./v-table.interface";
             }
           </tr>
         </thead>
-        <tbody>
-          @for (row of data(); track $index) {
-            <tr class="group hover:bg-primary-100 data-[state=selected]:bg-primary-100">
-              @if (selectable()) {
-                <td
-                  class="sticky left-0 z-10 w-[48px] min-w-[48px] max-w-[48px] border-border  border-b bg-background p-0 text-center shadow-[1px_0_0_0_hsl(var(--border))] group-hover:bg-primary-100"
-                >
-                  <div class="flex items-center justify-center">
-                    <v-checkbox [ngModel]="isRowSelected(row)" (ngModelChange)="toggleRow(row)" />
-                  </div>
-                </td>
-              }
-              @for (col of columns(); track col.key; let i = $index) {
-                <td
-                  [class]="getCellClass(col)"
-                  [style.left]="getStickyLeft(i)"
-                  [style.right]="getStickyRight(i)"
-                  [style.width]="col.width"
-                  [style.min-width]="col.width"
-                  [style.max-width]="col.width"
-                >
-                  @if (col.template) {
-                    <ng-container *ngTemplateOutlet="col.template; context: { $implicit: row }"></ng-container>
-                  } @else {
-                    {{ getCellValue(row, col) }}
-                  }
-                </td>
-              }
-            </tr>
+        <tbody class="text-foreground">
+          @if (loading()) {
+            @for (item of skeletonRows(); track $index) {
+              <tr class="group hover:bg-transparent ">
+                @if (selectable()) {
+                  <td class="sticky left-0 z-10 w-[48px] min-w-[48px] max-w-[48px] border-b border-border bg-background p-4 text-center shadow-[1px_0_0_0_hsl(var(--border))]">
+                    <div class="flex items-center justify-center">
+                      <app-skeleton height="16px" width="16px" shape="square" />
+                    </div>
+                  </td>
+                }
+                @for (col of columns(); track col.key; let i = $index) {
+                  <td
+                    [class]="getCellClass(col)"
+                    [style.left]="getStickyLeft(i)"
+                    [style.right]="getStickyRight(i)"
+                    [style.width]="col.width"
+                    [style.min-width]="col.width"
+                    [style.max-width]="col.width"
+                  >
+                    <app-skeleton height="20px" width="100%" />
+                  </td>
+                }
+              </tr>
+            }
+          } @else {
+            @for (row of data(); track $index) {
+              <tr class="group  hover:bg-primary-100 data-[state=selected]:bg-primary-100">
+                @if (selectable()) {
+                  <td
+                    class="sticky left-0 z-10 w-[48px] min-w-[48px] max-w-[48px] border-b border-border bg-background p-0 text-center shadow-[1px_0_0_0_hsl(var(--border))] group-hover:bg-primary-100"
+                  >
+                    <div class="flex items-center justify-center">
+                      <v-checkbox [ngModel]="isRowSelected(row)" (ngModelChange)="toggleRow(row)" />
+                    </div>
+                  </td>
+                }
+                @for (col of columns(); track col.key; let i = $index) {
+                  <td
+                    [class]="getCellClass(col)"
+                    [style.left]="getStickyLeft(i)"
+                    [style.right]="getStickyRight(i)"
+                    [style.width]="col.width"
+                    [style.min-width]="col.width"
+                    [style.max-width]="col.width"
+                  >
+                    @if (col.template) {
+                      <ng-container *ngTemplateOutlet="col.template; context: { $implicit: row }"></ng-container>
+                    } @else if (col.type === "badge") {
+                      <v-badge
+                        [variant]="getBadgeProp(row, col.badge?.variant, 'default')"
+                        [size]="getBadgeProp(row, col.badge?.size, 'sm')"
+                        [class]="getBadgeProp(row, col.badge?.class)"
+                      >
+                        {{ getCellValue(row, col) }}
+                      </v-badge>
+                    } @else if (col.type === "actions") {
+                      <div class="flex items-center justify-center">
+                        <v-dropdown>
+                          <button
+                            vDropdownTrigger
+                            class="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground transition-colors outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                          >
+                            <v-icon name="more_vert" size="md"></v-icon>
+                          </button>
+                          <v-dropdown-content align="end">
+                            @for (action of col.actions; track action.label) {
+                              <v-dropdown-item
+                                (click)="action.action?.(row)"
+                                [disabled]="isActionDisabled(row, action.disabled)"
+                                [class.text-red-500]="action.danger"
+                                [class.hover:text-red-600]="action.danger"
+                              >
+                                <div class="flex items-center gap-2">
+                                  @if (action.icon) {
+                                    <v-icon [name]="action.icon" size="sm"></v-icon>
+                                  }
+                                  <span>{{ action.label }}</span>
+                                </div>
+                              </v-dropdown-item>
+                            }
+                          </v-dropdown-content>
+                        </v-dropdown>
+                      </div>
+                    } @else {
+                      <div class="text-muted-foreground">
+                        {{ getCellValue(row, col) }}
+                      </div>
+                    }
+                  </td>
+                }
+              </tr>
+            }
           }
-          @if (!data() || data().length === 0) {
+
+          @if (!loading() && (!data() || data().length === 0)) {
             <tr>
               <td [attr.colspan]="columns().length + (selectable() ? 1 : 0)">
-                <div class="flex items-center justify-center p-8 text-muted-foreground">No data available</div>
+                <div class="flex flex-col items-center justify-center py-12 px-4 gap-3 text-muted-foreground">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-full bg-muted/50">
+                    <v-icon name="search_off" [size]="48" />
+                  </div>
+                  <p class="text-sm font-medium">{{ emptyText() }}</p>
+                </div>
               </td>
             </tr>
           }
@@ -99,6 +184,10 @@ export class VTableComponent<T> {
   readonly variant = input<TableVariants["variant"]>("default");
   readonly size = input<TableVariants["size"]>("md");
   readonly selectable = input<boolean>(false);
+  readonly loading = input<boolean>(false);
+  readonly emptyText = input<string>("No data available");
+  readonly skeletonCount = input<number>(5);
+
   // Default key to identify uniqueness, defaults to 'id' if not provided
   readonly rowKey = input<keyof T | string>("id");
 
@@ -108,6 +197,8 @@ export class VTableComponent<T> {
   protected selectedRows = signal<Set<string | number>>(new Set());
 
   protected tableClass = computed(() => cn(tableVariants({ variant: this.variant(), size: this.size() })));
+
+  protected skeletonRows = computed(() => Array(this.skeletonCount()).fill(0));
 
   protected isAllSelected = computed(() => {
     const data = this.data();
@@ -193,8 +284,24 @@ export class VTableComponent<T> {
       case "number":
         return this.decimalPipe.transform(val);
       default:
+        // For badge, we just return the value as is (or stringified in template)
         return val;
     }
+  }
+
+  protected getBadgeProp<P>(row: T, prop?: P | ((row: T) => P), defaultValue?: P): P | undefined {
+    if (typeof prop === "function") {
+      // @ts-expect-error rendering function check
+      return prop(row);
+    }
+    return prop ?? defaultValue;
+  }
+
+  isActionDisabled(row: T, disabled?: boolean | ((row: T) => boolean)): boolean {
+    if (typeof disabled === "function") {
+      return disabled(row);
+    }
+    return disabled ?? false;
   }
 
   protected getStickyLeft(index: number): string | null {
