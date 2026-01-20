@@ -26,6 +26,11 @@ export const routesDesignSystem: Routes = [
     loadComponent: () => import("./pages/components/badge-demo/badge-demo.page").then((m) => m.BadgeDemoPage)
   },
   {
+    path: "componentes/breadcrumb",
+    title: "Breadcrumb",
+    loadComponent: () => import("./pages/components/breadcrumb-demo/breadcrumb-demo.page").then((m) => m.BreadcrumbDemoPage)
+  },
+  {
     path: "componentes/skeleton",
     loadComponent: () => import("./pages/components/skeleton-demo/skeleton-demo.page").then((m) => m.SkeletonDemoPage)
   },

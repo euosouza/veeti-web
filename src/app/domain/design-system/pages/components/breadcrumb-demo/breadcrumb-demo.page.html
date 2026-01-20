@@ -1,0 +1,153 @@
+<div class="space-y-6">
+  <!-- Header -->
+  <header>
+    <h1 class="text-3xl font-bold tracking-tight">{{ config().title }}</h1>
+    <p class="mt-2 text-lg text-muted-foreground">{{ config().description }}</p>
+  </header>
+
+  <!-- Tabs -->
+  <div class="border-b border-border">
+    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+      @for (tab of tabs(); track tab.name) {
+        <button
+          type="button"
+          [class]="
+            tab.active
+              ? 'border-primary text-primary'
+              : 'border-transparent text-muted-foreground hover:border-border hover:text-foreground'
+          "
+          class="whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium transition-colors"
+          (click)="onClickTab(tab)"
+        >
+          {{ tab.name }}
+        </button>
+      }
+    </nav>
+  </div>
+
+  @if (currentTab().name === "Overview") {
+    <div class="space-y-10">
+      <!-- Playground -->
+      <app-playground [codeSnippet]="codeSnippet()">
+        <div class="w-full flex justify-center p-4" preview>
+          <v-breadcrumb [config]="breadcrumbConfig()" />
+        </div>
+
+        <ng-container controls>
+          <div class="w-full">
+            <v-label htmlFor="separator">Separator</v-label>
+            <select
+              id="separator"
+              vInput
+              size="sm"
+              [ngModel]="separator()"
+              (ngModelChange)="separator.set($event)"
+            >
+              <option value="arrow">Arrow</option>
+              <option value="slash">Slash</option>
+            </select>
+          </div>
+        </ng-container>
+      </app-playground>
+    </div>
+
+    <!-- Usage Examples -->
+    <section class="space-y-6">
+      <h3 class="text-xl font-semibold">Exemplos</h3>
+
+      <div class="grid gap-6">
+        <!-- Basic Usage -->
+        <v-card class="p-6">
+          <div class="mb-4 space-y-1">
+            <h4 class="font-medium">Arrow Separator (Default)</h4>
+            <p class="text-sm text-muted-foreground">Exemplo com separador de seta.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-background/50 border border-border">
+            <v-breadcrumb
+              [config]="{
+                separator: 'arrow',
+                items: [
+                  { label: 'Home', path: '/' },
+                  { label: 'Section', path: '/section' },
+                  { label: 'Current Page' },
+                ],
+              }"
+            />
+          </div>
+        </v-card>
+
+        <!-- With Icons -->
+        <v-card class="p-6">
+          <div class="mb-4 space-y-1">
+            <h4 class="font-medium">With Icons</h4>
+            <p class="text-sm text-muted-foreground">Ícones opcionais nos itens.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-background/50 border border-border">
+            <v-breadcrumb
+              [config]="{
+                separator: 'arrow',
+                items: [
+                  { label: 'Home', path: '/', icon: 'home' },
+                  { label: 'Files', path: '/files', icon: 'folder' },
+                  { label: 'Document.pdf', icon: 'description' },
+                ],
+              }"
+            />
+          </div>
+        </v-card>
+
+        <!-- Slash Separator -->
+        <v-card class="p-6">
+          <div class="mb-4 space-y-1">
+            <h4 class="font-medium">Slash Separator</h4>
+            <p class="text-sm text-muted-foreground">Separador estilo barra.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-background/50 border border-border">
+            <v-breadcrumb
+              [config]="{
+                separator: 'slash',
+                items: [
+                  { label: 'Home', path: '/' },
+                  { label: 'Blog', path: '/blog' },
+                  { label: 'Post' },
+                ],
+              }"
+            />
+          </div>
+        </v-card>
+      </div>
+    </section>
+  } @else {
+    <!-- API Documentation -->
+    <div class="space-y-6">
+      <!-- Inputs -->
+      @if (config().documentation?.tableInputs) {
+        <section class="space-y-3">
+          <h3 class="text-lg font-semibold">Inputs</h3>
+          <div class="rounded-md border border-border">
+            <table class="w-full text-sm text-left">
+              <thead class="bg-muted text-muted-foreground">
+                <tr>
+                  <th class="p-4 font-medium">Propriedade</th>
+                  <th class="p-4 font-medium">Tipo</th>
+                  <th class="p-4 font-medium">Padrão</th>
+                  <th class="p-4 font-medium">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border">
+                @for (prop of config().documentation?.tableInputs; track prop.props) {
+                  <tr>
+                    <td class="p-4 font-mono">{{ prop.props }}</td>
+                    <td class="p-4 font-mono text-primary">{{ prop.types }}</td>
+                    <td class="p-4 font-mono text-muted-foreground">{{ prop.default }}</td>
+                    <td class="p-4">{{ prop.description }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+      }
+    </div>
+  }
+</div>

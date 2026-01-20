@@ -51,6 +51,10 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/badge"
       },
       {
+        label: "Breadcrumb",
+        path: "/design-system/componentes/breadcrumb"
+      },
+      {
         label: "Button",
         path: "/design-system/componentes/button"
       },

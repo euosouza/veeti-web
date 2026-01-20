@@ -1,8 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, computed, OnInit, signal, TemplateRef, ViewChild } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
-import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { VRadioButtonComponent } from "../../../../../libs/ui/components/radio-group/v-radio-button.component";
 import { VRadioGroupComponent } from "../../../../../libs/ui/components/radio-group/v-radio-group.component";
@@ -31,8 +29,6 @@ interface StateRow {
     VTabTitleComponent,
     VTabContentComponent,
     VLabelComponent,
-    ButtonComponent,
-    VInputDirective,
     VTableComponent,
     VRadioGroupComponent,
     VRadioButtonComponent

@@ -26,7 +26,7 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 - [ ] Alert
 - [ ] Alert Dialog
 - [ ] Aspect Ratio
-- [ ] Breadcrumb
+- [x] Breadcrumb (`src/app/libs/ui/components/breadcrumb`)
 - [ ] Calendar
 - [ ] Carousel
 - [ ] Collapsible
