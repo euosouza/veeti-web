@@ -48,7 +48,7 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 - [ ] Sheet
 - [ ] Slider
 - [ ] Sonner / Toast
-- [ ] Tabs
+- [x] Tabs (`src/app/libs/ui/components/tabs`)
 - [ ] Textarea
 - [ ] Toggle / Toggle Group
 - [ ] Tooltip

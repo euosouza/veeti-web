@@ -139,7 +139,7 @@ import { VTableColumn } from "./v-table.interface";
                         </v-dropdown>
                       </div>
                     } @else {
-                      <div class="text-muted-foreground">
+                      <div class="text-muted-foreground text-wrap">
                         {{ getCellValue(row, col) }}
                       </div>
                     }

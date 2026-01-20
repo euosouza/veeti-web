@@ -68,6 +68,11 @@ export const routesDesignSystem: Routes = [
     loadComponent: () => import("./pages/components/table-demo/table-demo.page").then((m) => m.TableDemoPage)
   },
   {
+    path: "componentes/tabs",
+    title: "Tabs",
+    loadComponent: () => import("./pages/components/tabs-demo/tabs-demo.page").then((m) => m.TabsDemoPage)
+  },
+  {
     path: "componentes/pagination",
     title: "Pagination",
     loadComponent: () => import("./pages/components/pagination-demo/pagination-demo.page").then((m) => m.PaginationDemoPage)

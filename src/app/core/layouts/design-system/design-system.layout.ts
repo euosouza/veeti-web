@@ -97,6 +97,10 @@ export class DesignSystemLayout {
       {
         label: "Table",
         path: "/design-system/componentes/table"
+      },
+      {
+        label: "Tabs",
+        path: "/design-system/componentes/tabs"
       }
     ]
   };

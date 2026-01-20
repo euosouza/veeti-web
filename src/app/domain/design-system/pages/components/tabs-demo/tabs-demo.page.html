@@ -1,0 +1,185 @@
+<div class="flex flex-col gap-10">
+  <!-- Header -->
+  <header>
+    <h1 class="text-3xl font-bold tracking-tight text-foreground">{{ config().title }}</h1>
+    <p class="text-lg text-muted-foreground">{{ config().description }}</p>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <v-tabs class="w-full">
+    <!-- Overview Tab -->
+    <v-tab>
+      <v-tab-title>Overview</v-tab-title>
+      <v-tab-content>
+        <div class="space-y-10">
+          <!-- Playground -->
+          <app-playground [codeSnippet]="codeSnippet()">
+            <div preview class="flex items-center justify-center p-10 w-full">
+              <v-tabs [width]="width()" [variant]="variant()" class="w-[400px]">
+                <v-tab>
+                  <v-tab-title>Conteudo 1</v-tab-title>
+                  <v-tab-content> Conteudo 1 </v-tab-content>
+                </v-tab>
+                <v-tab>
+                  <v-tab-title>Conteudo 2</v-tab-title>
+                  <v-tab-content> Conteudo 2 </v-tab-content>
+                </v-tab>
+              </v-tabs>
+            </div>
+
+            <!-- Controls -->
+            <div controls class="space-y-6">
+              <div class="flex flex-col gap-2">
+                <v-label htmlFor="variant">Variante</v-label>
+                <v-radio-group
+                  [(ngModel)]="variant"
+                  size="md"
+                  [disabled]="false"
+                  class="flex flex-row gap-1"
+                >
+                  <v-radio-button value="underline">Underline</v-radio-button>
+                  <v-radio-button value="pill">Pill</v-radio-button>
+                </v-radio-group>
+              </div>
+
+              <div class="flex flex-col gap-2">
+                <v-label htmlFor="width">Width</v-label>
+                <v-radio-group
+                  [(ngModel)]="width"
+                  size="md"
+                  [disabled]="false"
+                  class="flex flex-row gap-1"
+                >
+                  <v-radio-button value="default">Default</v-radio-button>
+                  <v-radio-button value="full">Full</v-radio-button>
+                </v-radio-group>
+              </div>
+            </div>
+          </app-playground>
+
+          <!-- Section: States (Copied/Adapted from ButtonDemo) -->
+          <section class="space-y-6 mt-12 mb-10">
+            <div class="flex flex-col gap-2">
+              <h2 class="text-2xl font-bold text-foreground">Estados</h2>
+              <p class="text-muted-foreground">
+                Feedback visual para interação do usuário nas abas.
+              </p>
+            </div>
+
+            <v-table [data]="statesData" [columns]="columnsStates"></v-table>
+
+            <!-- Templates for V-Table -->
+            <ng-template #underlineTpl let-row>
+              @switch (row.state) {
+                @case ("default") {
+                  <v-tabs>
+                    <v-tab><v-tab-title>Active</v-tab-title></v-tab>
+                    <v-tab><v-tab-title>Inativo</v-tab-title></v-tab>
+                  </v-tabs>
+                }
+                @case ("active") {
+                  <div class="pointer-events-none">
+                    <v-tabs [defaultValue]="0">
+                      <v-tab><v-tab-title>Ativo</v-tab-title></v-tab>
+                    </v-tabs>
+                  </div>
+                }
+                @case ("hover") {
+                  <v-tabs>
+                    <v-tab><v-tab-title>Hover Me</v-tab-title></v-tab>
+                  </v-tabs>
+                }
+                @case ("disabled") {
+                  <v-tabs>
+                    <v-tab [disabled]="true"><v-tab-title>Bloqueado</v-tab-title></v-tab>
+                  </v-tabs>
+                }
+              }
+            </ng-template>
+
+            <ng-template #pillTpl let-row>
+              @switch (row.state) {
+                @case ("default") {
+                  <v-tabs variant="pill">
+                    <v-tab><v-tab-title>Filtro</v-tab-title></v-tab>
+                    <v-tab><v-tab-title>Inativo</v-tab-title></v-tab>
+                  </v-tabs>
+                }
+                @case ("active") {
+                  <div class="pointer-events-none">
+                    <v-tabs variant="pill" [defaultValue]="0">
+                      <v-tab><v-tab-title>Ativo</v-tab-title></v-tab>
+                    </v-tabs>
+                  </div>
+                }
+                @case ("hover") {
+                  <v-tabs variant="pill">
+                    <v-tab><v-tab-title>Hover Me</v-tab-title></v-tab>
+                  </v-tabs>
+                }
+                @case ("disabled") {
+                  <v-tabs variant="pill">
+                    <v-tab [disabled]="true"><v-tab-title>Bloqueado</v-tab-title></v-tab>
+                  </v-tabs>
+                }
+              }
+            </ng-template>
+          </section>
+        </div>
+      </v-tab-content>
+    </v-tab>
+
+    <!-- API Tab -->
+    <v-tab>
+      <v-tab-title>API</v-tab-title>
+      <v-tab-content>
+        <div class="space-y-8">
+          <div class="max-w-none flex flex-col gap-5">
+            <div>
+              <h2 id="properties" class="text-lg font-semibold text-foreground">
+                Propriedades (Inputs)
+              </h2>
+
+              @if (config().documentation?.subtitleInput) {
+                <p class="text-muted-foreground text-sm mt-1">
+                  {{ config().documentation?.subtitleInput }}
+                </p>
+              }
+
+              @if (config().documentation?.tableInputs) {
+                <div class="mt-5">
+                  <v-table
+                    [data]="config().documentation?.tableInputs!"
+                    [columns]="columnsDocInputs"
+                  ></v-table>
+                </div>
+              }
+            </div>
+
+            @if (config().documentation?.tableOutputs?.length) {
+              <div class="mt-8">
+                <h2 id="events" class="text-lg font-semibold text-foreground">Eventos (Outputs)</h2>
+
+                @if (config().documentation?.subtitleOutputs) {
+                  <p class="text-muted-foreground text-sm mt-1">
+                    {{ config().documentation?.subtitleOutputs }}
+                  </p>
+                }
+
+                @if (config().documentation?.tableOutputs) {
+                  <div class="mt-5">
+                    <v-table
+                      [data]="config().documentation?.tableOutputs!"
+                      [columns]="columnsDocOutputs"
+                      size="sm"
+                    ></v-table>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </v-tab-content>
+    </v-tab>
+  </v-tabs>
+</div>
