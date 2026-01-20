@@ -125,6 +125,8 @@ Consistency is key. Please adhere to the following rules when creating new files
 
 ## Development Rules
 
+- **Component Composition:** When creating a new component or page, ALWAYS prioritize using existing components to compose the UI.
+- **Read Documentation:** Before using an existing component, ALWAYS read its `README.md` to understand its API and usage patterns. The documentation is located in the root of the component's folder.
 - **Documentation:** ALWAYS update the documentation for components or pages whenever they are created or modified.
 - **Testing:** Do NOT create `.spec` files. We are not writing unit tests yet.
 - **Design System Standards:** When creating a new Design System component, ALWAYS follow the guides in [`NEW_COMPONENT_GUIDE.md`](src/app/libs/ui/components/NEW_COMPONENT_GUIDE.md) and [`COMPONENT_DEMO_GUIDE.md`](src/app/domain/design-system/COMPONENT_DEMO_GUIDE.md).
