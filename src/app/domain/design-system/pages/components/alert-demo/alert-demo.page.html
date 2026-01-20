@@ -1,0 +1,177 @@
+<div class="space-y-6">
+  <!-- Header -->
+  <header>
+    <h1 class="text-3xl font-bold tracking-tight text-foreground">{{ config().title }}</h1>
+    <p class="mt-2 text-lg text-muted-foreground">{{ config().description }}</p>
+  </header>
+
+  <v-tabs>
+    <v-tab>
+      <v-tab-title>Visão Geral</v-tab-title>
+      <v-tab-content>
+        <div class="space-y-10">
+          <!-- Playground -->
+          <app-playground [codeSnippet]="codeSnippet()">
+            <div class="w-full flex justify-center p-8" preview>
+              <div class="w-full max-w-lg">
+                <v-alert
+                  vIcon="info"
+                  [variant]="variant()"
+                  [vTitle]="title()"
+                  [vDescription]="description()"
+                >
+                </v-alert>
+              </div>
+            </div>
+
+            <ng-container controls>
+              <div class="w-full space-y-4">
+                <div>
+                  <v-label htmlFor="variant">Variante</v-label>
+                  <select
+                    id="variant"
+                    vInput
+                    size="sm"
+                    [ngModel]="variant()"
+                    (ngModelChange)="variant.set($event)"
+                  >
+                    <option value="default">Padrão</option>
+                    <option value="destructive">Destrutivo</option>
+                    <option value="success">Sucesso</option>
+                    <option value="warning">Aviso</option>
+                    <option value="info">Informação</option>
+                  </select>
+                </div>
+
+                <div>
+                  <v-label htmlFor="title">Título</v-label>
+                  <input
+                    id="title"
+                    vInput
+                    size="sm"
+                    [ngModel]="title()"
+                    (ngModelChange)="title.set($event)"
+                  />
+                </div>
+
+                <div>
+                  <v-label htmlFor="description">Descrição</v-label>
+                  <input
+                    id="description"
+                    vInput
+                    size="sm"
+                    [ngModel]="description()"
+                    (ngModelChange)="description.set($event)"
+                  />
+                </div>
+              </div>
+            </ng-container>
+          </app-playground>
+        </div>
+
+        <!-- Usage Examples Section -->
+        <section class="space-y-6 mt-10">
+          <h3 class="text-xl font-semibold">Exemplos</h3>
+
+          <div class="grid gap-6 grid-cols-1 md:grid-cols-2">
+            <!-- Default -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium">Padrão</h4>
+                <p class="text-sm text-muted-foreground">Usado para mensagens gerais.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border">
+                <v-alert
+                  vIcon="info"
+                  vTitle="Alerta Padrão"
+                  vDescription="Esta é uma descrição de alerta padrão."
+                ></v-alert>
+              </div>
+            </v-card>
+
+            <!-- Destructive -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium">Destrutivo</h4>
+                <p class="text-sm text-muted-foreground">Usado para erros críticos ou avisos.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border">
+                <v-alert
+                  variant="destructive"
+                  vTitle="Erro"
+                  vDescription="Sua sessão expirou. Por favor, faça login novamente."
+                ></v-alert>
+              </div>
+            </v-card>
+
+            <!-- Success -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium">Sucesso</h4>
+                <p class="text-sm text-muted-foreground">Usado para ações bem-sucedidas.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border">
+                <v-alert
+                  variant="success"
+                  vTitle="Sucesso"
+                  vDescription="Seu perfil foi atualizado com sucesso."
+                ></v-alert>
+              </div>
+            </v-card>
+
+            <!-- Warning -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium">Aviso</h4>
+                <p class="text-sm text-muted-foreground">Usado para avisos não críticos.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border">
+                <v-alert
+                  variant="warning"
+                  vTitle="Aviso"
+                  vDescription="Esta ação não pode ser desfeita."
+                ></v-alert>
+              </div>
+            </v-card>
+
+            <!-- Info -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium">Informação</h4>
+                <p class="text-sm text-muted-foreground">Usado para mensagens informativas.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border">
+                <v-alert
+                  variant="info"
+                  vTitle="Nota"
+                  vDescription="Uma nova atualização de software está disponível."
+                ></v-alert>
+              </div>
+            </v-card>
+          </div>
+        </section>
+      </v-tab-content>
+    </v-tab>
+
+    <v-tab>
+      <v-tab-title>API</v-tab-title>
+      <v-tab-content>
+        <div class="space-y-6">
+          <!-- Inputs -->
+          @if (config().documentation?.tableInputs) {
+            <section class="space-y-3">
+              <h3 class="text-lg font-semibold">Inputs</h3>
+              <div class="rounded-md border border-border overflow-hidden">
+                <v-table
+                  [data]="config().documentation?.tableInputs!"
+                  [columns]="columnsDocInputs"
+                  size="sm"
+                ></v-table>
+              </div>
+            </section>
+          }
+        </div>
+      </v-tab-content>
+    </v-tab>
+  </v-tabs>
+</div>

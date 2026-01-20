@@ -43,6 +43,10 @@ export class DesignSystemLayout {
     ],
     componentes: [
       {
+        label: "Alert",
+        path: "/design-system/componentes/alert"
+      },
+      {
         label: "Avatar",
         path: "/design-system/componentes/avatar"
       },

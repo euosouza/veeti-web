@@ -23,7 +23,7 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 ## Componentes Faltantes
 
 - [ ] Accordion
-- [ ] Alert
+- [x] Alert (`src/app/libs/ui/components/alert`)
 - [ ] Alert Dialog
 - [ ] Aspect Ratio
 - [x] Breadcrumb (`src/app/libs/ui/components/breadcrumb`)

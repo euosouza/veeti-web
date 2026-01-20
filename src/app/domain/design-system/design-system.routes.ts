@@ -63,6 +63,11 @@ export const routesDesignSystem: Routes = [
     loadComponent: () => import("./pages/components/card-demo/card-demo.page").then((m) => m.CardDemoPage)
   },
   {
+    path: "componentes/alert",
+    title: "Alert",
+    loadComponent: () => import("./pages/components/alert-demo/alert-demo.page").then((m) => m.AlertDemoPage)
+  },
+  {
     path: "componentes/avatar",
     title: "Avatar",
     loadComponent: () => import("./pages/components/avatar-demo/avatar-demo.page").then((m) => m.AvatarDemoPage)
