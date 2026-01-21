@@ -1,0 +1,60 @@
+{
+  "tutors": [
+    {
+      "id": "1",
+      "fullName": "João Silva",
+      "cpf": "123.456.789-00",
+      "email": "joao.silva@email.com",
+      "phone": "(11) 98765-4321",
+      "whatsapp": "(11) 98765-4321",
+      "address": {
+        "zipCode": "01001-000",
+        "street": "Praça da Sé",
+        "number": "100",
+        "complement": "Apto 101",
+        "neighborhood": "Sé",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "notes": "Cliente preferencial",
+      "createdAt": "2023-01-15T10:00:00.000Z",
+      "updatedAt": "2023-01-15T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "fullName": "Maria Oliveira",
+      "cpf": "987.654.321-99",
+      "email": "maria.oliveira@email.com",
+      "phone": "(21) 91234-5678",
+      "whatsapp": "(21) 91234-5678",
+      "address": {
+        "zipCode": "20040-002",
+        "street": "Rua da Assembleia",
+        "number": "10",
+        "neighborhood": "Centro",
+        "city": "Rio de Janeiro",
+        "state": "RJ"
+      },
+      "notes": "",
+      "createdAt": "2023-02-20T14:30:00.000Z",
+      "updatedAt": "2023-02-20T14:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "fullName": "Carlos Pereira",
+      "cpf": "456.789.123-45",
+      "email": "carlos.pereira@email.com",
+      "phone": "(31) 99876-5432",
+      "address": {
+        "zipCode": "30130-000",
+        "street": "Avenida Afonso Pena",
+        "number": "1000",
+        "neighborhood": "Centro",
+        "city": "Belo Horizonte",
+        "state": "MG"
+      },
+      "createdAt": "2023-03-10T09:15:00.000Z",
+      "updatedAt": "2023-03-10T09:15:00.000Z"
+    }
+  ]
+}

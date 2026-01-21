@@ -18,7 +18,8 @@
     "paths": {
       "@core/*": ["src/app/core/*"],
       "@domain/*": ["src/app/domain/*"],
-      "@libs/*": ["src/app/libs/*"]
+      "@libs/*": ["src/app/libs/*"],
+      "@env/*": ["src/env/*"]
     }
   },
   "angularCompilerOptions": {

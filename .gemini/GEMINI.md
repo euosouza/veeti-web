@@ -109,6 +109,7 @@ Consistency is key. Please adhere to the following rules when creating new files
 
 ### File Naming
 
+- **Language:** All file names, properties, parameters, functions, and variables MUST be in English.
 - Use **`kebab-case`** for all file names.
   - _Example:_ `user-profile.component.ts`
 
