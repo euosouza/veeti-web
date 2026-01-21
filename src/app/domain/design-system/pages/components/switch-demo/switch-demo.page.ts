@@ -1,15 +1,15 @@
 import { CommonModule } from "@angular/common";
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { VCardComponent } from "../../../../../libs/ui/components/card";
-import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { VSwitchComponent } from "../../../../../libs/ui/components/switch";
-import { VTableComponent } from "../../../../../libs/ui/components/table";
-import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "../../../../../libs/ui/components/tabs";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { VCardComponent } from "@libs/ui/components/card";
+import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
+import { VSwitchComponent } from "@libs/ui/components/switch";
+import { VTableComponent } from "@libs/ui/components/table";
+import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs";
 
 @Component({
   selector: "app-switch-demo",

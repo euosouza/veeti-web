@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
+import { ButtonComponent } from "@libs/ui/components/button/button.component";
 
 interface EscalaTitulo {
   token: "H1" | "H2" | "H3" | "H4" | "H5" | "H6";

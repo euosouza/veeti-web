@@ -1,4 +1,4 @@
-import { VTableColumn } from "../../../libs/ui/components/table/v-table.interface";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
 
 export const DOC_INPUTS_COLUMNS: VTableColumn<unknown>[] = [
   { key: "props", label: "Propriedade" },

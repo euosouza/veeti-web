@@ -2,12 +2,12 @@ import { CommonModule } from "@angular/common";
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { VBreadcrumbComponent, VBreadcrumbConfig } from "../../../../../libs/ui/components/breadcrumb";
-import { VCardComponent } from "../../../../../libs/ui/components/card/v-card.component";
-import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { VBreadcrumbComponent, VBreadcrumbConfig } from "@libs/ui/components/breadcrumb";
+import { VCardComponent } from "@libs/ui/components/card/v-card.component";
+import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
 
 interface Tab {
   name: string;

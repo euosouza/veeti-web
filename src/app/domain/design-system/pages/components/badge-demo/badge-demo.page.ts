@@ -1,13 +1,13 @@
 import { Component, computed, signal, WritableSignal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { VBadgeComponent } from "../../../../../libs/ui/components/badge/badge.component";
-import { BadgeVariant } from "../../../../../libs/ui/components/badge/badge.interface";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
-import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { VBadgeComponent } from "@libs/ui/components/badge/badge.component";
+import { BadgeVariant } from "@libs/ui/components/badge/badge.interface";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
+import { VTableComponent } from "@libs/ui/components/table/v-table.component";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
 
 interface Tab {
   name: string;

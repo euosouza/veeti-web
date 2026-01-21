@@ -1,22 +1,22 @@
 import { Component, computed, inject, signal } from "@angular/core";
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
-import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v-checkbox.component";
-import { CheckboxVariants } from "../../../../../libs/ui/components/checkbox/v-checkbox.constants";
-import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { ButtonComponent } from "@libs/ui/components/button/button.component";
+import { VCheckboxComponent } from "@libs/ui/components/checkbox/v-checkbox.component";
+import { CheckboxVariants } from "@libs/ui/components/checkbox/v-checkbox.constants";
+import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
 
 interface Tab {
   name: string;
   active: boolean;
 }
 
-import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
-import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
-import { VFormDebuggerComponent } from "../../../components/form-debugger/v-form-debugger.component";
-import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
+import { VFormDebuggerComponent } from "@domain/design-system/components/form-debugger/v-form-debugger.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
+import { VTableComponent } from "@libs/ui/components/table/v-table.component";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
 
 @Component({
   selector: "app-checkbox-demo",

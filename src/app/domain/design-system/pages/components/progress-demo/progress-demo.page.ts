@@ -3,7 +3,6 @@ import { FormsModule } from "@angular/forms";
 import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
 import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
-import { ButtonComponent } from "@libs/ui/components/button/button.component";
 import { VCardComponent } from "@libs/ui/components/card/v-card.component";
 import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
@@ -19,7 +18,6 @@ import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent
   imports: [
     VProgressComponent,
     VCardComponent,
-    ButtonComponent,
     VInputDirective,
     VLabelComponent,
     VTabsComponent,

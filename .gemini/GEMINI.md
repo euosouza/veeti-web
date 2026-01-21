@@ -95,6 +95,14 @@ You are an expert in TypeScript, Angular, and scalable web application developme
           └── components/          # Core Design System components (Buttons, Inputs, etc.)
 ```
 
+### Path Aliases
+
+Use the following path aliases to simplify imports:
+
+- **`@core/*`**: Maps to `src/app/core/*`
+- **`@domain/*`**: Maps to `src/app/domain/*`
+- **`@libs/*`**: Maps to `src/app/libs/*`
+
 ### Naming Conventions
 
 Consistency is key. Please adhere to the following rules when creating new files and classes.

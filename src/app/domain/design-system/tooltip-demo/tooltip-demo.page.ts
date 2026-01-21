@@ -1,17 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { ButtonComponent } from "../../../libs/ui/components/button/button.component";
-import { VCardComponent } from "../../../libs/ui/components/card";
-import { VInputDirective } from "../../../libs/ui/components/input/v-input.directive";
-import { VLabelComponent } from "../../../libs/ui/components/label/v-label.component";
-import { VTableComponent } from "../../../libs/ui/components/table";
-import { VTableColumn } from "../../../libs/ui/components/table/v-table.interface";
-import { VTooltipDirective } from "../../../libs/ui/components/tooltip";
-import { PlaygroundComponent } from "../components/playground/playground.component";
-import { PlaygroundConfig } from "../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { ButtonComponent } from "@libs/ui/components/button/button.component";
+import { VCardComponent } from "@libs/ui/components/card";
+import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
+import { VTableComponent } from "@libs/ui/components/table";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
+import { VTooltipDirective } from "@libs/ui/components/tooltip";
 
-import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "../../../libs/ui/components/tabs";
+import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs";
 
 @Component({
   selector: "app-tooltip-demo",

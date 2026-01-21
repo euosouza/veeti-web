@@ -1,15 +1,15 @@
 import { CommonModule } from "@angular/common";
 import { Component, computed, OnInit, signal, TemplateRef, ViewChild } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { VRadioButtonComponent } from "../../../../../libs/ui/components/radio-group/v-radio-button.component";
-import { VRadioGroupComponent } from "../../../../../libs/ui/components/radio-group/v-radio-group.component";
-import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
-import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
-import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "../../../../../libs/ui/components/tabs/v-tabs.component";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
+import { VRadioButtonComponent } from "@libs/ui/components/radio-group/v-radio-button.component";
+import { VRadioGroupComponent } from "@libs/ui/components/radio-group/v-radio-group.component";
+import { VTableComponent } from "@libs/ui/components/table/v-table.component";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
+import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs/v-tabs.component";
 
 interface StateRow {
   state: string;

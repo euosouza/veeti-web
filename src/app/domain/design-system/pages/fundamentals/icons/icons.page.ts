@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
+import { VIconComponent } from "@libs/ui/components/icon/v-icon.component";
 
 @Component({
   selector: "app-icons",

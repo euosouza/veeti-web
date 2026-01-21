@@ -1,16 +1,16 @@
 import { CommonModule } from "@angular/common";
 import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox";
-import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { VLabelVariants } from "../../../../../libs/ui/components/label/v-label.constants";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { VCheckboxComponent } from "@libs/ui/components/checkbox";
+import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
+import { VLabelVariants } from "@libs/ui/components/label/v-label.constants";
 
-import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
-import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
-import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
+import { VTableComponent } from "@libs/ui/components/table/v-table.component";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
 
 interface Tab {
   name: string;

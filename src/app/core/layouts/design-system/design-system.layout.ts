@@ -1,9 +1,9 @@
 import { Component, inject, signal } from "@angular/core";
 import { RouterLink, RouterOutlet } from "@angular/router";
-import { ButtonComponent } from "../../../libs/ui/components/button/button.component";
-import { VIconComponent } from "../../../libs/ui/components/icon/v-icon.component";
-import { VInputDirective } from "../../../libs/ui/components/input/v-input.directive";
-import { ThemeService } from "../../services/theme/theme.service";
+import { ThemeService } from "@core/services/theme/theme.service";
+import { ButtonComponent } from "@libs/ui/components/button/button.component";
+import { VIconComponent } from "@libs/ui/components/icon/v-icon.component";
+import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
 
 interface Menu {
   fundamentos: {

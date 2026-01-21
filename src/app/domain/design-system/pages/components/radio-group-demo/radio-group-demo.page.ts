@@ -1,17 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { Component, computed, inject, signal } from "@angular/core";
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../../../../libs/ui/components/button/button.component";
-import { VCardComponent } from "../../../../../libs/ui/components/card/v-card.component";
-import { VCheckboxComponent } from "../../../../../libs/ui/components/checkbox/v-checkbox.component";
-import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
-import { VRadioButtonComponent, VRadioGroupComponent, type RadioButtonVariants } from "../../../../../libs/ui/components/radio-group";
-import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
-import { VTableColumn } from "../../../../../libs/ui/components/table/v-table.interface";
-import { VFormDebuggerComponent } from "../../../components/form-debugger/v-form-debugger.component";
-import { PlaygroundComponent } from "../../../components/playground/playground.component";
-import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "../../../constants/doc-table-columns.constants";
-import { PlaygroundConfig } from "../../../constants/playground.constants";
+import { VFormDebuggerComponent } from "@domain/design-system/components/form-debugger/v-form-debugger.component";
+import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
+import { DOC_INPUTS_COLUMNS, DOC_OUTPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
+import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
+import { ButtonComponent } from "@libs/ui/components/button/button.component";
+import { VCardComponent } from "@libs/ui/components/card/v-card.component";
+import { VCheckboxComponent } from "@libs/ui/components/checkbox/v-checkbox.component";
+import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
+import { VRadioButtonComponent, VRadioGroupComponent, type RadioButtonVariants } from "@libs/ui/components/radio-group";
+import { VTableComponent } from "@libs/ui/components/table/v-table.component";
+import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
 
 interface Tab {
   name: string;
