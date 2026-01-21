@@ -4,52 +4,80 @@ Este guia detalha como criar páginas de demonstração interativas e educativas
 
 ---
 
-## 1. Anatomia de uma Página de Demo
+## 1. Diretrizes de Implementação
 
-Todas as páginas devem seguir o padrão **"Tabs Layout"**:
+Ao criar páginas de demonstração, **você DEVE utilizar os componentes já existentes no Design System** para construir a interface da própria demo. Isso garante consistência visual e testa os componentes em "dogfooding".
 
-1.  **Overview Tab**:
-    *   **Playground**: Área interativa principal.
-    *   **Variantes**: Exemplos visuais estáticos de todas as variações.
-    *   **Estados**: Exemplos de disabled, loading, focus, etc.
-2.  **API Tab**:
-    *   Documentação técnica gerada automaticamente.
+**Componentes Obrigatórios na UI da Demo:**
+
+*   **Abas**: Use `<v-tabs>`, `<v-tab>`, `<v-tab-title>`, etc., em vez de implementar lógica manual de abas.
+*   **Inputs**: Controles do Playground devem usar `vInput` (`[vInput]`) e/ou `<v-label>`.
+*   **Botões**: Use `<v-button>` para ações na página.
+*   **Tabelas**: A documentação da API (Inputs/Outputs) DEVE ser renderizada usando `<v-table>`.
+*   **Checkbox/Radio/Select**: Use os componentes `v-checkbox`, `v-radio-group`, `v-select` para controles booleanos ou de seleção.
 
 ---
 
-## 2. Playground Configuration (`PlaygroundConfig`)
+## 2. Anatomia de uma Página de Demo
 
-A propriedade `config` no seu `.page.ts` é a fonte da verdade para a documentação. Entenda cada campo:
+Uma página de demonstração completa deve conter as seguintes seções, organizadas logicamente:
+
+### A. Header
+*   **Título**: Nome do componente (H1).
+*   **Subtítulo**: Breve descrição.
+*   **Breadcrumb**: Navegação contextual (ex: Design System > Components > Button).
+
+### B. Playground
+A área principal de interação. Deve conter:
+*   **Preview**: O componente sendo demonstrado, reagindo em tempo real.
+*   **Controls**: Inputs para alterar as propriedades do componente (variant, size, disabled, etc.).
+*   **Code Snippet**: Código HTML gerado dinamicamente refletindo o estado atual.
+
+### C. Estados (States)
+Exemplos estáticos mostrando os diferentes estados do componente (se houver):
+*   Default
+*   Active
+*   Disabled
+*   Focus
+*   Hover
+*   Loading
+
+### D. Variantes (Variants)
+Explicação visual e textual das diferenças entre as variantes do componente.
+*   *Exemplo*: Tamanhos (sm, md, lg), Cores (primary, secondary, destructive), Estilos (outline, solid, ghost).
+*   Descreva a anatomia e quando usar cada variante.
+
+### E. Observações (Notes)
+Seção para notas técnicas, acessibilidade, ou comportamentos específicos que não são óbvios apenas olhando.
+
+### F. Exemplos de Uso (Examples)
+Crie exemplos práticos voltados ao contexto do **Veeti**.
+*   *Exemplo*: Em vez de apenas um botão solto, mostre um "Formulário de Login" usando o botão.
+*   *Exemplo*: Mostre um Card de "Perfil de Usuário" completo.
+
+### G. API (Tab Separada)
+Documentação técnica de `@Input` e `@Output`.
+
+---
+
+## 3. Playground Configuration (`PlaygroundConfig`)
+
+A propriedade `config` no seu `.page.ts` define os metadados e a documentação da API.
 
 ```typescript
 export interface PlaygroundConfig {
-  /** Título principal exibido no topo da página (H1) */
   title: string;
-
-  /** Breve descrição ou subtítulo do componente */
   description: string;
-
-  /** Objeto de documentação para a aba API */
   documentation: {
-    /** Documentação dos Inputs (@Input ou input()) */
     tableInputs?: Array<{
-      /** Nome exato da propriedade (ex: 'variant') */
       props: string;
-      /** Tipos aceitos (ex: "'primary' | 'secondary'" ou "boolean") */
       types: string;
-      /** Valor padrão (ex: "'primary'" ou "false") */
       default: string;
-      /** Descrição funcional do que a propriedade faz */
       description: string;
     }>;
-
-    /** Documentação dos Outputs (@Output ou output()) */
     tableOutputs?: Array<{
-      /** Nome do evento (ex: 'click', 'valueChange') */
       props: string;
-      /** Tipo do dado emitido (ex: 'void', 'string', 'MouseEvent') */
       return: string;
-      /** Quando o evento é disparado */
       description: string;
     }>;
   };
@@ -58,51 +86,9 @@ export interface PlaygroundConfig {
 
 ---
 
-## 3. Gerando o Code Snippet Dinâmico
-
-O `codeSnippet` é o que aparece na caixa de código do Playground. Ele deve refletir o estado *atual* dos controles.
-
-**Dicas para um snippet limpo:**
-
-Use um `computed()` para reagir às mudanças dos signals:
-
-```typescript
-readonly codeSnippet = computed(() => {
-  const variant = this.variant(); // Signal<string>
-  const isDisabled = this.isDisabled(); // Signal<boolean>
-  const content = this.content(); // Signal<string>
-
-  // Lógica para esconder atributos opcionais/padrão
-  const disabledAttr = isDisabled ? '\n  [disabled]="true"' : '';
-  const variantAttr = variant !== 'primary' ? `\n  variant="${variant}"` : '';
-
-  return `<v-button${variantAttr}${disabledAttr}>
-  ${content}
-</v-button>`;
-});
-```
-
-**Resultado esperado:**
-Se `disabled` for false e `variant` for primary (padrão), o snippet fica limpo:
-```html
-<v-button>Content</v-button>
-```
-
-Se alterar os valores:
-```html
-<v-button
-  variant="destructive"
-  [disabled]="true"
->
-  Content
-</v-button>
-```
-
----
-
 ## 4. Boilerplate Completo (`.page.ts`)
 
-Use este modelo como base para começar rápido:
+Use este modelo atualizado que já integra os componentes do Design System (`v-tabs`, `v-input`, `v-table`):
 
 ```typescript
 import { Component, computed, signal } from '@angular/core';
@@ -110,74 +96,170 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PlaygroundComponent } from '../../../components/playground/playground.component';
 import { PlaygroundConfig } from '../../../constants/playground.constants';
-// ⚠️ IMPORTE SEU COMPONENTE AQUI
-import { VMyComponent } from '@libs/ui/components/my-component';
 
-interface Tab { name: string; active: boolean; }
+// ⚠️ IMPORTE SEU COMPONENTE A DEMAIS COMPONENTES DO DS
+import { VMyComponent } from '@libs/ui/components/my-component';
+import { VBreadcrumbComponent, VBreadcrumbConfig } from '@libs/ui/components/breadcrumb';
+import { VTabsComponent, VTabComponent, VTabTitleComponent, VTabContentComponent } from '@libs/ui/components/tabs';
+import { VInputDirective } from '@libs/ui/components/input';
+import { VTableComponent, VTableColumn } from '@libs/ui/components/table';
+import { VLabelComponent } from '@libs/ui/components/label';
+
+// Colunas padrão para documentação
+const DOC_INPUTS_COLUMNS: VTableColumn[] = [
+  { key: 'props', label: 'Propriedade' },
+  { key: 'types', label: 'Tipo' },
+  { key: 'default', label: 'Padrão' },
+  { key: 'description', label: 'Descrição' },
+];
 
 @Component({
   selector: 'app-my-component-demo',
   standalone: true,
-  imports: [CommonModule, FormsModule, PlaygroundComponent, VMyComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    PlaygroundComponent,
+    VMyComponent,
+    VBreadcrumbComponent,
+    VTabsComponent, VTabComponent, VTabTitleComponent, VTabContentComponent,
+    VInputDirective,
+    VTableComponent,
+    VLabelComponent
+  ],
   templateUrl: './my-component-demo.page.html',
 })
 export class MyComponentDemoPage {
-  // 1. Configuração
+  // 1. Configuração e Docs
+  readonly breadcrumb: VBreadcrumbConfig = {
+    items: [
+      { label: 'Design System', path: '/design-system' },
+      { label: 'Components', path: '/design-system/components' },
+      { label: 'My Component' }
+    ]
+  };
+
   readonly config = signal<PlaygroundConfig>({
     title: 'My Component',
     description: 'Explain what this component does.',
     documentation: {
       tableInputs: [
-        { props: 'label', types: 'string', default: "''", description: 'Label text.' }
+        { props: 'label', types: 'string', default: "''", description: 'Label text.' },
+        { props: 'disabled', types: 'boolean', default: "false", description: 'Disables the component.' }
       ]
     }
   });
 
-  // 2. Abas
-  tabs = signal<Tab[]>([{ name: "Overview", active: true }, { name: "API", active: false }]);
-  currentTab = signal<Tab>(this.tabs()[0]);
+  // Colunas da Tabela de API
+  readonly columnsDocInputs = DOC_INPUTS_COLUMNS;
 
-  // 3. Controles do Playground
+  // 2. Controles do Playground
   label = signal('Hello World');
+  isDisabled = signal(false);
 
-  // 4. Snippet
-  readonly codeSnippet = computed(() => `<v-my-component label="${this.label()}"></v-my-component>`);
-
-  // 5. Métodos
-  onClickTab(tab: Tab) {
-    this.currentTab.set(tab);
-    this.tabs.update(ts => ts.map(t => ({ ...t, active: t.name === tab.name })));
-  }
+  // 3. Snippet Dinâmico
+  readonly codeSnippet = computed(() => {
+    const label = this.label();
+    const disabled = this.isDisabled();
+    
+    // Lógica para limpar o snippet
+    const disabledAttr = disabled ? ' [disabled]="true"' : '';
+    
+    return `<v-my-component${disabledAttr}>\n  ${label}\n</v-my-component>`;
+  });
 }
+```
+
+### Exemplo de Template (`.page.html`)
+
+```html
+<div class="flex flex-col gap-6">
+
+  <!-- Header -->
+  <header>
+    <div class="mb-2">
+      <v-breadcrumb [config]="breadcrumb"></v-breadcrumb>
+    </div>
+    <h1 class="text-3xl font-bold text-neutral-900">{{ config().title }}</h1>
+    <p class="text-lg text-neutral-600 mt-2">{{ config().description }}</p>
+  </header>
+
+  <!-- Content -->
+  <v-tabs>
+    <!-- Tab 1: Overview -->
+    <v-tab [active]="true">
+      <v-tab-title>Overview</v-tab-title>
+      <v-tab-content>
+        <div class="flex flex-col gap-10 py-6">
+          
+          <!-- Playground -->
+          <app-playground [codeSnippet]="codeSnippet()">
+            <div preview class="w-full flex justify-center p-8">
+              <v-my-component [disabled]="isDisabled()">
+                {{ label() }}
+              </v-my-component>
+            </div>
+
+            <div controls class="flex flex-col gap-4">
+              <div class="flex flex-col gap-2">
+                 <v-label>Label Text</v-label>
+                 <input type="text" vInput [(ngModel)]="label">
+              </div>
+
+              <!-- Exemplo de Checkbox para booleanos -->
+              <div class="flex items-center gap-2">
+                 <input type="checkbox" id="disabled" [(ngModel)]="isDisabled">
+                 <label for="disabled" class="text-sm">Disabled</label>
+              </div>
+            </div>
+          </app-playground>
+
+          <!-- Estados -->
+          <section>
+            <h2 class="text-2xl font-semibold mb-4">Estados</h2>
+            <div class="flex gap-4 p-6 border rounded-lg">
+                <!-- Exibe instâncias estáticas -->
+                <v-my-component>Default</v-my-component>
+                <v-my-component [disabled]="true">Disabled</v-my-component>
+            </div>
+          </section>
+
+          <!-- Variantes (se houver) -->
+          <!-- Observações (se houver) -->
+          <!-- Exemplos (se houver) -->
+
+        </div>
+      </v-tab-content>
+    </v-tab>
+
+    <!-- Tab 2: API -->
+    <v-tab>
+      <v-tab-title>API</v-tab-title>
+      <v-tab-content>
+        <div class="py-6">
+          <h3 class="text-xl font-bold mb-4">Inputs</h3>
+          <v-table 
+            [data]="config().documentation.tableInputs || []" 
+            [columns]="columnsDocInputs"
+            size="sm">
+          </v-table>
+        </div>
+      </v-tab-content>
+    </v-tab>
+  </v-tabs>
+
+</div>
 ```
 
 ---
 
-## 5. Troubleshooting (Problemas Comuns)
-
-**🔴 O componente não aparece no preview.**
-*   Verifique se introduziu o componente no array `imports` do `@Component` na página de demo.
-*   Verifique se o template HTML está usando a tag correta (`<v-meu-componente>`).
-
-**🔴 O Code Snippet não atualiza.**
-*   Certifique-se de estar usando `computed()` e lendo os signals (`this.prop()`) dentro dele.
-
-**🔴 Erro "Can't bind to 'ngModel'".**
-*   Importe `FormsModule` no seu componente de demo.
-
-**🔴 O item não aparece no menu lateral.**
-*   Você editou o arquivo `src/app/core/layouts/design-system/design-system.layout.ts`?
-*   Você adicionou o item dentro do array `menu.componentes`?
-*   ⚠️ **Você respeitou a ORDEM ALFABÉTICA?**
-
----
-
-## 6. Checklist de Qualidade
+## 5. Checklist de Qualidade
 
 Antes de enviar seu PR:
 
-- [ ] A página segue o layout de Abas (Overview/API)?
-- [ ] O Playground funciona e reflete as props principais?
-- [ ] Os "Variantes" mostram todos os estilos disponíveis?
-- [ ] A aba API está preenchida corretamente via `config`?
-- [ ] O componente foi adicionado ao Menu Lateral em ordem alfabética?
+- [ ] A página usa **`v-tabs`** para navegação?
+- [ ] A aba API usa **`v-table`** para exibir inputs/outputs?
+- [ ] O Header contém Título, Subtítulo e Breadcrumb?
+- [ ] O Playground possui Preview e Controls funcionais usando componentes do DS (`vInput`, etc.)?
+- [ ] As seções "Estados" e "Variantes" estão presentes e claras?
+- [ ] Existem "Exemplos" práticos de uso no Veeti?

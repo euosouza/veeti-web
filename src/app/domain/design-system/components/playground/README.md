@@ -36,26 +36,19 @@ O componente utiliza `ng-content` com seletores para organizar o layout:
 | `[preview]` | O conteúdo a ser exibido na área de visualização central. |
 | `[controls]` | O conteúdo (geralmente formulários/controles) a ser exibido na barra lateral direita. |
 
-## Exemplos de Uso
-
-```html
 <app-playground [codeSnippet]="snippet()">
   <!-- Área de Visualização -->
-  <div preview>
-    <v-button [variant]="selectedVariant()">Clique Aqui</v-button>
-  </div>
+  <ng-template #preview>
+     <!-- Adicione o conteúdo do componente aqui -->
+  </ng-template>
 
   <!-- Controles Laterais -->
-  <div controls>
-    <select [(ngModel)]="selectedVariant">
-      <option value="primary">Primário</option>
-      <option value="secondary">Secundário</option>
-    </select>
-  </div>
+  <ng-template #controls>
+    <!-- Adicione os controles do componente aqui -->
+  </ng-template>
 </app-playground>
 ```
 
 ## Detalhes de Implementação
-- **Tabs Internas:** O componente gerencia seu próprio estado de abas (`activeTab`) para alternar entre Preview e Code.
 - **Preview Area:** Possui um fundo com padrão de grade para ajudar na visualização de transparências e dimensões.
 - **Code Area:** Exibe o snippet de código fornecido em um bloco formatado.
