@@ -10,13 +10,8 @@ import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
   templateUrl: "./layout-header.component.html"
 })
 export class LayoutHeaderComponent {
-  toggleSidebar = output<void>();
   toggleTheme = output<void>();
   triggerNotification = output<void>();
-
-  onToggleSidebar() {
-    this.toggleSidebar.emit();
-  }
 
   onToggleTheme() {
     this.toggleTheme.emit();
