@@ -19,14 +19,16 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 - [x] Skeleton (`src/app/libs/ui/components/skeleton`)
 - [x] Switch (`src/app/libs/ui/components/switch`)
 - [x] Table (`src/app/libs/ui/components/table`)
+- [x] Alert (`src/app/libs/ui/components/alert`)
+- [x] Breadcrumb (`src/app/libs/ui/components/breadcrumb`)
+- [x] Tabs (`src/app/libs/ui/components/tabs`)
+- [x] Tooltip (`src/app/libs/ui/components/tooltip`)
 
 ## Componentes Faltantes
 
 - [ ] Accordion
-- [x] Alert (`src/app/libs/ui/components/alert`)
 - [ ] Alert Dialog
 - [ ] Aspect Ratio
-- [x] Breadcrumb (`src/app/libs/ui/components/breadcrumb`)
 - [ ] Calendar
 - [ ] Carousel
 - [ ] Collapsible
@@ -40,15 +42,10 @@ Lista de componentes para rastreamento de implementação, baseado no Zard UI (S
 - [ ] Menubar
 - [ ] Navigation Menu
 - [ ] Popover
-- [ ] Progress
-- [ ] Radio Group
-- [ ] Resizable
-- [ ] Scroll Area
+- [x] Progress (`src/app/libs/ui/components/progress`)
 - [ ] Select
 - [ ] Sheet
 - [ ] Slider
 - [ ] Sonner / Toast
-- [x] Tabs (`src/app/libs/ui/components/tabs`)
 - [ ] Textarea
 - [ ] Toggle / Toggle Group
-- [x] Tooltip (`src/app/libs/ui/components/tooltip`)

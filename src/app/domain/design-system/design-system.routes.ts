@@ -106,5 +106,10 @@ export const routesDesignSystem: Routes = [
     path: "componentes/tooltip",
     title: "Tooltip",
     loadComponent: () => import("./tooltip-demo/tooltip-demo.page").then((m) => m.TooltipDemoPage)
+  },
+  {
+    path: "componentes/progress",
+    title: "Progress",
+    loadComponent: () => import("./pages/components/progress-demo/progress-demo.page").then((m) => m.ProgressDemoPage)
   }
 ];

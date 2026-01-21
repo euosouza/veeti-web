@@ -1,0 +1,171 @@
+<div class="space-y-6">
+  <!-- Header -->
+  <header>
+    <h1 class="text-3xl font-bold tracking-tight text-foreground">{{ config().title }}</h1>
+    <p class="mt-2 text-lg text-muted-foreground">{{ config().description }}</p>
+  </header>
+
+  <v-tabs>
+    <v-tab>
+      <v-tab-title>Visão Geral</v-tab-title>
+      <v-tab-content>
+        <div class="space-y-10">
+          <app-playground [codeSnippet]="codeSnippet()">
+            <div preview class="w-full max-w-md p-6">
+              <v-progress
+                [value]="value()"
+                [variant]="variant()"
+                [size]="size()"
+                [color]="customColor()"
+              ></v-progress>
+            </div>
+
+            <div controls>
+              <div class="space-y-1">
+                <v-label>Value</v-label>
+                <input
+                  vInput
+                  type="number"
+                  [ngModel]="value()"
+                  (ngModelChange)="value.set($event)"
+                  min="0"
+                  max="100"
+                />
+              </div>
+
+              <div class="space-y-1">
+                <v-label>Variant</v-label>
+                <select vInput [ngModel]="variant()" (ngModelChange)="variant.set($event)">
+                  <option value="default">Default</option>
+                  <option value="success">Success</option>
+                  <option value="destructive">Destructive</option>
+                  <option value="warning">Warning</option>
+                  <option value="info">Info</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </div>
+
+              @if (variant() === "custom") {
+                <div class="space-y-1">
+                  <v-label>Custom Color</v-label>
+                  <div class="flex gap-2">
+                    <input
+                      vInput
+                      type="color"
+                      class="h-9 w-12 p-1"
+                      [ngModel]="customColor()"
+                      (ngModelChange)="customColor.set($event)"
+                    />
+                    <input
+                      vInput
+                      type="text"
+                      [ngModel]="customColor()"
+                      (ngModelChange)="customColor.set($event)"
+                    />
+                  </div>
+                </div>
+              }
+
+              <div class="space-y-1">
+                <v-label>Size</v-label>
+                <select vInput [ngModel]="size()" (ngModelChange)="size.set($event)">
+                  <option value="sm">Small</option>
+                  <option value="md">Medium</option>
+                  <option value="lg">Large</option>
+                  <option value="xl">Extra Large</option>
+                </select>
+              </div>
+            </div>
+          </app-playground>
+
+          <section class="space-y-8">
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-foreground">Colors</h3>
+              <p class="text-sm text-muted-foreground">
+                O componente Progress suporta diferentes variantes de cores para indicar diferentes
+                estados.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <v-card>
+                  <div class="space-y-2">
+                    <v-label>Default</v-label>
+                    <v-progress [value]="40" variant="default"></v-progress>
+                  </div>
+                </v-card>
+                <v-card>
+                  <div class="space-y-2">
+                    <v-label>Success</v-label>
+                    <v-progress [value]="60" variant="success"></v-progress>
+                  </div>
+                </v-card>
+                <v-card>
+                  <div class="space-y-2">
+                    <v-label>Destructive</v-label>
+                    <v-progress [value]="80" variant="destructive"></v-progress>
+                  </div>
+                </v-card>
+                <v-card>
+                  <div class="space-y-2">
+                    <v-label>Warning</v-label>
+                    <v-progress [value]="30" variant="warning"></v-progress>
+                  </div>
+                </v-card>
+                <v-card>
+                  <div class="space-y-2">
+                    <v-label>Info</v-label>
+                    <v-progress [value]="50" variant="info"></v-progress>
+                  </div>
+                </v-card>
+                <v-card>
+                  <div class="space-y-2">
+                    <v-label>Custom (#6366f1)</v-label>
+                    <v-progress [value]="75" variant="custom" color="#6366f1"></v-progress>
+                  </div>
+                </v-card>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-foreground">Sizes</h3>
+              <p class="text-sm text-muted-foreground">
+                O componente Progress está disponível em diferentes tamanhos.
+              </p>
+              <div class="grid gap-4">
+                <div class="space-y-2">
+                  <v-label>Small (sm)</v-label>
+                  <v-progress [value]="50" size="sm"></v-progress>
+                </div>
+                <div class="space-y-2">
+                  <v-label>Medium (md)</v-label>
+                  <v-progress [value]="50" size="md"></v-progress>
+                </div>
+                <div class="space-y-2">
+                  <v-label>Large (lg)</v-label>
+                  <v-progress [value]="50" size="lg"></v-progress>
+                </div>
+                <div class="space-y-2">
+                  <v-label>Extra Large (xl)</v-label>
+                  <v-progress [value]="50" size="xl"></v-progress>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </v-tab-content>
+    </v-tab>
+
+    <v-tab>
+      <v-tab-title>API</v-tab-title>
+      <v-tab-content>
+        <div class="p-6">
+          <h3 class="mb-4 text-lg font-semibold text-foreground">Inputs</h3>
+          <v-table
+            [data]="config().documentation?.tableInputs || []"
+            [columns]="columnsDocInputs"
+            size="sm"
+          ></v-table>
+        </div>
+      </v-tab-content>
+    </v-tab>
+  </v-tabs>
+</div>

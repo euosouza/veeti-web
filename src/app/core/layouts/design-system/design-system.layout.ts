@@ -117,6 +117,10 @@ export class DesignSystemLayout {
       {
         label: "Tooltip",
         path: "/design-system/componentes/tooltip"
+      },
+      {
+        label: "Progress",
+        path: "/design-system/componentes/progress"
       }
     ]
   };
