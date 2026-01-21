@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
 import { DOC_INPUTS_COLUMNS } from "@domain/design-system/constants/doc-table-columns.constants";
 import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
-import { VAlertComponent } from "@libs/ui/components/alert";
+import { VAlertComponent } from "@libs/ui/components/alert/v-alert.component";
 import { VCardComponent } from "@libs/ui/components/card/v-card.component";
 import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "@libs/ui/components/label/v-label.component";

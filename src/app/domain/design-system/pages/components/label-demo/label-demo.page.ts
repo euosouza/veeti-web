@@ -3,7 +3,7 @@ import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
 import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
-import { VCheckboxComponent } from "@libs/ui/components/checkbox";
+import { VCheckboxComponent } from "@libs/ui/components/checkbox/v-checkbox.component";
 import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
 import { VLabelVariants } from "@libs/ui/components/label/v-label.constants";

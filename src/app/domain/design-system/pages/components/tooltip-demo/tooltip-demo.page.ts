@@ -4,14 +4,14 @@ import { FormsModule } from "@angular/forms";
 import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
 import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
 import { ButtonComponent } from "@libs/ui/components/button/button.component";
-import { VCardComponent } from "@libs/ui/components/card";
+import { VCardComponent } from "@libs/ui/components/card/v-card.component";
 import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
-import { VTableComponent } from "@libs/ui/components/table";
+import { VTableComponent } from "@libs/ui/components/table/v-table.component";
 import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
-import { VTooltipDirective } from "@libs/ui/components/tooltip";
+import { VTooltipDirective } from "@libs/ui/components/tooltip/v-tooltip.directive";
 
-import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs";
+import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs/v-tabs.component";
 
 @Component({
   selector: "app-tooltip-demo",

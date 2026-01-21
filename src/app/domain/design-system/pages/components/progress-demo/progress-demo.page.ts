@@ -10,7 +10,7 @@ import { VProgressComponent } from "@libs/ui/components/progress/v-progress.comp
 
 import { VTableComponent } from "@libs/ui/components/table/v-table.component";
 import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
-import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs";
+import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent } from "@libs/ui/components/tabs/v-tabs.component";
 
 @Component({
   selector: "app-progress-demo",

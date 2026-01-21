@@ -9,7 +9,9 @@ import { ButtonComponent } from "@libs/ui/components/button/button.component";
 import { VCardComponent } from "@libs/ui/components/card/v-card.component";
 import { VCheckboxComponent } from "@libs/ui/components/checkbox/v-checkbox.component";
 import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
-import { VRadioButtonComponent, VRadioGroupComponent, type RadioButtonVariants } from "@libs/ui/components/radio-group";
+import { VRadioButtonComponent } from "@libs/ui/components/radio-group/v-radio-button.component";
+import { VRadioGroupComponent } from "@libs/ui/components/radio-group/v-radio-group.component";
+import { RadioButtonVariants } from "@libs/ui/components/radio-group/v-radio.constants";
 import { VTableComponent } from "@libs/ui/components/table/v-table.component";
 import { VTableColumn } from "@libs/ui/components/table/v-table.interface";
 

@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { PlaygroundComponent } from "@domain/design-system/components/playground/playground.component";
 import { PlaygroundConfig } from "@domain/design-system/constants/playground.constants";
-import { VBreadcrumbComponent, VBreadcrumbConfig } from "@libs/ui/components/breadcrumb";
+import { VBreadcrumbComponent, VBreadcrumbConfig } from "@libs/ui/components/breadcrumb/v-breadcrumb.component";
 import { VCardComponent } from "@libs/ui/components/card/v-card.component";
 import { VInputDirective } from "@libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "@libs/ui/components/label/v-label.component";
