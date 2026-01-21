@@ -51,6 +51,9 @@
   --input-color-border: var(--neutral-100);
   --input-color-border-focus: var(--neutral-500);
 
+  /* Switch styles */
+  --switch-color-background: var(--neutral-150);
+
 }
 
 /* Dark */
@@ -82,6 +85,9 @@
   --input-color-placeholder: var(--neutral-500);
   --input-color-border: var(--neutral-850);
   --input-color-border-focus: var(--neutral-500);
+
+  /* Switch styles */
+  --switch-color-background: var(--neutral-800);
 }
 
 @theme {
@@ -195,6 +201,9 @@
 
   /* Avatar styles */
   --color-avatar-background: var(--avatar-color-background);
+
+  /* Switch styles */
+  --color-switch-background: var(--switch-color-background);
 }
 
 @layer utilities {

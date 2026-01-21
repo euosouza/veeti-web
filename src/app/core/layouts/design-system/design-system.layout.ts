@@ -103,6 +103,10 @@ export class DesignSystemLayout {
         path: "/design-system/componentes/skeleton"
       },
       {
+        label: "Switch",
+        path: "/design-system/componentes/switch"
+      },
+      {
         label: "Table",
         path: "/design-system/componentes/table"
       },

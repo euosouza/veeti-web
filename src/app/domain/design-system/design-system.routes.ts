@@ -35,6 +35,11 @@ export const routesDesignSystem: Routes = [
     loadComponent: () => import("./pages/components/skeleton-demo/skeleton-demo.page").then((m) => m.SkeletonDemoPage)
   },
   {
+    path: "componentes/switch",
+    title: "Switch",
+    loadComponent: () => import("./pages/components/switch-demo/switch-demo.page").then((m) => m.SwitchDemoPage)
+  },
+  {
     path: "componentes/input",
     loadComponent: () => import("./pages/components/input-demo/input-demo.page").then((m) => m.InputDemoPage)
   },

@@ -1,0 +1,146 @@
+<div class="space-y-10">
+  <div class="flex flex-col gap-2">
+    <h1 class="text-3xl font-bold tracking-tight">{{ config().title }}</h1>
+    <p class="text-muted-foreground text-lg">{{ config().description }}</p>
+  </div>
+
+  <v-tabs>
+    <v-tab value="overview">
+      <v-tab-title>Overview</v-tab-title>
+      <v-tab-content>
+        <div class="flex flex-col gap-10">
+          <!-- Playground -->
+          <app-playground [codeSnippet]="codeSnippet()">
+            <div preview class="flex items-center justify-center p-10 min-h-[300px]">
+              <v-switch
+                [label]="label()"
+                [disabled]="disabled()"
+                [size]="size()"
+                [(ngModel)]="checked"
+              ></v-switch>
+            </div>
+
+            <div controls class="w-full space-y-4">
+              <div>
+                <v-label htmlFor="label">Label</v-label>
+                <input vInput type="text" id="label" [(ngModel)]="label" class="w-full h-9" />
+              </div>
+
+              <div>
+                <v-label htmlFor="size">Size</v-label>
+                <select
+                  id="size"
+                  class="w-full h-9 pl-4 rounded-lg bg-background border border-border text-xs text-foreground focus:ring-2 focus:ring-primary/50"
+                  [ngModel]="size()"
+                  (ngModelChange)="size.set($event)"
+                >
+                  <option value="sm">Small</option>
+                  <option value="md">Medium</option>
+                  <option value="lg">Large</option>
+                </select>
+              </div>
+
+              <div class="flex items-center gap-2 pt-2">
+                <v-switch [(ngModel)]="disabled" label="Disabled"></v-switch>
+              </div>
+            </div>
+          </app-playground>
+
+          <!-- Variantes -->
+          <!-- <section>
+            <h2 class="text-2xl font-bold mb-4">Variantes</h2>
+            <div class="grid gap-4 md:grid-cols-2">
+               No needed for now as we only have one variant
+            </div>
+          </section> -->
+
+          <!-- Tamanhos -->
+          <section>
+            <h2 class="text-2xl font-bold mb-4">Tamanhos</h2>
+            <div class="grid gap-4 md:grid-cols-3">
+              <v-card vTitle="Small (sm)">
+                <div class="p-6 flex items-center justify-center">
+                  <v-switch label="Label" size="sm"></v-switch>
+                </div>
+              </v-card>
+
+              <v-card vTitle="Medium (md - Default)">
+                <div class="p-6 flex items-center justify-center">
+                  <v-switch label="Label" size="md"></v-switch>
+                </div>
+              </v-card>
+
+              <v-card vTitle="Large (lg)">
+                <div class="p-6 flex items-center justify-center">
+                  <v-switch label="Label" size="lg"></v-switch>
+                </div>
+              </v-card>
+            </div>
+          </section>
+
+          <!-- Estados -->
+          <section>
+            <h2 class="text-2xl font-bold mb-4">Estados</h2>
+            <div class="grid gap-4 md:grid-cols-3">
+              <v-card
+                vTitle="Default"
+                vDescription="Estado inicial do switch, não marcado e habilitado."
+              >
+                <div class="p-6 flex items-center justify-center">
+                  <v-switch label="Label"></v-switch>
+                </div>
+              </v-card>
+
+              <v-card vTitle="Checked" vDescription="Estado marcado do switch.">
+                <div class="p-6 flex items-center justify-center">
+                  <!-- Manually checked logic would require a separate signal or ngModel, let's just make it interactive -->
+                  <v-switch label="Checked" [ngModel]="true"></v-switch>
+                </div>
+              </v-card>
+
+              <v-card
+                vTitle="Disabled"
+                vDescription="Estado desabilitado, impedindo interação do usuário."
+              >
+                <div class="p-6 flex items-center justify-center">
+                  <v-switch label="Disabled" [disabled]="true"></v-switch>
+                </div>
+              </v-card>
+
+              <v-card vTitle="Disabled Checked" vDescription="Estado marcado e desabilitado.">
+                <div class="p-6 flex items-center justify-center">
+                  <v-switch label="Disabled" [disabled]="true" [ngModel]="true"></v-switch>
+                </div>
+              </v-card>
+            </div>
+          </section>
+        </div>
+      </v-tab-content>
+    </v-tab>
+
+    <v-tab value="api">
+      <v-tab-title>API</v-tab-title>
+      <v-tab-content>
+        <div class="flex flex-col gap-8">
+          <section>
+            <h3 class="text-xl font-bold mb-4">Inputs</h3>
+            <v-table
+              [data]="config().documentation?.tableInputs || []"
+              [columns]="columnsDocInputs"
+              size="sm"
+            ></v-table>
+          </section>
+
+          <section>
+            <h3 class="text-xl font-bold mb-4">Outputs</h3>
+            <v-table
+              [data]="config().documentation?.tableOutputs || []"
+              [columns]="columnsDocOutputs"
+              size="sm"
+            ></v-table>
+          </section>
+        </div>
+      </v-tab-content>
+    </v-tab>
+  </v-tabs>
+</div>
