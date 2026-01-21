@@ -12,6 +12,11 @@ export const routes: Routes = [
     path: "design-system",
     loadComponent: () => import("./core/layouts/design-system/design-system.layout").then((m) => m.DesignSystemLayout),
     children: [...routesDesignSystem]
+  },
+  {
+    path: "app",
+    loadComponent: () => import("./core/layouts/dashboard/dashboard.layout").then((m) => m.DashboardLayout),
+    children: []
   }
   // Rotas para telas de login, cadastro e recuperação de senha
   // {
@@ -20,11 +25,6 @@ export const routes: Routes = [
   //   children: []
   // },
   // Rotas para telas logadas da aplicação
-  // {
-  //   path: "app",
-  //   loadComponent: () => import("./core/layouts/dashbord/dashbord").then((m) => m.DashbordLayout),
-  //   children: []
-  // },
   // Rota para landing pages e site institucional
   // {
   //   path: "",

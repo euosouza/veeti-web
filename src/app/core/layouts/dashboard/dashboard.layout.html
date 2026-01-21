@@ -1,0 +1,35 @@
+<div
+  class="bg-card-background w-full h-screen flex flex-col overflow-hidden scrollbar-veeti min-h-screen"
+>
+  @if (isSidebarOpen()) {
+    <div
+      (click)="closeSidebar()"
+      (keydown.enter)="closeSidebar()"
+      (keydown.escape)="closeSidebar()"
+      tabindex="0"
+      class="fixed inset-0 bg-background/50 z-40 lg:hidden backdrop-blur-sm transition-opacity"
+    ></div>
+  }
+
+  <div class="flex h-full max-w-screen-2xl mx-auto w-full">
+    <!-- Sidebar -->
+    <app-layout-sidebar
+      [isOpen]="isSidebarOpen()"
+      [menu]="menu"
+      (closeSidebar)="closeSidebar()"
+    ></app-layout-sidebar>
+
+    <!-- Content Area -->
+    <div class="flex-1 min-w-0 flex flex-col h-full">
+      <app-layout-header
+        (toggleSidebar)="toggleSidebar()"
+        (toggleTheme)="toggleTheme()"
+        (triggerNotification)="notification()"
+      ></app-layout-header>
+
+      <app-layout-content>
+        <router-outlet></router-outlet>
+      </app-layout-content>
+    </div>
+  </div>
+</div>
