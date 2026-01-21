@@ -113,6 +113,10 @@ export class DesignSystemLayout {
       {
         label: "Tabs",
         path: "/design-system/componentes/tabs"
+      },
+      {
+        label: "Tooltip",
+        path: "/design-system/componentes/tooltip"
       }
     ]
   };

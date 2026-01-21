@@ -1,0 +1,156 @@
+<div class="space-y-6">
+  <!-- Header -->
+  <header>
+    <h1 class="text-3xl font-bold tracking-tight text-foreground">{{ config().title }}</h1>
+    <p class="mt-2 text-lg text-muted-foreground">{{ config().description }}</p>
+  </header>
+
+  <!-- Tabs -->
+  <v-tabs>
+    <v-tab>
+      <v-tab-title>Overview</v-tab-title>
+      <v-tab-content>
+        <div class="space-y-10 mt-6">
+          <!-- Playground -->
+          <app-playground [codeSnippet]="codeSnippet()">
+            <div class="w-full flex justify-center p-8" preview>
+              <app-button
+                variant="outline"
+                [vTooltip]="tooltipText()"
+                [vTooltipPosition]="position()"
+              >
+                Hover me
+              </app-button>
+            </div>
+
+            <ng-container controls>
+              <div class="w-full space-y-4">
+                <div class="flex flex-col gap-2">
+                  <v-label>Tooltip Text</v-label>
+                  <input vInput [(ngModel)]="tooltipText" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <v-label>Position</v-label>
+                  <select vInput [(ngModel)]="position">
+                    <option value="top">Top</option>
+                    <option value="bottom">Bottom</option>
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                  </select>
+                </div>
+              </div>
+            </ng-container>
+          </app-playground>
+        </div>
+
+        <!-- Usage Examples -->
+        <section class="space-y-6 mt-10">
+          <h3 class="text-xl font-semibold text-foreground">Exemplos</h3>
+
+          <div class="grid gap-6 grid-cols-1 md:grid-cols-3">
+            <!-- Top -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium text-foreground">Top Position</h4>
+                <p class="text-sm text-muted-foreground">Tooltip exibido acima do elemento.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border flex justify-center">
+                <app-button variant="outline" vTooltip="Top tooltip" vTooltipPosition="top"
+                  >Top</app-button
+                >
+              </div>
+            </v-card>
+
+            <!-- Bottom -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium text-foreground">Bottom Position</h4>
+                <p class="text-sm text-muted-foreground">Tooltip exibido abaixo do elemento.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border flex justify-center">
+                <app-button variant="outline" vTooltip="Bottom tooltip" vTooltipPosition="bottom"
+                  >Bottom</app-button
+                >
+              </div>
+            </v-card>
+
+            <!-- Left -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium text-foreground">Left Position</h4>
+                <p class="text-sm text-muted-foreground">Tooltip exibido à esquerda do elemento.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border flex justify-center">
+                <app-button variant="outline" vTooltip="Left tooltip" vTooltipPosition="left"
+                  >Left</app-button
+                >
+              </div>
+            </v-card>
+
+            <!-- Right -->
+            <v-card class="p-6">
+              <div class="mb-4 space-y-1">
+                <h4 class="font-medium text-foreground">Right Position</h4>
+                <p class="text-sm text-muted-foreground">Tooltip exibido à direita do elemento.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-background/50 border border-border flex justify-center">
+                <app-button variant="outline" vTooltip="Right tooltip" vTooltipPosition="right"
+                  >Right</app-button
+                >
+              </div>
+            </v-card>
+          </div>
+        </section>
+
+        <!-- Architecture -->
+        <section class="space-y-6 mt-10">
+          <h3 class="text-xl font-semibold text-foreground">Arquitetura</h3>
+          <v-card class="p-6">
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium flex items-center gap-2 text-foreground">
+                  <span class="p-1 rounded bg-muted font-mono text-xs">vTooltip</span>
+                  <span class="text-muted-foreground text-sm font-normal">(Diretiva)</span>
+                </h4>
+                <p class="text-sm text-muted-foreground mt-1">
+                  Responsável pelo comportamento e lógica. Gerencia os eventos (hover, focus),
+                  calcula o posicionamento e controla a abertura/fechamento do overlay.
+                </p>
+              </div>
+
+              <div class="border-t border-border pt-4">
+                <h4 class="font-medium flex items-center gap-2 text-foreground">
+                  <span class="p-1 rounded bg-muted font-mono text-xs">VTooltipComponent</span>
+                  <span class="text-muted-foreground text-sm font-normal">(Componente)</span>
+                </h4>
+                <p class="text-sm text-muted-foreground mt-1">
+                  Responsável puramente pela renderização visual. Define a estrutura HTML,
+                  estilização e animações do tooltip. É instanciado dinamicamente pela diretiva.
+                </p>
+              </div>
+            </div>
+          </v-card>
+        </section>
+      </v-tab-content>
+    </v-tab>
+
+    <v-tab>
+      <v-tab-title>API</v-tab-title>
+      <v-tab-content>
+        <!-- API Documentation -->
+        <div class="space-y-6 mt-6">
+          @if (config().documentation?.tableInputs) {
+            <section class="space-y-3">
+              <h3 class="text-lg font-semibold text-foreground">Inputs</h3>
+              <v-table
+                [data]="config().documentation?.tableInputs || []"
+                [columns]="columnsDocInputs"
+              ></v-table>
+            </section>
+          }
+        </div>
+      </v-tab-content>
+    </v-tab>
+  </v-tabs>
+</div>

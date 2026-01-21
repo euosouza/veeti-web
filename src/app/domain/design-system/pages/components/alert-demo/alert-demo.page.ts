@@ -3,7 +3,6 @@ import { Component, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VAlertComponent } from "../../../../../libs/ui/components/alert";
 import { VCardComponent } from "../../../../../libs/ui/components/card/v-card.component";
-import { VIconComponent } from "../../../../../libs/ui/components/icon/v-icon.component";
 import { VInputDirective } from "../../../../../libs/ui/components/input/v-input.directive";
 import { VLabelComponent } from "../../../../../libs/ui/components/label/v-label.component";
 import { VTableComponent } from "../../../../../libs/ui/components/table/v-table.component";
@@ -22,7 +21,6 @@ import { PlaygroundConfig } from "../../../constants/playground.constants";
     PlaygroundComponent,
     VAlertComponent,
     VCardComponent,
-    VIconComponent,
     VInputDirective,
     VLabelComponent,
     VTabsComponent,
