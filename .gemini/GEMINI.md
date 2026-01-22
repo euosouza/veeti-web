@@ -144,3 +144,4 @@ Consistency is key. Please adhere to the following rules when creating new files
 
 - [Guia para Criação de Novos Componentes do Design System](src/app/libs/ui/components/NEW_COMPONENT_GUIDE.md)
 - [Guia para Criação de Páginas de Demonstração de Componentes](src/app/domain/design-system/COMPONENT_DEMO_GUIDE.md)
+- [Guia para Criação de Novos Módulos de Domínio](src/app/domain/NEW_DOMAIN_MODULE_GUIDE.md)
