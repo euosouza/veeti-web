@@ -1,0 +1,46 @@
+<app-page-header [title]="title" [subtitle]="subtitle" [breadcrumb]="breadcrumb"></app-page-header>
+
+<div class="flex flex-col gap-6 mt-6">
+  <v-card>
+    <!-- Controls -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
+      <div class="flex-1 w-full">
+        <v-input-group startIcon="search">
+          <input
+            vInput
+            placeholder="Buscar tutor..."
+            [formControl]="searchControl"
+            class="w-full"
+          />
+        </v-input-group>
+      </div>
+      <app-button (click)="onCreate()">
+        <div class="flex items-center gap-2">
+          <v-icon name="add" size="sm"></v-icon>
+          <span>Novo Tutor</span>
+        </div>
+      </app-button>
+    </div>
+    <!-- Table -->
+    <v-table
+      class="mt-6"
+      [data]="tutors()"
+      [columns]="columns"
+      [loading]="isLoading()"
+      emptyText="Nenhum tutor encontrado."
+    ></v-table>
+
+    <!-- Pagination -->
+    <div class="flex justify-end pt-2">
+      <v-pagination
+        [variant]="'default'"
+        [total]="totalItems()"
+        [pageSize]="pageSize()"
+        [currentPage]="currentPage()"
+        (pageChange)="onPageChange($event)"
+        (pageSizeChange)="onPageSizeChange($event)"
+        [disabled]="isLoading()"
+      ></v-pagination>
+    </div>
+  </v-card>
+</div>

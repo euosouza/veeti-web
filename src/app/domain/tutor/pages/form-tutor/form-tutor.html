@@ -1,0 +1,157 @@
+<app-page-header
+  [title]="title()"
+  [subtitle]="subtitle()"
+  [breadcrumb]="breadcrumb()"
+></app-page-header>
+
+<div class="pb-6 mt-6">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-6">
+    <!-- Personal Info Card -->
+    <v-card vTitle="Informações Pessoais" vDescription="Dados básicos de identificação e contato.">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="fullName">Nome Completo</v-label>
+          <input id="fullName" vInput formControlName="fullName" placeholder="Ex: João da Silva" />
+          @if (form.controls.fullName.touched && form.controls.fullName.hasError("required")) {
+            <span class="text-red-500 text-xs">Nome completo é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="email">Email</v-label>
+          <input
+            id="email"
+            vInput
+            type="email"
+            formControlName="email"
+            placeholder="Ex: joao@email.com"
+          />
+          @if (form.controls.email.touched && form.controls.email.invalid) {
+            @if (form.controls.email.hasError("required")) {
+              <span class="text-red-500 text-xs">Email é obrigatório.</span>
+            }
+            @if (form.controls.email.hasError("email")) {
+              <span class="text-red-500 text-xs">Email inválido.</span>
+            }
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="cpf">CPF</v-label>
+          <input id="cpf" vInput formControlName="cpf" placeholder="000.000.000-00" />
+          @if (form.controls.cpf.touched && form.controls.cpf.hasError("required")) {
+            <span class="text-red-500 text-xs">CPF é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="phone">Telefone</v-label>
+          <input id="phone" vInput formControlName="phone" placeholder="(00) 00000-0000" />
+          @if (form.controls.phone.touched && form.controls.phone.hasError("required")) {
+            <span class="text-red-500 text-xs">Telefone é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="whatsapp">WhatsApp</v-label>
+          <input id="whatsapp" vInput formControlName="whatsapp" placeholder="(00) 00000-0000" />
+        </div>
+
+        <div class="flex flex-col gap-1 md:col-span-2">
+          <v-label htmlFor="notes">Observações</v-label>
+          <textarea
+            id="notes"
+            vInput
+            formControlName="notes"
+            rows="3"
+            placeholder="Informações adicionais..."
+          ></textarea>
+        </div>
+      </div>
+    </v-card>
+
+    <!-- Address Card -->
+    <v-card vTitle="Endereço" vDescription="Localização do tutor.">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4" formGroupName="address">
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="zipCode">CEP</v-label>
+          <input id="zipCode" vInput formControlName="zipCode" placeholder="00000-000" />
+          @if (
+            form.controls.address.controls.zipCode.touched &&
+            form.controls.address.controls.zipCode.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">CEP é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1 md:col-span-2">
+          <v-label htmlFor="street">Rua</v-label>
+          <input id="street" vInput formControlName="street" placeholder="Rua das Flores" />
+          @if (
+            form.controls.address.controls.street.touched &&
+            form.controls.address.controls.street.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">Rua é obrigatória.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="number">Número</v-label>
+          <input id="number" vInput formControlName="number" placeholder="123" />
+          @if (
+            form.controls.address.controls.number.touched &&
+            form.controls.address.controls.number.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">Número é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="complement">Complemento</v-label>
+          <input id="complement" vInput formControlName="complement" placeholder="Apto 101" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="neighborhood">Bairro</v-label>
+          <input id="neighborhood" vInput formControlName="neighborhood" placeholder="Centro" />
+          @if (
+            form.controls.address.controls.neighborhood.touched &&
+            form.controls.address.controls.neighborhood.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">Bairro é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="city">Cidade</v-label>
+          <input id="city" vInput formControlName="city" placeholder="São Paulo" />
+          @if (
+            form.controls.address.controls.city.touched &&
+            form.controls.address.controls.city.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">Cidade é obrigatória.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="state">Estado</v-label>
+          <input id="state" vInput formControlName="state" placeholder="SP" maxlength="2" />
+          @if (
+            form.controls.address.controls.state.touched &&
+            form.controls.address.controls.state.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">Estado é obrigatório.</span>
+          }
+        </div>
+      </div>
+    </v-card>
+
+    <!-- Actions -->
+    <div class="flex justify-end gap-2 mt-4">
+      <app-button variant="outline" type="button" (click)="onCancel()">Cancelar</app-button>
+      <app-button type="submit" [loading]="isLoading()" [disabled]="form.invalid">
+        {{ isEditMode() ? "Salvar Alterações" : "Criar Tutor" }}
+      </app-button>
+    </div>
+  </form>
+</div>

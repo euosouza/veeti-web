@@ -21,18 +21,20 @@ export class SkeletonComponent {
 
   constructor() {
     effect(() => {
-      if (isDevMode() && !this.isValid(this.height())) {
-        throw new Error(`[app-skeleton] Valor de altura inválido:  "${this.height()}". Por favor, use uma unidade CSS válida.`);
-      }
-      if (isDevMode() && !this.isValid(this.width())) {
-        throw new Error(`[app-skeleton] Valor de largura inválido: "${this.width()}". Por favor, use uma unidade CSS válida.`);
+      if (isDevMode()) {
+        if (!this.isValid(this.height())) {
+          console.warn(`[app-skeleton] Altura potencialmente inválida: "${this.height()}". Recomenda-se usar uma unidade CSS válida.`);
+        }
+        if (!this.isValid(this.width())) {
+          console.warn(`[app-skeleton] Largura potencialmente inválida: "${this.width()}". Recomenda-se usar uma unidade CSS válida.`);
+        }
       }
     });
   }
 
   private isValid(value: string): boolean {
-    if (value === "auto") return true;
-
-    return this.validUnits.some((unit) => value.endsWith(unit));
+    const trimmed = value.trim();
+    if (trimmed === "auto" || trimmed.startsWith("calc") || trimmed.startsWith("var")) return true;
+    return this.validUnits.some((unit) => trimmed.endsWith(unit));
   }
 }

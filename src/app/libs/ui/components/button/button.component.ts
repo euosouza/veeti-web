@@ -7,7 +7,7 @@ import { buttonVariants } from "./button.constants";
 @Component({
   selector: "app-button",
   imports: [],
-  template: `<button [class]="classes()" [disabled]="isDisabled()" (click)="handleClick()">
+  template: `<button [type]="type()" [class]="classes()" [disabled]="isDisabled()" (click)="handleClick()">
     @if (loading()) {
       <span
         class="animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] h-4 w-4"
@@ -22,6 +22,7 @@ import { buttonVariants } from "./button.constants";
 })
 export class ButtonComponent {
   @Output() onClick = new EventEmitter<void>();
+  readonly type = input<"button" | "submit" | "reset">("button");
   readonly disabled = input<boolean>(false);
   readonly loading = input<boolean>(false);
   readonly class = input<ClassValue>("");

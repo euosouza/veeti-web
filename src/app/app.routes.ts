@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { routesTutor } from "@domain/tutor/tutor.routes";
 import { routesDesignSystem } from "./domain/design-system/design-system.routes";
 
 export const routes: Routes = [
@@ -16,7 +17,7 @@ export const routes: Routes = [
   {
     path: "app",
     loadComponent: () => import("./core/layouts/dashboard/dashboard.layout").then((m) => m.DashboardLayout),
-    children: []
+    children: [...routesTutor]
   }
   // Rotas para telas de login, cadastro e recuperação de senha
   // {

@@ -66,7 +66,7 @@ export class VCardComponent {
 
   protected readonly headerClasses = computed(() => mergeClasses(cardHeaderVariants({ size: this.size() }), this.vHeaderBorder() ? "border-b" : ""));
 
-  protected readonly contentClasses = computed(() => mergeClasses(cardContentVariants({ size: this.size() })));
+  protected readonly contentClasses = computed(() => mergeClasses(cardContentVariants({ size: this.size() }), this.class()));
 
   protected readonly footerClasses = computed(() => mergeClasses(cardFooterVariants({ size: this.size() }), this.vFooterBorder() ? "border-t" : ""));
 

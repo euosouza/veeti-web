@@ -184,7 +184,7 @@ export class VTableComponent<T> {
   readonly variant = input<TableVariants["variant"]>("default");
   readonly size = input<TableVariants["size"]>("md");
   readonly selectable = input<boolean>(false);
-  readonly loading = input<boolean>(false);
+  readonly loading = input<boolean>(true);
   readonly emptyText = input<string>("No data available");
   readonly skeletonCount = input<number>(5);
 

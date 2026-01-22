@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { VBreadcrumbComponent, VBreadcrumbLink } from "@libs/ui/components/breadcrumb/v-breadcrumb.component";
+import { VBreadcrumbComponent } from "@libs/ui/components/breadcrumb/v-breadcrumb.component";
+import { VBreadcrumbConfig } from "@libs/ui/components/breadcrumb/v-breadcrumb.component";
 
 @Component({
   selector: "app-page-header",
@@ -12,5 +13,5 @@ import { VBreadcrumbComponent, VBreadcrumbLink } from "@libs/ui/components/bread
 export class PageHeaderComponent {
   title = input.required<string>();
   subtitle = input<string>();
-  breadcrumb = input.required<VBreadcrumbLink[]>();
+  breadcrumb = input.required<VBreadcrumbConfig>();
 }

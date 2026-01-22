@@ -1,12 +1,16 @@
 <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
   <div class="space-y-1.5">
-    <v-breadcrumb [config]="{ items: breadcrumb() }" />
-    <h2 class="text-2xl font-bold tracking-tight">{{ title() }}</h2>
-    @if (subtitle()) {
-      <p class="text-muted-foreground">
-        {{ subtitle() }}
-      </p>
-    }
+    <v-breadcrumb [config]="breadcrumb()" />
+
+    <div class="space-y-6 mt-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+        {{ title() }}
+      </h1>
+      @if (subtitle()) {
+        <p class="text-base text-muted-foreground leading-[1.2]">
+          {{ subtitle() }}
+        </p>
+      }
+    </div>
   </div>
-  <ng-content />
 </div>
