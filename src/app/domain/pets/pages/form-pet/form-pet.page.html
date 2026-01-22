@@ -1,0 +1,123 @@
+<app-page-header
+  [title]="title()"
+  [subtitle]="subtitle()"
+  [breadcrumb]="breadcrumb()"
+></app-page-header>
+
+<div class="pb-6 mt-6">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-6">
+    <!-- Pet Info Card -->
+    <v-card vTitle="Informações do Pet" vDescription="Dados básicos do animal.">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="name">Nome do Pet</v-label>
+          <input id="name" vInput formControlName="name" placeholder="Ex: Rex" />
+          @if (form.controls.name.touched && form.controls.name.hasError("required")) {
+            <span class="text-red-500 text-xs">Nome é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="species">Espécie</v-label>
+          <select id="species" vInput formControlName="species">
+            <option [value]="undefined">Selecione</option>
+            @for (option of speciesOptions; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+          @if (form.controls.species.touched && form.controls.species.hasError("required")) {
+            <span class="text-red-500 text-xs">Espécie é obrigatória.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="breed">Raça</v-label>
+          <input id="breed" vInput formControlName="breed" placeholder="Ex: Labrador" />
+          @if (form.controls.breed.touched && form.controls.breed.hasError("required")) {
+            <span class="text-red-500 text-xs">Raça é obrigatória.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="gender">Gênero</v-label>
+          <select id="gender" vInput formControlName="gender">
+            <option [value]="undefined">Selecione</option>
+            @for (option of genderOptions; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+          @if (form.controls.gender.touched && form.controls.gender.hasError("required")) {
+            <span class="text-red-500 text-xs">Gênero é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="birthDate">Data de Nascimento</v-label>
+          <input id="birthDate" vInput type="date" formControlName="birthDate" />
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="weightKg">Peso (kg)</v-label>
+          <input
+            id="weightKg"
+            vInput
+            type="number"
+            formControlName="weightKg"
+            placeholder="Ex: 10.5"
+          />
+          @if (form.controls.weightKg.touched && form.controls.weightKg.hasError("min")) {
+            <span class="text-red-500 text-xs">Peso inválido.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="clinicalStatus">Situação Clínica</v-label>
+          <select id="clinicalStatus" vInput formControlName="clinicalStatus">
+            <option [value]="undefined">Selecione</option>
+            @for (option of statusOptions; track option) {
+              <option [value]="option">{{ option }}</option>
+            }
+          </select>
+          @if (
+            form.controls.clinicalStatus.touched &&
+            form.controls.clinicalStatus.hasError("required")
+          ) {
+            <span class="text-red-500 text-xs">Situação clínica é obrigatória.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <v-label htmlFor="tutorId">Tutor</v-label>
+          <select id="tutorId" vInput formControlName="tutorId">
+            <option [value]="undefined">Selecione um tutor</option>
+            @for (tutor of tutors(); track tutor.id) {
+              <option [value]="tutor.id">{{ tutor.fullName }}</option>
+            }
+          </select>
+          @if (form.controls.tutorId.touched && form.controls.tutorId.hasError("required")) {
+            <span class="text-red-500 text-xs">Tutor é obrigatório.</span>
+          }
+        </div>
+
+        <div class="flex flex-col gap-1 md:col-span-2">
+          <v-label htmlFor="notes">Observações</v-label>
+          <textarea
+            id="notes"
+            vInput
+            formControlName="notes"
+            rows="3"
+            placeholder="Informações adicionais..."
+          ></textarea>
+        </div>
+      </div>
+    </v-card>
+
+    <!-- Actions -->
+    <div class="flex justify-end gap-2 mt-4">
+      <app-button variant="outline" type="button" (click)="onCancel()">Cancelar</app-button>
+      <app-button type="submit" [loading]="isLoading()" [disabled]="form.invalid">
+        {{ isEditMode() ? "Salvar Alterações" : "Criar Pet" }}
+      </app-button>
+    </div>
+  </form>
+</div>

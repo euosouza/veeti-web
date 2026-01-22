@@ -1,24 +1,23 @@
-// src/app/features/tutors/services/tutor.service.ts
 import { Injectable, computed, inject, signal } from "@angular/core";
-import { finalize, map, tap } from "rxjs";
-import { TutorApi } from "../apis/tutor.api";
-import { ICreateTutor, ITutor, IUpdateTutor } from "../interfaces/tutor.interface";
+import { finalize, tap } from "rxjs";
+import { PetApi } from "../apis/pet.api";
+import { ICreatePet, IPet } from "../interfaces/pet.interface";
 
 @Injectable({
   providedIn: "root"
 })
-export class TutorService {
-  private api = inject(TutorApi);
+export class PetService {
+  private api = inject(PetApi);
 
   // --- State (Signals) ---
-  private tutorsSignal = signal<ITutor[]>([]);
+  private petsSignal = signal<IPet[]>([]);
   private loadingSignal = signal<boolean>(false);
   private totalItemsSignal = signal<number>(0);
   private pageSignal = signal<number>(1);
   private pageSizeSignal = signal<number>(5);
 
   // --- Selectors (Computed) ---
-  public tutors = computed(() => this.tutorsSignal());
+  public pets = computed(() => this.petsSignal());
   public isLoading = computed(() => this.loadingSignal());
   public totalItems = computed(() => this.totalItemsSignal());
   public page = computed(() => this.pageSignal());
@@ -30,7 +29,7 @@ export class TutorService {
     this.loadingSignal.set(true);
     return this.api.getAll(query, this.pageSignal(), this.pageSizeSignal()).pipe(
       tap((response) => {
-        this.tutorsSignal.set(response.data ?? []);
+        this.petsSignal.set(response.data ?? []);
         this.totalItemsSignal.set(response.items ?? 0);
       }),
       finalize(() => this.loadingSignal.set(false))
@@ -51,22 +50,22 @@ export class TutorService {
     this.pageSignal.set(1); // Reset to first page on size change
   }
 
-  create(payload: ICreateTutor) {
+  create(payload: ICreatePet) {
     this.loadingSignal.set(true);
     return this.api.create(payload).pipe(
-      tap((newTutor) => {
+      tap((newPet) => {
         // Atualização otimista/local da lista
-        this.tutorsSignal.update((list) => [newTutor, ...list]);
+        this.petsSignal.update((list) => [newPet, ...list]);
       }),
       finalize(() => this.loadingSignal.set(false))
     );
   }
 
-  update(id: string, payload: IUpdateTutor) {
+  update(id: string, payload: Partial<ICreatePet>) {
     this.loadingSignal.set(true);
     return this.api.update(id, payload).pipe(
-      tap((updatedTutor) => {
-        this.tutorsSignal.update((list) => list.map((t) => (t.id === id ? updatedTutor : t)));
+      tap((updatedPet) => {
+        this.petsSignal.update((list) => list.map((p) => (p.id === id ? updatedPet : p)));
       }),
       finalize(() => this.loadingSignal.set(false))
     );
@@ -76,13 +75,9 @@ export class TutorService {
     this.loadingSignal.set(true);
     return this.api.delete(id).pipe(
       tap(() => {
-        this.tutorsSignal.update((list) => list.filter((t) => t.id !== id));
+        this.petsSignal.update((list) => list.filter((p) => p.id !== id));
       }),
       finalize(() => this.loadingSignal.set(false))
     );
-  }
-
-  getAllTutors() {
-    return this.api.getAll(undefined, 1, 1000).pipe(map((response) => response.data));
   }
 }

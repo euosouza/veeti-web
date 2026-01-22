@@ -47,6 +47,11 @@ export class DashboardLayout {
             label: "Tutores",
             path: "/app/tutores",
             icon: "group"
+          },
+          {
+            label: "Pets",
+            path: "/app/pets",
+            icon: "pets"
           }
         ]
       }
