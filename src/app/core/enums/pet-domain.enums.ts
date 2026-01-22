@@ -12,6 +12,7 @@ export enum PetGender {
 
 export enum ClinicalStatus {
   HEALTHY = "Saudável",
+  MONITORING = "Acompanhamento",
   UNDER_TREATMENT = "Em tratamento",
   CHRONIC = "Crônico",
   POST_OP = "Pós-operatório",

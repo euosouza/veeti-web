@@ -12,5 +12,9 @@ export const routesTutor: Routes = [
   {
     path: "tutores/editar/:id",
     loadComponent: () => import("./pages/form-tutor/form-tutor").then((m) => m.TutorFormPage)
+  },
+  {
+    path: "tutores/consultar/:id",
+    loadComponent: () => import("./pages/form-tutor/form-tutor").then((m) => m.TutorFormPage)
   }
 ];

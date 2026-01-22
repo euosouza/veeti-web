@@ -40,6 +40,15 @@
   </v-card>
 </div>
 
+<ng-template #nameTemplate let-row>
+  <a
+    [routerLink]="['/pets', row.id]"
+    class="font-medium hover:underline hover:text-primary-600 cursor-pointer"
+  >
+    {{ row.name }}
+  </a>
+</ng-template>
+
 <ng-template #tutorTemplate let-row>
   <div class="flex items-center gap-2">
     <v-avatar [alt]="row.tutor?.fullName || 'Tutor'" size="sm">

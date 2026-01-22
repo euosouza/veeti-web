@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, inject, TemplateRef, ViewChild } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormControl, ReactiveFormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { ClinicalStatus, PetGender } from "@core/enums/pet-domain.enums";
 import { IPet } from "@domain/pets/interfaces/pet.interface";
 import { PetService } from "@domain/pets/services/pet.service";
@@ -31,7 +31,8 @@ import { PageHeaderComponent } from "src/app/shared/components/page-header/page-
     ReactiveFormsModule,
     VInputGroupComponent,
     VCardComponent,
-    VAvatarComponent
+    VAvatarComponent,
+    RouterLink
   ],
   templateUrl: "./list-pets.page.html"
 })
@@ -40,6 +41,7 @@ export class ListPetsPage implements AfterViewInit {
   private readonly router = inject(Router);
 
   @ViewChild("tutorTemplate") tutorTemplate!: TemplateRef<IPet>;
+  @ViewChild("nameTemplate") nameTemplate!: TemplateRef<IPet>;
 
   title = "Pets";
   subtitle = "Gerencie a lista de pets cadastrados.";
@@ -76,7 +78,7 @@ export class ListPetsPage implements AfterViewInit {
 
   ngAfterViewInit() {
     this.columns = [
-      { key: "name", label: "Nome", fixed: "left" },
+      { key: "name", label: "Nome", fixed: "left", template: this.nameTemplate },
       {
         key: "tutor",
         label: "Tutor",

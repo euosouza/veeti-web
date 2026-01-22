@@ -36,6 +36,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.19",
     "material-symbols": "^0.40.2",
     "postcss": "^8.5.6",
     "rxjs": "~7.8.0",

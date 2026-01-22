@@ -16,7 +16,7 @@ export class PetApi {
     const params: Record<string, string | number> = {
       _page: page,
       _per_page: limit,
-      _embed: "tutor"
+      _expand: "tutor"
     };
     if (query) {
       params["name"] = query;
@@ -25,7 +25,7 @@ export class PetApi {
   }
 
   getById(id: string): Observable<IPet> {
-    const params = { _embed: "tutor" };
+    const params = { _expand: "tutor", _embed: "memories" };
     return this.http.get<IPet>(`${this.baseUrl}/${id}`, { params });
   }
 
