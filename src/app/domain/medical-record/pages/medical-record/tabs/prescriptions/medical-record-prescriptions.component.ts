@@ -3,10 +3,10 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { VIconComponent } from "@libs/ui/components/icon/v-icon.component";
 
 @Component({
-  selector: "app-pet-exams-tab",
+  selector: "app-medical-record-prescriptions-tab",
   standalone: true,
   imports: [CommonModule, VIconComponent],
-  templateUrl: "./pet-exams.component.html",
+  templateUrl: "./medical-record-prescriptions.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PetExamsTabComponent {}
+export class MedicalRecordPrescriptionsTabComponent {}

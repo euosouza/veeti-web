@@ -109,10 +109,10 @@
     <v-tab>
       <v-tab-title>Resumo Clínico</v-tab-title>
       <v-tab-content>
-        <app-pet-clinical-summary
+        <app-medical-record-clinical-summary
           [pet]="pet()"
           (viewTutor)="viewTutor($event)"
-        ></app-pet-clinical-summary>
+        ></app-medical-record-clinical-summary>
       </v-tab-content>
     </v-tab>
 
@@ -120,7 +120,7 @@
     <v-tab>
       <v-tab-title>Linha do tempo</v-tab-title>
       <v-tab-content>
-        <app-pet-timeline-tab></app-pet-timeline-tab>
+        <app-medical-record-timeline-tab></app-medical-record-timeline-tab>
       </v-tab-content>
     </v-tab>
 
@@ -128,7 +128,7 @@
     <v-tab>
       <v-tab-title>Exames</v-tab-title>
       <v-tab-content>
-        <app-pet-exams-tab></app-pet-exams-tab>
+        <app-medical-record-exams-tab></app-medical-record-exams-tab>
       </v-tab-content>
     </v-tab>
 
@@ -136,7 +136,7 @@
     <v-tab>
       <v-tab-title>Prescrições</v-tab-title>
       <v-tab-content>
-        <app-pet-prescriptions-tab></app-pet-prescriptions-tab>
+        <app-medical-record-prescriptions-tab></app-medical-record-prescriptions-tab>
       </v-tab-content>
     </v-tab>
   </v-tabs>

@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { routesTutor } from "@domain/tutor/tutor.routes";
 import { routesDesignSystem } from "./domain/design-system/design-system.routes";
 import { routesPets } from "@domain/pets/pets.routes";
+import { routesMedicalRecord } from "@domain/medical-record/medical-record.routes";
 
 export const routes: Routes = [
   {
@@ -18,7 +19,7 @@ export const routes: Routes = [
   {
     path: "app",
     loadComponent: () => import("./core/layouts/dashboard/dashboard.layout").then((m) => m.DashboardLayout),
-    children: [...routesTutor, ...routesPets]
+    children: [...routesTutor, ...routesPets, ...routesMedicalRecord]
   }
   // Rotas para telas de login, cadastro e recuperação de senha
   // {

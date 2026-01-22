@@ -10,15 +10,15 @@ import { VTabComponent, VTabContentComponent, VTabsComponent, VTabTitleComponent
 import dayjs from "dayjs";
 import "dayjs/locale/pt-br";
 import { BehaviorSubject, switchMap } from "rxjs";
-import { PetService } from "../../services/pet.service";
+import { PetService } from "../../../pets/services/pet.service";
 
-import { PetClinicalSummaryComponent } from "./tabs/clinical-summary/pet-clinical-summary.component";
-import { PetExamsTabComponent } from "./tabs/exams/pet-exams.component";
-import { PetPrescriptionsTabComponent } from "./tabs/prescriptions/pet-prescriptions.component";
-import { PetTimelineTabComponent } from "./tabs/timeline/pet-timeline.component";
+import { MedicalRecordClinicalSummaryComponent } from "./tabs/clinical-summary/medical-record-clinical-summary.component";
+import { MedicalRecordTimelineTabComponent } from "./tabs/timeline/medical-record-timeline.component";
+import { MedicalRecordExamsTabComponent } from "./tabs/exams/medical-record-exams.component";
+import { MedicalRecordPrescriptionsTabComponent } from "./tabs/prescriptions/medical-record-prescriptions.component";
 
 @Component({
-  selector: "app-pet-details",
+  selector: "app-medical-record",
   standalone: true,
   imports: [
     CommonModule,
@@ -28,15 +28,15 @@ import { PetTimelineTabComponent } from "./tabs/timeline/pet-timeline.component"
     VTabComponent,
     VTabTitleComponent,
     VTabContentComponent,
-    PetClinicalSummaryComponent,
-    PetTimelineTabComponent,
-    PetExamsTabComponent,
-    PetPrescriptionsTabComponent
+    MedicalRecordClinicalSummaryComponent,
+    MedicalRecordTimelineTabComponent,
+    MedicalRecordExamsTabComponent,
+    MedicalRecordPrescriptionsTabComponent
   ],
-  templateUrl: "./pet-details.page.html",
+  templateUrl: "./medical-record.page.html",
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PetDetailsPage {
+export class MedicalRecordPage {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private petService = inject(PetService);

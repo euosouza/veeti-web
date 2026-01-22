@@ -6,13 +6,13 @@ import { VIconComponent } from "@libs/ui/components/icon/v-icon.component";
 import dayjs from "dayjs";
 
 @Component({
-  selector: "app-pet-clinical-summary",
+  selector: "app-medical-record-clinical-summary",
   standalone: true,
   imports: [CommonModule, VIconComponent, VAvatarComponent],
-  templateUrl: "./pet-clinical-summary.component.html",
+  templateUrl: "./medical-record-clinical-summary.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PetClinicalSummaryComponent {
+export class MedicalRecordClinicalSummaryComponent {
   pet = input<IPet | undefined>();
   viewTutor = output<string>();
 

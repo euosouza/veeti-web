@@ -1610,5 +1610,47 @@
       "description": "Adaptação boa.",
       "photoUrl": "https://picsum.photos/seed/94/300/200"
     }
+  ],
+  "medical-records": [
+    {
+      "id": "1",
+      "petId": "1",
+      "stats": {
+        "totalVisits": 12,
+        "weightTrend": "stable",
+        "lastVisitDate": "2023-10-15T15:00:00.000Z",
+        "nextVaccineDate": "2024-05-10T00:00:00.000Z",
+        "ageString": "5 anos"
+      },
+      "alerts": {
+        "allergies": ["Dipirona", "Picada de abelha"],
+        "chronicConditions": ["Displasia coxofemoral leve"],
+        "activeTreatments": []
+      },
+      "summary": {
+        "lastDiagnosis": "Check-up anual completo",
+        "bloodType": "DEA 1.1 Positivo"
+      }
+    },
+    {
+      "id": "3",
+      "petId": "3",
+      "stats": {
+        "totalVisits": 8,
+        "weightTrend": "down",
+        "lastVisitDate": "2024-01-10T10:00:00.000Z",
+        "nextVaccineDate": "2024-02-15T00:00:00.000Z",
+        "ageString": "2 anos"
+      },
+      "alerts": {
+        "allergies": [],
+        "chronicConditions": [],
+        "activeTreatments": ["Antibiótico (Otite) - 5 dias restantes"]
+      },
+      "summary": {
+        "lastDiagnosis": "Otite bilateral média",
+        "bloodType": "Desconhecido"
+      }
+    }
   ]
 }
