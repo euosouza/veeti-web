@@ -1,0 +1,5 @@
+export enum DocumentTemplateType {
+  PRESCRIPTION = "PRESCRIPTION",
+  INSTRUCTIONS = "INSTRUCTIONS",
+  ANAMNESIS = "ANAMNESIS"
+}
