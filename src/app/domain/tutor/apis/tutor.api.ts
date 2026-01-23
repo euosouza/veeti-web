@@ -2,8 +2,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { environment } from "@env/environment";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 import { IPaginatedResponse } from "src/app/shared/interfaces/paginated-response.interface";
+import { PaginatedResult } from "src/app/shared/interfaces/paginated-result.interface";
+import { QueryOptions } from "src/app/shared/interfaces/query-options.interface";
 import { ICreateTutor, ITutor, IUpdateTutor } from "../interfaces/tutor.interface";
 
 @Injectable({
@@ -13,15 +15,26 @@ export class TutorApi {
   private http = inject(HttpClient);
   private readonly baseUrl = `${environment.apiUrl}/tutors`;
 
-  getAll(query?: string, page = 1, limit = 10) {
+  getAll(options: QueryOptions): Observable<PaginatedResult<ITutor>> {
     const params: Record<string, string | number> = {
-      _page: page,
-      _per_page: limit
+      _page: options.page,
+      _per_page: options.limit
     };
-    if (query) {
-      params["fullName"] = query;
+
+    if (options.search) {
+      params["fullName"] = options.search;
     }
-    return this.http.get<IPaginatedResponse<ITutor>>(this.baseUrl, { params });
+
+    return this.http.get<IPaginatedResponse<ITutor>>(this.baseUrl, { params }).pipe(
+      map((response) => ({
+        data: response.data,
+        meta: {
+          total: response.items,
+          page: options.page,
+          last_page: response.pages
+        }
+      }))
+    );
   }
 
   getById(id: string): Observable<ITutor> {

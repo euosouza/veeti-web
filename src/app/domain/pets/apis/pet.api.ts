@@ -1,8 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { environment } from "@env/environment";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 import { IPaginatedResponse } from "src/app/shared/interfaces/paginated-response.interface";
+import { PaginatedResult } from "src/app/shared/interfaces/paginated-result.interface";
+import { QueryOptions } from "src/app/shared/interfaces/query-options.interface";
 import { ICreatePet, IPet } from "../interfaces/pet.interface";
 
 @Injectable({
@@ -12,16 +14,28 @@ export class PetApi {
   private http = inject(HttpClient);
   private readonly baseUrl = `${environment.apiUrl}/pets`;
 
-  getAll(query?: string, page = 1, limit = 10) {
+  getAll(options: QueryOptions): Observable<PaginatedResult<IPet>> {
     const params: Record<string, string | number> = {
-      _page: page,
-      _per_page: limit,
+      _page: options.page,
+      _per_page: options.limit,
       _expand: "tutor"
     };
-    if (query) {
-      params["name"] = query;
+
+    if (options.search) {
+      params["name"] = options.search;
     }
-    return this.http.get<IPaginatedResponse<IPet>>(this.baseUrl, { params });
+
+    // Adaptando a resposta do json-server (IPaginatedResponse) para o formato solicitado (PaginatedResult)
+    return this.http.get<IPaginatedResponse<IPet>>(this.baseUrl, { params }).pipe(
+      map((response) => ({
+        data: response.data,
+        meta: {
+          total: response.items,
+          page: options.page,
+          last_page: response.pages
+        }
+      }))
+    );
   }
 
   getById(id: string): Observable<IPet> {

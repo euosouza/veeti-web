@@ -1,6 +1,7 @@
 // src/app/features/tutors/services/tutor.service.ts
 import { Injectable, computed, inject, signal } from "@angular/core";
 import { finalize, map, tap } from "rxjs";
+import { QueryOptions } from "src/app/shared/interfaces/query-options.interface";
 import { TutorApi } from "../apis/tutor.api";
 import { ICreateTutor, ITutor, IUpdateTutor } from "../interfaces/tutor.interface";
 
@@ -28,10 +29,17 @@ export class TutorService {
 
   loadAll(query?: string) {
     this.loadingSignal.set(true);
-    return this.api.getAll(query, this.pageSignal(), this.pageSizeSignal()).pipe(
+
+    const options: QueryOptions = {
+      page: this.pageSignal(),
+      limit: this.pageSizeSignal(),
+      search: query
+    };
+
+    return this.api.getAll(options).pipe(
       tap((response) => {
         this.tutorsSignal.set(response.data ?? []);
-        this.totalItemsSignal.set(response.items ?? 0);
+        this.totalItemsSignal.set(response.meta.total ?? 0);
       }),
       finalize(() => this.loadingSignal.set(false))
     );
@@ -83,6 +91,6 @@ export class TutorService {
   }
 
   getAllTutors() {
-    return this.api.getAll(undefined, 1, 1000).pipe(map((response) => response.data));
+    return this.api.getAll({ page: 1, limit: 1000 }).pipe(map((response) => response.data));
   }
 }

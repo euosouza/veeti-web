@@ -1,5 +1,6 @@
 import { Injectable, computed, inject, signal } from "@angular/core";
 import { finalize, tap } from "rxjs";
+import { QueryOptions } from "src/app/shared/interfaces/query-options.interface";
 import { PetApi } from "../apis/pet.api";
 import { ICreatePet, IPet } from "../interfaces/pet.interface";
 
@@ -27,10 +28,17 @@ export class PetService {
 
   loadAll(query?: string) {
     this.loadingSignal.set(true);
-    return this.api.getAll(query, this.pageSignal(), this.pageSizeSignal()).pipe(
+
+    const options: QueryOptions = {
+      page: this.pageSignal(),
+      limit: this.pageSizeSignal(),
+      search: query
+    };
+
+    return this.api.getAll(options).pipe(
       tap((response) => {
         this.petsSignal.set(response.data ?? []);
-        this.totalItemsSignal.set(response.items ?? 0);
+        this.totalItemsSignal.set(response.meta.total ?? 0);
       }),
       finalize(() => this.loadingSignal.set(false))
     );
