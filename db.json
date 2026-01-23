@@ -1,1656 +1,3539 @@
 {
+  "users": [
+    {
+      "id": "u1",
+      "email": "user1@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "VETERINARIAN",
+      "isActive": true,
+      "createdAt": "2025-05-16T16:03:11.865Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u2",
+      "email": "user2@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "VETERINARIAN",
+      "isActive": true,
+      "createdAt": "2023-09-29T01:41:14.631Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u3",
+      "email": "user3@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "VETERINARIAN",
+      "isActive": true,
+      "createdAt": "2024-03-07T04:08:52.172Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u4",
+      "email": "user4@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "VETERINARIAN",
+      "isActive": true,
+      "createdAt": "2023-09-17T06:17:53.260Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u5",
+      "email": "user5@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "VETERINARIAN",
+      "isActive": true,
+      "createdAt": "2025-03-14T13:19:49.197Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u6",
+      "email": "user6@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ADMIN",
+      "isActive": true,
+      "createdAt": "2025-02-19T07:13:16.346Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u7",
+      "email": "user7@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2023-10-31T21:52:46.328Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u8",
+      "email": "user8@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2026-01-21T14:36:51.737Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u9",
+      "email": "user9@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2023-09-01T05:18:08.771Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u10",
+      "email": "user10@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2024-10-09T23:24:28.641Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u11",
+      "email": "user11@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2025-03-28T19:07:30.611Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u12",
+      "email": "user12@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2023-09-21T18:24:58.682Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u13",
+      "email": "user13@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2025-05-12T10:28:04.808Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u14",
+      "email": "user14@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2025-12-18T05:56:47.610Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "u15",
+      "email": "user15@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2024-01-23T23:44:54.078Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "u16",
+      "email": "user16@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2025-11-09T12:50:55.190Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "u17",
+      "email": "user17@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2025-04-18T08:48:23.109Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "u18",
+      "email": "user18@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2024-11-19T12:16:32.529Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "u19",
+      "email": "user19@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2025-01-22T02:17:56.688Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "u20",
+      "email": "user20@veeti.com",
+      "passwordHash": "hashed123",
+      "role": "ASSISTANT",
+      "isActive": true,
+      "createdAt": "2023-05-18T03:16:08.617Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    }
+  ],
+  "veterinarians": [
+    {
+      "id": "v1",
+      "userId": "u1",
+      "name": "Dr. Carlos Lopes",
+      "crmv": "1001",
+      "crmvUf": "SP",
+      "phone": "(11) 99453-3651",
+      "createdAt": "2026-01-22T21:45:22.949Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "v2",
+      "userId": "u2",
+      "name": "Dr. Nicolas Almeida",
+      "crmv": "1002",
+      "crmvUf": "SP",
+      "phone": "(11) 97565-3231",
+      "createdAt": "2026-01-22T21:45:22.949Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "v3",
+      "userId": "u3",
+      "name": "Dr. Carlos Vieira",
+      "crmv": "1003",
+      "crmvUf": "SP",
+      "phone": "(11) 97295-5073",
+      "createdAt": "2026-01-22T21:45:22.949Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "v4",
+      "userId": "u4",
+      "name": "Dr. Rafaela Ferreira",
+      "crmv": "1004",
+      "crmvUf": "SP",
+      "phone": "(11) 91302-7666",
+      "createdAt": "2026-01-22T21:45:22.949Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    },
+    {
+      "id": "v5",
+      "userId": "u5",
+      "name": "Dr. Lucas Soares",
+      "crmv": "1005",
+      "crmvUf": "SP",
+      "phone": "(11) 96158-1998",
+      "createdAt": "2026-01-22T21:45:22.949Z",
+      "updatedAt": "2026-01-22T21:45:22.949Z"
+    }
+  ],
   "tutors": [
     {
-      "id": "1",
-      "fullName": "João Silva",
-      "cpf": "123.456.789-00",
-      "email": "joao.silva@email.com",
-      "phone": "(11) 98765-4321",
-      "whatsapp": "(11) 98765-4321",
+      "id": "t1",
+      "veterinarianId": "v2",
+      "fullName": "Eduardo Ferreira",
+      "email": "tutor1@email.com",
+      "cpf": "365.640.357-14",
+      "phone": "(11) 96272-4550",
       "address": {
-        "zipCode": "01001-000",
-        "street": "Praça da Sé",
-        "number": "100",
-        "complement": "Apto 101",
-        "neighborhood": "Sé",
-        "city": "São Paulo",
-        "state": "SP"
-      },
-      "notes": "Cliente preferencial",
-      "createdAt": "2023-01-15T10:00:00.000Z",
-      "updatedAt": "2023-01-15T10:00:00.000Z"
-    },
-    {
-      "id": "2",
-      "fullName": "Maria Oliveira",
-      "cpf": "987.654.321-99",
-      "email": "maria.oliveira@email.com",
-      "phone": "(21) 91234-5678",
-      "whatsapp": "(21) 91234-5678",
-      "address": {
-        "zipCode": "20040-002",
-        "street": "Rua da Assembleia",
+        "zipCode": "00000-000",
+        "street": "Rua 1",
         "number": "10",
-        "neighborhood": "Centro",
-        "city": "Rio de Janeiro",
-        "state": "RJ"
-      },
-      "notes": "",
-      "createdAt": "2023-02-20T14:30:00.000Z",
-      "updatedAt": "2023-02-20T14:30:00.000Z"
-    },
-    {
-      "id": "3",
-      "fullName": "Carlos Pereira",
-      "cpf": "456.789.123-45",
-      "email": "carlos.pereira@email.com",
-      "phone": "(31) 99876-5432",
-      "address": {
-        "zipCode": "30130-000",
-        "street": "Avenida Afonso Pena",
-        "number": "1000",
-        "neighborhood": "Centro",
-        "city": "Belo Horizonte",
-        "state": "MG"
-      },
-      "createdAt": "2023-03-10T09:15:00.000Z",
-      "updatedAt": "2023-03-10T09:15:00.000Z"
-    },
-    {
-      "id": "4",
-      "fullName": "Ana Costa",
-      "cpf": "111.222.333-44",
-      "email": "ana.costa@email.com",
-      "phone": "(11) 91111-2222",
-      "address": {
-        "zipCode": "04530-000",
-        "street": "Rua Jesse Pinto Freire",
-        "number": "45",
-        "neighborhood": "Itaim Bibi",
+        "neighborhood": "Bairro",
         "city": "São Paulo",
         "state": "SP"
       },
-      "createdAt": "2023-04-01T08:00:00.000Z",
-      "updatedAt": "2023-04-01T08:00:00.000Z"
+      "createdAt": "2023-01-08T18:54:35.879Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     },
     {
-      "id": "5",
-      "fullName": "Pedro Santos",
-      "cpf": "222.333.444-55",
-      "email": "pedro.santos@email.com",
-      "phone": "(11) 92222-3333",
+      "id": "t2",
+      "veterinarianId": "v3",
+      "fullName": "Vitor Ferreira",
+      "email": "tutor2@email.com",
+      "cpf": "720.305.968-98",
+      "phone": "(11) 91603-9972",
       "address": {
-        "zipCode": "05423-000",
-        "street": "Rua Butantã",
-        "number": "120",
-        "neighborhood": "Pinheiros",
+        "zipCode": "00000-000",
+        "street": "Rua 2",
+        "number": "20",
+        "neighborhood": "Bairro",
         "city": "São Paulo",
         "state": "SP"
       },
-      "createdAt": "2023-04-05T09:30:00.000Z",
-      "updatedAt": "2023-04-05T09:30:00.000Z"
+      "createdAt": "2024-04-10T11:23:42.523Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     },
     {
-      "id": "6",
-      "fullName": "Fernanda Lima",
-      "cpf": "333.444.555-66",
-      "email": "fernanda.lima@email.com",
-      "phone": "(21) 93333-4444",
+      "id": "t3",
+      "veterinarianId": "v4",
+      "fullName": "Helena Lopes",
+      "email": "tutor3@email.com",
+      "cpf": "921.397.87-60",
+      "phone": "(11) 92287-1116",
       "address": {
-        "zipCode": "22041-000",
-        "street": "Rua Santa Clara",
-        "number": "50",
-        "neighborhood": "Copacabana",
-        "city": "Rio de Janeiro",
-        "state": "RJ"
-      },
-      "createdAt": "2023-04-10T10:15:00.000Z",
-      "updatedAt": "2023-04-10T10:15:00.000Z"
-    },
-    {
-      "id": "7",
-      "fullName": "Ricardo Almeida",
-      "cpf": "444.555.666-77",
-      "email": "ricardo.almeida@email.com",
-      "phone": "(31) 94444-5555",
-      "address": {
-        "zipCode": "30380-000",
-        "street": "Rua Conde de Linhares",
-        "number": "200",
-        "neighborhood": "Cidade Jardim",
-        "city": "Belo Horizonte",
-        "state": "MG"
-      },
-      "createdAt": "2023-04-15T11:45:00.000Z",
-      "updatedAt": "2023-04-15T11:45:00.000Z"
-    },
-    {
-      "id": "8",
-      "fullName": "Juliana Rocha",
-      "cpf": "555.666.777-88",
-      "email": "juliana.rocha@email.com",
-      "phone": "(41) 95555-6666",
-      "address": {
-        "zipCode": "80240-000",
-        "street": "Avenida Iguaçu",
-        "number": "1500",
-        "neighborhood": "Água Verde",
-        "city": "Curitiba",
-        "state": "PR"
-      },
-      "createdAt": "2023-04-20T14:00:00.000Z",
-      "updatedAt": "2023-04-20T14:00:00.000Z"
-    },
-    {
-      "id": "9",
-      "fullName": "Marcelo Souza",
-      "cpf": "666.777.888-99",
-      "email": "marcelo.souza@email.com",
-      "phone": "(51) 96666-7777",
-      "address": {
-        "zipCode": "90050-000",
-        "street": "Rua General Lima e Silva",
-        "number": "80",
-        "neighborhood": "Cidade Baixa",
-        "city": "Porto Alegre",
-        "state": "RS"
-      },
-      "createdAt": "2023-04-25T15:30:00.000Z",
-      "updatedAt": "2023-04-25T15:30:00.000Z"
-    },
-    {
-      "id": "10",
-      "fullName": "Patrícia Gomes",
-      "cpf": "777.888.999-00",
-      "email": "patricia.gomes@email.com",
-      "phone": "(61) 97777-8888",
-      "address": {
-        "zipCode": "70040-000",
-        "street": "Quadra 1",
-        "number": "Bloco A",
-        "neighborhood": "Asa Sul",
-        "city": "Brasília",
-        "state": "DF"
-      },
-      "createdAt": "2023-05-01T16:00:00.000Z",
-      "updatedAt": "2023-05-01T16:00:00.000Z"
-    },
-    {
-      "id": "11",
-      "fullName": "Roberto Dias",
-      "cpf": "888.999.000-11",
-      "email": "roberto.dias@email.com",
-      "phone": "(71) 98888-9999",
-      "address": {
-        "zipCode": "40010-000",
-        "street": "Rua Chile",
-        "number": "10",
-        "neighborhood": "Centro Histórico",
-        "city": "Salvador",
-        "state": "BA"
-      },
-      "createdAt": "2023-05-05T09:00:00.000Z",
-      "updatedAt": "2023-05-05T09:00:00.000Z"
-    },
-    {
-      "id": "12",
-      "fullName": "Camila Martins",
-      "cpf": "999.000.111-22",
-      "email": "camila.martins@email.com",
-      "phone": "(81) 99999-0000",
-      "address": {
-        "zipCode": "50030-000",
-        "street": "Avenida Guararapes",
-        "number": "250",
-        "neighborhood": "Santo Antônio",
-        "city": "Recife",
-        "state": "PE"
-      },
-      "createdAt": "2023-05-10T10:30:00.000Z",
-      "updatedAt": "2023-05-10T10:30:00.000Z"
-    },
-    {
-      "id": "13",
-      "fullName": "Fábio Barbosa",
-      "cpf": "000.111.222-33",
-      "email": "fabio.barbosa@email.com",
-      "phone": "(85) 91010-2020",
-      "address": {
-        "zipCode": "60165-000",
-        "street": "Avenida Beira Mar",
-        "number": "3000",
-        "neighborhood": "Meireles",
-        "city": "Fortaleza",
-        "state": "CE"
-      },
-      "createdAt": "2023-05-15T11:45:00.000Z",
-      "updatedAt": "2023-05-15T11:45:00.000Z"
-    },
-    {
-      "id": "14",
-      "fullName": "Larissa Ribeiro",
-      "cpf": "121.232.343-45",
-      "email": "larissa.ribeiro@email.com",
-      "phone": "(92) 92020-3030",
-      "address": {
-        "zipCode": "69010-000",
-        "street": "Avenida Eduardo Ribeiro",
-        "number": "450",
-        "neighborhood": "Centro",
-        "city": "Manaus",
-        "state": "AM"
-      },
-      "createdAt": "2023-05-20T13:00:00.000Z",
-      "updatedAt": "2023-05-20T13:00:00.000Z"
-    },
-    {
-      "id": "15",
-      "fullName": "Gustavo Nunes",
-      "cpf": "232.343.454-56",
-      "email": "gustavo.nunes@email.com",
-      "phone": "(91) 93030-4040",
-      "address": {
-        "zipCode": "66010-000",
-        "street": "Avenida Presidente Vargas",
-        "number": "600",
-        "neighborhood": "Campina",
-        "city": "Belém",
-        "state": "PA"
-      },
-      "createdAt": "2023-05-25T14:30:00.000Z",
-      "updatedAt": "2023-05-25T14:30:00.000Z"
-    },
-    {
-      "id": "16",
-      "fullName": "Bianca Carvalho",
-      "cpf": "343.454.565-67",
-      "email": "bianca.carvalho@email.com",
-      "phone": "(48) 94040-5050",
-      "address": {
-        "zipCode": "88015-000",
-        "street": "Avenida Beira Mar Norte",
-        "number": "1200",
-        "neighborhood": "Centro",
-        "city": "Florianópolis",
-        "state": "SC"
-      },
-      "createdAt": "2023-06-01T15:45:00.000Z",
-      "updatedAt": "2023-06-01T15:45:00.000Z"
-    },
-    {
-      "id": "17",
-      "fullName": "Thiago Castro",
-      "cpf": "454.565.676-78",
-      "email": "thiago.castro@email.com",
-      "phone": "(62) 95050-6060",
-      "address": {
-        "zipCode": "74000-000",
-        "street": "Avenida Goiás",
-        "number": "800",
-        "neighborhood": "Setor Central",
-        "city": "Goiânia",
-        "state": "GO"
-      },
-      "createdAt": "2023-06-05T09:00:00.000Z",
-      "updatedAt": "2023-06-05T09:00:00.000Z"
-    },
-    {
-      "id": "18",
-      "fullName": "Vanessa Mendes",
-      "cpf": "565.676.787-89",
-      "email": "vanessa.mendes@email.com",
-      "phone": "(27) 96060-7070",
-      "address": {
-        "zipCode": "29010-000",
-        "street": "Avenida Jerônimo Monteiro",
-        "number": "400",
-        "neighborhood": "Centro",
-        "city": "Vitória",
-        "state": "ES"
-      },
-      "createdAt": "2023-06-10T10:15:00.000Z",
-      "updatedAt": "2023-06-10T10:15:00.000Z"
-    },
-    {
-      "id": "19",
-      "fullName": "Eduardo Cardoso",
-      "cpf": "676.787.898-90",
-      "email": "eduardo.cardoso@email.com",
-      "phone": "(84) 97070-8080",
-      "address": {
-        "zipCode": "59010-000",
-        "street": "Avenida Rio Branco",
-        "number": "550",
-        "neighborhood": "Cidade Alta",
-        "city": "Natal",
-        "state": "RN"
-      },
-      "createdAt": "2023-06-15T11:30:00.000Z",
-      "updatedAt": "2023-06-15T11:30:00.000Z"
-    },
-    {
-      "id": "20",
-      "fullName": "Sônia Duarte",
-      "cpf": "787.898.909-01",
-      "email": "sonia.duarte@email.com",
-      "phone": "(82) 98080-9090",
-      "address": {
-        "zipCode": "57020-000",
-        "street": "Rua do Comércio",
-        "number": "100",
-        "neighborhood": "Centro",
-        "city": "Maceió",
-        "state": "AL"
-      },
-      "createdAt": "2023-06-20T14:45:00.000Z",
-      "updatedAt": "2023-06-20T14:45:00.000Z"
-    },
-    {
-      "id": "21",
-      "fullName": "Lúcia Teixeira",
-      "cpf": "898.909.010-12",
-      "email": "lucia.teixeira@email.com",
-      "phone": "(83) 99090-0101",
-      "address": {
-        "zipCode": "58010-000",
-        "street": "Praça João Pessoa",
+        "zipCode": "00000-000",
+        "street": "Rua 3",
         "number": "30",
-        "neighborhood": "Centro",
-        "city": "João Pessoa",
-        "state": "PB"
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
       },
-      "createdAt": "2023-06-25T16:00:00.000Z",
-      "updatedAt": "2023-06-25T16:00:00.000Z"
+      "createdAt": "2025-07-21T12:56:14.146Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     },
     {
-      "id": "22",
-      "fullName": "Renato Mourão",
-      "cpf": "909.010.121-23",
-      "email": "renato.mourao@email.com",
-      "phone": "(86) 90101-1212",
+      "id": "t4",
+      "veterinarianId": "v5",
+      "fullName": "Eduardo Fernandes",
+      "email": "tutor4@email.com",
+      "cpf": "673.649.101-34",
+      "phone": "(11) 96564-1177",
       "address": {
-        "zipCode": "64000-000",
-        "street": "Avenida Frei Serafim",
-        "number": "2000",
-        "neighborhood": "Centro",
-        "city": "Teresina",
-        "state": "PI"
+        "zipCode": "00000-000",
+        "street": "Rua 4",
+        "number": "40",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
       },
-      "createdAt": "2023-06-30T09:30:00.000Z",
-      "updatedAt": "2023-06-30T09:30:00.000Z"
+      "createdAt": "2024-10-30T18:43:13.808Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     },
     {
-      "id": "23",
-      "fullName": "Helena Campos",
-      "cpf": "010.121.232-34",
-      "email": "helena.campos@email.com",
-      "phone": "(65) 91212-2323",
+      "id": "t5",
+      "veterinarianId": "v1",
+      "fullName": "Eduardo Barbosa",
+      "email": "tutor5@email.com",
+      "cpf": "723.913.410-42",
+      "phone": "(11) 97652-9180",
       "address": {
-        "zipCode": "78005-000",
-        "street": "Avenida Getúlio Vargas",
-        "number": "400",
-        "neighborhood": "Centro Norte",
-        "city": "Cuiabá",
-        "state": "MT"
+        "zipCode": "00000-000",
+        "street": "Rua 5",
+        "number": "50",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
       },
-      "createdAt": "2023-07-05T10:45:00.000Z",
-      "updatedAt": "2023-07-05T10:45:00.000Z"
+      "createdAt": "2023-01-20T09:21:04.318Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t6",
+      "veterinarianId": "v2",
+      "fullName": "Gabriel Souza",
+      "email": "tutor6@email.com",
+      "cpf": "740.799.328-33",
+      "phone": "(11) 92131-1275",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 6",
+        "number": "60",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2023-07-31T14:45:52.807Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t7",
+      "veterinarianId": "v3",
+      "fullName": "Lucas Ribeiro",
+      "email": "tutor7@email.com",
+      "cpf": "126.60.491-94",
+      "phone": "(11) 94737-3908",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 7",
+        "number": "70",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2025-11-07T11:15:11.226Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t8",
+      "veterinarianId": "v4",
+      "fullName": "Fernanda Rodrigues",
+      "email": "tutor8@email.com",
+      "cpf": "793.271.889-47",
+      "phone": "(11) 93109-2110",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 8",
+        "number": "80",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2025-02-06T19:29:51.047Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t9",
+      "veterinarianId": "v5",
+      "fullName": "Ana Almeida",
+      "email": "tutor9@email.com",
+      "cpf": "1.230.186-12",
+      "phone": "(11) 97892-5968",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 9",
+        "number": "90",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-03-22T13:30:51.492Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t10",
+      "veterinarianId": "v1",
+      "fullName": "Ana Almeida",
+      "email": "tutor10@email.com",
+      "cpf": "461.970.969-48",
+      "phone": "(11) 92419-391",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 10",
+        "number": "100",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2023-05-04T13:08:13.806Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t11",
+      "veterinarianId": "v2",
+      "fullName": "Yasmin Oliveira",
+      "email": "tutor11@email.com",
+      "cpf": "846.792.941-51",
+      "phone": "(11) 95001-3436",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 11",
+        "number": "110",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-07-14T05:23:29.494Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t12",
+      "veterinarianId": "v3",
+      "fullName": "Rafaela Alves",
+      "email": "tutor12@email.com",
+      "cpf": "809.587.790-26",
+      "phone": "(11) 92137-794",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 12",
+        "number": "120",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2023-06-18T12:51:39.248Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t13",
+      "veterinarianId": "v4",
+      "fullName": "Carlos Santos",
+      "email": "tutor13@email.com",
+      "cpf": "968.25.25-8",
+      "phone": "(11) 96269-2017",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 13",
+        "number": "130",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-01-26T12:38:33.531Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t14",
+      "veterinarianId": "v5",
+      "fullName": "Fernanda Barbosa",
+      "email": "tutor14@email.com",
+      "cpf": "960.994.125-85",
+      "phone": "(11) 97463-8967",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 14",
+        "number": "140",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-06-18T03:34:51.227Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t15",
+      "veterinarianId": "v1",
+      "fullName": "Bruno Gomes",
+      "email": "tutor15@email.com",
+      "cpf": "792.537.203-23",
+      "phone": "(11) 91098-299",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 15",
+        "number": "150",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-08-27T08:21:06.895Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t16",
+      "veterinarianId": "v2",
+      "fullName": "Fernanda Almeida",
+      "email": "tutor16@email.com",
+      "cpf": "191.757.415-38",
+      "phone": "(11) 93693-5661",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 16",
+        "number": "160",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-07-03T21:58:11.714Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t17",
+      "veterinarianId": "v3",
+      "fullName": "Tatiana Fernandes",
+      "email": "tutor17@email.com",
+      "cpf": "661.301.550-54",
+      "phone": "(11) 91599-6286",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 17",
+        "number": "170",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2024-09-14T08:29:30.612Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t18",
+      "veterinarianId": "v4",
+      "fullName": "Eduardo Martins",
+      "email": "tutor18@email.com",
+      "cpf": "570.415.134-34",
+      "phone": "(11) 93274-7971",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 18",
+        "number": "180",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2025-04-17T08:36:26.808Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t19",
+      "veterinarianId": "v5",
+      "fullName": "Gabriel Vieira",
+      "email": "tutor19@email.com",
+      "cpf": "847.253.131-32",
+      "phone": "(11) 9764-8803",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 19",
+        "number": "190",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2025-04-15T10:09:02.462Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "t20",
+      "veterinarianId": "v1",
+      "fullName": "Yasmin Gomes",
+      "email": "tutor20@email.com",
+      "cpf": "60.722.244-14",
+      "phone": "(11) 95205-1890",
+      "address": {
+        "zipCode": "00000-000",
+        "street": "Rua 20",
+        "number": "200",
+        "neighborhood": "Bairro",
+        "city": "São Paulo",
+        "state": "SP"
+      },
+      "createdAt": "2023-06-07T15:11:34.164Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     }
   ],
   "pets": [
     {
-      "id": "1",
-      "name": "Rex",
+      "id": "p1",
+      "tutorId": "t2",
+      "name": "Luna",
+      "species": "Canino",
+      "breed": "Golden Retriever",
+      "gender": "Fêmea",
+      "birthDate": "2018-12-24",
+      "weightKg": 2,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "p2",
+      "tutorId": "t3",
+      "name": "Mag",
+      "species": "Canino",
+      "breed": "Shih Tzu",
+      "gender": "Macho",
+      "birthDate": "2016-08-21",
+      "weightKg": 17,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "p3",
+      "tutorId": "t4",
+      "name": "Bear",
+      "species": "Canino",
+      "breed": "Bulldog",
+      "gender": "Fêmea",
+      "birthDate": "2018-06-30",
+      "weightKg": 4,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Jejum de 12h",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "p4",
+      "tutorId": "t5",
+      "name": "Fred",
+      "species": "Felino",
+      "breed": "SRD",
+      "gender": "Macho",
+      "birthDate": "2021-08-22",
+      "weightKg": 24,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Trazer carteirinha",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "p5",
+      "tutorId": "t6",
+      "name": "Fred",
+      "species": "Felino",
+      "breed": "Labrador",
+      "gender": "Fêmea",
+      "birthDate": "2022-09-22",
+      "weightKg": 16,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Dócil",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "p6",
+      "tutorId": "t7",
+      "name": "Nina",
+      "species": "Canino",
+      "breed": "Pinscher",
+      "gender": "Fêmea",
+      "birthDate": "2021-06-08",
+      "weightKg": 7,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
+    },
+    {
+      "id": "p7",
+      "tutorId": "t8",
+      "name": "Mia",
       "species": "Canino",
       "breed": "Golden Retriever",
       "gender": "Macho",
-      "birthDate": "2020-05-10",
-      "weightKg": 32.5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "1",
-      "createdAt": "2023-06-01T10:00:00.000Z",
-      "updatedAt": "2023-06-01T10:00:00.000Z",
-      "photoUrl": "data:image/avif;base64,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"
-    },
-    {
-      "id": "2",
-      "name": "Mia",
-      "species": "Felino",
-      "breed": "Siamês",
-      "gender": "Fêmea",
-      "birthDate": "2021-08-15",
-      "weightKg": 4.2,
-      "clinicalStatus": "Saudável",
-      "tutorId": "2",
-      "createdAt": "2023-06-05T14:30:00.000Z",
-      "updatedAt": "2023-06-05T14:30:00.000Z"
-    },
-    {
-      "id": "3",
-      "name": "Thor",
-      "species": "Canino",
-      "breed": "Bulldog Francês",
-      "gender": "Macho",
-      "birthDate": "2022-01-20",
+      "birthDate": "2022-03-18",
       "weightKg": 12,
-      "clinicalStatus": "Em tratamento",
-      "tutorId": "3",
-      "createdAt": "2023-07-10T09:15:00.000Z",
-      "updatedAt": "2023-07-10T09:15:00.000Z"
+      "clinicalStatus": "CHRONIC",
+      "notes": "Morde",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     },
     {
-      "id": "4",
-      "name": "Luna",
-      "species": "Felino",
-      "breed": "Persa",
-      "gender": "Fêmea",
-      "birthDate": "2019-11-05",
-      "weightKg": 5.1,
-      "clinicalStatus": "Crônico",
-      "tutorId": "1",
-      "createdAt": "2023-08-01T11:20:00.000Z",
-      "updatedAt": "2023-08-01T11:20:00.000Z"
-    },
-    {
-      "id": "5",
-      "name": "Bob",
-      "species": "Canino",
-      "breed": "Labrador",
-      "gender": "Macho",
-      "birthDate": "2018-03-15",
-      "weightKg": 35,
-      "clinicalStatus": "Saudável",
-      "tutorId": "4",
-      "createdAt": "2023-08-05T09:00:00.000Z",
-      "updatedAt": "2023-08-05T09:00:00.000Z"
-    },
-    {
-      "id": "6",
-      "name": "Mel",
-      "species": "Canino",
-      "breed": "Poodle",
-      "gender": "Fêmea",
-      "birthDate": "2020-07-20",
-      "weightKg": 8.5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "5",
-      "createdAt": "2023-08-10T10:30:00.000Z",
-      "updatedAt": "2023-08-10T10:30:00.000Z"
-    },
-    {
-      "id": "7",
-      "name": "Simba",
-      "species": "Felino",
-      "breed": "SRD",
-      "gender": "Macho",
-      "birthDate": "2021-02-12",
-      "weightKg": 4.5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "6",
-      "createdAt": "2023-08-15T11:45:00.000Z",
-      "updatedAt": "2023-08-15T11:45:00.000Z"
-    },
-    {
-      "id": "8",
-      "name": "Bella",
-      "species": "Canino",
-      "breed": "Beagle",
-      "gender": "Fêmea",
-      "birthDate": "2019-09-30",
-      "weightKg": 14,
-      "clinicalStatus": "Em tratamento",
-      "tutorId": "7",
-      "createdAt": "2023-08-20T14:15:00.000Z",
-      "updatedAt": "2023-08-20T14:15:00.000Z"
-    },
-    {
-      "id": "9",
-      "name": "Max",
+      "id": "p8",
+      "tutorId": "t9",
+      "name": "Fred",
       "species": "Canino",
       "breed": "Pastor Alemão",
-      "gender": "Macho",
-      "birthDate": "2017-12-05",
-      "weightKg": 40,
-      "clinicalStatus": "Crônico",
-      "tutorId": "8",
-      "createdAt": "2023-08-25T15:00:00.000Z",
-      "updatedAt": "2023-08-25T15:00:00.000Z"
-    },
-    {
-      "id": "10",
-      "name": "Lola",
-      "species": "Canino",
-      "breed": "Yorkshire",
       "gender": "Fêmea",
-      "birthDate": "2022-04-18",
-      "weightKg": 3,
-      "clinicalStatus": "Saudável",
-      "tutorId": "9",
-      "createdAt": "2023-08-30T16:30:00.000Z",
-      "updatedAt": "2023-08-30T16:30:00.000Z"
+      "birthDate": "2019-01-12",
+      "weightKg": 26,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.950Z"
     },
     {
-      "id": "11",
-      "name": "Toby",
+      "id": "p9",
+      "tutorId": "t10",
+      "name": "Mia",
       "species": "Canino",
-      "breed": "Pug",
-      "gender": "Macho",
-      "birthDate": "2020-01-25",
-      "weightKg": 9,
-      "clinicalStatus": "Obesidade",
-      "tutorId": "10",
-      "createdAt": "2023-09-05T09:45:00.000Z",
-      "updatedAt": "2023-09-05T09:45:00.000Z"
+      "breed": "Pinscher",
+      "gender": "Fêmea",
+      "birthDate": "2022-05-08",
+      "weightKg": 2,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Dócil",
+      "createdAt": "2026-01-22T21:45:22.950Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "12",
-      "name": "Nina",
+      "id": "p10",
+      "tutorId": "t11",
+      "name": "Amora",
       "species": "Felino",
-      "breed": "Angorá",
-      "gender": "Fêmea",
-      "birthDate": "2021-06-10",
-      "weightKg": 3.8,
-      "clinicalStatus": "Saudável",
-      "tutorId": "11",
-      "createdAt": "2023-09-10T10:00:00.000Z",
-      "updatedAt": "2023-09-10T10:00:00.000Z"
-    },
-    {
-      "id": "13",
-      "name": "Paçoca",
-      "species": "Canino",
-      "breed": "SRD",
+      "breed": "Golden Retriever",
       "gender": "Macho",
-      "birthDate": "2019-05-01",
-      "weightKg": 15,
-      "clinicalStatus": "Pós-cirúrgico",
-      "tutorId": "12",
-      "createdAt": "2023-09-15T11:15:00.000Z",
-      "updatedAt": "2023-09-15T11:15:00.000Z"
+      "birthDate": "2021-03-15",
+      "weightKg": 28,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "14",
-      "name": "Kiara",
-      "species": "Canino",
-      "breed": "Rottweiler",
-      "gender": "Fêmea",
-      "birthDate": "2018-11-22",
-      "weightKg": 45,
-      "clinicalStatus": "Saudável",
-      "tutorId": "13",
-      "createdAt": "2023-09-20T13:30:00.000Z",
-      "updatedAt": "2023-09-20T13:30:00.000Z"
-    },
-    {
-      "id": "15",
-      "name": "Theo",
+      "id": "p11",
+      "tutorId": "t12",
+      "name": "Belinha",
       "species": "Felino",
-      "breed": "Maine Coon",
+      "breed": "Labrador",
+      "gender": "Fêmea",
+      "birthDate": "2021-09-12",
+      "weightKg": 27,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p12",
+      "tutorId": "t13",
+      "name": "Thor",
+      "species": "Felino",
+      "breed": "Bulldog",
       "gender": "Macho",
-      "birthDate": "2020-08-14",
+      "birthDate": "2018-12-05",
       "weightKg": 8,
-      "clinicalStatus": "Saudável",
-      "tutorId": "14",
-      "createdAt": "2023-09-25T14:45:00.000Z",
-      "updatedAt": "2023-09-25T14:45:00.000Z"
+      "clinicalStatus": "TREATMENT",
+      "notes": "Jejum de 12h",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "16",
-      "name": "Maggie",
+      "id": "p13",
+      "tutorId": "t14",
+      "name": "Pipoca",
+      "species": "Felino",
+      "breed": "Labrador",
+      "gender": "Macho",
+      "birthDate": "2020-08-30",
+      "weightKg": 22,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Alergia a dipirona",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p14",
+      "tutorId": "t15",
+      "name": "Bob",
       "species": "Canino",
-      "breed": "Shih Tzu",
+      "breed": "Pastor Alemão",
       "gender": "Fêmea",
-      "birthDate": "2021-12-05",
-      "weightKg": 5.5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "15",
-      "createdAt": "2023-10-01T09:00:00.000Z",
-      "updatedAt": "2023-10-01T09:00:00.000Z"
+      "birthDate": "2017-01-01",
+      "weightKg": 21,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "17",
-      "name": "Chico",
+      "id": "p15",
+      "tutorId": "t16",
+      "name": "Lola",
       "species": "Canino",
       "breed": "Pinscher",
       "gender": "Macho",
-      "birthDate": "2019-02-28",
-      "weightKg": 3.5,
-      "clinicalStatus": "Crônico",
-      "tutorId": "16",
-      "createdAt": "2023-10-05T10:30:00.000Z",
-      "updatedAt": "2023-10-05T10:30:00.000Z"
+      "birthDate": "2015-06-20",
+      "weightKg": 10,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Dócil",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "18",
-      "name": "Frida",
-      "species": "Felino",
-      "breed": "SRD",
-      "gender": "Fêmea",
-      "birthDate": "2022-03-30",
-      "weightKg": 4,
-      "clinicalStatus": "Saudável",
-      "tutorId": "17",
-      "createdAt": "2023-10-10T11:45:00.000Z",
-      "updatedAt": "2023-10-10T11:45:00.000Z"
-    },
-    {
-      "id": "19",
-      "name": "Zeus",
-      "species": "Canino",
-      "breed": "Doberman",
-      "gender": "Macho",
-      "birthDate": "2020-04-15",
-      "weightKg": 38,
-      "clinicalStatus": "Saudável",
-      "tutorId": "18",
-      "createdAt": "2023-10-15T14:00:00.000Z",
-      "updatedAt": "2023-10-15T14:00:00.000Z"
-    },
-    {
-      "id": "20",
-      "name": "Molly",
-      "species": "Canino",
-      "breed": "Cocker Spaniel",
-      "gender": "Fêmea",
-      "birthDate": "2018-10-10",
-      "weightKg": 13,
-      "clinicalStatus": "Geriatrico",
-      "tutorId": "19",
-      "createdAt": "2023-10-20T15:15:00.000Z",
-      "updatedAt": "2023-10-20T15:15:00.000Z"
-    },
-    {
-      "id": "21",
-      "name": "Marley",
-      "species": "Canino",
-      "breed": "Golden Retriever",
-      "gender": "Macho",
-      "birthDate": "2021-09-01",
-      "weightKg": 30,
-      "clinicalStatus": "Saudável",
-      "tutorId": "20",
-      "createdAt": "2023-10-25T09:30:00.000Z",
-      "updatedAt": "2023-10-25T09:30:00.000Z"
-    },
-    {
-      "id": "22",
-      "name": "Pandora",
-      "species": "Felino",
-      "breed": "Ragdoll",
-      "gender": "Fêmea",
-      "birthDate": "2022-06-15",
-      "weightKg": 5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "21",
-      "createdAt": "2023-10-30T10:45:00.000Z",
-      "updatedAt": "2023-10-30T10:45:00.000Z"
-    },
-    {
-      "id": "23",
-      "name": "Buddy",
-      "species": "Canino",
-      "breed": "Border Collie",
-      "gender": "Macho",
-      "birthDate": "2020-11-20",
-      "weightKg": 18,
-      "clinicalStatus": "Saudável",
-      "tutorId": "22",
-      "createdAt": "2023-11-05T13:00:00.000Z",
-      "updatedAt": "2023-11-05T13:00:00.000Z"
-    },
-    {
-      "id": "24",
-      "name": "Amora",
-      "species": "Canino",
-      "breed": "Chow Chow",
-      "gender": "Fêmea",
-      "birthDate": "2019-07-25",
-      "weightKg": 25,
-      "clinicalStatus": "Em tratamento",
-      "tutorId": "23",
-      "createdAt": "2023-11-10T14:15:00.000Z",
-      "updatedAt": "2023-11-10T14:15:00.000Z"
-    },
-    {
-      "id": "25",
-      "name": "Fred",
-      "species": "Felino",
-      "breed": "Bengal",
-      "gender": "Macho",
-      "birthDate": "2021-04-10",
-      "weightKg": 6.5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "4",
-      "createdAt": "2023-11-15T09:00:00.000Z",
-      "updatedAt": "2023-11-15T09:00:00.000Z"
-    },
-    {
-      "id": "26",
+      "id": "p16",
+      "tutorId": "t17",
       "name": "Pipoca",
-      "species": "Canino",
-      "breed": "Maltês",
-      "gender": "Fêmea",
-      "birthDate": "2022-01-30",
-      "weightKg": 4,
-      "clinicalStatus": "Saudável",
-      "tutorId": "5",
-      "createdAt": "2023-11-20T10:30:00.000Z",
-      "updatedAt": "2023-11-20T10:30:00.000Z"
-    },
-    {
-      "id": "27",
-      "name": "Jack",
-      "species": "Canino",
-      "breed": "Boxer",
-      "gender": "Macho",
-      "birthDate": "2019-12-12",
-      "weightKg": 32,
-      "clinicalStatus": "Saudável",
-      "tutorId": "6",
-      "createdAt": "2023-11-25T11:45:00.000Z",
-      "updatedAt": "2023-11-25T11:45:00.000Z"
-    },
-    {
-      "id": "28",
-      "name": "Zoe",
-      "species": "Canino",
-      "breed": "Dachshund",
-      "gender": "Fêmea",
-      "birthDate": "2020-09-08",
-      "weightKg": 7,
-      "clinicalStatus": "Saudável",
-      "tutorId": "7",
-      "createdAt": "2023-11-30T14:00:00.000Z",
-      "updatedAt": "2023-11-30T14:00:00.000Z"
-    },
-    {
-      "id": "29",
-      "name": "Apollo",
-      "species": "Canino",
-      "breed": "Husky Siberiano",
-      "gender": "Macho",
-      "birthDate": "2021-05-15",
-      "weightKg": 28,
-      "clinicalStatus": "Saudável",
-      "tutorId": "8",
-      "createdAt": "2023-12-05T09:15:00.000Z",
-      "updatedAt": "2023-12-05T09:15:00.000Z"
-    },
-    {
-      "id": "30",
-      "name": "Lua",
       "species": "Felino",
-      "breed": "SRD",
+      "breed": "Golden Retriever",
       "gender": "Fêmea",
-      "birthDate": "2020-03-20",
-      "weightKg": 3.5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "9",
-      "createdAt": "2023-12-10T10:45:00.000Z",
-      "updatedAt": "2023-12-10T10:45:00.000Z"
+      "birthDate": "2022-10-11",
+      "weightKg": 19,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "31",
-      "name": "Bidu",
-      "species": "Canino",
-      "breed": "Schnauzer",
-      "gender": "Macho",
-      "birthDate": "2018-08-05",
-      "weightKg": 8,
-      "clinicalStatus": "Crônico",
-      "tutorId": "10",
-      "createdAt": "2023-12-15T11:30:00.000Z",
-      "updatedAt": "2023-12-15T11:30:00.000Z"
-    },
-    {
-      "id": "32",
-      "name": "Lili",
+      "id": "p17",
+      "tutorId": "t18",
+      "name": "Rex",
       "species": "Felino",
-      "breed": "Siamês",
+      "breed": "Yorkshire",
       "gender": "Fêmea",
-      "birthDate": "2019-10-10",
-      "weightKg": 4,
-      "clinicalStatus": "Saudável",
-      "tutorId": "11",
-      "createdAt": "2023-12-20T14:00:00.000Z",
-      "updatedAt": "2023-12-20T14:00:00.000Z"
+      "birthDate": "2017-07-31",
+      "weightKg": 5,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Alergia a dipirona",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     },
     {
-      "id": "33",
-      "name": "Romeu",
-      "species": "Canino",
-      "breed": "Lhasa Apso",
-      "gender": "Macho",
-      "birthDate": "2021-02-25",
-      "weightKg": 6,
-      "clinicalStatus": "Saudável",
-      "tutorId": "12",
-      "createdAt": "2023-12-25T09:30:00.000Z",
-      "updatedAt": "2023-12-25T09:30:00.000Z"
-    },
-    {
-      "id": "34",
-      "name": "Jujuba",
+      "id": "p18",
+      "tutorId": "t19",
+      "name": "Belinha",
       "species": "Canino",
       "breed": "Poodle",
       "gender": "Fêmea",
-      "birthDate": "2022-07-05",
+      "birthDate": "2018-03-07",
+      "weightKg": 8,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p19",
+      "tutorId": "t20",
+      "name": "Chico",
+      "species": "Canino",
+      "breed": "Pastor Alemão",
+      "gender": "Fêmea",
+      "birthDate": "2020-05-30",
+      "weightKg": 27,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p20",
+      "tutorId": "t1",
+      "name": "Bob",
+      "species": "Felino",
+      "breed": "Poodle",
+      "gender": "Macho",
+      "birthDate": "2018-11-03",
       "weightKg": 5,
-      "clinicalStatus": "Saudável",
-      "tutorId": "13",
-      "createdAt": "2023-12-30T10:45:00.000Z",
-      "updatedAt": "2023-12-30T10:45:00.000Z"
-    }
-  ],
-  "memories": [
-    {
-      "id": "mem-1",
-      "date": "2023-01-01T10:00:00.000Z",
-      "title": "Primeiro dia em casa",
-      "description": "Chegou assustado mas logo se acostumou.",
-      "photoUrl": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=300",
-      "petId": "1"
-    },
-    {
-      "id": "mem-2",
-      "date": "2023-06-15T14:30:00.000Z",
-      "title": "Primeiro banho",
-      "description": "Não gostou muito da água.",
-      "petId": "1"
-    },
-    {
-      "id": "mem-1",
-      "petId": "1",
-      "date": "2022-08-07",
-      "title": "Troca de Ração",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/1/300/200"
-    },
-    {
-      "id": "mem-2",
-      "petId": "2",
-      "date": "2023-09-21",
-      "title": "Viagem para praia",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/2/300/200"
-    },
-    {
-      "id": "mem-3",
-      "petId": "2",
-      "date": "2023-03-23",
-      "title": "Exame de Sangue",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/3/300/200"
-    },
-    {
-      "id": "mem-4",
-      "petId": "2",
-      "date": "2022-07-06",
-      "title": "Aniversário",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/4/300/200"
-    },
-    {
-      "id": "mem-5",
-      "petId": "3",
-      "date": "2022-08-23",
-      "title": "Troca de Ração",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/5/300/200"
-    },
-    {
-      "id": "mem-6",
-      "petId": "3",
-      "date": "2022-08-26",
-      "title": "Viagem para praia",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/6/300/200"
-    },
-    {
-      "id": "mem-7",
-      "petId": "4",
-      "date": "2023-06-24",
-      "title": "Primeiro passeio no parque",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/7/300/200"
-    },
-    {
-      "id": "mem-8",
-      "petId": "4",
-      "date": "2020-08-29",
-      "title": "Consulta de Rotina",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/8/300/200"
-    },
-    {
-      "id": "mem-9",
-      "petId": "4",
-      "date": "2021-01-05",
-      "title": "Castração",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/9/300/200"
-    },
-    {
-      "id": "mem-10",
-      "petId": "5",
-      "date": "2022-11-21",
-      "title": "Consulta de Rotina",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/10/300/200"
-    },
-    {
-      "id": "mem-11",
-      "petId": "6",
-      "date": "2024-08-09",
-      "title": "Vacinação Anual",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/11/300/200"
-    },
-    {
-      "id": "mem-12",
-      "petId": "6",
-      "date": "2025-05-01",
-      "title": "Primeiro passeio no parque",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/12/300/200"
-    },
-    {
-      "id": "mem-13",
-      "petId": "6",
-      "date": "2025-01-25",
-      "title": "Castração",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/13/300/200"
-    },
-    {
-      "id": "mem-14",
-      "petId": "7",
-      "date": "2021-10-30",
-      "title": "Consulta de Rotina",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/14/300/200"
-    },
-    {
-      "id": "mem-15",
-      "petId": "7",
-      "date": "2023-02-17",
-      "title": "Troca de Ração",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/15/300/200"
-    },
-    {
-      "id": "mem-16",
-      "petId": "8",
-      "date": "2021-06-12",
-      "title": "Troca de Ração",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/16/300/200"
-    },
-    {
-      "id": "mem-17",
-      "petId": "9",
-      "date": "2023-04-25",
-      "title": "Aniversário",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/17/300/200"
-    },
-    {
-      "id": "mem-18",
-      "petId": "10",
-      "date": "2020-04-03",
-      "title": "Vacinação Anual",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/18/300/200"
-    },
-    {
-      "id": "mem-19",
-      "petId": "11",
-      "date": "2021-12-19",
-      "title": "Exame de Sangue",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/19/300/200"
-    },
-    {
-      "id": "mem-20",
-      "petId": "12",
-      "date": "2021-08-04",
-      "title": "Banho e Tosa",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/20/300/200"
-    },
-    {
-      "id": "mem-21",
-      "petId": "12",
-      "date": "2024-01-03",
-      "title": "Castração",
-      "description": "Ficou lindo!",
-      "photoUrl": "https://picsum.photos/seed/21/300/200"
-    },
-    {
-      "id": "mem-22",
-      "petId": "13",
-      "date": "2023-08-07",
-      "title": "Exame de Sangue",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/22/300/200"
-    },
-    {
-      "id": "mem-23",
-      "petId": "13",
-      "date": "2023-01-23",
-      "title": "Viagem para praia",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/23/300/200"
-    },
-    {
-      "id": "mem-24",
-      "petId": "14",
-      "date": "2024-02-19",
-      "title": "Viagem para praia",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/24/300/200"
-    },
-    {
-      "id": "mem-25",
-      "petId": "14",
-      "date": "2022-03-01",
-      "title": "Aniversário",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/25/300/200"
-    },
-    {
-      "id": "mem-26",
-      "petId": "14",
-      "date": "2021-07-17",
-      "title": "Castração",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/26/300/200"
-    },
-    {
-      "id": "mem-27",
-      "petId": "15",
-      "date": "2023-06-09",
-      "title": "Primeiro passeio no parque",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/27/300/200"
-    },
-    {
-      "id": "mem-28",
-      "petId": "15",
-      "date": "2020-04-08",
-      "title": "Banho e Tosa",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/28/300/200"
-    },
-    {
-      "id": "mem-29",
-      "petId": "16",
-      "date": "2020-02-08",
-      "title": "Banho e Tosa",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/29/300/200"
-    },
-    {
-      "id": "mem-30",
-      "petId": "16",
-      "date": "2023-01-29",
-      "title": "Consulta de Rotina",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/30/300/200"
-    },
-    {
-      "id": "mem-31",
-      "petId": "17",
-      "date": "2024-01-17",
-      "title": "Primeiro passeio no parque",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/31/300/200"
-    },
-    {
-      "id": "mem-32",
-      "petId": "17",
-      "date": "2022-07-10",
-      "title": "Aniversário",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/32/300/200"
-    },
-    {
-      "id": "mem-33",
-      "petId": "17",
-      "date": "2025-10-30",
-      "title": "Aniversário",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/33/300/200"
-    },
-    {
-      "id": "mem-34",
-      "petId": "18",
-      "date": "2022-02-06",
-      "title": "Troca de Ração",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/34/300/200"
-    },
-    {
-      "id": "mem-35",
-      "petId": "19",
-      "date": "2022-04-23",
-      "title": "Banho e Tosa",
-      "description": "Ficou lindo!",
-      "photoUrl": "https://picsum.photos/seed/35/300/200"
-    },
-    {
-      "id": "mem-36",
-      "petId": "20",
-      "date": "2023-08-07",
-      "title": "Exame de Sangue",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/36/300/200"
-    },
-    {
-      "id": "mem-37",
-      "petId": "21",
-      "date": "2020-12-16",
-      "title": "Exame de Sangue",
-      "description": "Ficou lindo!",
-      "photoUrl": "https://picsum.photos/seed/37/300/200"
-    },
-    {
-      "id": "mem-38",
-      "petId": "21",
-      "date": "2020-10-07",
-      "title": "Viagem para praia",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/38/300/200"
-    },
-    {
-      "id": "mem-39",
-      "petId": "22",
-      "date": "2021-07-20",
-      "title": "Vacinação Anual",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/39/300/200"
-    },
-    {
-      "id": "mem-40",
-      "petId": "22",
-      "date": "2023-09-30",
-      "title": "Exame de Sangue",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/40/300/200"
-    },
-    {
-      "id": "mem-41",
-      "petId": "22",
-      "date": "2024-08-03",
-      "title": "Aniversário",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/41/300/200"
-    },
-    {
-      "id": "mem-42",
-      "petId": "23",
-      "date": "2025-08-23",
-      "title": "Banho e Tosa",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/42/300/200"
-    },
-    {
-      "id": "mem-43",
-      "petId": "23",
-      "date": "2023-02-22",
-      "title": "Viagem para praia",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/43/300/200"
-    },
-    {
-      "id": "mem-44",
-      "petId": "23",
-      "date": "2025-07-16",
-      "title": "Exame de Sangue",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/44/300/200"
-    },
-    {
-      "id": "mem-45",
-      "petId": "24",
-      "date": "2022-06-27",
-      "title": "Viagem para praia",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/45/300/200"
-    },
-    {
-      "id": "mem-46",
-      "petId": "25",
-      "date": "2020-05-15",
-      "title": "Viagem para praia",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/46/300/200"
-    },
-    {
-      "id": "mem-47",
-      "petId": "25",
-      "date": "2022-02-14",
-      "title": "Castração",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/47/300/200"
-    },
-    {
-      "id": "mem-48",
-      "petId": "26",
-      "date": "2020-11-15",
-      "title": "Castração",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/48/300/200"
-    },
-    {
-      "id": "mem-49",
-      "petId": "27",
-      "date": "2024-12-19",
-      "title": "Castração",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/49/300/200"
-    },
-    {
-      "id": "mem-50",
-      "petId": "27",
-      "date": "2025-05-26",
-      "title": "Banho e Tosa",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/50/300/200"
-    },
-    {
-      "id": "mem-51",
-      "petId": "27",
-      "date": "2023-09-22",
-      "title": "Troca de Ração",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/51/300/200"
-    },
-    {
-      "id": "mem-52",
-      "petId": "28",
-      "date": "2021-01-07",
-      "title": "Consulta de Rotina",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/52/300/200"
-    },
-    {
-      "id": "mem-53",
-      "petId": "29",
-      "date": "2023-08-30",
-      "title": "Castração",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/53/300/200"
-    },
-    {
-      "id": "mem-54",
-      "petId": "29",
-      "date": "2023-05-25",
-      "title": "Consulta de Rotina",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/54/300/200"
-    },
-    {
-      "id": "mem-55",
-      "petId": "30",
-      "date": "2020-03-14",
-      "title": "Banho e Tosa",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/55/300/200"
-    },
-    {
-      "id": "mem-56",
-      "petId": "30",
-      "date": "2021-09-16",
-      "title": "Vacinação Anual",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/56/300/200"
-    },
-    {
-      "id": "mem-57",
-      "petId": "31",
-      "date": "2025-09-05",
-      "title": "Consulta de Rotina",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/57/300/200"
-    },
-    {
-      "id": "mem-58",
-      "petId": "31",
-      "date": "2020-03-13",
-      "title": "Castração",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/58/300/200"
-    },
-    {
-      "id": "mem-59",
-      "petId": "31",
-      "date": "2022-12-04",
-      "title": "Aniversário",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/59/300/200"
-    },
-    {
-      "id": "mem-60",
-      "petId": "32",
-      "date": "2021-08-22",
-      "title": "Aniversário",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/60/300/200"
-    },
-    {
-      "id": "mem-61",
-      "petId": "33",
-      "date": "2024-12-02",
-      "title": "Consulta de Rotina",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/61/300/200"
-    },
-    {
-      "id": "mem-62",
-      "petId": "34",
-      "date": "2020-09-01",
-      "title": "Troca de Ração",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/62/300/200"
-    },
-    {
-      "id": "mem-63",
-      "petId": "34",
-      "date": "2025-01-14",
-      "title": "Viagem para praia",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/63/300/200"
-    },
-    {
-      "id": "mem-64",
-      "petId": "34",
-      "date": "2023-10-19",
-      "title": "Primeiro passeio no parque",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/64/300/200"
-    },
-    {
-      "id": "mem-65",
-      "petId": "5",
-      "date": "2024-04-24",
-      "title": "Castração",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/65/300/200"
-    },
-    {
-      "id": "mem-66",
-      "petId": "5",
-      "date": "2023-12-31",
-      "title": "Troca de Ração",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/66/300/200"
-    },
-    {
-      "id": "mem-67",
-      "petId": "8",
-      "date": "2022-12-18",
-      "title": "Viagem para praia",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/67/300/200"
-    },
-    {
-      "id": "mem-68",
-      "petId": "8",
-      "date": "2023-11-05",
-      "title": "Castração",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/68/300/200"
-    },
-    {
-      "id": "mem-69",
-      "petId": "9",
-      "date": "2024-09-25",
-      "title": "Primeiro passeio no parque",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/69/300/200"
-    },
-    {
-      "id": "mem-70",
-      "petId": "9",
-      "date": "2024-04-18",
-      "title": "Troca de Ração",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/70/300/200"
-    },
-    {
-      "id": "mem-71",
-      "petId": "10",
-      "date": "2026-01-14",
-      "title": "Primeiro passeio no parque",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/71/300/200"
-    },
-    {
-      "id": "mem-72",
-      "petId": "10",
-      "date": "2020-09-22",
-      "title": "Aniversário",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/72/300/200"
-    },
-    {
-      "id": "mem-73",
-      "petId": "11",
-      "date": "2023-12-24",
-      "title": "Vacinação Anual",
-      "description": "Ficou lindo!",
-      "photoUrl": "https://picsum.photos/seed/73/300/200"
-    },
-    {
-      "id": "mem-74",
-      "petId": "11",
-      "date": "2022-06-29",
-      "title": "Vacinação Anual",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/74/300/200"
-    },
-    {
-      "id": "mem-75",
-      "petId": "18",
-      "date": "2020-01-16",
-      "title": "Vacinação Anual",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/75/300/200"
-    },
-    {
-      "id": "mem-76",
-      "petId": "18",
-      "date": "2024-03-10",
-      "title": "Aniversário",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/76/300/200"
-    },
-    {
-      "id": "mem-77",
-      "petId": "19",
-      "date": "2022-07-15",
-      "title": "Viagem para praia",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/77/300/200"
-    },
-    {
-      "id": "mem-78",
-      "petId": "19",
-      "date": "2026-01-19",
-      "title": "Consulta de Rotina",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/78/300/200"
-    },
-    {
-      "id": "mem-79",
-      "petId": "19",
-      "date": "2024-08-30",
-      "title": "Consulta de Rotina",
-      "description": "Ficou lindo!",
-      "photoUrl": "https://picsum.photos/seed/79/300/200"
-    },
-    {
-      "id": "mem-80",
-      "petId": "20",
-      "date": "2024-05-29",
-      "title": "Viagem para praia",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/80/300/200"
-    },
-    {
-      "id": "mem-81",
-      "petId": "20",
-      "date": "2023-12-07",
-      "title": "Primeiro passeio no parque",
-      "description": "Estava um pouco agitado.",
-      "photoUrl": "https://picsum.photos/seed/81/300/200"
-    },
-    {
-      "id": "mem-82",
-      "petId": "20",
-      "date": "2024-12-12",
-      "title": "Consulta de Rotina",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/82/300/200"
-    },
-    {
-      "id": "mem-83",
-      "petId": "24",
-      "date": "2023-03-26",
-      "title": "Exame de Sangue",
-      "description": "Recuperação rápida.",
-      "photoUrl": "https://picsum.photos/seed/83/300/200"
-    },
-    {
-      "id": "mem-84",
-      "petId": "24",
-      "date": "2022-06-06",
-      "title": "Aniversário",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/84/300/200"
-    },
-    {
-      "id": "mem-85",
-      "petId": "26",
-      "date": "2025-03-13",
-      "title": "Primeiro passeio no parque",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/85/300/200"
-    },
-    {
-      "id": "mem-86",
-      "petId": "26",
-      "date": "2021-01-06",
-      "title": "Troca de Ração",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/86/300/200"
-    },
-    {
-      "id": "mem-87",
-      "petId": "28",
-      "date": "2021-09-24",
-      "title": "Viagem para praia",
-      "description": "Tudo ocorreu bem.",
-      "photoUrl": "https://picsum.photos/seed/87/300/200"
-    },
-    {
-      "id": "mem-88",
-      "petId": "28",
-      "date": "2020-05-20",
-      "title": "Vacinação Anual",
-      "description": "Brincou muito com outros pets.",
-      "photoUrl": "https://picsum.photos/seed/88/300/200"
-    },
-    {
-      "id": "mem-89",
-      "petId": "28",
-      "date": "2024-10-29",
-      "title": "Consulta de Rotina",
-      "description": "Ficou lindo!",
-      "photoUrl": "https://picsum.photos/seed/89/300/200"
-    },
-    {
-      "id": "mem-90",
-      "petId": "32",
-      "date": "2020-05-03",
-      "title": "Troca de Ração",
-      "description": "Resultados normais.",
-      "photoUrl": "https://picsum.photos/seed/90/300/200"
-    },
-    {
-      "id": "mem-91",
-      "petId": "32",
-      "date": "2023-08-01",
-      "title": "Primeiro passeio no parque",
-      "description": "Adorou o mar.",
-      "photoUrl": "https://picsum.photos/seed/91/300/200"
-    },
-    {
-      "id": "mem-92",
-      "petId": "33",
-      "date": "2025-06-08",
-      "title": "Primeiro passeio no parque",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/92/300/200"
-    },
-    {
-      "id": "mem-93",
-      "petId": "33",
-      "date": "2022-08-20",
-      "title": "Viagem para praia",
-      "description": "Ganhou muitos petiscos.",
-      "photoUrl": "https://picsum.photos/seed/93/300/200"
-    },
-    {
-      "id": "mem-94",
-      "petId": "33",
-      "date": "2025-06-26",
-      "title": "Viagem para praia",
-      "description": "Adaptação boa.",
-      "photoUrl": "https://picsum.photos/seed/94/300/200"
+      "clinicalStatus": "HEALTHY",
+      "notes": "Dócil",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p21",
+      "tutorId": "t2",
+      "name": "Lola",
+      "species": "Canino",
+      "breed": "Shih Tzu",
+      "gender": "Fêmea",
+      "birthDate": "2022-02-19",
+      "weightKg": 28,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Morde",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p22",
+      "tutorId": "t3",
+      "name": "Duke",
+      "species": "Felino",
+      "breed": "Pinscher",
+      "gender": "Fêmea",
+      "birthDate": "2021-12-03",
+      "weightKg": 21,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Sem observações",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p23",
+      "tutorId": "t4",
+      "name": "Max",
+      "species": "Canino",
+      "breed": "Bulldog",
+      "gender": "Macho",
+      "birthDate": "2021-09-02",
+      "weightKg": 3,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Trazer carteirinha",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p24",
+      "tutorId": "t5",
+      "name": "Rex",
+      "species": "Canino",
+      "breed": "Yorkshire",
+      "gender": "Fêmea",
+      "birthDate": "2019-07-29",
+      "weightKg": 6,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Retorno em 7 dias",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p25",
+      "tutorId": "t6",
+      "name": "Nick",
+      "species": "Felino",
+      "breed": "SRD",
+      "gender": "Macho",
+      "birthDate": "2015-03-06",
+      "weightKg": 4,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Alergia a dipirona",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p26",
+      "tutorId": "t7",
+      "name": "Max",
+      "species": "Felino",
+      "breed": "Pinscher",
+      "gender": "Macho",
+      "birthDate": "2015-04-27",
+      "weightKg": 27,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Morde",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p27",
+      "tutorId": "t8",
+      "name": "Kika",
+      "species": "Felino",
+      "breed": "Shih Tzu",
+      "gender": "Fêmea",
+      "birthDate": "2022-09-03",
+      "weightKg": 4,
+      "clinicalStatus": "CHRONIC",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p28",
+      "tutorId": "t9",
+      "name": "Amora",
+      "species": "Canino",
+      "breed": "Shih Tzu",
+      "gender": "Macho",
+      "birthDate": "2019-08-05",
+      "weightKg": 15,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p29",
+      "tutorId": "t10",
+      "name": "Lola",
+      "species": "Felino",
+      "breed": "Poodle",
+      "gender": "Macho",
+      "birthDate": "2019-03-29",
+      "weightKg": 18,
+      "clinicalStatus": "TREATMENT",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "p30",
+      "tutorId": "t11",
+      "name": "Chico",
+      "species": "Canino",
+      "breed": "Bulldog",
+      "gender": "Fêmea",
+      "birthDate": "2021-02-14",
+      "weightKg": 14,
+      "clinicalStatus": "HEALTHY",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
     }
   ],
   "medical-records": [
     {
-      "id": "1",
-      "petId": "1",
-      "stats": {
-        "totalVisits": 12,
-        "weightTrend": "stable",
-        "lastVisitDate": "2023-10-15T15:00:00.000Z",
-        "nextVaccineDate": "2024-05-10T00:00:00.000Z",
-        "ageString": "5 anos"
-      },
-      "alerts": {
-        "allergies": ["Dipirona", "Picada de abelha"],
-        "chronicConditions": ["Displasia coxofemoral leve"],
-        "activeTreatments": []
-      },
-      "summary": {
-        "lastDiagnosis": "Check-up anual completo",
-        "bloodType": "DEA 1.1 Positivo"
-      }
+      "id": "mr1",
+      "petId": "p2",
+      "veterinarianId": "v2",
+      "date": "2025-06-12T19:31:05.509Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 27,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
     },
     {
-      "id": "3",
-      "petId": "3",
-      "stats": {
-        "totalVisits": 8,
-        "weightTrend": "down",
-        "lastVisitDate": "2024-01-10T10:00:00.000Z",
-        "nextVaccineDate": "2024-02-15T00:00:00.000Z",
-        "ageString": "2 anos"
-      },
-      "alerts": {
-        "allergies": [],
-        "chronicConditions": [],
-        "activeTreatments": ["Antibiótico (Otite) - 5 dias restantes"]
-      },
-      "summary": {
-        "lastDiagnosis": "Otite bilateral média",
-        "bloodType": "Desconhecido"
-      }
+      "id": "mr2",
+      "petId": "p3",
+      "veterinarianId": "v3",
+      "date": "2023-04-08T21:25:56.554Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 6,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr3",
+      "petId": "p4",
+      "veterinarianId": "v4",
+      "date": "2025-10-12T03:19:30.125Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 25,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr4",
+      "petId": "p5",
+      "veterinarianId": "v5",
+      "date": "2023-04-17T05:52:48.302Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 22,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr5",
+      "petId": "p6",
+      "veterinarianId": "v1",
+      "date": "2025-02-18T05:13:17.371Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 11,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr6",
+      "petId": "p7",
+      "veterinarianId": "v2",
+      "date": "2025-08-22T03:25:47.274Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 3,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr7",
+      "petId": "p8",
+      "veterinarianId": "v3",
+      "date": "2024-06-01T19:23:12.187Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 4,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr8",
+      "petId": "p9",
+      "veterinarianId": "v4",
+      "date": "2024-10-26T14:46:21.761Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 3,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr9",
+      "petId": "p10",
+      "veterinarianId": "v5",
+      "date": "2023-11-12T14:16:48.224Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 27,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr10",
+      "petId": "p11",
+      "veterinarianId": "v1",
+      "date": "2024-11-28T09:19:05.121Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 29,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr11",
+      "petId": "p12",
+      "veterinarianId": "v2",
+      "date": "2025-07-11T08:22:33.571Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 12,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr12",
+      "petId": "p13",
+      "veterinarianId": "v3",
+      "date": "2023-01-13T20:52:03.602Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 11,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr13",
+      "petId": "p14",
+      "veterinarianId": "v4",
+      "date": "2023-07-06T09:46:06.246Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 1,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr14",
+      "petId": "p15",
+      "veterinarianId": "v5",
+      "date": "2023-10-06T10:19:26.604Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 8,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr15",
+      "petId": "p16",
+      "veterinarianId": "v1",
+      "date": "2023-04-21T11:43:04.672Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 28,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr16",
+      "petId": "p17",
+      "veterinarianId": "v2",
+      "date": "2025-02-07T09:29:01.978Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 2,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr17",
+      "petId": "p18",
+      "veterinarianId": "v3",
+      "date": "2025-01-25T12:16:29.679Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 15,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr18",
+      "petId": "p19",
+      "veterinarianId": "v4",
+      "date": "2023-04-11T02:34:21.698Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 9,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr19",
+      "petId": "p20",
+      "veterinarianId": "v5",
+      "date": "2023-01-20T18:02:49.716Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 4,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr20",
+      "petId": "p21",
+      "veterinarianId": "v1",
+      "date": "2023-03-03T19:03:34.606Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 27,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr21",
+      "petId": "p22",
+      "veterinarianId": "v2",
+      "date": "2025-07-08T00:51:45.440Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 15,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr22",
+      "petId": "p23",
+      "veterinarianId": "v3",
+      "date": "2024-06-03T10:56:00.862Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 9,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr23",
+      "petId": "p24",
+      "veterinarianId": "v4",
+      "date": "2025-07-29T10:20:30.588Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 15,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr24",
+      "petId": "p25",
+      "veterinarianId": "v5",
+      "date": "2024-11-28T03:32:10.400Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 17,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "mr25",
+      "petId": "p26",
+      "veterinarianId": "v1",
+      "date": "2025-01-10T15:45:51.309Z",
+      "complaint": "Mal estar",
+      "diagnosis": "Gastroenterite",
+      "treatment": "Medicação injetável",
+      "weightAtExam": 17,
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    }
+  ],
+  "vaccines": [
+    {
+      "id": "vac1",
+      "petId": "p2",
+      "name": "Raiva",
+      "applicationDate": "2025-09-25",
+      "nextDueDate": "2024-09-10",
+      "createdAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "vac2",
+      "petId": "p3",
+      "name": "V10",
+      "applicationDate": "2025-12-03",
+      "nextDueDate": "2024-10-07",
+      "createdAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "vac3",
+      "petId": "p4",
+      "name": "V10",
+      "applicationDate": "2024-07-15",
+      "nextDueDate": "2024-07-23",
+      "createdAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "vac4",
+      "petId": "p5",
+      "name": "V10",
+      "applicationDate": "2026-01-02",
+      "nextDueDate": "2024-08-21",
+      "createdAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "vac5",
+      "petId": "p6",
+      "name": "Raiva",
+      "applicationDate": "2025-04-01",
+      "nextDueDate": "2024-07-22",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac6",
+      "petId": "p7",
+      "name": "V10",
+      "applicationDate": "2025-11-14",
+      "nextDueDate": "2024-11-17",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac7",
+      "petId": "p8",
+      "name": "V10",
+      "applicationDate": "2024-01-31",
+      "nextDueDate": "2024-07-11",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac8",
+      "petId": "p9",
+      "name": "V10",
+      "applicationDate": "2024-01-10",
+      "nextDueDate": "2024-11-07",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac9",
+      "petId": "p10",
+      "name": "Raiva",
+      "applicationDate": "2023-08-23",
+      "nextDueDate": "2024-12-26",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac10",
+      "petId": "p11",
+      "name": "Raiva",
+      "applicationDate": "2023-07-23",
+      "nextDueDate": "2024-08-03",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac11",
+      "petId": "p12",
+      "name": "Raiva",
+      "applicationDate": "2024-02-16",
+      "nextDueDate": "2024-12-03",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac12",
+      "petId": "p13",
+      "name": "V10",
+      "applicationDate": "2023-07-20",
+      "nextDueDate": "2024-12-25",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac13",
+      "petId": "p14",
+      "name": "V10",
+      "applicationDate": "2025-03-07",
+      "nextDueDate": "2024-12-19",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac14",
+      "petId": "p15",
+      "name": "Raiva",
+      "applicationDate": "2024-05-18",
+      "nextDueDate": "2024-10-16",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac15",
+      "petId": "p16",
+      "name": "Raiva",
+      "applicationDate": "2023-02-23",
+      "nextDueDate": "2024-10-28",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac16",
+      "petId": "p17",
+      "name": "Raiva",
+      "applicationDate": "2025-10-23",
+      "nextDueDate": "2024-07-08",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac17",
+      "petId": "p18",
+      "name": "Raiva",
+      "applicationDate": "2025-06-29",
+      "nextDueDate": "2024-09-09",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac18",
+      "petId": "p19",
+      "name": "V10",
+      "applicationDate": "2023-03-27",
+      "nextDueDate": "2024-11-08",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac19",
+      "petId": "p20",
+      "name": "Raiva",
+      "applicationDate": "2024-01-05",
+      "nextDueDate": "2024-07-29",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac20",
+      "petId": "p21",
+      "name": "V10",
+      "applicationDate": "2024-09-22",
+      "nextDueDate": "2024-10-28",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac21",
+      "petId": "p22",
+      "name": "V10",
+      "applicationDate": "2024-05-10",
+      "nextDueDate": "2024-12-30",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac22",
+      "petId": "p23",
+      "name": "V10",
+      "applicationDate": "2025-01-26",
+      "nextDueDate": "2024-08-30",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac23",
+      "petId": "p24",
+      "name": "Raiva",
+      "applicationDate": "2024-01-16",
+      "nextDueDate": "2024-07-15",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac24",
+      "petId": "p25",
+      "name": "Raiva",
+      "applicationDate": "2025-05-23",
+      "nextDueDate": "2024-08-06",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac25",
+      "petId": "p26",
+      "name": "Raiva",
+      "applicationDate": "2025-07-26",
+      "nextDueDate": "2024-11-15",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac26",
+      "petId": "p27",
+      "name": "V10",
+      "applicationDate": "2024-03-15",
+      "nextDueDate": "2024-09-24",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac27",
+      "petId": "p28",
+      "name": "V10",
+      "applicationDate": "2023-12-04",
+      "nextDueDate": "2024-10-16",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac28",
+      "petId": "p29",
+      "name": "V10",
+      "applicationDate": "2026-01-03",
+      "nextDueDate": "2024-07-24",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac29",
+      "petId": "p30",
+      "name": "Raiva",
+      "applicationDate": "2023-03-23",
+      "nextDueDate": "2024-10-24",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "vac30",
+      "petId": "p1",
+      "name": "Raiva",
+      "applicationDate": "2024-04-27",
+      "nextDueDate": "2024-07-05",
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    }
+  ],
+  "clinical-alerts": [
+    {
+      "id": "ca1",
+      "petId": "p2",
+      "type": "ALLERGY",
+      "description": "Medroso",
+      "severity": "MEDIUM",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca2",
+      "petId": "p3",
+      "type": "CHRONIC",
+      "description": "Retorno em 7 dias",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca3",
+      "petId": "p4",
+      "type": "CHRONIC",
+      "description": "Medroso",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca4",
+      "petId": "p5",
+      "type": "ALLERGY",
+      "description": "Medroso",
+      "severity": "MEDIUM",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca5",
+      "petId": "p6",
+      "type": "ALLERGY",
+      "description": "Sem observações",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca6",
+      "petId": "p7",
+      "type": "CHRONIC",
+      "description": "Alergia a dipirona",
+      "severity": "MEDIUM",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca7",
+      "petId": "p8",
+      "type": "CHRONIC",
+      "description": "Idoso",
+      "severity": "MEDIUM",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca8",
+      "petId": "p9",
+      "type": "ALLERGY",
+      "description": "Idoso",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca9",
+      "petId": "p10",
+      "type": "ALLERGY",
+      "description": "Dócil",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca10",
+      "petId": "p11",
+      "type": "BEHAVIOR",
+      "description": "Morde",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca11",
+      "petId": "p12",
+      "type": "BEHAVIOR",
+      "description": "Retorno em 7 dias",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca12",
+      "petId": "p13",
+      "type": "BEHAVIOR",
+      "description": "Trazer carteirinha",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca13",
+      "petId": "p14",
+      "type": "ALLERGY",
+      "description": "Sem observações",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca14",
+      "petId": "p15",
+      "type": "BEHAVIOR",
+      "description": "Trazer carteirinha",
+      "severity": "HIGH",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca15",
+      "petId": "p16",
+      "type": "CHRONIC",
+      "description": "Jejum de 12h",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca16",
+      "petId": "p17",
+      "type": "CHRONIC",
+      "description": "Morde",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca17",
+      "petId": "p18",
+      "type": "BEHAVIOR",
+      "description": "Dócil",
+      "severity": "MEDIUM",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca18",
+      "petId": "p19",
+      "type": "BEHAVIOR",
+      "description": "Idoso",
+      "severity": "MEDIUM",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca19",
+      "petId": "p20",
+      "type": "BEHAVIOR",
+      "description": "Sem observações",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "ca20",
+      "petId": "p21",
+      "type": "CHRONIC",
+      "description": "Morde",
+      "severity": "LOW",
+      "isActive": true,
+      "createdAt": "2026-01-22T21:45:22.953Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "app1",
+      "veterinarianId": "v2",
+      "petId": "p2",
+      "date": "2024-11-05T12:26:43.730Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Alergia a dipirona",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app2",
+      "veterinarianId": "v3",
+      "petId": "p3",
+      "date": "2024-07-19T04:52:54.267Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Dócil",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app3",
+      "veterinarianId": "v4",
+      "petId": "p4",
+      "date": "2024-10-19T15:23:34.146Z",
+      "durationMinutes": 30,
+      "status": "COMPLETED",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app4",
+      "veterinarianId": "v5",
+      "petId": "p5",
+      "date": "2024-02-21T08:16:27.826Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app5",
+      "veterinarianId": "v1",
+      "petId": "p6",
+      "date": "2024-09-04T17:06:15.097Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Jejum de 12h",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app6",
+      "veterinarianId": "v2",
+      "petId": "p7",
+      "date": "2024-05-14T05:23:13.540Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app7",
+      "veterinarianId": "v3",
+      "petId": "p8",
+      "date": "2024-06-20T09:18:57.304Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Retorno em 7 dias",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app8",
+      "veterinarianId": "v4",
+      "petId": "p9",
+      "date": "2024-04-22T18:23:23.073Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app9",
+      "veterinarianId": "v5",
+      "petId": "p10",
+      "date": "2024-06-28T16:20:53.295Z",
+      "durationMinutes": 30,
+      "status": "COMPLETED",
+      "notes": "Trazer carteirinha",
+      "createdAt": "2026-01-22T21:45:22.951Z",
+      "updatedAt": "2026-01-22T21:45:22.951Z"
+    },
+    {
+      "id": "app10",
+      "veterinarianId": "v1",
+      "petId": "p11",
+      "date": "2024-12-08T11:05:50.884Z",
+      "durationMinutes": 30,
+      "status": "CONFIRMED",
+      "notes": "Dócil",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app11",
+      "veterinarianId": "v2",
+      "petId": "p12",
+      "date": "2024-10-05T05:20:05.050Z",
+      "durationMinutes": 30,
+      "status": "COMPLETED",
+      "notes": "Sem observações",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app12",
+      "veterinarianId": "v3",
+      "petId": "p13",
+      "date": "2024-01-09T20:33:38.739Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app13",
+      "veterinarianId": "v4",
+      "petId": "p14",
+      "date": "2024-11-06T13:39:39.104Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Sem observações",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app14",
+      "veterinarianId": "v5",
+      "petId": "p15",
+      "date": "2024-01-12T10:01:47.082Z",
+      "durationMinutes": 30,
+      "status": "CONFIRMED",
+      "notes": "Retorno em 7 dias",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app15",
+      "veterinarianId": "v1",
+      "petId": "p16",
+      "date": "2024-03-04T08:16:11.549Z",
+      "durationMinutes": 30,
+      "status": "CONFIRMED",
+      "notes": "Retorno em 7 dias",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app16",
+      "veterinarianId": "v2",
+      "petId": "p17",
+      "date": "2024-11-23T01:30:06.754Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Animal agitado",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app17",
+      "veterinarianId": "v3",
+      "petId": "p18",
+      "date": "2024-05-23T13:10:07.113Z",
+      "durationMinutes": 30,
+      "status": "COMPLETED",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app18",
+      "veterinarianId": "v4",
+      "petId": "p19",
+      "date": "2024-03-14T23:36:19.699Z",
+      "durationMinutes": 30,
+      "status": "CONFIRMED",
+      "notes": "Idoso",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app19",
+      "veterinarianId": "v5",
+      "petId": "p20",
+      "date": "2024-01-29T05:20:50.529Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Sem observações",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app20",
+      "veterinarianId": "v1",
+      "petId": "p21",
+      "date": "2024-05-08T09:45:04.492Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Sem observações",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app21",
+      "veterinarianId": "v2",
+      "petId": "p22",
+      "date": "2024-12-10T05:14:39.696Z",
+      "durationMinutes": 30,
+      "status": "CONFIRMED",
+      "notes": "Morde",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app22",
+      "veterinarianId": "v3",
+      "petId": "p23",
+      "date": "2024-02-04T02:05:48.940Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Trazer carteirinha",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app23",
+      "veterinarianId": "v4",
+      "petId": "p24",
+      "date": "2024-06-03T02:39:00.521Z",
+      "durationMinutes": 30,
+      "status": "COMPLETED",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app24",
+      "veterinarianId": "v5",
+      "petId": "p25",
+      "date": "2024-10-10T22:32:05.952Z",
+      "durationMinutes": 30,
+      "status": "SCHEDULED",
+      "notes": "Trazer carteirinha",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    },
+    {
+      "id": "app25",
+      "veterinarianId": "v1",
+      "petId": "p26",
+      "date": "2024-03-26T11:16:45.498Z",
+      "durationMinutes": 30,
+      "status": "CANCELED",
+      "notes": "Medroso",
+      "createdAt": "2026-01-22T21:45:22.952Z",
+      "updatedAt": "2026-01-22T21:45:22.952Z"
+    }
+  ],
+  "prescriptions": [
+    {
+      "id": "pr1",
+      "veterinarianId": "v2",
+      "petId": "p2",
+      "date": "2024-04-24T01:10:43.768Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Dipirona",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr2",
+      "veterinarianId": "v3",
+      "petId": "p3",
+      "date": "2023-04-28T07:50:33.725Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Colírio",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr3",
+      "veterinarianId": "v4",
+      "petId": "p4",
+      "date": "2024-06-21T03:03:30.350Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Antibiótico",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr4",
+      "veterinarianId": "v5",
+      "petId": "p5",
+      "date": "2025-07-16T22:34:38.879Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Corticoide",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr5",
+      "veterinarianId": "v1",
+      "petId": "p6",
+      "date": "2024-06-29T09:27:34.292Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Anti-inflamatório",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr6",
+      "veterinarianId": "v2",
+      "petId": "p7",
+      "date": "2025-07-13T03:49:19.591Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Vermífugo",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr7",
+      "veterinarianId": "v3",
+      "petId": "p8",
+      "date": "2023-04-14T17:02:24.309Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Meloxicam",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr8",
+      "veterinarianId": "v4",
+      "petId": "p9",
+      "date": "2025-02-22T18:59:01.449Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Colírio",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr9",
+      "veterinarianId": "v5",
+      "petId": "p10",
+      "date": "2023-04-30T12:05:48.199Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Antibiótico",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr10",
+      "veterinarianId": "v1",
+      "petId": "p11",
+      "date": "2024-09-18T06:13:07.810Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Meloxicam",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr11",
+      "veterinarianId": "v2",
+      "petId": "p12",
+      "date": "2025-05-14T14:00:26.613Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Anti-inflamatório",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr12",
+      "veterinarianId": "v3",
+      "petId": "p13",
+      "date": "2025-12-14T19:33:31.318Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Anti-inflamatório",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr13",
+      "veterinarianId": "v4",
+      "petId": "p14",
+      "date": "2023-09-17T15:33:02.745Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Meloxicam",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr14",
+      "veterinarianId": "v5",
+      "petId": "p15",
+      "date": "2024-11-02T23:51:15.069Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Colírio",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr15",
+      "veterinarianId": "v1",
+      "petId": "p16",
+      "date": "2024-12-06T18:32:18.744Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Vitaminas",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr16",
+      "veterinarianId": "v2",
+      "petId": "p17",
+      "date": "2024-06-09T20:38:04.359Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Vermífugo",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr17",
+      "veterinarianId": "v3",
+      "petId": "p18",
+      "date": "2023-09-26T18:50:49.334Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Antibiótico",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr18",
+      "veterinarianId": "v4",
+      "petId": "p19",
+      "date": "2023-03-08T16:49:21.185Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Vermífugo",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr19",
+      "veterinarianId": "v5",
+      "petId": "p20",
+      "date": "2023-10-21T11:01:25.089Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Vitaminas",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    },
+    {
+      "id": "pr20",
+      "veterinarianId": "v1",
+      "petId": "p21",
+      "date": "2024-10-24T16:39:10.447Z",
+      "issuedAt": "2026-01-22T21:45:22.953Z",
+      "items": [
+        {
+          "medicationName": "Tramadol",
+          "dosage": "1cp 12/12h"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "s1",
+      "veterinarianId": "v2",
+      "name": "Vacina V10 1",
+      "price": 220,
+      "active": true
+    },
+    {
+      "id": "s2",
+      "veterinarianId": "v3",
+      "name": "Vacina Raiva 2",
+      "price": 217,
+      "active": true
+    },
+    {
+      "id": "s3",
+      "veterinarianId": "v4",
+      "name": "Castração 3",
+      "price": 152,
+      "active": true
+    },
+    {
+      "id": "s4",
+      "veterinarianId": "v5",
+      "name": "Limpeza de Tártaro 4",
+      "price": 100,
+      "active": true
+    },
+    {
+      "id": "s5",
+      "veterinarianId": "v1",
+      "name": "Exame de Sangue 5",
+      "price": 111,
+      "active": true
+    },
+    {
+      "id": "s6",
+      "veterinarianId": "v2",
+      "name": "Raio-X 6",
+      "price": 166,
+      "active": true
+    },
+    {
+      "id": "s7",
+      "veterinarianId": "v3",
+      "name": "Ultrassom 7",
+      "price": 158,
+      "active": true
+    },
+    {
+      "id": "s8",
+      "veterinarianId": "v4",
+      "name": "Internação 8",
+      "price": 243,
+      "active": true
+    },
+    {
+      "id": "s9",
+      "veterinarianId": "v5",
+      "name": "Curativo 9",
+      "price": 222,
+      "active": true
+    },
+    {
+      "id": "s10",
+      "veterinarianId": "v1",
+      "name": "Consulta 10",
+      "price": 235,
+      "active": true
+    },
+    {
+      "id": "s11",
+      "veterinarianId": "v2",
+      "name": "Vacina V10 11",
+      "price": 137,
+      "active": true
+    },
+    {
+      "id": "s12",
+      "veterinarianId": "v3",
+      "name": "Vacina Raiva 12",
+      "price": 120,
+      "active": true
+    },
+    {
+      "id": "s13",
+      "veterinarianId": "v4",
+      "name": "Castração 13",
+      "price": 229,
+      "active": true
+    },
+    {
+      "id": "s14",
+      "veterinarianId": "v5",
+      "name": "Limpeza de Tártaro 14",
+      "price": 197,
+      "active": true
+    },
+    {
+      "id": "s15",
+      "veterinarianId": "v1",
+      "name": "Exame de Sangue 15",
+      "price": 72,
+      "active": true
+    },
+    {
+      "id": "s16",
+      "veterinarianId": "v2",
+      "name": "Raio-X 16",
+      "price": 82,
+      "active": true
+    },
+    {
+      "id": "s17",
+      "veterinarianId": "v3",
+      "name": "Ultrassom 17",
+      "price": 205,
+      "active": true
+    },
+    {
+      "id": "s18",
+      "veterinarianId": "v4",
+      "name": "Internação 18",
+      "price": 68,
+      "active": true
+    },
+    {
+      "id": "s19",
+      "veterinarianId": "v5",
+      "name": "Curativo 19",
+      "price": 159,
+      "active": true
+    },
+    {
+      "id": "s20",
+      "veterinarianId": "v1",
+      "name": "Consulta 20",
+      "price": 227,
+      "active": true
+    }
+  ],
+  "document-templates": [
+    {
+      "id": "dt1",
+      "veterinarianId": "v2",
+      "title": "Modelo 1",
+      "type": "ANAMNESIS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt2",
+      "veterinarianId": "v3",
+      "title": "Modelo 2",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt3",
+      "veterinarianId": "v4",
+      "title": "Modelo 3",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt4",
+      "veterinarianId": "v5",
+      "title": "Modelo 4",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt5",
+      "veterinarianId": "v1",
+      "title": "Modelo 5",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt6",
+      "veterinarianId": "v2",
+      "title": "Modelo 6",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt7",
+      "veterinarianId": "v3",
+      "title": "Modelo 7",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt8",
+      "veterinarianId": "v4",
+      "title": "Modelo 8",
+      "type": "ANAMNESIS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt9",
+      "veterinarianId": "v5",
+      "title": "Modelo 9",
+      "type": "ANAMNESIS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt10",
+      "veterinarianId": "v1",
+      "title": "Modelo 10",
+      "type": "ANAMNESIS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt11",
+      "veterinarianId": "v2",
+      "title": "Modelo 11",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt12",
+      "veterinarianId": "v3",
+      "title": "Modelo 12",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt13",
+      "veterinarianId": "v4",
+      "title": "Modelo 13",
+      "type": "ANAMNESIS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt14",
+      "veterinarianId": "v5",
+      "title": "Modelo 14",
+      "type": "PRESCRIPTION",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt15",
+      "veterinarianId": "v1",
+      "title": "Modelo 15",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt16",
+      "veterinarianId": "v2",
+      "title": "Modelo 16",
+      "type": "ANAMNESIS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt17",
+      "veterinarianId": "v3",
+      "title": "Modelo 17",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt18",
+      "veterinarianId": "v4",
+      "title": "Modelo 18",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt19",
+      "veterinarianId": "v5",
+      "title": "Modelo 19",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "dt20",
+      "veterinarianId": "v1",
+      "title": "Modelo 20",
+      "type": "INSTRUCTIONS",
+      "content": "<p>Conteúdo do modelo...</p>",
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "q1",
+      "veterinarianId": "v2",
+      "tutorId": "t2",
+      "status": "APPROVED",
+      "totalAmount": 211,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q2",
+      "veterinarianId": "v3",
+      "tutorId": "t3",
+      "status": "DRAFT",
+      "totalAmount": 404,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q3",
+      "veterinarianId": "v4",
+      "tutorId": "t4",
+      "status": "APPROVED",
+      "totalAmount": 195,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q4",
+      "veterinarianId": "v5",
+      "tutorId": "t5",
+      "status": "SENT",
+      "totalAmount": 103,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q5",
+      "veterinarianId": "v1",
+      "tutorId": "t6",
+      "status": "DRAFT",
+      "totalAmount": 413,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q6",
+      "veterinarianId": "v2",
+      "tutorId": "t7",
+      "status": "APPROVED",
+      "totalAmount": 486,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q7",
+      "veterinarianId": "v3",
+      "tutorId": "t8",
+      "status": "DRAFT",
+      "totalAmount": 498,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q8",
+      "veterinarianId": "v4",
+      "tutorId": "t9",
+      "status": "DRAFT",
+      "totalAmount": 233,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q9",
+      "veterinarianId": "v5",
+      "tutorId": "t10",
+      "status": "DRAFT",
+      "totalAmount": 158,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q10",
+      "veterinarianId": "v1",
+      "tutorId": "t11",
+      "status": "SENT",
+      "totalAmount": 542,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q11",
+      "veterinarianId": "v2",
+      "tutorId": "t12",
+      "status": "DRAFT",
+      "totalAmount": 282,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q12",
+      "veterinarianId": "v3",
+      "tutorId": "t13",
+      "status": "SENT",
+      "totalAmount": 322,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q13",
+      "veterinarianId": "v4",
+      "tutorId": "t14",
+      "status": "DRAFT",
+      "totalAmount": 238,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q14",
+      "veterinarianId": "v5",
+      "tutorId": "t15",
+      "status": "APPROVED",
+      "totalAmount": 155,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q15",
+      "veterinarianId": "v1",
+      "tutorId": "t16",
+      "status": "SENT",
+      "totalAmount": 343,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q16",
+      "veterinarianId": "v2",
+      "tutorId": "t17",
+      "status": "DRAFT",
+      "totalAmount": 441,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.953Z"
+    },
+    {
+      "id": "q17",
+      "veterinarianId": "v3",
+      "tutorId": "t18",
+      "status": "SENT",
+      "totalAmount": 445,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.953Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "q18",
+      "veterinarianId": "v4",
+      "tutorId": "t19",
+      "status": "APPROVED",
+      "totalAmount": 374,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "q19",
+      "veterinarianId": "v5",
+      "tutorId": "t20",
+      "status": "APPROVED",
+      "totalAmount": 291,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "q20",
+      "veterinarianId": "v1",
+      "tutorId": "t1",
+      "status": "DRAFT",
+      "totalAmount": 537,
+      "items": [],
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "i1",
+      "tutorId": "t2",
+      "totalAmount": 188,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i2",
+      "tutorId": "t3",
+      "totalAmount": 370,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i3",
+      "tutorId": "t4",
+      "totalAmount": 182,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i4",
+      "tutorId": "t5",
+      "totalAmount": 352,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i5",
+      "tutorId": "t6",
+      "totalAmount": 64,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i6",
+      "tutorId": "t7",
+      "totalAmount": 263,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i7",
+      "tutorId": "t8",
+      "totalAmount": 533,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i8",
+      "tutorId": "t9",
+      "totalAmount": 86,
+      "status": "PENDING",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i9",
+      "tutorId": "t10",
+      "totalAmount": 430,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i10",
+      "tutorId": "t11",
+      "totalAmount": 278,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i11",
+      "tutorId": "t12",
+      "totalAmount": 520,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i12",
+      "tutorId": "t13",
+      "totalAmount": 50,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i13",
+      "tutorId": "t14",
+      "totalAmount": 485,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i14",
+      "tutorId": "t15",
+      "totalAmount": 324,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i15",
+      "tutorId": "t16",
+      "totalAmount": 232,
+      "status": "PENDING",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i16",
+      "tutorId": "t17",
+      "totalAmount": 150,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i17",
+      "tutorId": "t18",
+      "totalAmount": 353,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i18",
+      "tutorId": "t19",
+      "totalAmount": 250,
+      "status": "PAID",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i19",
+      "tutorId": "t20",
+      "totalAmount": 451,
+      "status": "PENDING",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "i20",
+      "tutorId": "t1",
+      "totalAmount": 272,
+      "status": "PENDING",
+      "paymentMethod": "PIX",
+      "createdAt": "2026-01-22T21:45:22.954Z",
+      "updatedAt": "2026-01-22T21:45:22.954Z"
+    }
+  ],
+  "reminders": [
+    {
+      "id": "r1",
+      "tutorId": "t2",
+      "petId": "p2",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-02-23T21:31:27.575Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r2",
+      "tutorId": "t3",
+      "petId": "p3",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-05-20T02:03:33.424Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r3",
+      "tutorId": "t4",
+      "petId": "p4",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-09-25T14:58:23.197Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r4",
+      "tutorId": "t5",
+      "petId": "p5",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-10-05T08:10:42.431Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r5",
+      "tutorId": "t6",
+      "petId": "p6",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-03-07T13:31:27.535Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r6",
+      "tutorId": "t7",
+      "petId": "p7",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-07-17T11:32:28.970Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r7",
+      "tutorId": "t8",
+      "petId": "p8",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-12-04T05:48:02.476Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r8",
+      "tutorId": "t9",
+      "petId": "p9",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-02-22T06:11:20.163Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r9",
+      "tutorId": "t10",
+      "petId": "p10",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-04-21T03:29:28.792Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r10",
+      "tutorId": "t11",
+      "petId": "p11",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-09-26T12:49:50.376Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r11",
+      "tutorId": "t12",
+      "petId": "p12",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-08-13T07:06:21.131Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r12",
+      "tutorId": "t13",
+      "petId": "p13",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-03-11T23:03:38.787Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r13",
+      "tutorId": "t14",
+      "petId": "p14",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-04-08T20:20:58.973Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r14",
+      "tutorId": "t15",
+      "petId": "p15",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-10-26T02:13:46.098Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r15",
+      "tutorId": "t16",
+      "petId": "p16",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-07-11T17:30:03.651Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r16",
+      "tutorId": "t17",
+      "petId": "p17",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-07-28T05:56:21.994Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r17",
+      "tutorId": "t18",
+      "petId": "p18",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-12-18T18:11:33.301Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r18",
+      "tutorId": "t19",
+      "petId": "p19",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-02-22T12:56:10.876Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r19",
+      "tutorId": "t20",
+      "petId": "p20",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-12-02T02:05:07.422Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "r20",
+      "tutorId": "t1",
+      "petId": "p21",
+      "title": "Vacina V10",
+      "type": "VACCINE",
+      "dueDate": "2025-11-15T01:06:33.754Z",
+      "channel": "WHATSAPP",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    }
+  ],
+  "attachments": [
+    {
+      "id": "att1",
+      "petId": "p2",
+      "fileName": "exame_1.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att2",
+      "petId": "p3",
+      "fileName": "exame_2.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att3",
+      "petId": "p4",
+      "fileName": "exame_3.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att4",
+      "petId": "p5",
+      "fileName": "exame_4.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att5",
+      "petId": "p6",
+      "fileName": "exame_5.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att6",
+      "petId": "p7",
+      "fileName": "exame_6.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att7",
+      "petId": "p8",
+      "fileName": "exame_7.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att8",
+      "petId": "p9",
+      "fileName": "exame_8.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att9",
+      "petId": "p10",
+      "fileName": "exame_9.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att10",
+      "petId": "p11",
+      "fileName": "exame_10.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att11",
+      "petId": "p12",
+      "fileName": "exame_11.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att12",
+      "petId": "p13",
+      "fileName": "exame_12.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att13",
+      "petId": "p14",
+      "fileName": "exame_13.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att14",
+      "petId": "p15",
+      "fileName": "exame_14.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att15",
+      "petId": "p16",
+      "fileName": "exame_15.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att16",
+      "petId": "p17",
+      "fileName": "exame_16.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att17",
+      "petId": "p18",
+      "fileName": "exame_17.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att18",
+      "petId": "p19",
+      "fileName": "exame_18.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att19",
+      "petId": "p20",
+      "fileName": "exame_19.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "att20",
+      "petId": "p21",
+      "fileName": "exame_20.pdf",
+      "fileUrl": "http://localhost/file.pdf",
+      "mimeType": "application/pdf",
+      "description": "Exame de sangue",
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "userId": "u2",
+      "title": "Notificação 1",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n2",
+      "userId": "u3",
+      "title": "Notificação 2",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n3",
+      "userId": "u4",
+      "title": "Notificação 3",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n4",
+      "userId": "u5",
+      "title": "Notificação 4",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n5",
+      "userId": "u1",
+      "title": "Notificação 5",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n6",
+      "userId": "u2",
+      "title": "Notificação 6",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n7",
+      "userId": "u3",
+      "title": "Notificação 7",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n8",
+      "userId": "u4",
+      "title": "Notificação 8",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n9",
+      "userId": "u5",
+      "title": "Notificação 9",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n10",
+      "userId": "u1",
+      "title": "Notificação 10",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n11",
+      "userId": "u2",
+      "title": "Notificação 11",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n12",
+      "userId": "u3",
+      "title": "Notificação 12",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n13",
+      "userId": "u4",
+      "title": "Notificação 13",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n14",
+      "userId": "u5",
+      "title": "Notificação 14",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n15",
+      "userId": "u1",
+      "title": "Notificação 15",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n16",
+      "userId": "u2",
+      "title": "Notificação 16",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n17",
+      "userId": "u3",
+      "title": "Notificação 17",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n18",
+      "userId": "u4",
+      "title": "Notificação 18",
+      "message": "Mensagem de teste",
+      "read": true,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n19",
+      "userId": "u5",
+      "title": "Notificação 19",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
+    },
+    {
+      "id": "n20",
+      "userId": "u1",
+      "title": "Notificação 20",
+      "message": "Mensagem de teste",
+      "read": false,
+      "createdAt": "2026-01-22T21:45:22.954Z"
     }
   ]
 }
