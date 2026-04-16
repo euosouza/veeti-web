@@ -2,5 +2,7 @@ export interface QueryOptions {
   page: number;
   limit: number;
   search?: string;
-  // futuramente: sort, order, filters...
+  sort?: string;
+  order?: "asc" | "desc";
+  filters?: Record<string, string | number | boolean>;
 }

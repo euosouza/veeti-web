@@ -6,12 +6,12 @@
     "source.fixAll.stylelint": "explicit",
     "source.organizeImports": "always"
   },
-  "commit-message-editor.view.defaultView": "form",
-  "commit-message-editor.dynamicTemplate": [
-    "{type}{scope}{breaking_change}: {description}{taskid}"
-  ],
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.eol": "\n"
+  "commit-message-editor.view.defaultView": "form",
+  "commit-message-editor.dynamicTemplate": [
+    "{type}{scope}{breaking_change}: {description}{taskid}"
+  ],
 }
